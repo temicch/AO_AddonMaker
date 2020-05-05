@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72F4F879-05AB-47FF-A331-13578FEB4259}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AO_AddonMaker</RootNamespace>
+    <AssemblyName>AO_AddonMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DebugController.cs" />
+    <Compile Include="FileParser.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Widget\enums\Blend_Effect.cs" />
+    <Compile Include="Widget\enums\AlignY.cs" />
+    <Compile Include="Widget\href.cs" />
+    <Compile Include="Widget\IUIElement.cs" />
+    <Compile Include="Widget\UIAddon\UIAddon.cs" />
+    <Compile Include="Widget\Widget.cs" />
+    <Compile Include="Widget\enums\WidgetAlign.cs" />
+    <Compile Include="Widget\WidgetButton\vec2.cs" />
+    <Compile Include="Widget\WidgetButton\WidgetButtonState.cs" />
+    <Compile Include="Widget\WidgetButton\WidgetButtonVariant.cs" />
+    <Compile Include="Widget\WidgetForm\WidgetForm.cs" />
+    <Compile Include="Widget\WidgetManager.cs" />
+    <Compile Include="Widget\WidgetSoundBase\WidgetSoundBase.cs" />
+    <Compile Include="Widget\Texture\UISingleTexture.cs" />
+    <Compile Include="Widget\Texture\UITextureItem.cs" />
+    <Compile Include="Widget\WidgetTextStyle.cs" />
+    <Compile Include="Widget\WidgetLayer\WidgetLayer.cs" />
+    <Compile Include="Widget\WidgetLayer\WidgetLayerAnimatedTexture.cs" />
+    <Compile Include="Widget\WidgetLayer\WidgetLayerSimpleTexture.cs" />
+    <Compile Include="Widget\enums\WidgetLayerTiledLayoutType.cs" />
+    <Compile Include="Widget\WidgetLayer\WidgetLayerTiledTexture.cs" />
+    <Compile Include="Widget\WidgetButton\WidgetButton.cs" />
+    <Compile Include="Widget\WidgetContainer\WidgetContainer.cs" />
+    <Compile Include="Widget\WidgetContainer\WidgetScrollableContainer.cs" />
+    <Compile Include="Widget\WidgetContainer\WidgetTextContainer.cs" />
+    <Compile Include="Widget\WidgetEdit\WidgetEditBase.cs" />
+    <Compile Include="Widget\WidgetEdit\WidgetEditBox.cs" />
+    <Compile Include="Widget\WidgetEdit\WidgetEditLine.cs" />
+    <Compile Include="Widget\WidgetPanel\WidgetPanel.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetDiscreteScrollBar.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetDiscreteSlider.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetGlideScrollBar.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetGlideSlider.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetScrollBar.cs" />
+    <Compile Include="Widget\WidgetScrollBar\WidgetSlider.cs" />
+    <Compile Include="Widget\Placement\WidgetPlacement.cs" />
+    <Compile Include="Widget\Placement\WidgetPlacementXY.cs" />
+    <Compile Include="Widget\enums\WidgetSizing.cs" />
+    <Compile Include="Widget\enums\WidgetsArrangement.cs" />
+    <Compile Include="Widget\WidgetTextView\WidgetTextTaggedValue.cs" />
+    <Compile Include="Widget\WidgetTextView\WidgetTextView.cs" />
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\appIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\openFile.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
