@@ -1,21 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AO_AddonMaker.Utility;
+using Microsoft.Win32;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Input;
 
-namespace AO_AddonMaker.ViewModels
+namespace AO_AddonMaker
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        BasicCommand _openFile;
+        public ICommand openFile
+        {
+            get
+            {
+                if (_openFile == null)
+                    _openFile = new BasicCommand(OpenFile);
+                return _openFile;
+            }
+        }
+
         public MainWindowViewModel()
         {
             //DebugController.Init(window.tboxDebug);
+            //openFile = new BasicCommand(OpenFile);
             WidgetManager.Clear();
+        }
+
+        private void OpenFile(object parameter)
+        {
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                DefaultExt = ".xdb",
+                Filter = "AddonDesc|AddonDesc.(UIAddon).xdb|All files|*.*"
+            };
+            bool? result = dlg.ShowDialog();
+            if (result == true)
+            {
+                FileParser fileParser = new FileParser(dlg.FileName);
+                fileParser.StartParse();
+                WidgetManager.GetRootWidget();
+            }
         }
     }
 }

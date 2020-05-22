@@ -72,6 +72,7 @@
     </ApplicationDefinition>
     <Compile Include="DebugController.cs" />
     <Compile Include="FileParser.cs" />
+    <Compile Include="Utility\BasicCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Widget\enums\Blend_Effect.cs" />
     <Compile Include="Widget\enums\AlignY.cs" />
