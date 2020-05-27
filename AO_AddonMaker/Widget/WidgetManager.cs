@@ -51,7 +51,7 @@ namespace AO_AddonMaker
             }
             catch (Exception)
             {
-                DebugOutput.Write(string.Format("[{0}] can't read as XML file", filePath));
+                DebugOutput.Write(string.Format("[{0}] can't read as XML file", Path.GetFullPath(filePath)));
                 return null;
             }
 
@@ -71,7 +71,7 @@ namespace AO_AddonMaker
 
                 if (type == null)
                 {
-                    throw new Exception(string.Format("[{0}]: Unknown type", xmlReader.Name));
+                    throw new Exception(string.Format("[{0}] {1}: Unknown type", Path.GetFullPath(filePath), xmlReader.Name));
                 }
 
                 XmlSerializer xmlSerializer = new XmlSerializer(type);

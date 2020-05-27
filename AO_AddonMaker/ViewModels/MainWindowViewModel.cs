@@ -11,7 +11,7 @@ namespace AO_AddonMaker
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private StringBuilder textDebug = new StringBuilder();
+        private readonly StringBuilder textDebug = new StringBuilder();
 
         public string DebugOutput 
         { 
