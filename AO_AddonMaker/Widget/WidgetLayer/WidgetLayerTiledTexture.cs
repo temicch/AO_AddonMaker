@@ -18,10 +18,5 @@
 
         public WidgetLayerTiledLayoutType layoutTypeX;
         public WidgetLayerTiledLayoutType layoutTypeY;
-
-        public WidgetLayerTiledTexture() : base()
-        {
-
-        }
     }
 }

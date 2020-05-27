@@ -6,7 +6,7 @@
         public href textureMask;
         public bool Scaling;
 
-        public WidgetLayerSimpleTexture() : base()
+        public WidgetLayerSimpleTexture()
         {
             Scaling = false;
         }

@@ -3,10 +3,5 @@
     public class WidgetEditBox : WidgetEditBase
     {
         public href scrollBar;
-
-        public WidgetEditBox() : base()
-        {
-
-        }
     }
 }

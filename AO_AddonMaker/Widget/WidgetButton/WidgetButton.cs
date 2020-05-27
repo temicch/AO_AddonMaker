@@ -10,7 +10,7 @@ namespace AO_AddonMaker
         public bool useDefaultSounds;
         public List<BindSection> pushingBindSections;
 
-        public WidgetButton() : base()
+        public WidgetButton()
         {
             useDefaultSounds = true;
         }

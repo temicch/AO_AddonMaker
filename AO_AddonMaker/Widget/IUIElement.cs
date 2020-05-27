@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AO_AddonMaker
 {
-    public interface IUIElement : IDisposable
+    public interface IUIElement
     {
-        string GetName();
-        IEnumerable<IUIElement> GetChildren();
+        string Name { get; set; }
+        IEnumerable<AddonFile> GetChildren();
     }
 }

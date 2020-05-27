@@ -20,7 +20,7 @@
         public string reactionPaste;
         public string reactionCapsLock;
 
-        public WidgetEditBase() : base()
+        public WidgetEditBase()
         {
             CursorWidth = 2;
             CursorChangeTimeMs = 500;

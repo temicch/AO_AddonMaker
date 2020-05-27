@@ -55,7 +55,7 @@
                     <DockPanel LastChildFill="True">
                         <Label DockPanel.Dock="Top" Content="Список проблем" Style="{StaticResource BorderLabel}"/>
 
-                        <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#FF252526"  Padding="5" IsReadOnly="True" BorderThickness="0" Foreground="White" FontSize="12"/>
+                        <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#FF252526" Padding="5" IsReadOnly="True" BorderThickness="0" Text="{Binding DebugOutput}" Foreground="White" FontSize="12"/>
 
                     </DockPanel>
                 </Border>

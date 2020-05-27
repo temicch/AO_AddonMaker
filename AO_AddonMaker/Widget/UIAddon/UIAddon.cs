@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace AO_AddonMaker
 {
     [Serializable]
-    public class UIAddon : IUIElement
+    public class UIAddon : AddonFile, IUIElement
     {
         public string Name { get; set; }
         public href localizedNameFileRef { get; set; }
@@ -43,26 +42,6 @@ namespace AO_AddonMaker
 
         public href decalObjects { get; set; }
 
-        public void Dispose()
-        {
-            foreach (var item in Forms)
-                item.Form.UIElement.Dispose();
-            foreach (var item in addonGroups)
-                item.UIElement.Dispose();
-            foreach (var item in ScriptFileRefs)
-                item.UIElement.Dispose();
-            foreach (var item in textsGroups)
-                item.texts.UIElement.Dispose();
-            foreach (var item in texturesGroups)
-                item.textures.UIElement.Dispose();
-            foreach (var item in soundsGroups)
-                item.sounds.UIElement.Dispose();
-        }
-
-        [XmlIgnore]
-        public string Path { get; set; }
-        public string GetPath() => Path;
-
         public UIAddon()
         {
             WidgetManager.SetRootWidget(this);
@@ -71,7 +50,7 @@ namespace AO_AddonMaker
 
         public string GetName() => Name;
 
-        IEnumerable<IUIElement> IUIElement.GetChildren()
+        IEnumerable<AddonFile> IUIElement.GetChildren()
         {
             throw new NotImplementedException();
         }

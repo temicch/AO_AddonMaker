@@ -7,7 +7,7 @@
         public string reactionUp;
         public string reactionDown;
 
-        public WidgetEditLine() : base()
+        public WidgetEditLine()
         {
             isPassword = false;
         }

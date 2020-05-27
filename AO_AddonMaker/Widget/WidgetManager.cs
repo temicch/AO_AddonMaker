@@ -8,12 +8,15 @@ namespace AO_AddonMaker
 {
     static class WidgetManager
     {
-        static IUIElement rootWidget;
-        public static Dictionary<string, IUIElement> paths;
+        public static Dictionary<string, AddonFile> paths;
+        public static string CurrentWorkingFile { get; private set; } = null;
+
+        private static IUIElement rootWidget;
+        private static XmlReader xmlReader;
 
         static WidgetManager()
         {
-            paths = new Dictionary<string, IUIElement>();
+            paths = new Dictionary<string, AddonFile>();
         }
 
         public static IUIElement GetRootWidget() => rootWidget;
@@ -25,17 +28,21 @@ namespace AO_AddonMaker
                 filePath = filePath.Remove(indexOf);
         }
 
-        public static IUIElement Add(string filePath)
+        public static string RegisterAddonFile(AddonFile file)
+        {
+            paths[CurrentWorkingFile] = file;
+            return CurrentWorkingFile;
+        }
+
+        public static AddonFile Add(string filePath)
         {
             RemovePointer(ref filePath);
 
             if (paths.ContainsKey(filePath))
             {
-                DebugController.Write(string.Format("[{0}] Trying add the element which exist", filePath));
+                DebugOutput.Write(string.Format("[{0}] Trying add the element which already exist", filePath));
                 return paths[filePath];
             }
-
-            XmlReader xmlReader;
 
             try
             {
@@ -44,7 +51,7 @@ namespace AO_AddonMaker
             }
             catch (Exception)
             {
-                DebugController.Write(string.Format("[{0}] can't read as XML file", filePath));
+                DebugOutput.Write(string.Format("[{0}] can't read as XML file", filePath));
                 return null;
             }
 
@@ -54,12 +61,14 @@ namespace AO_AddonMaker
             if (currentDirectory != string.Empty)
                 Directory.SetCurrentDirectory(currentDirectory);
 
-            IUIElement newUIElement = null;
+            AddonFile newUIElement = null;
+
             try
             {
                 filePath = Path.GetFileName(filePath);
 
                 Type type = Type.GetType(string.Format("{0}.{1}", typeof(WidgetManager).Namespace, xmlReader.Name));
+
                 if (type == null)
                 {
                     throw new Exception(string.Format("[{0}]: Unknown type", xmlReader.Name));
@@ -71,19 +80,18 @@ namespace AO_AddonMaker
                 {
                     try
                     {
-                        newUIElement = xmlSerializer.Deserialize(stream) as IUIElement;
+                        CurrentWorkingFile = stream.Name;
+                        newUIElement = xmlSerializer.Deserialize(stream) as AddonFile;
                     }
                     catch (Exception exception)
                     {
                         throw new Exception(string.Format("Error {0}: {1}", Path.GetFullPath(filePath), exception.InnerException.Message));
                     }
                 }
-
-                paths[xmlReader.BaseURI] = newUIElement;
             }
             catch(Exception exception)
             {
-                DebugController.Write(exception.Message);
+                DebugOutput.Write(exception.Message);
             }
             finally
             {
@@ -98,7 +106,7 @@ namespace AO_AddonMaker
                 rootWidget = uIElement;
         }
 
-        public static IUIElement GetUIElement(string filePath)
+        public static AddonFile GetAddonFile(string filePath)
         {
             if (paths.ContainsKey(filePath))
                 return paths[filePath];
@@ -107,8 +115,6 @@ namespace AO_AddonMaker
 
         public static void Clear()
         {
-            if (rootWidget != null)
-                rootWidget.Dispose();
             rootWidget = null;
             paths.Clear();
         }

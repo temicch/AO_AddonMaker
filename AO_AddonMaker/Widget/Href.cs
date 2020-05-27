@@ -7,20 +7,16 @@ namespace AO_AddonMaker
         [XmlAttribute("href")]
         public string Path
         {
-            get => path;
+            get => File.FilePath;
             set
             {
-                path = value;
-                if (path != string.Empty)
+                if (value != string.Empty)
                 {
-                    path = System.IO.Path.GetFullPath(path);
-                    UIElement = WidgetManager.GetUIElement(path);
+                    File = WidgetManager.GetAddonFile(value);
                 }
             }
         }
         [XmlIgnore]
-        public IUIElement UIElement { get; set; }
-        [XmlIgnore]
-        string path;
+        public AddonFile File;
     }
 }

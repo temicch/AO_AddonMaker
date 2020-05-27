@@ -5,14 +5,8 @@ using System.Xml.Serialization;
 
 namespace AO_AddonMaker
 {
-    public class BindSection
-    {
-        public string bindSection;
-        public List<string> bindedReactions;
-    }
-
     [Serializable]
-    abstract public class Widget : IUIElement
+    abstract public class Widget : AddonFile, IUIElement
     {
         public string Name { get; set; }
         public bool Visible { get; set; }
@@ -47,12 +41,8 @@ namespace AO_AddonMaker
         public string reactionWheelUp { get; set; }
         public string reactionWheelDown { get; set; }
 
-        [XmlIgnore]
-        public string Path { get; set; }
-
         public Widget()
         {
-            WidgetManager.SetRootWidget(this);
             Visible = true;
             Enabled = true;
             Priority = 0;
@@ -69,13 +59,7 @@ namespace AO_AddonMaker
             TabOrder = 0;
         }
 
-        public IEnumerable<IUIElement> GetChildren() => Children.Select(x => x.UIElement);
+        public IEnumerable<AddonFile> GetChildren() => Children.Select(x => x.File);
         public string GetName() => Name;
-
-        public void Dispose()
-        {
-            foreach (var widget in Children)
-                widget.UIElement.Dispose();
-        }
     }
 }

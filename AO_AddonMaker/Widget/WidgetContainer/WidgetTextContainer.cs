@@ -8,7 +8,7 @@
         public int elementsInterval;
         public bool pickObjectsOnly;
 
-        public WidgetTextContainer() : base()
+        public WidgetTextContainer()
         {
             elementsInterval = 0;
         }

@@ -4,7 +4,5 @@
     {
         public href border;
         public WidgetsArrangement widgetsArrangement;
-
-        public WidgetContainer() : base() { }
     }
 }

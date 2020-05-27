@@ -5,7 +5,7 @@
         public href scrollBar;
         public int elementsInterval;
 
-        public WidgetScrollableContainer() : base()
+        public WidgetScrollableContainer()
         {
             elementsInterval = 0;
         }
