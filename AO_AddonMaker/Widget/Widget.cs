@@ -46,7 +46,7 @@ namespace AO_AddonMaker
             Visible = true;
             Enabled = true;
             Priority = 0;
-            //Placement = new WidgetPlacementXY();
+            Placement = new WidgetPlacementXY();
 
             clipContent = false;
             fade = 1.0f;
@@ -58,8 +58,6 @@ namespace AO_AddonMaker
             isProtected = false;
             TabOrder = 0;
         }
-
         public IEnumerable<AddonFile> GetChildren() => Children.Select(x => x.File);
-        public string GetName() => Name;
     }
 }

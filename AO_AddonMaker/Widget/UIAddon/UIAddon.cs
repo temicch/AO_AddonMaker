@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace AO_AddonMaker
@@ -48,12 +49,7 @@ namespace AO_AddonMaker
             AutoStart = true;
         }
 
-        public string GetName() => Name;
-
-        IEnumerable<AddonFile> IUIElement.GetChildren()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<AddonFile> GetChildren() => Forms.Select(x => x.Form.File);
     }
 
     public class FormItem

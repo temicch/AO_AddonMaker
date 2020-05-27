@@ -18,6 +18,9 @@
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
+    <Window.Resources>
+
+    </Window.Resources>
     <DockPanel Margin="0,5,0,0">
         <StackPanel DockPanel.Dock="Top" >
             <StackPanel Orientation="Horizontal">

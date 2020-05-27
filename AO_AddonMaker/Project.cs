@@ -2,21 +2,24 @@
 
 namespace AO_AddonMaker
 {
-    class FileParser
+    class Project
     {
-        string filePath;
-        public FileParser(string filePath)
+        private readonly string filePath;
+
+        public IUIElement RootWidget { get; set; }
+
+        public Project(string filePath)
         {
             if (!File.Exists(filePath))
                 throw new FileNotFoundException();
             this.filePath = filePath;
         }
-        public void StartParse()
+
+        public void Load()
         {
-            if (filePath == null)
-                throw new FileNotFoundException();
             WidgetManager.Clear();
             WidgetManager.Add(filePath);
+            RootWidget = WidgetManager.GetRootWidget();
         }
     }
 }

@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DebugOutput.cs" />
-    <Compile Include="FileParser.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="File\AddonFile.cs" />
     <Compile Include="Utility\BasicCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

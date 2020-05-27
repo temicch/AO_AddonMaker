@@ -53,9 +53,8 @@ namespace AO_AddonMaker
             bool? result = dlg.ShowDialog();
             if (result == true)
             {
-                FileParser fileParser = new FileParser(dlg.FileName);
-                fileParser.StartParse();
-                WidgetManager.GetRootWidget();
+                Project project = new Project(dlg.FileName);
+                project.Load();
             }
         }
 
