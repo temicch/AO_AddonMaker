@@ -23,7 +23,6 @@ namespace AO_AddonMaker
         public MainWindowViewModel()
         {
             //DebugController.Init(window.tboxDebug);
-            //openFile = new BasicCommand(OpenFile);
             WidgetManager.Clear();
         }
 

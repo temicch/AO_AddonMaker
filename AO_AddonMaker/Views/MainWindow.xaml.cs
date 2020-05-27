@@ -6,7 +6,6 @@ namespace AO_AddonMaker
     {
         public MainWindow()
         {
-            //DataContext = new MainWindowViewModel();
             InitializeComponent();
         }
     }

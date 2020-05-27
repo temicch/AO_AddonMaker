@@ -115,6 +115,10 @@
     <Compile Include="Widget\enums\WidgetsArrangement.cs" />
     <Compile Include="Widget\WidgetTextView\WidgetTextTaggedValue.cs" />
     <Compile Include="Widget\WidgetTextView\WidgetTextView.cs" />
+    <Page Include="Resources\GlobalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
