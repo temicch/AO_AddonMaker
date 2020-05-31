@@ -6,6 +6,18 @@ namespace AO_AddonMaker
     {
         public string FilePath { get; set; }
         public string FileName { get; set; }
+        public string FileType 
+        { 
+            get
+            {
+                string type = GetType().Name;
+                if (type.StartsWith("Widget"))
+                    type = type.Substring(6);
+                if (type == "AddonFile")
+                    type = "Other";
+                return $"[{type}]";
+            }
+        }
 
         public AddonFile()
         {

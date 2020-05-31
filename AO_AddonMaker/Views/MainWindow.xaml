@@ -50,7 +50,21 @@
                 </Grid.RowDefinitions>
                 <TabControl Grid.Row="0" Background="Transparent" BorderThickness="1" Style="{StaticResource Border}">
                     <TabItem Header="Пустой проект">
-                        <Canvas/>
+                        <ItemsControl ItemsSource="{Binding Widgets}">
+                            <ItemsControl.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                    <TextBlock Text="{Binding Name}">
+                                        <ItemsControl ItemsSource="{Binding Widgets}">
+                                            <ItemsControl.ItemTemplate>
+                                                <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </HierarchicalDataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>                                        
+                                    </TextBlock>
+                                </HierarchicalDataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </TabItem>
                 </TabControl>
                 <GridSplitter Grid.Row="1" Background="Transparent" HorizontalAlignment="Stretch" />
@@ -73,13 +87,14 @@
                 <Border Grid.Row="0" Style="{StaticResource Border}">
                     <DockPanel LastChildFill="True">
                         <Label DockPanel.Dock="Top" Content="Иерархия объектов" Style="{StaticResource BorderLabel}"/>
-                        <TreeView x:Name="treeView1" Background="#FF252526" BorderThickness="0" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
+                        <TreeView Background="#FF252526" ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" BorderThickness="0" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
                             <TreeView.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>
-                                        <Label Content="{Binding Name}" Foreground="#FFD0D0D0" FontSize="12" Margin="3 0 0 0" VerticalContentAlignment="Center"/>
-                                    </StackPanel>
+                                    <DockPanel>
+                                        <!--<Image DockPanel.Dock="Left" Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>-->
+                                        <Label DockPanel.Dock="Left" Content="{Binding Name}" Foreground="#FFD0D0D0" FontSize="12" VerticalContentAlignment="Center"/>
+                                        <Label DockPanel.Dock="Right" Content="{Binding FileType}" Foreground="#FFD0D0D0" Opacity="0.5"  FontSize="12" Margin="3 0 0 0" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+                                    </DockPanel>
                                 </HierarchicalDataTemplate>
                             </TreeView.ItemTemplate>
                         </TreeView>
