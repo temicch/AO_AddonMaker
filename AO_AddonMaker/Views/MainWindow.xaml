@@ -31,7 +31,7 @@
                 </Menu>
             </StackPanel>
             <WrapPanel Height="25">
-                <Button Background="Transparent" BorderThickness="1" Command="{Binding openFile}">
+                <Button Background="Transparent" BorderThickness="0" Command="{Binding openFile}">
                     <Image Source="/AO_AddonMaker;component/Icons/openFile.png"/>
                 </Button>
             </WrapPanel>
@@ -57,9 +57,7 @@
                 <Border Grid.Row="2"  Style="{StaticResource Border}" Margin="5,0,0,1">
                     <DockPanel LastChildFill="True">
                         <Label DockPanel.Dock="Top" Content="Список проблем" Style="{StaticResource BorderLabel}"/>
-
                         <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#FF252526" Padding="5" IsReadOnly="True" BorderThickness="0" Text="{Binding DebugOutput}" Foreground="White" FontSize="12"/>
-
                     </DockPanel>
                 </Border>
             </Grid>
@@ -75,11 +73,16 @@
                 <Border Grid.Row="0" Style="{StaticResource Border}">
                     <DockPanel LastChildFill="True">
                         <Label DockPanel.Dock="Top" Content="Иерархия объектов" Style="{StaticResource BorderLabel}"/>
-                        <TreeView Background="#FF252526"  BorderThickness="0" HorizontalContentAlignment="Stretch"/>
-                        <StackPanel Height="20" Orientation="Horizontal">
-                            <Image Height="16" Source="/AO_AddonMaker;component/Icons/openFile.png"/>
-                            <Label Content="fds" Foreground="White" FontSize="10" Margin="3 0 0 0" VerticalContentAlignment="Center"/>
-                        </StackPanel>
+                        <TreeView x:Name="treeView1" Background="#FF252526" BorderThickness="0" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>
+                                        <Label Content="{Binding Name}" Foreground="#FFD0D0D0" FontSize="12" Margin="3 0 0 0" VerticalContentAlignment="Center"/>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
                     </DockPanel>
                 </Border>
                 <GridSplitter Grid.Row="1" Background="Transparent" HorizontalAlignment="Stretch" />

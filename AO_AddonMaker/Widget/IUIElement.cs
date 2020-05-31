@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace AO_AddonMaker
 {
@@ -6,5 +7,6 @@ namespace AO_AddonMaker
     {
         string Name { get; set; }
         IEnumerable<AddonFile> GetChildren();
+        List<AddonFile> Widgets { get; }
     }
 }

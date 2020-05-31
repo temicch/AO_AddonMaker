@@ -1,5 +1,6 @@
 ﻿using AO_AddonMaker.Utility;
 using Microsoft.Win32;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -10,6 +11,10 @@ namespace AO_AddonMaker
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public Project Project { get; set; }
+
+        public ObservableCollection<IUIElement> Widgets { get; set; }
 
         private readonly StringBuilder textDebug = new StringBuilder();
 
@@ -41,6 +46,7 @@ namespace AO_AddonMaker
         {
             AO_AddonMaker.DebugOutput.Init(this);
             WidgetManager.Clear();
+            Widgets = new ObservableCollection<IUIElement>();
         }
 
         private void OpenFile(object parameter)
@@ -53,8 +59,9 @@ namespace AO_AddonMaker
             bool? result = dlg.ShowDialog();
             if (result == true)
             {
-                Project project = new Project(dlg.FileName);
-                project.Load();
+                Project = new Project(dlg.FileName);
+                Project.Load();
+                Widgets.Add(Project.RootWidget);
             }
         }
 

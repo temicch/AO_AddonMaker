@@ -2,7 +2,7 @@
 
 namespace AO_AddonMaker
 {
-    class Project
+    public class Project
     {
         private readonly string filePath;
 

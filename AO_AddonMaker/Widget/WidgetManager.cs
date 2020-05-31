@@ -37,6 +37,7 @@ namespace AO_AddonMaker
         public static AddonFile Add(string filePath)
         {
             RemovePointer(ref filePath);
+            AddonFile newUIElement = null;
 
             if (paths.ContainsKey(filePath))
             {
@@ -44,54 +45,52 @@ namespace AO_AddonMaker
                 return paths[filePath];
             }
 
+            var previousDirectory = Directory.GetCurrentDirectory();
+            var currentDirectory = Path.GetDirectoryName(filePath);
+
             try
             {
                 xmlReader = XmlReader.Create(filePath);
                 xmlReader.MoveToContent();
-            }
-            catch (Exception)
-            {
-                DebugOutput.Write(string.Format("[{0}] can't read as XML file", Path.GetFullPath(filePath)));
-                return null;
-            }
 
-            var previousDirectory = Directory.GetCurrentDirectory();
-            var currentDirectory = Path.GetDirectoryName(filePath);
+                if (currentDirectory != string.Empty)
+                    Directory.SetCurrentDirectory(currentDirectory);
 
-            if (currentDirectory != string.Empty)
-                Directory.SetCurrentDirectory(currentDirectory);
-
-            AddonFile newUIElement = null;
-
-            try
-            {
                 filePath = Path.GetFileName(filePath);
 
                 Type type = Type.GetType(string.Format("{0}.{1}", typeof(WidgetManager).Namespace, xmlReader.Name));
-
-                if (type == null)
-                {
-                    throw new Exception(string.Format("[{0}] {1}: Unknown type", Path.GetFullPath(filePath), xmlReader.Name));
-                }
 
                 XmlSerializer xmlSerializer = new XmlSerializer(type);
 
                 using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    try
-                    {
-                        CurrentWorkingFile = stream.Name;
-                        newUIElement = xmlSerializer.Deserialize(stream) as AddonFile;
-                    }
-                    catch (Exception exception)
-                    {
-                        throw new Exception(string.Format("Error {0}: {1}", Path.GetFullPath(filePath), exception.InnerException.Message));
-                    }
+                    CurrentWorkingFile = stream.Name;
+                    newUIElement = xmlSerializer.Deserialize(stream) as AddonFile;
                 }
             }
-            catch(Exception exception)
+            catch (ArgumentNullException)
             {
-                DebugOutput.Write(exception.Message);
+                DebugOutput.Write(string.Format("[{0}] {1}: Unknown type", Path.GetFullPath(filePath), xmlReader.Name));
+                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+            }
+            catch (InvalidOperationException exception)
+            {
+                DebugOutput.Write(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.InnerException.Message));
+                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+            }
+            catch (XmlException)
+            {
+                DebugOutput.Write(string.Format("[{0}] can't read as XML file", Path.GetFullPath(filePath)));
+                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+            }
+            catch(FileNotFoundException)
+            {
+                DebugOutput.Write(string.Format("[{0}] file not found", Path.GetFullPath(filePath)));
+            }
+            catch (Exception exception)
+            {
+                DebugOutput.Write(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.InnerException?.Message));
+                newUIElement = new AddonFile(Path.GetFullPath(filePath));
             }
             finally
             {

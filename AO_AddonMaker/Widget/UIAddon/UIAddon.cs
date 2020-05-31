@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -23,6 +24,12 @@ namespace AO_AddonMaker
 
         [XmlArrayItem("Item")]
         public List<FormItem> Forms { get; set; }
+
+        [XmlIgnore]
+        public List<AddonFile> Widgets
+        {
+            get => Forms.Select(x => x.Form.File).ToList();
+        }
 
         public href visObjects { get; set; }
         public href aliasVisObjects { get; set; }

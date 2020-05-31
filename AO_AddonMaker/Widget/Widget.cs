@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -16,6 +17,12 @@ namespace AO_AddonMaker
 
         [XmlArrayItem("Item")]
         public List<href> Children { get; set; }
+
+        [XmlIgnore]
+        public List<AddonFile> Widgets
+        {
+            get => Children.Select(x => x.File).ToList();
+        }
 
         public bool clipContent { get; set; }
         public href BackLayer { get; set; }

@@ -13,5 +13,11 @@ namespace AO_AddonMaker
             FilePath = Path.GetDirectoryName(file);
             FileName = Path.GetFileName(file);
         }
+
+        public AddonFile(string filePath)
+        {
+            FilePath = filePath;
+            FileName = Path.GetFileName(FilePath);
+        }
     }
 }
