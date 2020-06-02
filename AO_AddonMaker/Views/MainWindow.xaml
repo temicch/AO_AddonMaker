@@ -40,7 +40,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="5"></ColumnDefinition>
-                <ColumnDefinition Width="300" MinWidth="80"></ColumnDefinition>
+                <ColumnDefinition Width="350" MinWidth="80"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
@@ -50,21 +50,14 @@
                 </Grid.RowDefinitions>
                 <TabControl Grid.Row="0" Background="Transparent" BorderThickness="1" Style="{StaticResource Border}">
                     <TabItem Header="Пустой проект">
-                        <ItemsControl ItemsSource="{Binding Widgets}">
-                            <ItemsControl.ItemTemplate>
+
+                        <TreeView Background="#FF252526" ItemContainerStyle="{StaticResource TreeViewCustom}" BorderThickness="0" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
+                            <TreeView.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
-                                    <TextBlock Text="{Binding Name}">
-                                        <ItemsControl ItemsSource="{Binding Widgets}">
-                                            <ItemsControl.ItemTemplate>
-                                                <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
-                                                    <TextBlock Text="{Binding Name}"/>
-                                                </HierarchicalDataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>                                        
-                                    </TextBlock>
+                                    <Rectangle Width="{Binding Placement.X.Size}" Height="{Binding Placement.Y.Size}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}" Stroke="Green" />
                                 </HierarchicalDataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
                     </TabItem>
                 </TabControl>
                 <GridSplitter Grid.Row="1" Background="Transparent" HorizontalAlignment="Stretch" />
@@ -93,7 +86,7 @@
                                     <DockPanel>
                                         <!--<Image DockPanel.Dock="Left" Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>-->
                                         <Label DockPanel.Dock="Left" Content="{Binding Name}" Foreground="#FFD0D0D0" FontSize="12" VerticalContentAlignment="Center"/>
-                                        <Label DockPanel.Dock="Right" Content="{Binding FileType}" Foreground="#FFD0D0D0" Opacity="0.5"  FontSize="12" Margin="3 0 0 0" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+                                        <Label Content="{Binding FileType}" Foreground="#FFD0D0D0" Opacity="0.5" FontSize="12" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
                                     </DockPanel>
                                 </HierarchicalDataTemplate>
                             </TreeView.ItemTemplate>

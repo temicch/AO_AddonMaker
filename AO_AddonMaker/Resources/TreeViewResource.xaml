@@ -47,19 +47,19 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>
+                        <!--<ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>-->
                         <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="1" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                         <ItemsPresenter x:Name="ItemsHost" Grid.Column="1" Grid.Row="1"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsExpanded" Value="false">
+                        <!--<Trigger Property="IsExpanded" Value="false">
                             <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
-                        </Trigger>
-                        <Trigger Property="HasItems" Value="false">
+                        </Trigger>-->
+                        <!--<Trigger Property="HasItems" Value="false">
                             <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
-                        </Trigger>
+                        </Trigger>-->
                         <Trigger Property="IsSelected" Value="true">
                             <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
