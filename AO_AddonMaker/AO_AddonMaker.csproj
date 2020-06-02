@@ -90,7 +90,7 @@
     <Compile Include="Widget\WidgetManager.cs" />
     <Compile Include="Widget\WidgetSoundBase\WidgetSoundBase.cs" />
     <Compile Include="Widget\Texture\UISingleTexture.cs" />
-    <Compile Include="Widget\Texture\UITextureItem.cs" />
+    <Compile Include="Widget\Texture\UITexture.cs" />
     <Compile Include="Widget\WidgetTextStyle.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayer.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerAnimatedTexture.cs" />
@@ -120,6 +120,10 @@
     <Page Include="Resources\GlobalResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TreeViewCustom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\TreeViewResource.xaml">
       <SubType>Designer</SubType>
