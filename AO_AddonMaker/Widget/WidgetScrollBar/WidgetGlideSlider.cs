@@ -2,9 +2,9 @@
 {
     public class WidgetGlideSlider : WidgetSlider
     {
-        public int discreteStep;
+        public int discreteStep { get; set; }
 
-        public WidgetGlideSlider() : base()
+        public WidgetGlideSlider()
         {
             discreteStep = 10;
         }

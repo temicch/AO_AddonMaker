@@ -2,9 +2,9 @@
 {
     public class WidgetLayerSimpleTexture : WidgetLayer
     {
-        public href textureItem;
-        public href textureMask;
-        public bool Scaling;
+        public href textureItem { get; set; }
+        public href textureMask { get; set; }
+        public bool Scaling { get; set; }
 
         public WidgetLayerSimpleTexture()
         {

@@ -2,21 +2,21 @@
 {
     public class WidgetLayerTiledLayout
     {
-        public int LeftX;
-        public int MiddleX;
-        public int RightX;
-        public int TopY;
-        public int MiddleY;
-        public int BottomY;
+        public int LeftX { get; set; }
+        public int MiddleX { get; set; }
+        public int RightX { get; set; }
+        public int TopY { get; set; }
+        public int MiddleY { get; set; }
+        public int BottomY { get; set; }
     }
 
     public class WidgetLayerTiledTexture : WidgetLayer
     {
-        public href textureItem;
+        public href textureItem { get; set; }
 
-        public WidgetLayerTiledLayout Layout;
+        public WidgetLayerTiledLayout Layout { get; set; }
 
-        public WidgetLayerTiledLayoutType layoutTypeX;
-        public WidgetLayerTiledLayoutType layoutTypeY;
+        public WidgetLayerTiledLayoutType layoutTypeX { get; set; }
+        public WidgetLayerTiledLayoutType layoutTypeY { get; set; }
     }
 }

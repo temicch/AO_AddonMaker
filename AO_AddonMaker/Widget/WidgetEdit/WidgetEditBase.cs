@@ -2,23 +2,23 @@
 {
     abstract public class WidgetEditBase : Widget
     {
-        public href Cursor1Layer;
-        public href Cursor2Layer;
-        public int CursorWidth;
-        public int CursorChangeTimeMs;
-        public int maxSymbolsCount;
-        public bool canPaste;
-        public WidgetTextStyle TextStyle;
-        public string globalClassName;
-        public string selectionClassName;
-        public href selectionLayer;
+        public href Cursor1Layer { get; set; }
+        public href Cursor2Layer { get; set; }
+        public int CursorWidth { get; set; }
+        public int CursorChangeTimeMs { get; set; }
+        public int maxSymbolsCount { get; set; }
+        public bool canPaste { get; set; }
+        public WidgetTextStyle TextStyle { get; set; }
+        public string globalClassName { get; set; }
+        public string selectionClassName { get; set; }
+        public href selectionLayer { get; set; }
         //public string filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём.Значения: "RUSSIAN", "NUMBERS", "INTEGER". См.EditBaseTextFilter
 
-        public string ReactionEsc;
-        public string ReactionChanged;
-        public string reactionFocusChanged;
-        public string reactionPaste;
-        public string reactionCapsLock;
+        public string ReactionEsc { get; set; }
+        public string ReactionChanged { get; set; }
+        public string reactionFocusChanged { get; set; }
+        public string reactionPaste { get; set; }
+        public string reactionCapsLock { get; set; }
 
         public WidgetEditBase()
         {

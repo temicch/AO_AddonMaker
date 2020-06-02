@@ -5,14 +5,14 @@ namespace AO_AddonMaker
 {
     public class WidgetPlacementXY
     {
-        public bool QuantumScale;
-        public href sizingWidget;
+        public bool QuantumScale { get; set; }
+        public href sizingWidget { get; set; }
 
         [XmlArrayItem("Item")]
-        public List<href> sizingWidgets;
+        public List<href> sizingWidgets { get; set; }
 
-        public WidgetPlacement X;
-        public WidgetPlacement Y;
+        public WidgetPlacement X { get; set; }
+        public WidgetPlacement Y { get; set; }
 
         public WidgetPlacementXY()
         {

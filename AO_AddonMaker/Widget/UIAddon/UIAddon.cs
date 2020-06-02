@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -50,6 +49,13 @@ namespace AO_AddonMaker
 
         public href decalObjects { get; set; }
 
+        [XmlIgnore]
+        public WidgetPlacementXY Placement { get; set; }
+        [XmlIgnore]
+        public bool Visible { get; set; }
+        [XmlIgnore]
+        public bool Enabled { get; set; }
+
         public UIAddon()
         {
             WidgetManager.SetRootWidget(this);
@@ -57,6 +63,7 @@ namespace AO_AddonMaker
         }
 
         public IEnumerable<AddonFile> GetChildren() => Forms.Select(x => x.Form.File);
+
     }
 
     public class FormItem

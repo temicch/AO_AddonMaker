@@ -13,6 +13,7 @@ namespace AO_AddonMaker
         public bool Visible { get; set; }
         public bool Enabled { get; set; }
         public int Priority { get; set; }
+
         public WidgetPlacementXY Placement { get; set; }
 
         [XmlArrayItem("Item")]

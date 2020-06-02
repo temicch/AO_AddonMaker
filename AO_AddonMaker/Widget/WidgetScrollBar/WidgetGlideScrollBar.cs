@@ -2,9 +2,9 @@
 {
     public class WidgetGlideScrollBar : WidgetScrollBar
     {
-        public href slider;
+        public href slider { get; set; }
 
-        public WidgetGlideScrollBar() : base()
+        public WidgetGlideScrollBar()
         {
 
         }

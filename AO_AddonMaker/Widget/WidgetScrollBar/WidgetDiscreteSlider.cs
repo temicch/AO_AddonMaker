@@ -2,9 +2,9 @@
 {
     class WidgetDiscreteSlider : WidgetSlider
     {
-        public int stepsCount;
+        public int stepsCount { get; set; }
 
-        public WidgetDiscreteSlider() : base()
+        public WidgetDiscreteSlider()
         {
             stepsCount = 0;
         }

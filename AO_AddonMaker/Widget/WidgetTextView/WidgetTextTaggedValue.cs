@@ -2,7 +2,7 @@
 {
     public class WidgetTextTaggedValue
     {
-        public string Tag;
-        public string TagValueFileRef;
+        public string Tag { get; set; }
+        public string TagValueFileRef { get; set; }
     }
 }

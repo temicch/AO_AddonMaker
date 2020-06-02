@@ -2,10 +2,10 @@
 {
     abstract public class WidgetSlider : Widget
     {
-        public href sliderButton;
-        public WidgetsArrangement moveArrangement;
+        public href sliderButton { get; set; }
+        public WidgetsArrangement moveArrangement { get; set; }
 
-        public WidgetSlider() : base()
+        public WidgetSlider()
         {
 
         }

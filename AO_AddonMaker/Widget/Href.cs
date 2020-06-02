@@ -17,6 +17,6 @@ namespace AO_AddonMaker
             }
         }
         [XmlIgnore]
-        public AddonFile File;
+        public AddonFile File { get; set; }
     }
 }

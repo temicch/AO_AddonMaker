@@ -2,7 +2,7 @@
 {
     public class WidgetButtonState
     {
-        public href LayerMain;
-        public string FormatFileRef;
+        public href LayerMain { get; set; }
+        public string FormatFileRef { get; set; }
     }
 }

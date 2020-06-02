@@ -4,27 +4,27 @@ namespace AO_AddonMaker
 {
     public class Rect
     {
-        public int offsetX;
-        public int offsetY;
-        public int sizeX;
-        public int sizeY;
-        public float centerOffsetX;
-        public float centerOffsetY;
+        public int offsetX { get; set; }
+        public int offsetY { get; set; }
+        public int sizeX { get; set; }
+        public int sizeY { get; set; }
+        public float centerOffsetX { get; set; }
+        public float centerOffsetY { get; set; }
     }
 
     public class Frame
     {
-        public href textureItem;
-        public List<Rect> rects;
+        public href textureItem { get; set; }
+        public List<Rect> rects { get; set; }
     }
 
     public class WidgetLayerAnimatedTexture : WidgetLayer
     {
-        public bool scaling;
-        public int delayMs;
-        public bool repeatForever;
-        public bool playImmidiatly;
-        public List<Frame> frames;
+        public bool scaling { get; set; }
+        public int delayMs { get; set; }
+        public bool repeatForever { get; set; }
+        public bool playImmidiatly { get; set; }
+        public List<Frame> frames { get; set; }
 
         public WidgetLayerAnimatedTexture()
         {

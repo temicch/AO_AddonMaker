@@ -2,19 +2,19 @@
 {
     public class WidgetButtonVariant
     {
-        public string TextFileRef;
-        public bool ReactionOnUp;
-        public href LayerHighlight;
+        public string TextFileRef { get; set; }
+        public bool ReactionOnUp { get; set; }
+        public href LayerHighlight { get; set; }
 
-        public vec2 PushedOffset;
+        public vec2 PushedOffset { get; set; }
 
-        public WidgetButtonState StateNormal;
-        public WidgetButtonState StatePushed;
-        public WidgetButtonState StateHighlighted;
-        public WidgetButtonState StatePushedHighlighted;
-        public WidgetButtonState StateDisabled;
-        public WidgetSoundBase soundOver;
-        public WidgetSoundBase soundPress;
+        public WidgetButtonState StateNormal { get; set; }
+        public WidgetButtonState StatePushed { get; set; }
+        public WidgetButtonState StateHighlighted { get; set; }
+        public WidgetButtonState StatePushedHighlighted { get; set; }
+        public WidgetButtonState StateDisabled { get; set; }
+        public WidgetSoundBase soundOver { get; set; }
+        public WidgetSoundBase soundPress { get; set; }
 
         public WidgetButtonVariant()
         {

@@ -2,13 +2,13 @@
 {
     public class WidgetTextStyle
     {
-        public bool multiline = false;
-        public bool wrapText = true;
-        public bool showClippedSymbol = false;
-        public bool showClippedLine = false;
-        public int lineSpacing = 0;
-        public bool ellipsis = true;
-        public AlignY Align = AlignY.ALIGNY_DEFAULT;
-        public Blend_Effect blendEffect = Blend_Effect.BLEND_EFFECT_ALPHABLND;
+        public bool multiline { get; set; } = false;
+        public bool wrapText { get; set; } = true;
+        public bool showClippedSymbol { get; set; } = false;
+        public bool showClippedLine { get; set; } = false;
+        public int lineSpacing { get; set; } = 0;
+        public bool ellipsis { get; set; } = true;
+        public AlignY Align { get; set; } = AlignY.ALIGNY_DEFAULT;
+        public Blend_Effect blendEffect { get; set; } = Blend_Effect.BLEND_EFFECT_ALPHABLND;
     }
 }

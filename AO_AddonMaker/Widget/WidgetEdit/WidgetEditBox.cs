@@ -2,6 +2,6 @@
 {
     public class WidgetEditBox : WidgetEditBase
     {
-        public href scrollBar;
+        public href scrollBar { get; set; }
     }
 }

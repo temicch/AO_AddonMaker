@@ -2,11 +2,11 @@
 {
     public class WidgetTextContainer : WidgetContainer
     {
-        public href scrollBar;
-        public string formatFileRef;
-        public string defaultTag;
-        public int elementsInterval;
-        public bool pickObjectsOnly;
+        public href scrollBar { get; set; }
+        public string formatFileRef { get; set; }
+        public string defaultTag { get; set; }
+        public int elementsInterval { get; set; }
+        public bool pickObjectsOnly { get; set; }
 
         public WidgetTextContainer()
         {

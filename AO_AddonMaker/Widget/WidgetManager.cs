@@ -11,7 +11,7 @@ namespace AO_AddonMaker
         public static Dictionary<string, AddonFile> paths;
         public static string CurrentWorkingFile { get; private set; } = null;
 
-        private static IUIElement rootWidget;
+        private static IUIElement rootWidget { get; set; }
         private static XmlReader xmlReader;
 
         static WidgetManager()

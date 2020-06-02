@@ -2,11 +2,6 @@
 {
     class WidgetDiscreteScrollBar : WidgetScrollBar
     {
-        public href slider;
-
-        public WidgetDiscreteScrollBar() : base()
-        {
-
-        }
+        public href slider { get; set; }
     }
 }

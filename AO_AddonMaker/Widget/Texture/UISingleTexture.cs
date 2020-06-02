@@ -7,6 +7,7 @@
 		public int permanentCache { get; set; }
 		public href sourceFile { get; set; }
 		public long sourceFileCRC { get; set; }
+
         public UISingleTexture()
         {
 

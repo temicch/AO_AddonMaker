@@ -2,10 +2,10 @@
 {
     abstract public class WidgetScrollBar : Widget
     {
-        public href decButton;
-        public href incButton;
+        public href decButton { get; set; }
+        public href incButton { get; set; }
 
-        public WidgetScrollBar() : base()
+        public WidgetScrollBar()
         {
 
         }
