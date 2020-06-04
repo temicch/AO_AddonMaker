@@ -7,7 +7,7 @@ namespace AO_AddonMaker
         [XmlAttribute("href")]
         public string Path
         {
-            get => File.FilePath;
+            get => File?.FilePath;
             set
             {
                 if (value != string.Empty)
