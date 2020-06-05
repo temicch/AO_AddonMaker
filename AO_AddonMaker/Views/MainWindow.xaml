@@ -18,7 +18,6 @@
     MinWidth="800" 
     Width="1280" 
     WindowStartupLocation="CenterScreen"
-    Background="#2D2D30"
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
     <mah:MetroWindow.Resources>
@@ -45,10 +44,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Menu Background="Transparent" >
-                    <MenuItem Background="Transparent" Header="Menu" />
-                    <MenuItem Background="Transparent" Header="About" />
-                    <MenuItem Background="Transparent" Header="Close" />
+                <Menu >
+                    <MenuItem  Header="Menu" />
+                    <MenuItem  Header="About" />
+                    <MenuItem  Header="Close" />
                 </Menu>
             </StackPanel>
             <WrapPanel Height="25">
@@ -61,6 +60,7 @@
             AllowMixedOrientation="True"
             x:Name="DockingManager"
             Grid.Row="1"
+            Background="{Binding Path=Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
             >
             <avalon:DockingManager.Theme>
                 <avalon:Vs2013DarkTheme/>
@@ -70,7 +70,7 @@
                     <avalon:LayoutPanel Orientation="Vertical">
                         <avalon:LayoutDocumentPane DockWidth="*">
                             <avalon:LayoutDocument ContentId="document1" CanClose="False" Title="Project" >
-                                <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" Background="#FF252526" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
+                                <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                             <Rectangle Width="{Binding Placement.X.Size}" Height="{Binding Placement.Y.Size}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}" Stroke="Green" />
@@ -81,19 +81,19 @@
                         </avalon:LayoutDocumentPane>
                         <avalon:LayoutAnchorablePane DockHeight="200">
                             <avalon:LayoutAnchorable ContentId="Errors" Title="Список проблем" CanHide="False">
-                                <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#FF252526" Padding="5" IsReadOnly="True" BorderThickness="0" Text="{Binding DebugOutput}" Foreground="White" FontSize="12"/>
+                                <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  Padding="5" IsReadOnly="True" BorderThickness="0" Text="{Binding DebugOutput}"  FontSize="12"/>
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                     </avalon:LayoutPanel>
                     <avalon:LayoutAnchorablePaneGroup DockWidth="300" DockMinWidth="300" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
-                                <TreeView x:Name="HierarchyTree"  ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True" Background="#FF252526">
+                                <TreeView x:Name="HierarchyTree"  ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True" >
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                             <DockPanel>
                                                 <!--<Image DockPanel.Dock="Left" Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>-->
-                                                <Label  x:Name="ElementName" DockPanel.Dock="Left" Content="{Binding Name}" FontSize="12" VerticalContentAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                                <Label  x:Name="ElementName" DockPanel.Dock="Left" Content="{Binding Name}" FontSize="12" VerticalContentAlignment="Center" />
                                                 <Label Content="{Binding FileType}" Foreground="{Binding Foreground, ElementName=ElementName}" Opacity="0.5" FontSize="12" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
                                             </DockPanel>
                                         </HierarchicalDataTemplate>
@@ -101,7 +101,7 @@
                                 </TreeView>
                             </avalon:LayoutAnchorable>
                             <avalon:LayoutAnchorable Title="Объекты" CanClose="False" CanHide="False">
-                                <TreeView Background="#FF252526" BorderThickness="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                                <TreeView BorderThickness="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                         <avalon:LayoutAnchorablePane>

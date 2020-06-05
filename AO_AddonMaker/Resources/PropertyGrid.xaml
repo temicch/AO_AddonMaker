@@ -52,7 +52,7 @@
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
                                                         <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
-                                                        <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="Black" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                        <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
                                                             <Path.RenderTransform>
                                                                 <TransformGroup>
                                                                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -62,7 +62,7 @@
                                                                 </TransformGroup>
                                                             </Path.RenderTransform>
                                                         </Path>
-                                                        <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="Black" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                        <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
                                                             <Path.RenderTransform>
                                                                 <TransformGroup>
                                                                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -78,7 +78,7 @@
                                                         <Trigger Property="IsChecked" Value="True">
                                                             <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
                                                             <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                            <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                            <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -211,7 +211,7 @@
                                                                                                                             <Trigger Property="IsChecked" Value="True">
                                                                                                                                 <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
                                                                                                                                 <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
                                                                                                                             </Trigger>
                                                                                                                         </ControlTemplate.Triggers>
                                                                                                                     </ControlTemplate>
@@ -544,7 +544,7 @@
                                                                                                                             <Trigger Property="IsChecked" Value="True">
                                                                                                                                 <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
                                                                                                                                 <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
                                                                                                                             </Trigger>
                                                                                                                         </ControlTemplate.Triggers>
                                                                                                                     </ControlTemplate>
@@ -663,8 +663,8 @@
                                         </Binding.Converter>
                                     </Binding>
                                 </Grid.Visibility>
-                                <TextBlock Grid.Row="0" FontWeight="Bold" Padding="5,2,2,0" Text="{Binding SelectedPropertyItem.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                <TextBox IsReadOnly="True" BorderThickness="0" VerticalScrollBarVisibility="Auto" Grid.Row="1" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding SelectedPropertyItem.Description, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <TextBlock Grid.Row="0" Background="Transparent" FontWeight="Bold" Padding="5,2,2,0" Text="{Binding SelectedPropertyItem.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <TextBox Background="Transparent" IsReadOnly="True" BorderThickness="0" VerticalScrollBarVisibility="Auto" Grid.Row="1" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding SelectedPropertyItem.Description, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </Grid>
                         </Grid>
                     </Border>
