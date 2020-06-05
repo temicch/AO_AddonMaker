@@ -14,13 +14,14 @@
     Title="AddonMaker" 
     MinHeight="720" 
     Height ="720" 
+    WindowTitleBrush="{Binding ElementName=self, Path=Background}"
     MinWidth="800" 
     Width="1280" 
     WindowStartupLocation="CenterScreen"
     Background="#2D2D30"
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
-    <Window.Resources>
+    <mah:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -33,10 +34,10 @@
                 <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Window.Resources>
-    <Window.DataContext>
+    </mah:MetroWindow.Resources>
+    <mah:MetroWindow.DataContext>
         <local:MainWindowViewModel />
-    </Window.DataContext>
+    </mah:MetroWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
