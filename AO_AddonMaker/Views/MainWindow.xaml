@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:Themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit" 
     mc:Ignorable="d" 
+    SaveWindowPosition="True"
     x:Class="AO_AddonMaker.MainWindow"
     xmlns:avalon="https://github.com/Dirkster99/AvalonDock"
     Title="AddonMaker" 
