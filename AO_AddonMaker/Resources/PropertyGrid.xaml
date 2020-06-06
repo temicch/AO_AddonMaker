@@ -489,7 +489,7 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="5"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="70"/>
                             </Grid.RowDefinitions>
                             <Grid Margin="32,4,0,4" Grid.Row="0">
                                 <Grid.Visibility>
@@ -700,7 +700,7 @@
                                     </Binding>
                                 </GridSplitter.Visibility>
                             </GridSplitter>
-                            <Grid Margin="0,0,0,5" Height="60" Grid.Row="5">
+                            <Grid Margin="0,0,0,5" Grid.Row="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
