@@ -22,18 +22,7 @@
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
     <mah:MetroWindow.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
 
-                <ResourceDictionary Source="/AO_AddonMaker;component/Resources/TreeViewResource.xaml"/>
-                <ResourceDictionary Source="/AO_AddonMaker;component/Resources/TreeViewCustom.xaml"/>
-                <ResourceDictionary Source="/AO_AddonMaker;component/Resources/PropertyGrid.xaml"/>
-                <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
     </mah:MetroWindow.Resources>
     <mah:MetroWindow.DataContext>
         <local:MainWindowViewModel />
