@@ -1,7 +1,12 @@
 ﻿using AO_AddonMaker.Utility;
+using AO_AddonMaker.Views;
+using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AO_AddonMaker
@@ -45,7 +50,7 @@ namespace AO_AddonMaker
             RootFile = new ObservableCollection<IUIElement>();
         }
 
-        private void OpenFile(object parameter)
+        private async void OpenFile(object parameter)
         {
             OpenFileDialog dlg = new OpenFileDialog
             {
@@ -55,11 +60,23 @@ namespace AO_AddonMaker
             bool? result = dlg.ShowDialog();
             if (result == true)
             {
-                Project = new Project(dlg.FileName);
-                Project.Load();
+                var workInProgress = new WorkInProgress()
+                {
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive)
+                };
+                workInProgress.Show();
+                await Task.Run(() => LoadProject(dlg.FileName));
                 RootFile.Clear();
                 RootFile.Add(Project.RootWidget);
+                workInProgress.Close();
             }
+        }
+
+        private void LoadProject(string fileName)
+        {
+            Project = new Project(fileName);
+            Project.Load();
         }
 
         public void DebugWrite(string msg)
