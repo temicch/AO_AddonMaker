@@ -1,18 +1,13 @@
 ﻿using AO_AddonMaker.Utility;
 using Microsoft.Win32;
-using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 
 namespace AO_AddonMaker
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public Project Project { get; set; }
 
         public ObservableCollection<IUIElement> RootFile { get; set; }
@@ -32,13 +27,13 @@ namespace AO_AddonMaker
             } 
         }
 
-        BasicCommand _openFile;
+        RelayCommand _openFile;
         public ICommand openFile
         {
             get
             {
                 if (_openFile == null)
-                    _openFile = new BasicCommand(OpenFile);
+                    _openFile = new RelayCommand(OpenFile);
                 return _openFile;
             }
         }
@@ -70,11 +65,6 @@ namespace AO_AddonMaker
         public void DebugWrite(string msg)
         {
             DebugOutput = string.Format("{0}\n", msg);
-        }
-
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -92,7 +92,8 @@
     <Compile Include="DebugOutput.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="File\AddonFile.cs" />
-    <Compile Include="Utility\BasicCommand.cs" />
+    <Compile Include="Utility\BaseViewModel.cs" />
+    <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Widget\BindSection.cs" />
     <Compile Include="Widget\enums\Blend_Effect.cs" />
