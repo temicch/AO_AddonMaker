@@ -38,29 +38,26 @@
     <mah:MetroWindow.DataContext>
         <local:MainWindowViewModel />
     </mah:MetroWindow.DataContext>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Menu >
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top">
+            <WrapPanel>
+                <Menu>
                     <MenuItem  Header="Menu" />
                     <MenuItem  Header="About" />
                     <MenuItem  Header="Close" />
                 </Menu>
-            </StackPanel>
-            <WrapPanel Height="25">
-                <Button Background="Transparent" BorderThickness="0" Command="{Binding openFile}">
-                    <Image Source="/AO_AddonMaker;component/Icons/openFile.png"/>
-                </Button>
             </WrapPanel>
+            <ToolBarTray>
+                <ToolBar Height="30">
+                    <ToggleButton Background="Transparent" BorderThickness="0" Command="{Binding openFile}">
+                        <Image Source="/AO_AddonMaker;component/Icons/openFile.png"/>
+                    </ToggleButton>
+                </ToolBar>
+            </ToolBarTray>
         </StackPanel>
         <avalon:DockingManager
             AllowMixedOrientation="True"
             x:Name="DockingManager"
-            Grid.Row="1"
             Background="{Binding Path=Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
             >
             <avalon:DockingManager.Theme>
@@ -107,12 +104,12 @@
                         </avalon:LayoutAnchorablePane>
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Свойства" CanClose="False" CanHide="False">
-                                <xctk:PropertyGrid IsReadOnly="True" Background="Transparent" Foreground="White" BorderThickness="0" SelectedObject="{Binding SelectedItem, ElementName=HierarchyTree}" Style="{StaticResource PropertyGridStyle1}" PropertyContainerStyle="{StaticResource PropertyItemBaseStyle1}" />
+                                <xctk:PropertyGrid IsReadOnly="True" ShowDescriptionByTooltip="True" Background="Transparent" Foreground="White" BorderThickness="0" SelectedObject="{Binding SelectedItem, ElementName=HierarchyTree}" Style="{StaticResource PropertyGridStyle1}" PropertyContainerStyle="{StaticResource PropertyItemBaseStyle1}" />
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                     </avalon:LayoutAnchorablePaneGroup>
                 </avalon:LayoutPanel>
             </avalon:LayoutRoot>
         </avalon:DockingManager>
-    </Grid>
+    </DockPanel>
 </mah:MetroWindow>

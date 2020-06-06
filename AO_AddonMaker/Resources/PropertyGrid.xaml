@@ -47,6 +47,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style TargetType="xctk:PropertyGridEditorCollectionControl">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <Style x:Key="PropertyItemBaseStyle1" TargetType="{x:Type xctk:PropertyItemBase}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
@@ -484,7 +491,7 @@
                                 <RowDefinition Height="5"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Grid Margin="20,5,0,0" Grid.Row="0">
+                            <Grid Margin="32,4,0,4" Grid.Row="0">
                                 <Grid.Visibility>
                                     <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
@@ -493,19 +500,19 @@
                                     </Binding>
                                 </Grid.Visibility>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="70"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
                                 <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="0" Text="Name" TextTrimming="CharacterEllipsis"/>
                                 <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="1" Text="Type" TextTrimming="CharacterEllipsis"/>
                                 <xctk:TrimmedTextBlock x:Name="Type" Grid.Column="1" Grid.Row="1" Text="{TemplateBinding SelectedObjectTypeName}" TextTrimming="CharacterEllipsis"/>
                                 <xctk:TrimmedTextBlock Grid.Column="1" Grid.Row="0" Text="{TemplateBinding SelectedObjectName}" TextTrimming="CharacterEllipsis" TextDecorations=""/>
                             </Grid>
-                            <Border Grid.Row="1" x:Name="searchBoxContainer" Background="Transparent" Margin="4">
+                            <Border Grid.Row="1" x:Name="searchBoxContainer" Background="Transparent" Margin="3,0,3,3">
                                 <Border.Visibility>
                                     <Binding Path="ShowSearchBox" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
@@ -515,7 +522,7 @@
                                 </Border.Visibility>
                                 <xctk:WatermarkTextBox x:Name="_txtFilter" Foreground="{TemplateBinding Foreground}" BorderThickness="1" BorderBrush="#3F3F46" Text="{Binding Filter, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" Watermark="{TemplateBinding FilterWatermark}" Background="#2A2A2D"/>
                             </Border>
-                            <Grid Grid.Row="2" Margin="2">
+                            <Grid Grid.Row="2" Margin="0">
                                 <ComboBox Background="#2A2A2D" Padding="16,0,0,0" Text="Choose some" Foreground="White" BorderThickness="0">
                                     <ComboBoxItem IsSelected="{Binding IsCategorized, RelativeSource={RelativeSource TemplatedParent}}">
                                         Arrange by category
