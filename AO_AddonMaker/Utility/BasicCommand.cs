@@ -28,7 +28,7 @@ namespace AO_AddonMaker.Utility
 
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute(parameter);
+            return canExecute == null || canExecute(parameter);
         }
 
         public void Execute(object execute)
