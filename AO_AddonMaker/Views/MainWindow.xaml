@@ -13,10 +13,10 @@
     x:Class="AO_AddonMaker.MainWindow"
     xmlns:avalon="https://github.com/Dirkster99/AvalonDock"
     Title="AddonMaker" 
-    MinHeight="720" 
+    MinHeight="64" 
     Height ="720" 
     WindowTitleBrush="{Binding ElementName=self, Path=Background}"
-    MinWidth="800" 
+    MinWidth="64" 
     Width="1280" 
     WindowStartupLocation="CenterScreen"
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
@@ -86,7 +86,7 @@
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                     </avalon:LayoutPanel>
-                    <avalon:LayoutAnchorablePaneGroup DockWidth="300" DockMinWidth="300" Orientation="Vertical">
+                    <avalon:LayoutAnchorablePaneGroup DockWidth="300" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
                                 <TreeView x:Name="HierarchyTree"  ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding Widgets}" VirtualizingPanel.IsVirtualizing="True" >
