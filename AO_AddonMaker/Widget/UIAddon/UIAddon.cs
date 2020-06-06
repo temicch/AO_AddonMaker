@@ -58,12 +58,10 @@ namespace AO_AddonMaker
 
         public UIAddon()
         {
-            WidgetManager.SetRootWidget(this);
             AutoStart = true;
         }
 
         public IEnumerable<AddonFile> GetChildren() => Forms.Select(x => x.Form.File);
-
     }
 
     public class FormItem

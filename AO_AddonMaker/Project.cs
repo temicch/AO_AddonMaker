@@ -6,20 +6,23 @@ namespace AO_AddonMaker
     {
         private readonly string filePath;
 
-        public IUIElement RootWidget { get; set; }
-
-        public Project(string filePath)
+        public IUIElement RootWidget
         {
-            if (!File.Exists(filePath))
+            get => WidgetManager.RootFile as IUIElement;
+        }
+
+        public Project(string rootFilePath)
+        {
+            WidgetManager.Clear();
+            if (!File.Exists(rootFilePath))
                 throw new FileNotFoundException();
-            this.filePath = filePath;
+            filePath = rootFilePath;
         }
 
         public void Load()
         {
             WidgetManager.Clear();
-            WidgetManager.Add(filePath);
-            RootWidget = WidgetManager.GetRootWidget();
+            WidgetManager.Load(filePath);
         }
     }
 }

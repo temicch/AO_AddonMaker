@@ -11,15 +11,14 @@ namespace AO_AddonMaker
         public static Dictionary<string, AddonFile> paths;
         public static string CurrentWorkingFile { get; private set; } = null;
 
-        private static IUIElement rootWidget { get; set; }
+        public static AddonFile RootFile { get; set; }
+
         private static XmlReader xmlReader;
 
         static WidgetManager()
         {
             paths = new Dictionary<string, AddonFile>();
         }
-
-        public static IUIElement GetRootWidget() => rootWidget;
 
         static void RemovePointer(ref string filePath)
         {
@@ -32,6 +31,12 @@ namespace AO_AddonMaker
         {
             paths[CurrentWorkingFile] = file;
             return CurrentWorkingFile;
+        }
+
+        public static AddonFile Load(string filePath)
+        {
+            RootFile = Add(filePath);
+            return RootFile;
         }
 
         public static AddonFile Add(string filePath)
@@ -99,12 +104,6 @@ namespace AO_AddonMaker
             return newUIElement;
         }
 
-        public static void SetRootWidget(IUIElement uIElement)
-        {
-            if (rootWidget == null)
-                rootWidget = uIElement;
-        }
-
         public static AddonFile GetAddonFile(string filePath)
         {
             if (paths.ContainsKey(filePath))
@@ -114,7 +113,6 @@ namespace AO_AddonMaker
 
         public static void Clear()
         {
-            rootWidget = null;
             paths.Clear();
         }
     }

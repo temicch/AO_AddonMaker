@@ -1,5 +1,6 @@
 ﻿using AO_AddonMaker.Utility;
 using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -14,7 +15,7 @@ namespace AO_AddonMaker
 
         public Project Project { get; set; }
 
-        public ObservableCollection<IUIElement> Widgets { get; set; }
+        public ObservableCollection<IUIElement> RootFile { get; set; }
 
         private readonly StringBuilder textDebug = new StringBuilder();
 
@@ -46,7 +47,7 @@ namespace AO_AddonMaker
         {
             AO_AddonMaker.DebugOutput.Init(this);
             WidgetManager.Clear();
-            Widgets = new ObservableCollection<IUIElement>();
+            RootFile = new ObservableCollection<IUIElement>();
         }
 
         private void OpenFile(object parameter)
@@ -61,7 +62,8 @@ namespace AO_AddonMaker
             {
                 Project = new Project(dlg.FileName);
                 Project.Load();
-                Widgets.Add(Project.RootWidget);
+                RootFile.Clear();
+                RootFile.Add(Project.RootWidget);
             }
         }
 
