@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AO_AddonMaker
+namespace AddonElement
 {
     public class Rect
     {

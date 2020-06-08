@@ -1,4 +1,4 @@
-﻿namespace AO_AddonMaker
+﻿namespace AddonElement
 {
 #warning Not implemented
     public class WidgetSoundBase

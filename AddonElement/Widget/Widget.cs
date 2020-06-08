@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace AO_AddonMaker
+namespace AddonElement
 {
     [Serializable]
     abstract public class Widget : AddonFile, IUIElement

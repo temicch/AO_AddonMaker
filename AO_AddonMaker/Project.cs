@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using AddonElement;
+using System.IO;
 
 namespace AO_AddonMaker
 {

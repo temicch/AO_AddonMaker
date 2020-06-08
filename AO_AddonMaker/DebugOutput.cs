@@ -1,4 +1,6 @@
-﻿namespace AO_AddonMaker
+﻿using AO_AddonMaker.Views;
+
+namespace AO_AddonMaker
 {
     static class DebugOutput
     {

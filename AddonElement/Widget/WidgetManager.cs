@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace AO_AddonMaker
+namespace AddonElement
 {
     public static class WidgetManager
     {

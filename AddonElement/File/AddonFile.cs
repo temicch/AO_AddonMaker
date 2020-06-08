@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AO_AddonMaker
+namespace AddonElement
 {
     public class AddonFile
     {

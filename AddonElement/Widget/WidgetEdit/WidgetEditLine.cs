@@ -1,4 +1,4 @@
-﻿namespace AO_AddonMaker
+﻿namespace AddonElement
 {
     public class WidgetEditLine : WidgetEditBase
     {

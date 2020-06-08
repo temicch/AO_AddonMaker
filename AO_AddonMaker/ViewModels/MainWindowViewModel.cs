@@ -1,5 +1,5 @@
-﻿using AO_AddonMaker.Utility;
-using AO_AddonMaker.Views;
+﻿using AddonElement;
+using AO_AddonMaker.Utility;
 using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace AO_AddonMaker
+namespace AO_AddonMaker.Views
 {
     public class MainWindowViewModel : BaseViewModel
     {

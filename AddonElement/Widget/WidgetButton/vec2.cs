@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AO_AddonMaker
+namespace AddonElement
 {
     public struct vec2
     {
