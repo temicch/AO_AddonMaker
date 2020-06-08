@@ -17,7 +17,7 @@ namespace AO_AddonMaker.Views
 
         public ObservableCollection<IUIElement> RootFile { get; set; }
 
-        private readonly StringBuilder textDebug = new StringBuilder();
+        private StringBuilder textDebug = new StringBuilder();
 
         public string DebugOutput 
         { 
@@ -29,7 +29,7 @@ namespace AO_AddonMaker.Views
             {
                 textDebug.Append(value);
                 OnPropertyChanged();
-            } 
+            }
         }
 
         RelayCommand _openFile;
@@ -40,6 +40,17 @@ namespace AO_AddonMaker.Views
                 if (_openFile == null)
                     _openFile = new RelayCommand(OpenFile);
                 return _openFile;
+            }
+        }
+
+        RelayCommand _clearDebug;
+        public ICommand clearDebug
+        {
+            get
+            {
+                if (_clearDebug == null)
+                    _clearDebug = new RelayCommand(ClearDebug);
+                return _clearDebug;
             }
         }
 
@@ -83,6 +94,12 @@ namespace AO_AddonMaker.Views
         public void DebugWrite(string msg)
         {
             DebugOutput = string.Format("{0}\n", msg);
+        }
+
+        private void ClearDebug(object parameter)
+        {
+            textDebug.Clear();
+            OnPropertyChanged(nameof(DebugOutput));
         }
     }
 }

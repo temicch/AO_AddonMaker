@@ -1,7 +1,6 @@
 ﻿<mah:MetroWindow
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AO_AddonMaker"
     xmlns:vms="clr-namespace:AO_AddonMaker.Views"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
@@ -67,7 +66,19 @@
                         </avalon:LayoutDocumentPane>
                         <avalon:LayoutAnchorablePane DockHeight="200">
                             <avalon:LayoutAnchorable ContentId="Errors" Title="Список проблем" CanHide="False">
-                                <TextBox x:Name="tboxDebug" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  Padding="5" IsReadOnly="True" BorderThickness="0" Text="{Binding DebugOutput}"  FontSize="12"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Grid.Row="0" Fill="#2D2D30"/>
+                                    <ToolBar Grid.Row="0" Height="32">
+                                        <Button Command="{Binding clearDebug}" ToolTip="Clear all">
+                                            <Image Source="/AO_AddonMaker;component/Icons/clear.png"/>
+                                        </Button>
+                                    </ToolBar>
+                                    <TextBox x:Name="tboxDebug" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Padding="5" BorderThickness="0" IsReadOnly="True" Text="{Binding DebugOutput, Mode=OneWay}"/>
+                                </Grid>
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                     </avalon:LayoutPanel>
@@ -79,7 +90,7 @@
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                             <DockPanel>
                                                 <!--<Image DockPanel.Dock="Left" Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>-->
-                                                <Label  x:Name="ElementName" DockPanel.Dock="Left" Content="{Binding Name}" FontSize="12" VerticalContentAlignment="Center" />
+                                                <Label x:Name="ElementName" DockPanel.Dock="Left" Content="{Binding Name}" FontSize="12" VerticalContentAlignment="Center" />
                                                 <Label Content="{Binding FileType}" Foreground="{Binding Foreground, ElementName=ElementName}" Opacity="0.5" FontSize="12" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
                                             </DockPanel>
                                         </HierarchicalDataTemplate>
