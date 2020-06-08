@@ -159,11 +159,11 @@ namespace Texture
         //    return true;
         //}
 
-        public void SetFormat(Texture.Format fmt)
+        public void SetFormat(Format fmt)
         {
-            if (this.CurrentFormat == fmt)
+            if (CurrentFormat == fmt)
                 return;
-            this.CurrentFormat = fmt;
+            CurrentFormat = fmt;
             //this._overrideSize = false;
             //this.CalculateSize();
         }
@@ -173,11 +173,11 @@ namespace Texture
             using (MemoryStream input = new MemoryStream())
             {
                 e.Extract(input);
-                return Read(Utils.UnZLib(input), path);
+                return Read(Utils.UnZLib(input));
             }
         }
 
-        public static Texture Read(Stream input, string path)
+        public static Texture Read(Stream input)
         {
             Texture texture = null;
             using (BinaryReader binaryReader = new BinaryReader(input))
@@ -209,7 +209,7 @@ namespace Texture
             binaryWriter.Write(542327876);
             binaryWriter.Write(124);
             int num = 528391;
-            if (this._mips.Count > 1)
+            if (_mips.Count > 1)
                 num |= 131072;
             binaryWriter.Write(num);
             binaryWriter.Write(this.Height);
@@ -223,13 +223,13 @@ namespace Texture
             binaryWriter.Write(4);
             switch (this.CurrentFormat)
             {
-                case Texture.Format.DXT1:
+                case Format.DXT1:
                     binaryWriter.Write(827611204);
                     break;
-                case Texture.Format.DXT3:
+                case Format.DXT3:
                     binaryWriter.Write(861165636);
                     break;
-                case Texture.Format.DXT5:
+                case Format.DXT5:
                     binaryWriter.Write(894720068);
                     break;
                 default:
