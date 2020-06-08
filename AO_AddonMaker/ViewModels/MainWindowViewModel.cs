@@ -2,6 +2,7 @@
 using AO_AddonMaker.Utility;
 using MahApps.Metro.Controls;
 using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
@@ -87,6 +88,7 @@ namespace AO_AddonMaker.Views
 
         private void LoadProject(string fileName)
         {
+            GC.Collect();
             Project = new Project(fileName);
             Project.Load();
         }
