@@ -109,6 +109,8 @@ namespace AO_AddonMaker
 
         public static AddonFile GetAddonFile(string filePath)
         {
+            if (filePath == null)
+                return null;
             if (paths.ContainsKey(filePath))
                 return paths[filePath];
             return Add(filePath);
