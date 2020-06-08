@@ -1,12 +1,14 @@
-﻿namespace AO_AddonMaker
+﻿using System.Drawing;
+using System.IO;
+using System.Xml.Serialization;
+
+namespace AO_AddonMaker
 {
-#warning Not implemented
 	public class UITexture : AddonFile
 	{
 		public int mipSW { get; set; }
 		public int mipsNumber { get; set; }
 		public bool generateMipChain { get; set; }
-#warning Need enum type
 		public Texture.Texture.Format type { get; set; }
 		public int width { get; set; }
 		public int height { get; set; }
@@ -25,9 +27,23 @@
 		public bool atlasPart { get; set; }
 		public string pool { get; set; }
 
-        public UITexture()
+		[XmlIgnore]
+		protected Bitmap bitmap { get; set; }
+		[XmlIgnore]
+		public Bitmap Bitmap
         {
-
+			get => GetBitmap();
         }
+
+		protected Bitmap GetBitmap()
+        {
+			if (bitmap == null)
+				using (var binaryFileStream = new StreamReader(binaryFile.Path))
+				{
+					var Texture = new Texture.Texture(binaryFileStream.BaseStream, realWidth, realHeight, type);
+					bitmap = Texture.GetBitmap();
+				}
+			return bitmap;
+		}
 	}
 }
