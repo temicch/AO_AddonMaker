@@ -46,6 +46,7 @@ namespace AO_AddonMaker
         public MainWindowViewModel()
         {
             AO_AddonMaker.DebugOutput.Init(this);
+            WidgetManager.OnDebug += DebugWrite;
             WidgetManager.Clear();
             RootFile = new ObservableCollection<IUIElement>();
         }

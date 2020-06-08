@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AO_AddonMaker", "AO_AddonMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texture", "Texture\Texture.csproj", "{590F5054-B5B2-43B0-B726-5BBAC11D7562}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddonElement", "AddonElement\AddonElement.csproj", "{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

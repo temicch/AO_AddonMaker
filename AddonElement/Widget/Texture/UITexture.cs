@@ -7,7 +7,7 @@
 		public int mipsNumber { get; set; }
 		public bool generateMipChain { get; set; }
 #warning Need enum type
-		public string type { get; set; }
+		public Texture.Texture.Format type { get; set; }
 		public int width { get; set; }
 		public int height { get; set; }
 		public int realWidth { get; set; }
@@ -24,5 +24,10 @@
 		//public href LocalizationInfo { get; set; }
 		public bool atlasPart { get; set; }
 		public string pool { get; set; }
+
+        public UITexture()
+        {
+
+        }
 	}
 }
