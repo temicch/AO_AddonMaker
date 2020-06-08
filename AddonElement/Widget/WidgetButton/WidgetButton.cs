@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace AO_AddonMaker
 {
     public class WidgetButton : Widget
     {
         public string TextTag { get; set; }
+        [XmlArrayItem("Item")]
         public List<WidgetButtonVariant> Variants { get; set; }
         public WidgetTextStyle TextStyle { get; set; }
         public bool useDefaultSounds { get; set; }
