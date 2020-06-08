@@ -1,10 +1,8 @@
 ﻿using AndBurn.DDSReader;
-using Ionic.Zip;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 
 namespace Texture
 {
@@ -12,24 +10,17 @@ namespace Texture
     {
         private readonly List<MipData> _mips = new List<MipData>();
 
-        public const int DXT1_FOURCC = 827611204;
-        public const int DXT3_FOURCC = 861165636;
-        public const int DXT5_FOURCC = 894720068;
+        //public List<Size> Resolutions { get; private set; } = new List<Size>();
 
-        //private bool _overrideSize;
+        //public int CurrentResolutionIndex
+        //{
+        //    get
+        //    {
+        //        return Resolutions.FindIndex(s => s.Width == Width && s.Height == Height);
+        //    }
+        //}
 
-        public List<Size> Resolutions { get; private set; } = new List<Size>();
-
-        public int CurrentResolutionIndex
-        {
-            get
-            {
-                return Resolutions.FindIndex(s => s.Width == Width && s.Height == Height);
-            }
-        }
-
-        public Format CurrentFormat { get; private set; }
-
+        public Format TextureFormat { get; private set; }
         public int Width { get; private set; } = 1;
         public int Height { get; private set; } = 1;
 
@@ -41,13 +32,12 @@ namespace Texture
             }
         }
 
-        public void SetResolution(int index)
-        {
-            Size resolution = Resolutions[index];
-            Width = resolution.Width;
-            Height = resolution.Height;
-            //_overrideSize = true;
-        }
+        //public void SetResolution(int index)
+        //{
+        //    Size resolution = Resolutions[index];
+        //    Width = resolution.Width;
+        //    Height = resolution.Height;
+        //}
 
         public void AddMipData(int level, int size, byte[] data)
         {
@@ -74,75 +64,73 @@ namespace Texture
                 _mips.RemoveAt(0);
         }
 
-        private void FillResolutionsMap()
-        {
-            Resolutions.Clear();
-            int width1 = Width;
-            int height1 = Height;
-            int num;
-            for (num = width1 * height1; width1 * height1 == num && width1 >= 4 && (height1 <= 4096 && (Utils.IsPowerOf2(width1) && Utils.IsPowerOf2(height1))); height1 *= 2)
-            {
-                Resolutions.Add(new Size(width1, height1));
-                width1 /= 2;
-            }
-            int width2 = Width;
-            for (int height2 = Height; width2 * height2 == num && width2 <= 4096 && (height2 >= 4 && (Utils.IsPowerOf2(width2) && Utils.IsPowerOf2(height2))); height2 /= 2)
-            {
-                Resolutions.Add(new Size(width2, height2));
-                width2 *= 2;
-            }
-            Resolutions = Resolutions.OrderByDescending(s => s.Width).Distinct().ToList();
-        }
+        //private void FillResolutionsMap()
+        //{
+        //    Resolutions.Clear();
+        //    int width1 = Width;
+        //    int height1 = Height;
+        //    int num;
+        //    for (num = width1 * height1; width1 * height1 == num && width1 >= 4 && (height1 <= 4096 && (Utils.IsPowerOf2(width1) && Utils.IsPowerOf2(height1))); height1 *= 2)
+        //    {
+        //        Resolutions.Add(new Size(width1, height1));
+        //        width1 /= 2;
+        //    }
+        //    int width2 = Width;
+        //    for (int height2 = Height; width2 * height2 == num && width2 <= 4096 && (height2 >= 4 && (Utils.IsPowerOf2(width2) && Utils.IsPowerOf2(height2))); height2 /= 2)
+        //    {
+        //        Resolutions.Add(new Size(width2, height2));
+        //        width2 *= 2;
+        //    }
+        //    Resolutions = Resolutions.OrderByDescending(s => s.Width).Distinct().ToList();
+        //}
 
-        public Format DeductFormat()
-        {
-            int dxt3Count = 0;
-            int dxt5Count = 0;
-            for (int index = 0; index < this._mips.Count; ++index)
-            {
-                if (_mips[index] == null)
-                    return Format.Unknown;
-                DXTHeuristics.CountHits(_mips[index].data, ref dxt3Count, ref dxt5Count);
-            }
-            Format format = Format.DXT1;
-            if (dxt3Count > 0 || dxt5Count > 0)
-                format = dxt3Count > dxt5Count ? Format.DXT3 : Format.DXT5;
-            return format;
-        }
+        //public Format DeductFormat()
+        //{
+        //    int dxt3Count = 0;
+        //    int dxt5Count = 0;
+        //    for (int index = 0; index < _mips.Count; ++index)
+        //    {
+        //        if (_mips[index] == null)
+        //            return Format.Unknown;
+        //        DXTHeuristics.CountHits(_mips[index].data, ref dxt3Count, ref dxt5Count);
+        //    }
+        //    Format format = Format.DXT1;
+        //    if (dxt3Count > 0 || dxt5Count > 0)
+        //        format = dxt3Count > dxt5Count ? Format.DXT3 : Format.DXT5;
+        //    return format;
+        //}
 
-        private void PatchSize()
-        {
-            if (this._mips.Count > 1)
-            {
-                int maxSize = (int)Math.Pow(2.0, (double)(this._mips.Count + 1));
-                int index = this.Resolutions.FindIndex((Predicate<Size>)(s => Math.Min(s.Width, s.Height) == maxSize));
-                if (index == -1)
-                    return;
-                this.SetResolution(index);
-                //this._overrideSize = false;
-            }
-            else
-            {
-                int index = Resolutions.Count / 2;
-                if (Resolutions.Count % 2 == 0)
-                    --index;
-                SetResolution(index);
-                //this._overrideSize = false;
-            }
-        }
+        //private void PatchSize()
+        //{
+        //    if (_mips.Count > 1)
+        //    {
+        //        int maxSize = (int)Math.Pow(2.0, (double)(_mips.Count + 1));
+        //        int index = Resolutions.FindIndex((Predicate<Size>)(s => Math.Min(s.Width, s.Height) == maxSize));
+        //        if (index == -1)
+        //            return;
+        //        SetResolution(index);
+        //    }
+        //    else
+        //    {
+        //        int index = Resolutions.Count / 2;
+        //        if (Resolutions.Count % 2 == 0)
+        //            --index;
+        //        SetResolution(index);
+        //    }
+        //}
 
         //public bool CalculateSize()
         //{
-        //    if (this.CurrentFormat == Texture.Format.Unknown)
+        //    if (CurrentFormat == Texture.Format.Unknown)
         //        return false;
-        //    int num1 = this.CurrentFormat == Texture.Format.DXT1 ? this._mips[0].data.Length * 2 : this._mips[0].data.Length;
-        //    if (!this._overrideSize)
+        //    int num1 = CurrentFormat == Texture.Format.DXT1 ? _mips[0].data.Length * 2 : _mips[0].data.Length;
+        //    if (!_overrideSize)
         //    {
         //        int num2 = (int)Math.Sqrt((double)num1);
         //        if (Utils.IsPowerOf2(num2))
         //        {
-        //            this.Width = num2;
-        //            this.Height = num2;
+        //            Width = num2;
+        //            Height = num2;
         //        }
         //        else
         //        {
@@ -150,57 +138,53 @@ namespace Texture
         //            int x = num1 / num3;
         //            if (!Utils.IsPowerOf2(x))
         //                return false;
-        //            this.Width = num3;
-        //            this.Height = x;
+        //            Width = num3;
+        //            Height = x;
         //        }
-        //        this.FillResolutionsMap();
-        //        this.PatchSize();
+        //        FillResolutionsMap();
+        //        PatchSize();
         //    }
         //    return true;
         //}
 
-        public void SetFormat(Format fmt)
+        //public void SetFormat(Format fmt)
+        //{
+        //    if (TextureFormat == fmt)
+        //        return;
+        //    TextureFormat = fmt;
+        //    //CalculateSize();
+        //}
+
+        //public static Texture Read(ZipEntry e)
+        //{
+        //    using (MemoryStream input = new MemoryStream())
+        //    {
+        //        e.Extract(input);
+        //        return Read(Utils.UnZLib(input));
+        //    }
+        //}
+
+        public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            if (CurrentFormat == fmt)
-                return;
-            CurrentFormat = fmt;
-            //this._overrideSize = false;
-            //this.CalculateSize();
+            Read(Utils.UnZLib(binaryFileStream));
+            Width = realWidth;
+            Height = realHeight;
+            TextureFormat = type;
+            GetBitmap();
         }
 
-        public static Texture Read(ZipEntry e, string path)
+        public void Read(Stream input)
         {
-            using (MemoryStream input = new MemoryStream())
-            {
-                e.Extract(input);
-                return Read(Utils.UnZLib(input));
-            }
-        }
-
-        public static Texture Read(Stream input)
-        {
-            Texture texture = null;
             using (BinaryReader binaryReader = new BinaryReader(input))
             {
-                texture = new Texture();
                 while (binaryReader.BaseStream.Position < binaryReader.BaseStream.Length)
                 {
                     int level = binaryReader.ReadInt32();
                     int num = binaryReader.ReadInt32();
-                    texture.AddMipData(level, num, binaryReader.ReadBytes(num));
+                    AddMipData(level, num, binaryReader.ReadBytes(num));
                 }
             }
-            texture.PatchMips();
-            //int resolutionIndex = -1;
-            //Texture.Format format = Texture.Format.Unknown;
-            //if (Database.Instance.Get(path, out resolutionIndex, out format))
-            //{
-            //    texture.SetFormat(format);
-            //    texture.SetResolution(resolutionIndex);
-            //}
-            //else
-                texture.SetFormat(texture.DeductFormat());
-            return texture;
+            PatchMips();
         }
 
         public void SaveTo(Stream output)
@@ -212,16 +196,16 @@ namespace Texture
             if (_mips.Count > 1)
                 num |= 131072;
             binaryWriter.Write(num);
-            binaryWriter.Write(this.Height);
-            binaryWriter.Write(this.Width);
-            binaryWriter.Write(this._mips[0].data.Length);
+            binaryWriter.Write(Height);
+            binaryWriter.Write(Width);
+            binaryWriter.Write(_mips[0].data.Length);
             binaryWriter.Write(0);
-            binaryWriter.Write(this._mips.Count > 1 ? this._mips.Count : 0);
+            binaryWriter.Write(_mips.Count > 1 ? _mips.Count : 0);
             for (int index = 0; index < 11; ++index)
                 binaryWriter.Write(0);
             binaryWriter.Write(32);
             binaryWriter.Write(4);
-            switch (this.CurrentFormat)
+            switch (TextureFormat)
             {
                 case Format.DXT1:
                     binaryWriter.Write(827611204);
@@ -240,8 +224,8 @@ namespace Texture
             binaryWriter.Write(4096);
             for (int index = 0; index < 4; ++index)
                 binaryWriter.Write(0);
-            for (int index = 0; index < this._mips.Count; ++index)
-                binaryWriter.Write(this._mips[index].data);
+            for (int index = 0; index < _mips.Count; ++index)
+                binaryWriter.Write(_mips[index].data);
             binaryWriter.Flush();
         }
 
@@ -269,20 +253,20 @@ namespace Texture
         //    {
         //        using (BinaryWriter binaryWriter = new BinaryWriter((Stream)fileStream))
         //        {
-        //            for (int index = 0; index < this._mips.Count; ++index)
+        //            for (int index = 0; index < _mips.Count; ++index)
         //            {
-        //                if (this._mips[index] != null)
+        //                if (_mips[index] != null)
         //                {
         //                    binaryWriter.Write(mipsCount++);
-        //                    binaryWriter.Write(this._mips[index].size);
-        //                    binaryWriter.Write(this._mips[index].data);
+        //                    binaryWriter.Write(_mips[index].size);
+        //                    binaryWriter.Write(_mips[index].data);
         //                }
         //            }
         //            binSize = fileStream.Position;
         //        }
         //    }
-        //    this.WriteBaseXdb(str3, str2, binSize, mipsCount);
-        //    this.WriteSingleTextureXdb(singleTexturePath, str3);
+        //    WriteBaseXdb(str3, str2, binSize, mipsCount);
+        //    WriteSingleTextureXdb(singleTexturePath, str3);
         //}
 
         //private void WriteBaseXdb(string xdbPath, string binPath, long binSize, int mipsCount)
@@ -290,28 +274,28 @@ namespace Texture
         //    XmlDocument doc = new XmlDocument();
         //    doc.AppendChild((XmlNode)doc.CreateXmlDeclaration("1.0", "UTF-8", (string)null));
         //    XmlNode parent = doc.AppendChild((XmlNode)doc.CreateElement("UITexture"));
-        //    this.CreateElementWithValue(doc, parent, "mipSW", "-1");
-        //    this.CreateElementWithValue(doc, parent, "mipsNumber", mipsCount.ToString());
-        //    this.CreateElementWithValue(doc, parent, "generateMipChain", "false");
-        //    this.CreateElementWithValue(doc, parent, "type", this.CurrentFormat.ToString());
-        //    this.CreateElementWithValue(doc, parent, "width", this.Width.ToString());
-        //    this.CreateElementWithValue(doc, parent, "height", this.Height.ToString());
-        //    this.CreateElementWithValue(doc, parent, "realWidth", this.Width.ToString());
-        //    this.CreateElementWithValue(doc, parent, "realHeight", this.Height.ToString());
-        //    this.CreateElementWithValue(doc, parent, "disableLODControl", "false");
-        //    this.CreateElementWithValue(doc, parent, "alphaTex", "true");
-        //    this.CreateElementWithValue(doc, parent, "binaryFileSize", binSize.ToString());
+        //    CreateElementWithValue(doc, parent, "mipSW", "-1");
+        //    CreateElementWithValue(doc, parent, "mipsNumber", mipsCount.ToString());
+        //    CreateElementWithValue(doc, parent, "generateMipChain", "false");
+        //    CreateElementWithValue(doc, parent, "type", CurrentFormat.ToString());
+        //    CreateElementWithValue(doc, parent, "width", Width.ToString());
+        //    CreateElementWithValue(doc, parent, "height", Height.ToString());
+        //    CreateElementWithValue(doc, parent, "realWidth", Width.ToString());
+        //    CreateElementWithValue(doc, parent, "realHeight", Height.ToString());
+        //    CreateElementWithValue(doc, parent, "disableLODControl", "false");
+        //    CreateElementWithValue(doc, parent, "alphaTex", "true");
+        //    CreateElementWithValue(doc, parent, "binaryFileSize", binSize.ToString());
         //    XmlElement element1 = doc.CreateElement("binaryFile");
         //    parent.AppendChild((XmlNode)element1);
         //    element1.SetAttribute("href", Path.GetFileName(binPath));
-        //    this.CreateElementWithValue(doc, parent, "binaryFileSize2", "0");
+        //    CreateElementWithValue(doc, parent, "binaryFileSize2", "0");
         //    XmlElement element2 = doc.CreateElement("binaryFile2");
         //    parent.AppendChild((XmlNode)element2);
         //    element2.SetAttribute("href", "");
-        //    this.CreateElementWithValue(doc, parent, "wrap", "false");
+        //    CreateElementWithValue(doc, parent, "wrap", "false");
         //    parent.AppendChild((XmlNode)doc.CreateElement("LocalizationInfo"));
-        //    this.CreateElementWithValue(doc, parent, "atlasPart", "true");
-        //    this.CreateElementWithValue(doc, parent, "pool", "UNDEFINED");
+        //    CreateElementWithValue(doc, parent, "atlasPart", "true");
+        //    CreateElementWithValue(doc, parent, "pool", "UNDEFINED");
         //    doc.Save(xdbPath);
         //}
 
@@ -323,13 +307,13 @@ namespace Texture
         //    XmlElement element = doc.CreateElement("singleTexture");
         //    parent.AppendChild((XmlNode)element);
         //    element.SetAttribute("href", Path.GetFileName(baseXdbPath) + "#xpointer(/UITexture)");
-        //    this.CreateElementWithValue(doc, parent, "permanentCache", "0");
+        //    CreateElementWithValue(doc, parent, "permanentCache", "0");
         //    doc.Save(singleTexturePath);
         //}
 
         public Bitmap GetBitmap()
         {
-            using (MemoryStream memoryStream = new MemoryStream(this._mips[0].size + this._mips[0].size / 2 + 150))
+            using (MemoryStream memoryStream = new MemoryStream(_mips[0].size + _mips[0].size / 2 + 150))
             {
                 SaveTo(memoryStream);
                 memoryStream.Seek(0L, SeekOrigin.Begin);

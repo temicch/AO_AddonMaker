@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Texture
 {
-    internal static class Utils
+    public static class Utils
     {
         public static bool IsPowerOf2(int x)
         {
@@ -22,7 +22,7 @@ namespace Texture
             return n;
         }
 
-        public static MemoryStream UnZLib(MemoryStream input)
+        public static MemoryStream UnZLib(Stream input)
         {
             input.Position = 0L;
             MemoryStream memoryStream = new MemoryStream();
