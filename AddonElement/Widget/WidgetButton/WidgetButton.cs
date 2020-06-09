@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AddonElement
 {
-    public class WidgetButton : Widget
+    public class WidgetButton : WidgetPanel
     {
         public string TextTag { get; set; }
         [XmlArrayItem("Item")]

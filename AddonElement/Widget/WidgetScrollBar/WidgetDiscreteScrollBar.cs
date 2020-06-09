@@ -1,6 +1,6 @@
 ﻿namespace AddonElement
 {
-    class WidgetDiscreteScrollBar : WidgetScrollBar
+    public class WidgetDiscreteScrollBar : WidgetScrollBar
     {
         public href slider { get; set; }
     }

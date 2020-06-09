@@ -44,6 +44,9 @@ namespace AddonElement
 
         public static AddonFile Add(string filePath)
         {
+            if (filePath == null)
+                return null;
+
             RemovePointer(ref filePath);
             AddonFile newUIElement = null;
 
@@ -83,7 +86,7 @@ namespace AddonElement
             }
             catch (InvalidOperationException exception)
             {
-                DebugOutput(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.InnerException.Message));
+                DebugOutput(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.Message));
                 newUIElement = new AddonFile(Path.GetFullPath(filePath));
             }
             catch (XmlException)
@@ -97,7 +100,7 @@ namespace AddonElement
             }
             catch (Exception exception)
             {
-                DebugOutput(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.InnerException?.Message));
+                DebugOutput(string.Format("[{0}]: {1}", Path.GetFullPath(filePath), exception.Message));
                 newUIElement = new AddonFile(Path.GetFullPath(filePath));
             }
             finally

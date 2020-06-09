@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace AddonElement
@@ -100,6 +101,11 @@ namespace AddonElement
         [Description("Уведомление о прокрутке колёсика мыши вниз")]
         public string reactionWheelDown { get; set; }
 
+        public ImageSource Bitmap
+        {
+            get => GetBitmap();
+        }
+
         public Widget()
         {
             Visible = true;
@@ -117,6 +123,12 @@ namespace AddonElement
             isProtected = false;
             TabOrder = 0;
         }
+
         public IEnumerable<AddonFile> GetChildren() => Children.Select(x => x.File);
+
+        protected ImageSource GetBitmap()
+        {
+            return (BackLayer?.File as WidgetLayer)?.Bitmap;
+        }
     }
 }

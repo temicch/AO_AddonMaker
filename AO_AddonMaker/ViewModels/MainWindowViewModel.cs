@@ -4,6 +4,7 @@ using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace AO_AddonMaker.Views
         public string DebugOutput 
         { 
             get 
-            { 
+            {
                 return textDebug.ToString(); 
             } 
             set 
@@ -79,8 +80,8 @@ namespace AO_AddonMaker.Views
                     Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive)
                 };
                 workInProgress.Show();
-                await Task.Run(() => LoadProject(dlg.FileName));
                 RootFile.Clear();
+                await Task.Run(() => LoadProject(dlg.FileName));
                 RootFile.Add(Project.RootWidget);
                 workInProgress.Close();
             }
@@ -89,6 +90,7 @@ namespace AO_AddonMaker.Views
         private void LoadProject(string fileName)
         {
             GC.Collect();
+            GC.WaitForFullGCComplete();
             Project = new Project(fileName);
             Project.Load();
         }
@@ -96,6 +98,7 @@ namespace AO_AddonMaker.Views
         public void DebugWrite(string msg)
         {
             DebugOutput = string.Format("{0}\n", msg);
+            //Debug.WriteLine(msg);
         }
 
         private void ClearDebug(object parameter)

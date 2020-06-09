@@ -1,6 +1,6 @@
 ﻿namespace AddonElement
 {
-    class WidgetDiscreteSlider : WidgetSlider
+    public class WidgetDiscreteSlider : WidgetSlider
     {
         public int stepsCount { get; set; }
 

@@ -1,10 +1,10 @@
-﻿using System.Drawing;
-using System.IO;
+﻿using System.IO;
+using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace AddonElement
 {
-	public class UITexture : AddonFile
+    public class UITexture : AddonFile
 	{
 		public int mipSW { get; set; }
 		public int mipsNumber { get; set; }
@@ -28,19 +28,19 @@ namespace AddonElement
 		public string pool { get; set; }
 
 		[XmlIgnore]
-		protected Bitmap bitmap { get; set; }
+		protected ImageSource bitmap { get; set; }
 		[XmlIgnore]
-		public Bitmap Bitmap
+		public ImageSource Bitmap
         {
 			get => GetBitmap();
         }
 
-		protected Bitmap GetBitmap()
+		protected ImageSource GetBitmap()
         {
 			if (bitmap == null)
 				using (var binaryFileStream = new StreamReader(binaryFile.Path))
-				{
-					var Texture = new Texture.Texture(binaryFileStream.BaseStream, realWidth, realHeight, type);
+				{ 
+					var Texture = new Texture.Texture(binaryFileStream.BaseStream, width, height, type);
 					bitmap = Texture.GetBitmap();
 				}
 			return bitmap;

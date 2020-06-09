@@ -4,8 +4,8 @@ namespace AddonElement
 {
     public class AddonFile
     {
-        public string FilePath { get; set; }
-        public string FileName { get; set; }
+        public string FilePath { get; set; } = string.Empty;
+        public string FileName { get; set; } = string.Empty;
         public string FileType 
         { 
             get
@@ -29,7 +29,7 @@ namespace AddonElement
         public AddonFile(string filePath)
         {
             FilePath = filePath;
-            FileName = Path.GetFileName(FilePath);
+            FileName = Path.GetFileName(null);
         }
     }
 }

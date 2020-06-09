@@ -35,19 +35,5 @@ namespace Texture
             memoryStream.Position = 0L;
             return memoryStream;
         }
-
-        //public static MemoryStream ZLib(MemoryStream input)
-        //{
-        //    input.Position = 0L;
-        //    MemoryStream memoryStream = new MemoryStream();
-        //    using (ZlibStream zlibStream = new ZlibStream((Stream)input, (CompressionMode)0))
-        //    {
-        //        byte[] buffer = new byte[16384];
-        //        for (int count = ((Stream)zlibStream).Read(buffer, 0, 16384); count > 0; count = ((Stream)zlibStream).Read(buffer, 0, 16384))
-        //            memoryStream.Write(buffer, 0, count);
-        //    }
-        //    memoryStream.Position = 0L;
-        //    return memoryStream;
-        //}
     }
 }

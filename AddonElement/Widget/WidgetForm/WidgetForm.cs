@@ -1,6 +1,6 @@
 ﻿namespace AddonElement
 {
-    public class WidgetForm : Widget
+    public class WidgetForm : WidgetPanel
     {
     }
 }

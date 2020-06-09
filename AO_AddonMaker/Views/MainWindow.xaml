@@ -37,7 +37,7 @@
             <ToolBarTray>
                 <ToolBar Height="30">
                     <ToggleButton Background="Transparent" BorderThickness="0" Command="{Binding openFile}">
-                        <Image Source="/AO_AddonMaker;component/Icons/openFile.png"/>
+                        <Image Source="/AO_AddonMaker;component/Icons/openFile.png" />
                     </ToggleButton>
                 </ToolBar>
             </ToolBarTray>
@@ -58,7 +58,7 @@
                                 <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding RootFile}" VirtualizingPanel.IsVirtualizing="True">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
-                                            <Rectangle Width="{Binding Placement.X.Size}" Height="{Binding Placement.Y.Size}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}" Stroke="Green" />
+                                                <Image Source="{Binding Bitmap}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}"/>
                                         </HierarchicalDataTemplate>
                                     </TreeView.ItemTemplate>
                                 </TreeView>

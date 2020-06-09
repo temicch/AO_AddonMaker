@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace AddonElement
 {
@@ -25,6 +27,11 @@ namespace AddonElement
         public bool repeatForever { get; set; }
         public bool playImmidiatly { get; set; }
         public List<Frame> frames { get; set; }
+
+        public override ImageSource Bitmap
+        {
+            get => throw new NotImplementedException();
+        }
 
         public WidgetLayerAnimatedTexture()
         {
