@@ -114,9 +114,9 @@ namespace Texture
 
         protected void GCCollectTexture()
         {
-            if (textureStream != null)
-                textureStream.Dispose();
-            textureStream = null;
+            //if (textureStream != null)
+            //    textureStream.Dispose();
+            //textureStream = null;
         }
 
         public ImageSource GetBitmap()
