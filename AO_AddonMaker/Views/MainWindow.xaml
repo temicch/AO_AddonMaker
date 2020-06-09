@@ -29,9 +29,18 @@
         <StackPanel DockPanel.Dock="Top">
             <WrapPanel>
                 <Menu>
-                    <MenuItem  Header="Menu" />
-                    <MenuItem  Header="About" />
-                    <MenuItem  Header="Close" />
+                    <MenuItem  Header="Menu">
+                        <MenuItem Header="_Open project" Command="{Binding openFile}"/>
+                        <Separator/>
+                        <MenuItem Header="_Samples" ItemsSource="{Binding Samples}">
+                            <MenuItem.ItemContainerStyle>
+                                <Style TargetType="{x:Type MenuItem}">
+                                    <Setter Property="Command" Value= "{Binding DataContext.sampleSelect, RelativeSource = {RelativeSource AncestorType = {x:Type MenuItem}}}" />
+                                    <Setter Property="CommandParameter" Value="{Binding}" />
+                                </Style>
+                            </MenuItem.ItemContainerStyle>
+                        </MenuItem>
+                    </MenuItem>
                 </Menu>
             </WrapPanel>
             <ToolBarTray>
