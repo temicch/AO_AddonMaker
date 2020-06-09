@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>Reactor</Name>
+	<BackLayer href="Textures/Reactor.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Priority>1</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>19</Size>
+			<Pos>66</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>23</Size>
+			<Pos>208</Pos>
+		</Y>
+	</Placement>
+	<Visible>false</Visible>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+	<reactionOnPointing>Tooltip</reactionOnPointing>
+</WidgetPanel>

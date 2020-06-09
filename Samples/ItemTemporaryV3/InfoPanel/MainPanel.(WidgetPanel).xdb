@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>InfoPanel</Name>
+	<Visible>true</Visible>
+	<Children>
+		<Item href="Text.(WidgetTextView).xdb" />
+	</Children>
+	<BackLayer href="MainFrame.(WidgetLayerTiledTexture).xdb" />
+	<Placement>
+		<sizingWidget href="Text.(WidgetTextView).xdb" />
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>300</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_CHILDREN</Sizing>
+			<Size>200</Size>
+		</Y>
+	</Placement>
+</WidgetPanel>

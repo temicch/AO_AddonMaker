@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIRelatedTextures>
+	<Items>
+		<Item>
+			<name>ENGINEER</name>
+			<textureItem href="/Interface/Ingame/ContextRelatedTextures/PlayerClasses/Engineer.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>BARD</name>
+			<textureItem href="Classes/Bard.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>DRUID</name>
+			<textureItem href="Classes/Druid.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>MAGE</name>
+			<textureItem href="Classes/Mage.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>NECROMANCER</name>
+			<textureItem href="Classes/Necromancer.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>PALADIN</name>
+			<textureItem href="Classes/Paladin.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>PRIEST</name>
+			<textureItem href="Classes/Priest.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>PSIONIC</name>
+			<textureItem href="Classes/Psionic.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>WARLOCK</name>
+			<textureItem href="Classes/Warlock.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>STALKER</name>
+			<textureItem href="Classes/Stalker.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>WARRIOR</name>
+			<textureItem href="Classes/Warrior.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>ELITE</name>
+			<textureItem href="System/MarkCrown.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>SEARCH</name>
+			<textureItem href="System/Search.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>MARKCB</name>
+			<textureItem href="System/MarkCrownSilverOutline.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>MARKCF</name>
+			<textureItem href="System/MarkCrownSilver.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>MARKSB</name>
+			<textureItem href="System/MarkSearchBg.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+		<Item>
+			<name>MARKSF</name>
+			<textureItem href="System/MarkSearchFg.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+		</Item>
+	</Items>
+</UIRelatedTextures>

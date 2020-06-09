@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>SeparatorText</Name>
+	<Priority>150</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>0</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>40</Size>
+			<Pos>0</Pos>
+		</Y>
+	</Placement>
+	<FormatFileRef href="Separator.txt" />
+	<TransparentInput>true</TransparentInput>
+</WidgetTextView>
+

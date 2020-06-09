@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>panel</Name>
+ 	<Children>
+		<!-- <Item href="ResizeCorner/ResizeCorner.Default.(WidgetButton).xdb#xpointer(/WidgetButton)" /> -->
+		<Item href="ScrollableContainer.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="ButtonClose/Button.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="ButtonTurnOff/Button.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="ButtonSettings/Button.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="ButtonRefresh/Button.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="ButtonDeposite/Button.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="Checkbox/Checkbox.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="Text/Text2.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Visible>false</Visible>
+	<BackLayer href="Panel.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />	
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>450</Size>
+			<Pos>760</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>440</Size>
+			<Pos>256</Pos>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+</WidgetPanel>

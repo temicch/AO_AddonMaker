@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIAddon>
+	<Name>ItemTemporary</Name>
+	<AutoStart>true</AutoStart>
+	<ScriptFileRefs>
+		<Item href="/Mods/SampleCommon/SampleAddonBase.lua"/>
+		<Item href="libs/LibChat.lua"/>
+		<Item href="libs/LibTimer.lua"/>
+		<Item href="libs/LibDnD.lua" />
+		<Item href="../LibContainer.lua" />
+		<Item href="../LibLimitedContainer.lua" />
+		<Item href="locales.txt" />
+		<Item href="libs/LibLocale.lua" />
+		<Item href="scripts/Class1.lua" />
+		<Item href="scripts/Class2.lua" />
+		<Item href="scripts/Class3.lua" />
+		<Item href="scripts/Class4.lua" />
+		<Item href="scripts/Class5.lua" />
+		<Item href="scripts/mainscript.lua" />
+	</ScriptFileRefs>
+	<MainFormId>Main</MainFormId>
+	<Forms>
+		<Item>
+			<Form href="MainForm.(WidgetForm).xdb#xpointer(/WidgetForm)" />
+			<Id>Main</Id>
+		</Item>
+	</Forms>
+	<visObjects href="" />
+	<texts href="" />
+	<textures href="" />
+</UIAddon>

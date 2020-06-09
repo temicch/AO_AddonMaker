@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>Icon</Name>
+	<Priority>1000</Priority>
+	<Visible>false</Visible>
+	<BackLayer href="Icon.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Placement>
+		<X>
+			<Pos>55</Pos>
+			<Size>38</Size>
+		</X>
+		<Y>
+			<Size>38</Size>
+			<Pos>-3</Pos>
+			<HighPos>17</HighPos>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+		</Y>
+	</Placement>
+	<TransparentInput>true</TransparentInput>
+</WidgetButton>

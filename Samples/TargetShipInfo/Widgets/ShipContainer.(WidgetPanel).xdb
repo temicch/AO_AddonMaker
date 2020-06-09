@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>ShipContainer</Name>
+	<Children>
+		<Item href="ShipPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+	</Children>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>180</Size>
+			<Pos>0</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>280</Size>
+			<Pos>0</Pos>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetPanel>

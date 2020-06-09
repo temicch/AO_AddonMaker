@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>Checkbox</Name>
+	<Visible>false</Visible>
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>26</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>24</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<!-- <reactionOnPointing>checkbox_over</reactionOnPointing> -->
+	<Variants>
+		<Item>
+			<LayerHighlight href="CheckboxHighlight.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			<StateNormal>
+				<LayerMain href="Checkbox.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StateNormal>
+			<Reaction>checkbox_pressed</Reaction>
+			<ReactionOnUp>true</ReactionOnUp>
+		</Item>
+		<Item>
+			<LayerHighlight href="CheckboxHighlight.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			<StateNormal>
+				<LayerMain href="CheckboxChecked.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StateNormal>
+			<Reaction>checkbox_pressed</Reaction>
+			<ReactionOnUp>true</ReactionOnUp>
+		</Item>
+	</Variants>
+</WidgetButton>

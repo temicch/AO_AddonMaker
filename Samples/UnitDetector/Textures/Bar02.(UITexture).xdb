@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UITexture>
+	<mipSW>-1</mipSW>
+	<mipsNumber>1</mipsNumber>
+	<generateMipChain>false</generateMipChain>
+	<type>DXT5</type>
+	<width>32</width>
+	<height>32</height>
+	<realWidth>32</realWidth>
+	<realHeight>32</realHeight>
+	<disableLODControl>false</disableLODControl>
+	<alphaTex>true</alphaTex>
+	<binaryFileSize>73</binaryFileSize>
+	<binaryFile href="Bar02.(UITexture).bin" />
+	<sourceFile href="Bar02.tga" />
+	<sourceFileCRC>-1444076974</sourceFileCRC>
+	<wrap>false</wrap>
+	<LocalizationInfo />
+	<inheritedSourceFile href="" />
+</UITexture>

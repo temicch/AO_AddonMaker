@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIAddon>
+	<AutoStart>true</AutoStart>
+	<localizedNameFileRef href="name.txt"/>
+	<localizedDescFileRef href="desc.txt"/>
+	<Forms>
+
+		<Item>
+
+			<Form href="Widgets/MainForm.(WidgetForm).xdb#xpointer(/WidgetForm)"/>
+
+			<Id>Main</Id>
+
+		</Item>
+	</Forms>
+	<MainFormId>Main</MainFormId>
+	<Name>NotifyTrink2</Name>
+
+	<ScriptFileRefs>
+		<Item href="/Mods/SampleCommon/SampleAddonBase.lua"/>
+		<Item href="Scripts/Localization.lua"/>
+		<Item href="Scripts/NotifyTrink2.lua"/>
+	</ScriptFileRefs>
+	<author>Slashuur</author>
+	<revision>3.1</revision>
+	<texts href=""/>
+
+	<textures href=""/>
+	<update>2015-01-29</update>
+
+	<visObjects href=""/>
+<addon_name>NotifyTrink2</addon_name><addon_date>1422990320</addon_date><addon_link>https://alloder.pro/files/file/148-notifytrink2/?do=download&amp;r=24252&amp;confirm=1&amp;t=1&amp;csrfKey=</addon_link></UIAddon>

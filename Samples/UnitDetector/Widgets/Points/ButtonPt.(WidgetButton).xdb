@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonPt</Name>
+	<Priority>500</Priority> 
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>24</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>24</Size>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<Variants>
+	<Item>
+		<TextFileRef href="" />
+		<LayerHighlight href="" />
+		<PushedOffset x="2" y="-2" />
+		<StateNormal>
+			<LayerMain href="" />
+			<FormatFileRef href="" />
+		</StateNormal>
+		<ReactionOnUp>false</ReactionOnUp>
+		<Reaction>ButtonPt_clk</Reaction>
+	</Item>
+	</Variants>
+	<TextStyle>
+		<Align>ALIGNY_BOTTOM</Align> 
+	</TextStyle>
+</WidgetButton>

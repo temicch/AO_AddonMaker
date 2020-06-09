@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>LightWing</Name>
+	<Priority>1</Priority>
+	<BackLayer href="Textures/LightWing.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_HIGH</Align>
+			<HighPos>512</HighPos>
+			<Size>256</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Pos>0</Pos>
+			<Size>256</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>true</TransparentInput>
+	<clipContent>false</clipContent>
+</WidgetPanel>

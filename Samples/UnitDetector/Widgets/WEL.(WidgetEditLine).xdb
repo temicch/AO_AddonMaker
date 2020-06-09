@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetEditLine>
+	<Name>WEL</Name>
+	<Priority>410</Priority>
+	<BackLayer href="../Textures/Border02.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>400</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>24</Size>
+		</Y>
+	</Placement>
+	<Visible>false</Visible>
+	<Cursor1Layer href="../Textures/Bar02.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Cursor2Layer href="../Textures/nl.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<CursorWidth>2</CursorWidth>
+	<CursorChangeTimeMs>700</CursorChangeTimeMs>
+	<ReactionEsc>rESC</ReactionEsc>
+	<ReactionEnter>rEn</ReactionEnter>
+	<TextStyle>
+		<multiline>false</multiline>
+		<wrapText>true</wrapText>
+		<showClippedSymbol>false</showClippedSymbol>
+		<showClippedLine>true</showClippedLine>
+		<lineSpacing>0</lineSpacing>
+		<ellipsis>true</ellipsis>
+		<Align>ALIGNX_HIGH</Align>
+	</TextStyle>
+	<isPassword>false</isPassword>
+	<maxSymbolsCount>50</maxSymbolsCount>
+	<selectionLayer href="../Textures/Bar02.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+</WidgetEditLine>

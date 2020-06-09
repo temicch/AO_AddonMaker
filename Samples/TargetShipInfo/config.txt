@@ -1,0 +1,2 @@
+Global( "g_showCoolDown", true )
+Global( "g_showDevices", true )

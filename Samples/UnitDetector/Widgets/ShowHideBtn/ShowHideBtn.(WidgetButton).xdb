@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ShowHideBtn</Name>
+	<Priority>250</Priority>
+	<Placement>
+		<X>
+			<Pos>500</Pos>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>30</Size>
+		</X>
+		<Y>
+			<Pos>500</Pos>			
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>30</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<TextTag>button_label</TextTag>
+	<Variants>
+		<Item>
+			<TextFileRef href="Text.txt" />
+			<LayerHighlight href="ShowHideBtnHighlighted.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+			<PushedOffset x="-2" y="2" />
+			<StateNormal>
+				<LayerMain href="ShowHideBtnNormal.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+				<FormatFileRef href="ButtonFormatNormal.txt" />
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="ShowHideBtnNormal.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+			</StatePushed>
+			<ReactionOnUp>true</ReactionOnUp>
+			<Reaction>ShowHideBtnReaction</Reaction>
+		</Item>
+	</Variants>
+	<TextStyle>
+		<Align>ALIGNY_MIDDLE</Align>
+	</TextStyle>
+</WidgetButton>

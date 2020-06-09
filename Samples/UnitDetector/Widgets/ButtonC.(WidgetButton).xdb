@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonC</Name>
+	<Priority>250</Priority> 
+	<BackLayer href="../Textures/TNil.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" /> 
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>24</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>24</Size>
+		</Y>
+	</Placement>
+	<Visible>false</Visible>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<Variants>
+	<Item>
+		<TextFileRef href="Texts/ItemValue.txt" />
+		<LayerHighlight href="" />
+		<PushedOffset x="2" y="-2" />
+		<StateNormal>
+			<LayerMain href="" />
+			<FormatFileRef href="Texts/ButtonCNormal.txt" />
+		</StateNormal>
+		<ReactionOnUp>false</ReactionOnUp>
+		<Reaction>ButtonC_clk</Reaction>
+		<ReactionRightClick>ButtonC_rclk</ReactionRightClick>
+		<ReactionOnPointing>ButtonC_pnt</ReactionOnPointing>
+	</Item>
+	</Variants>
+	<TextStyle>
+		<Align>ALIGNY_BOTTOM</Align> 
+	</TextStyle>
+	<reactionOnPointing>ButtonC_pnt</reactionOnPointing>
+</WidgetButton>

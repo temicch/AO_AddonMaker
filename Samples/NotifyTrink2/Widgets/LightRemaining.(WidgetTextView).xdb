@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>LightRemaining</Name>
+	<Priority>5</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Pos>0</Pos>
+			<Size>45</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_HIGH</Align>
+			<HighPos>65</HighPos>
+			<Size>20</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>true</TransparentInput>
+	<TextStyle>
+		<showClippedSymbol>true</showClippedSymbol>
+		<ellipsis>false</ellipsis>
+	</TextStyle>
+	<FormatFileRef href="LightRemaining.txt" />
+</WidgetTextView>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+    <Name>LogPanel</Name>
+	<Priority>5000</Priority>
+    <Children>
+        <Item href="Background.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+    </Children>
+	<Visible>true</Visible>
+    <BackLayer href="Placeholder.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+    <Placement>
+        <X>
+            <Align>WIDGET_ALIGN_BOTH</Align>
+            <Pos>0</Pos>
+        </X>
+        <Y>
+            <Align>WIDGET_ALIGN_LOW</Align>
+            <Size>200</Size>
+			<Pos>170</Pos>
+        </Y>
+    </Placement>
+    <TransparentInput>true</TransparentInput>
+</WidgetPanel>

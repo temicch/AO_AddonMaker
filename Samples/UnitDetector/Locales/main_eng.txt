@@ -1,0 +1,33 @@
+--[[Eng locales
+
+
+
+
+]]
+Global ("Lc",{{
+	LShort = "eng",
+	Language = "English",
+	LocalizerInfo = "Nikon",
+	Agility = "Agility",
+	Dexterity = "Expertise",
+	Stamina = "Stamina",
+	Intellect = "Intelligence",
+	Intuition = "Perception",
+	Wisdom = "Faith",
+	Lethality = "Rage",
+	Strength = "Strength",
+	Might = "Finesse",
+	Spirit = "Wisdom",
+	Will = "Conviction",
+	Resolve = "Willpower",
+	Precision = "Luck",
+	Hardiness = "Endurance",
+	TTIOT = "The truth is out there...",
+	Search = "Search",
+	Find = "Find",
+	Level = "Level",
+	None = "None",
+	Rank = "Patronage Level",
+	Remort_MN ="Progenitor",
+	NA = "NA"
+}})

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>Tooltip</Name>
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_INTERNAL</Sizing>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_INTERNAL</Sizing>
+		</Y>
+	</Placement>
+	<Visible>false</Visible>
+	<Enabled>true</Enabled>
+	<TransparentInput>true</TransparentInput>
+	<FormatFileRef href="Tooltip.txt" />
+	<TextValues />
+	<TextStyle>
+		<wrapText>true</wrapText>
+		<showClippedSymbol>false</showClippedSymbol>
+		<ellipsis>false</ellipsis>
+		<multiline>true</multiline>
+	</TextStyle>
+	<pickObjectsOnly>true</pickObjectsOnly>
+	<minWidth>1</minWidth>
+	<maxWidth>120</maxWidth>
+</WidgetTextView>
+

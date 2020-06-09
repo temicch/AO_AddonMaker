@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>Item</Name>
+ 	<Children>
+		<Item href="SlotButton/SlotButton.Prototype.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="Name/Text.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="Time/Text.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Visible>true</Visible>
+	<BackLayer href="ItemFrame.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<HighPos>32</HighPos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>50</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+</WidgetPanel>

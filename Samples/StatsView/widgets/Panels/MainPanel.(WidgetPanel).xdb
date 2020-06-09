@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>MainPanel</Name>
+	<Children>
+		<Item href="Text/Text1.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="Text/Text2.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="SpecialStatsPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Button/ButtonUp.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="Button/ButtonDown.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="Execute.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+	</Children>
+	<Visible>false</Visible>
+	<BackLayer href="StatsPanel.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Placement>
+		<QuantumScale>true</QuantumScale>
+		<X>
+			<Size>268</Size>
+		</X>
+		<Y>
+			<Size>613</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+</WidgetPanel>

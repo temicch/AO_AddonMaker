@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>Panel</Name>
+	<Priority>500</Priority>
+	<BackLayer href="../../Textures/TNil.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>10</Pos>
+			<HighPos>5</HighPos>
+			<Size>32</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>10</Pos>
+			<HighPos>0</HighPos>
+			<Size>32</Size>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetPanel>

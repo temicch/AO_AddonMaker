@@ -1,0 +1,28 @@
+--[[German locale
+
+]]
+table.insert(Lc,{
+	LShort = "ger",
+	Language = "German",
+	LocalizerInfo = "Regimardyl",
+	Agility    = "Beweglichkeit",
+ 	Dexterity = "Geschick",
+	Stamina = "Kondition",
+	Intellect = "Intelligenz",
+	Intuition = "Intuition",
+	Wisdom = "Glaube",
+	Lethality = "Segen",
+	Strength = "Stärke",
+	Might = "Gewandtheit",
+	Spirit = "Weisheit",
+	Will = "Überzeugung",
+	Resolve = "Willenskraft",
+	Precision = "Glück",
+	Hardiness = "Ausdauer",
+	TTIOT = "Die Wahrheit ist da draußen ...",
+	Search = "Suchen",
+	Find = "Finden",
+	Level = "Level",
+	None = "Nichts",
+	Rank = "Märtyrer Stufe",
+})

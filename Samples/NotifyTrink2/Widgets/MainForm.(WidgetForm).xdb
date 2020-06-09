@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetForm>
+	<Name>NotifyTrink2</Name>
+	<Priority>1000</Priority>
+	<Children>
+		<Item href="LightWing.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="DarkWing.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="LightText.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="DarkText.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="LightRemaining.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="DarkRemaining.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<BackLayer href="" />
+	<FrontLayer href="" />
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetForm>

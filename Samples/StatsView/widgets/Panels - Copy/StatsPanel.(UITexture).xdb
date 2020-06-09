@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UITexture>
+	<mipSW>-1</mipSW>
+	<mipsNumber>1</mipsNumber>
+	<generateMipChain>false</generateMipChain>
+	<type>DXT5</type>
+	<width>512</width>
+	<height>1024</height>
+	<realWidth>268</realWidth>
+	<realHeight>613</realHeight>
+	<disableLODControl>false</disableLODControl>
+	<alphaTex>true</alphaTex>
+	<binaryFileSize>36947</binaryFileSize>
+	<binaryFile href="StatsPanel.(UITexture).bin" />
+	<binaryFileSize2>0</binaryFileSize2>
+	<binaryFile2 href="" />
+	<sourceFile href="StatsPanel.tga" />
+	<sourceFileCRC>-1936299422</sourceFileCRC>
+	<wrap>false</wrap>
+	<LocalizationInfo />
+	<atlasPart>true</atlasPart>
+	<pool>UNDEFINED</pool>
+</UITexture>

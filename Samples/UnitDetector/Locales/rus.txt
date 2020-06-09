@@ -1,0 +1,34 @@
+--[[Rus locales
+
+
+
+
+]]
+table.insert(Lc,{
+	LShort = "rus",
+	Language = "Russian",
+	LocalizerInfo = "Nikon",
+	Power = "Могущество",
+	Agility = "Проворство",
+	Dexterity = "Ловкость",
+	Stamina = "Выносливость",
+	Intellect = "Разум",
+	Intuition = "Интуиция",
+	Wisdom = "Мудрость",
+	Lethality = "Ярость",
+	Strength = "Сила",
+	Might = "Точность",
+	Spirit = "Дух",
+	Will = "Упорство",
+	Resolve = "Воля",
+	Precision = "Удача",
+	Hardiness = "Инстинкт",
+	TTIOT = "The truth is out there...",
+	Search = "Ищем",
+	Find = "Нашли",
+	Level = "уровень",
+	None = "Ничего",
+	Rank = "Ступень",
+	Remort_MN ="Прародитель",
+	NA = "Неизвестно"
+})

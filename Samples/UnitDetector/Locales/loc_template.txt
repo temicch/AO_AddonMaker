@@ -1,0 +1,34 @@
+--[[Template locale
+
+]]
+table.insert(Lc,{
+	LShort = "eng",		--Language abbreviation 
+	--[[	"rus" - Russian (Russia)
+		"eng" - English (Great Britain, the USA, Philippines)
+		"ger" - German (Germany, Austria)
+		"fra" - French (France)
+		"br" - Portuguese (Brazil)
+		"jpn" - Japanese (Japan)]]
+	Language = "English",		--Localization language
+	LocalizerInfo = "Nikon",	--Localizer Info: Nick, date, etc - experimental, do not use now
+	Agility = "Agility",
+	Dexterity = "Expertise",
+	Stamina = "Stamina",
+	Intellect = "Intelligence",
+	Intuition = "Perception",
+	Wisdom = "Faith",
+	Lethality = "Rage",
+	Strength = "Strength",
+	Might = "Finesse",
+	Spirit = "Wisdom",
+	Will = "Conviction",
+	Resolve = "Willpower",
+	Precision = "Luck",
+	Hardiness = "Endurance",
+	TTIOT = "The truth is out there...",
+	Search = "Search",
+	Find = "Find",
+	Level = "Level",
+	None = "None",
+	Rank = "Patronage Level"
+})

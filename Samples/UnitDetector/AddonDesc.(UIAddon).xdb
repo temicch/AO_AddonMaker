@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIAddon>
+  <AutoStart>true</AutoStart>
+  <Forms>
+    <Item>
+      <Form href="Widgets/MainForm.(WidgetForm).xdb#xpointer(/WidgetForm)" />
+      <Id>MainForm</Id>
+    </Item> 
+  </Forms>
+  <MainFormId>MainForm</MainFormId>
+  <Name>UnitDetector</Name>
+  <localizedNameFileRef href="Desc/nme00" />
+  <localizedDescFileRef href="Desc/nme01" />
+  <ScriptFileRefs>
+    <Item href="Locales/main_eng.txt" />
+    <Item href="Locales/rus.txt" />
+    <Item href="Locales/fra.txt" />
+    <Item href="Locales/ger.txt" />
+    <Item href="Settings.txt" />
+    <Item href="Scripts/LibDnD.lua" />
+    <Item href="Scripts/DnD.lua" />
+    <Item href="Scripts/UEvRe.lua" />
+    <Item href="Scripts/UData.lua" />
+    <Item href="Scripts/UnDetector.lua" />
+  </ScriptFileRefs>
+  <author>Nikon</author>
+  <revision>11</revision>
+  <textures href="Textures/Textures.(UIRelatedTextures).xdb" />
+  <update>2014-10-17</update>
+  <www>https://alloder.pro/files/file/11-unitdetector/</www>
+</UIAddon>

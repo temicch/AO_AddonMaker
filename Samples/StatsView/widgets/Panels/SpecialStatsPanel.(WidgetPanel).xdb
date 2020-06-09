@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>SpecialStatsPanel</Name>
+	<Children>
+		<Item href="SpecialStatsPanelInn.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Text/Text2.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_DEFAULT</Sizing>
+			<Pos>5</Pos>
+			<HighPos>0</HighPos>
+			<Size>223</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>353</Pos>
+			<HighPos>0</HighPos>
+			<Size>245</Size>
+		</Y>
+	</Placement>
+	<reactionWheelUp>OnPressButtonUp</reactionWheelUp>
+	<reactionWheelDown>OnPressButtonDown</reactionWheelDown>
+</WidgetPanel>

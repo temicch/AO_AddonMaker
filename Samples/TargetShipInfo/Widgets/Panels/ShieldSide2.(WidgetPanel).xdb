@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>ShieldSide2</Name>
+	<Children>
+		<Item href="Shields/Shield2.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+	</Children>
+	<Priority>0</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>200</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>100</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+	<reactionOnPointing>Tooltip</reactionOnPointing>
+</WidgetPanel>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>Text2</Name>
+	<Priority>150</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>320</Size>
+			<Pos>0</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>40</Size>
+			<Pos>0</Pos>
+		</Y>
+	</Placement>
+	<FormatFileRef href="Text2.txt" />
+	<TransparentInput>true</TransparentInput>
+</WidgetTextView>
+

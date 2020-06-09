@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonM</Name>
+	<Priority>500</Priority> 
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>60</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<Size>24</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<Variants>
+	<Item>
+		<TextFileRef href="Texts/ItemValue.txt" />
+		<LayerHighlight href="" />
+		<PushedOffset x="2" y="-2" />
+		<StateNormal>
+			<LayerMain href="" />
+			<FormatFileRef href="Texts/ButtonMNormal.txt" />
+		</StateNormal>
+		<ReactionOnUp>true</ReactionOnUp>
+		<Reaction>ButtonM_clk</Reaction>
+		<ReactionRightClick>ButtonM_rclk</ReactionRightClick>
+	</Item>
+	</Variants>
+</WidgetButton>

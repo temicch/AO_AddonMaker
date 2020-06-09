@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>Insight</Name>
+	<Priority>0</Priority>
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<X>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Size>60</Size>
+			<Pos>0</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Size>30</Size>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<TabOrder>0</TabOrder>
+	<TransparentInput>true</TransparentInput>
+	<FormatFileRef href="Name.txt" />
+	<TextValues />
+	<TextStyle>
+		<wrapText>false</wrapText>
+		<showClippedSymbol>false</showClippedSymbol>
+		<ellipsis>false</ellipsis>
+	</TextStyle>
+	<pickObjectsOnly>true</pickObjectsOnly>
+	<minWidth>100</minWidth>
+	<maxWidth>1200</maxWidth>
+</WidgetTextView>
+

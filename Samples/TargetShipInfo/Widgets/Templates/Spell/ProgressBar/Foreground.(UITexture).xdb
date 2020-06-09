@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UITexture>
+	<mipSW>-1</mipSW>
+	<mipsNumber>1</mipsNumber>
+	<generateMipChain>false</generateMipChain>
+	<type>DXT5</type>
+	<width>16</width>
+	<height>16</height>
+	<realWidth>16</realWidth>
+	<realHeight>16</realHeight>
+	<disableLODControl>false</disableLODControl>
+	<alphaTex>true</alphaTex>
+	<binaryFileSize>128</binaryFileSize>
+	<binaryFile href="Foreground.(UITexture).bin" />
+	<sourceFile href="Foreground.tga" />
+	<sourceFileCRC>1972519475</sourceFileCRC>
+	<wrap>false</wrap>
+	<LocalizationInfo />
+</UITexture>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>SpecialStatsPanelInn</Name>
+	<Priority>0</Priority>
+	<Children>
+	</Children>
+	<Visible>true</Visible>
+	<PickChildrenOnly>true</PickChildrenOnly>
+	<BackLayer href="SpecialStatsPanelInn.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Placement>
+		<X>
+			<Pos>0</Pos>
+			<Size>223</Size>
+		</X>
+		<Y>
+			<Pos>0</Pos>
+			<Size>481</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+</WidgetPanel>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>LightText</Name>
+	<Priority>3</Priority>
+    <Placement>
+		<X>
+			<Align>WIDGET_ALIGN_HIGH</Align>
+			<HighPos>597</HighPos>
+			<Size>100</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Pos>50</Pos>
+			<Size>100</Size>
+		</Y>
+	</Placement>
+	<FormatFileRef href="LightText.txt" />
+	<TransparentInput>true</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetTextView>

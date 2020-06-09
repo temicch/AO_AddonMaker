@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>TextEmpty</Name>
+	<Priority>150</Priority>
+	<Visible>false</Visible>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Sizing>WIDGET_SIZING_INTERNAL</Sizing>
+			<Pos>0</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Sizing>WIDGET_SIZING_INTERNAL</Sizing>
+			<Pos>-12</Pos>
+		</Y>
+	</Placement>
+	<FormatFileRef href="TextEmpty.txt" />
+	<TransparentInput>true</TransparentInput>
+</WidgetTextView>
+

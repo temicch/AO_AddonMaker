@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>Separator</Name>
+ 	<Children>
+		<Item href="Separator.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Visible>true</Visible>
+	<BackLayer href="Separator.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<HighPos>32</HighPos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>25</Size>
+		</Y>
+	</Placement>
+	<reactionOnPointing>separator_pointing</reactionOnPointing>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+</WidgetPanel>

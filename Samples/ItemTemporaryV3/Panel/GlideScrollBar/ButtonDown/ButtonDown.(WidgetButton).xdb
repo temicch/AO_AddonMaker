@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>Down</Name>
+	<Priority>8</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Size>26</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_HIGH</Align>			
+			<HighPos>0</HighPos>			
+			<Size>25</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>	
+	<Variants>
+		<Item>			
+			<LayerHighlight href="ScrollButtonHighlight.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />			
+			<StateNormal>
+				<LayerMain href="ScrollDown.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />				
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="ScrollDownPressed.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+			</StatePushed>
+			<StateDisabled>
+				<LayerMain href="ScrollDownDisabled.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />				
+			</StateDisabled>
+			<Reaction>down_pressed</Reaction>
+			<ReactionOnUp>true</ReactionOnUp>
+		</Item>
+	</Variants>
+</WidgetButton>

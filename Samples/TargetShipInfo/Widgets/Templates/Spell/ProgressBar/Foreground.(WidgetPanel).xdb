@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+  <Name>Foreground</Name>
+  <BackLayer href="Foreground.(WidgetLayerTiledTexture).xdb" />
+  <Placement>
+    <X>
+      <Align>WIDGET_ALIGN_BOTH</Align>
+      <Pos>0</Pos>
+      <HighPos>0</HighPos>
+    </X>
+    <Y>
+      <Align>WIDGET_ALIGN_BOTH</Align>
+      <Pos>0</Pos>
+      <HighPos>0</HighPos>
+    </Y>
+  </Placement>
+  <TransparentInput>true</TransparentInput>
+</WidgetPanel>

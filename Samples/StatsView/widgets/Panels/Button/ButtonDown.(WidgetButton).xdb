@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonDown</Name>
+	<Priority>10000</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>228</Pos>
+			<Size>23</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>578</Pos>
+			<Size>22</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<forceWheel>true</forceWheel>
+	<Variants>
+		<Item>
+			<LayerHighlight href="ButtonDownOnFocus.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			<PushedOffset x="-2" y="2" />
+			<StateNormal>
+				<LayerMain href="ButtonDown.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="ButtonDownOnPress.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StatePushed>
+			<ReactionOnUp>true</ReactionOnUp>
+			<Reaction>OnPressButtonDown</Reaction>
+		</Item>
+	</Variants>
+</WidgetButton>

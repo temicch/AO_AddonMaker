@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>TextM</Name>
+	<Priority>250</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_INTERNAL</Sizing>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>250</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>40</Size>
+		</Y>
+	</Placement>
+	<FormatFileRef href="Texts/Text.txt" />
+	<TextStyle>
+		<ellipsis>false</ellipsis>
+	</TextStyle>
+	<TransparentInput>true</TransparentInput>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<minWidth>200</minWidth>
+	<maxWidth>450</maxWidth>
+</WidgetTextView>

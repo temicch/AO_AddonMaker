@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>ShipPanel</Name>
+	<Children>
+		<Item href="Panels/Devices/Helm.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/Artillery.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/RCannon.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/LCannon.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/Motor.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/Turbine.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Devices/Reactor.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield21.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield31.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield41.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield42.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield51.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Shields/Shield52.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Ship.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/DragPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Panels/Insight.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="Panels/TCount.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="Panels/Tooltip.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Priority>0</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>150</Size>
+			<Pos>30</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>280</Size>
+			<Pos>0</Pos>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetPanel>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetLayerTiledTexture>
+	<Color>0xffffffff</Color>
+	<Grayed>false</Grayed>
+	<BlendEffect>BLEND_EFFECT_ALPHABLND</BlendEffect>
+	<flatPlacement>false</flatPlacement>
+	<textureItem href="Tooltip.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
+	<Layout>
+		<LeftX>12</LeftX>
+		<MiddleX>60</MiddleX>
+		<RightX>12</RightX>
+		<TopY>12</TopY>
+		<MiddleY>60</MiddleY>
+		<BottomY>12</BottomY>
+	</Layout>
+</WidgetLayerTiledTexture>

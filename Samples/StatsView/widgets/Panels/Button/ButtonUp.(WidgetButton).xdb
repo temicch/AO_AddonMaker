@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonUp</Name>
+	<Priority>1</Priority>
+	<Visible>false</Visible>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>228</Pos>
+			<Size>23</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>353</Pos>
+			<Size>22</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<Variants>
+		<Item>
+			<LayerHighlight href="ButtonUpOnFocus.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			<PushedOffset x="-2" y="2" />
+			<StateNormal>
+				<LayerMain href="ButtonUp.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="ButtonUpOnPress.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StatePushed>
+			<ReactionOnUp>true</ReactionOnUp>
+			<Reaction>OnPressButtonUp</Reaction>
+		</Item>
+	</Variants>
+</WidgetButton>

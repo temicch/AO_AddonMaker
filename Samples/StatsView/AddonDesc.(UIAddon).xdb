@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIAddon>
+  <AutoStart>true</AutoStart>
+  <Forms>
+    <Item>
+      <Form href="widgets/MainForm.(WidgetForm).xdb#xpointer(/WidgetForm)"/>
+      <Id>Main</Id>
+    </Item>
+  </Forms>
+  <MainFormId>Main</MainFormId>
+  <Name>StatsView</Name>
+  <ScriptFileRefs>
+	<Item href="/Mods/SampleCommon/SampleAddonBase.lua"/>
+	<Item href="scripts/StatsView.lua"/>
+  </ScriptFileRefs>
+  <author>Temicch</author>
+  <revision>1</revision>
+  <www/>
+	<localizedNameFileRef href="name.txt"/>
+	<localizedDescFileRef href="desc.txt"/>
+</UIAddon>

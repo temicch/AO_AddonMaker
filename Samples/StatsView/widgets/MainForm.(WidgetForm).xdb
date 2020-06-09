@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetForm>
+	<Name>StatsView</Name>
+	<Priority>7000</Priority>
+	<Children>
+		<Item href="Panels/MainPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+	</Children>
+	<BackLayer href="" />
+	<FrontLayer href="" />
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<X>
+			<Size>263</Size>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</X>
+		<Y>
+			<Size>613</Size>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</Y>		
+	</Placement>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<PickChildrenOnly>true</PickChildrenOnly>
+	<TransparentInput>false</TransparentInput>
+</WidgetForm>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>PanelTT</Name>
+	<Priority>500</Priority>
+	<BackLayer href="../../Textures/Tooltip.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Children>
+		<Item href="Panel.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+		<Item href="Text.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="WTC.(WidgetTextContainer).xdb#xpointer(/WidgetTextContainer)" />
+	</Children>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>10</Pos>
+			<HighPos>5</HighPos>
+			<Size>300</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>10</Pos>
+			<HighPos>0</HighPos>
+			<Size>200</Size>
+		</Y>
+	</Placement>
+	<Visible>false</Visible>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetPanel>

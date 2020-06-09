@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>	
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>10</Pos>
+			<HighPos>10</HighPos>			
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>15</Pos>
+			<HighPos>5</HighPos>
+		</Y>
+	</Placement>
+</WidgetPanel>

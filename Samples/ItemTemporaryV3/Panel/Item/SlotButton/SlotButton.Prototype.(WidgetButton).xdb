@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>Button</Name>
+	<Priority>0</Priority>
+	<Visible>true</Visible>
+	<Children>
+		<Item href="Count/Text.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<BackLayer href="SlotButton.Prototype.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>42</Size>
+			<Pos>4</Pos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>42</Size>
+			<Pos>5</Pos>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<Variants>
+		<Item>
+			<LayerHighlight href="SlotHighlight.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			<StatePushed>
+				<LayerMain href="SlotPressed.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+			</StatePushed>		
+			<Reaction>slot_pressed</Reaction>
+			<ReactionOnUp>true</ReactionOnUp>
+		</Item>
+	</Variants>
+	<reactionOnPointing>slot_pointing</reactionOnPointing>
+</WidgetButton>

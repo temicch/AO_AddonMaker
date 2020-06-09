@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UITexture>
+	<mipSW>-1</mipSW>
+	<mipsNumber>1</mipsNumber>
+	<generateMipChain>false</generateMipChain>
+	<type>DXT5</type>
+	<width>128</width>
+	<height>128</height>
+	<realWidth>80</realWidth>
+	<realHeight>80</realHeight>
+	<disableLODControl>false</disableLODControl>
+	<alphaTex>true</alphaTex>
+	<binaryFileSize>314</binaryFileSize>
+	<binaryFile href="Border.(UITexture).bin" />
+	<sourceFile href="Border.tga" />
+	<sourceFileCRC>-1461237381</sourceFileCRC>
+	<wrap>false</wrap>
+	<LocalizationInfo />
+	<inheritedSourceFile href="" />
+</UITexture>

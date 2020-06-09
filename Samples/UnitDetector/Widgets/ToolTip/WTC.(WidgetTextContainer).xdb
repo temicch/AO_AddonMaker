@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextContainer>
+	<Name>WTC</Name>
+	<Priority>450</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>5</Pos>
+			<HighPos>5</HighPos>
+			<Size>340</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>75</Pos>
+			<Size>170</Size>
+		</Y>
+	</Placement>
+	<border href="Border.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
+	<widgetsArrangement>WIDGETS_ARRANGEMENT_T2B</widgetsArrangement>
+	<elementsInterval>0</elementsInterval>
+</WidgetTextContainer>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name>ButtonRefresh</Name>
+	<Priority>250</Priority>
+	<Placement>
+		<X>
+			<HighPos>73</HighPos>
+			<Size>26</Size>
+			<Align>WIDGET_ALIGN_HIGH</Align>
+		</X>
+		<Y>
+			<Pos>10</Pos>
+			<Size>25</Size>
+		</Y>
+	</Placement>
+	<IgnoreDblClick>true</IgnoreDblClick>
+	<Variants>
+		<Item>
+			<TextFileRef href="" />
+			<LayerHighlight href="ButtonHighlight.(WidgetLayerTiledTexture).xdb" />
+			<PushedOffset x="-2" y="2" />
+			<StateNormal>
+				<LayerMain href="ButtonNormal.(WidgetLayerTiledTexture).xdb" />
+				<FormatFileRef href="ButtonFormatNormal.txt" />
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="ButtonPressed.(WidgetLayerTiledTexture).xdb" />
+			</StatePushed>
+			<Reaction>refresh_pressed</Reaction>
+			<ReactionOnUp>true</ReactionOnUp>
+		</Item>
+	</Variants>
+	<TextStyle>
+		<Align>ALIGNY_MIDDLE</Align>
+	</TextStyle>
+</WidgetButton>

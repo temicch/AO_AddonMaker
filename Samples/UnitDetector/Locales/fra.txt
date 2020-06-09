@@ -1,0 +1,28 @@
+--[[Francais locales
+
+]]
+table.insert(Lc,{
+	LShort = "fra",
+	Language = "Francais",
+	LocalizerInfo = "Nikon/Kali",
+	Agility = "Agilite",
+	Dexterity = "Expertise",
+	Stamina = "Vitalite",
+	Intellect = "Intelligence",
+	Intuition = "Perception",
+	Wisdom = "Foi",
+	Lethality = "Rage",
+	Strength = "Force",
+	Might = "Finesse",
+	Spirit = "Sagesse",
+	Will = "Conviction",
+	Resolve = "Volonte",
+	Precision = "Chance",
+	Hardiness = "Endurance",
+	TTIOT = "La verite est la-bas...",
+	Search = "Recherche",
+	Find = "Trouver",
+	Level = "Level",
+	None = "None",
+	Rank = "Patronage Level"
+})

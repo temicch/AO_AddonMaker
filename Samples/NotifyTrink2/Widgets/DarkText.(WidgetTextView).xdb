@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>DarkText</Name>
+	<Priority>2</Priority>
+    <Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>597</Pos>
+			<Size>100</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_CENTER</Align>
+			<Pos>50</Pos>
+			<Size>100</Size>
+		</Y>
+	</Placement>
+	<FormatFileRef href="DarkText.txt" />
+	<TransparentInput>true</TransparentInput>
+	<PickChildrenOnly>true</PickChildrenOnly>
+</WidgetTextView>

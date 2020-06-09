@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+  <Name>ProgressBar</Name>
+  <Children>
+    <Item href="Background.(WidgetPanel).xdb"/>
+    <Item href="Foreground.(WidgetPanel).xdb"/>
+  </Children>
+  <Placement>
+    <X>
+      <Align>WIDGET_ALIGN_BOTH</Align>
+      <Pos>0</Pos>
+      <HighPos>0</HighPos>
+    </X>
+    <Y>
+      <Align>WIDGET_ALIGN_LOW</Align>
+      <Pos>0</Pos>
+      <Size>20</Size>
+    </Y>
+  </Placement>
+  <TransparentInput>true</TransparentInput>
+</WidgetPanel>

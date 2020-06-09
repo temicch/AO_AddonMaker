@@ -1,0 +1,47 @@
+Global ("Sets", {
+	uDMetod = "norm",	--("norm",nil)
+	rTime = 1,	--Default 1
+	Top = 120,	--Default 120
+	Bottom = 330,	--Default 330
+	Direct = "T>B",	--Default "T>B"
+	Place = "L",	--Default "L"
+	SFairy = true,	--Default true
+	onSort = true,	--Default true
+	Lang = "auto"	--Default "auto" ("rus","eng","fra","ger")
+})
+----
+Global("sColor", {
+	{r = 0.6; g = 0.6; b = 0.6; a = 1.0},	--died
+	{r = 0.0; g = 0.6; b = 0.0; a = 1.0},	--friend 
+	{r = 0.6; g = 0.4; b = 0.0; a = 1.0},	--friend PvP on
+	{r = 0.8; g = 0.8; b = 0.0; a = 1.0},	--Enemy
+	{r = 0.6; g = 0.0; b = 0.0; a = 1.0},	--Enemy PvP on
+	{r = 0.8; g = 0.8; b = 0.0; a = 1.0},	--Crown
+	{r = 0.8; g = 0.0; b = 0.0; a = 1.0},	--RBoss
+	{r = 0.6; g = 0.6; b = 0.6; a = 1.0},	--not find
+	{r = 0.0; g = 0.6; b = 0.0; a = 1.0},	--find
+	--HP bar
+	{r = 0.6; g = 0.0; b = 0.0; a = 1.0},	--low
+	{r = 0.0; g = 0.6; b = 0.0; a = 1.0},	--full
+	{r = 0.6; g = 0.6; b = 0.0; a = 1.0},	--middle
+	--Mark
+	{r = 0.0; g = 0.6; b = 1.0; a = 0.4},	--back
+	{r = 1.0; g = 0.2; b = 0.2; a = 1.0}	--fore
+})
+
+Global("classColor", {
+	BARD = { r = 126/255; g = 255/255; b = 255/255; a = 1 },
+	WARRIOR = { r = 143/255; g = 119/255; b = 075/255; a = 1 },
+	PALADIN = { r = 207/255; g = 220/255; b = 155/255; a = 1 },
+	MAGE = { r = 126/255; g = 159/255; b = 255/255; a = 1 },
+	DRUID = { r = 255/255; g = 118/255; b = 060/255; a = 1 },
+	PSIONIC = { r = 221/255; g = 123/255; b = 245/255; a = 1 },
+	STALKER = { r = 150/255; g = 204/255; b = 086/255; a = 1 },
+	PRIEST = { r = 255/255; g = 207/255; b = 123/255; a = 1 },
+	NECROMANCER = { r = 208/255; g = 069/255; b = 075/255; a = 1 },
+	ENGINEER = { r = 0.5; g = 0.5; b = 0.9; a = 1.0 },
+	WARLOCK = { r = 0.5; g = 0.5; b = 0.9; a = 1.0 },
+	WITCHER = { r = 0.5; g = 0.5; b = 0.9; a = 1.0 }
+})
+
+Global("sGuild", "Паритет")

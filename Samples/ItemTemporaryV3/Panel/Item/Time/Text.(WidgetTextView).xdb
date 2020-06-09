@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Name>Time</Name>
+	<Priority>150</Priority>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>81</Pos>
+			<Size>42</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>27</Pos>
+			<Size>42</Size>
+		</Y>
+	</Placement>
+	<FormatFileRef href="Text.txt" />
+	<TransparentInput>true</TransparentInput>
+</WidgetTextView>
+

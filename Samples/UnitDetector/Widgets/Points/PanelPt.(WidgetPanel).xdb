@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>PanelPt</Name>
+	<Priority>500</Priority>
+	<BackLayer href="../../Textures/Tooltip.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+	<Children>
+		<Item href="Text.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>200</Pos>
+			<HighPos>0</HighPos>
+			<Size>300</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>200</Pos>
+			<HighPos>0</HighPos>
+			<Size>120</Size>
+		</Y>
+	</Placement>
+	<TransparentInput>false</TransparentInput>
+	<Visible>false</Visible>
+	<reactionOnPointing>PPt_point</reactionOnPointing>
+	<forceReactionOnPointing>PPt_point</forceReactionOnPointing>	
+	<PickChildrenOnly>false</PickChildrenOnly>
+</WidgetPanel>
