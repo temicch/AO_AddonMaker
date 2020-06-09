@@ -97,9 +97,6 @@
                                     </TreeView.ItemTemplate>
                                 </TreeView>
                             </avalon:LayoutAnchorable>
-                            <avalon:LayoutAnchorable Title="Объекты" CanClose="False" CanHide="False">
-                                <TreeView BorderThickness="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-                            </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Свойства" CanClose="False" CanHide="False">
