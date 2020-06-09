@@ -17,6 +17,8 @@ namespace AO_AddonMaker.Views
     {
         public Project Project { get; set; }
 
+        private object debugObject = new object();
+
         public ObservableCollection<IUIElement> RootFile { get; set; }
         public ObservableCollection<string> Samples { get; private set; }
 
@@ -143,13 +145,19 @@ namespace AO_AddonMaker.Views
 
         public void DebugWrite(string msg)
         {
-            DebugOutput = string.Format("{0}\n", msg);
+            lock (debugObject)
+            {
+                DebugOutput = string.Format("{0}\n", msg);
+            }
         }
 
         private void ClearDebug(object parameter)
         {
-            textDebug.Clear();
-            OnPropertyChanged(nameof(DebugOutput));
+            lock (debugObject)
+            {
+                textDebug.Clear();
+                OnPropertyChanged(nameof(DebugOutput));
+            }
         }
 
         private void SampleSelect(object parameter)
