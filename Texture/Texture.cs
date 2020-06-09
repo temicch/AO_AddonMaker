@@ -22,7 +22,7 @@ namespace Texture
             public byte[] data;
         }
 
-        MemoryStream textureStream;
+        private MemoryStream textureStream;
 
         private readonly List<MipData> _mips = new List<MipData>();
 
@@ -46,10 +46,6 @@ namespace Texture
 
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            if (binaryFileStream == null)
-            {
-
-            }
             Read(Utils.UnZLib(binaryFileStream));
             Width = realWidth;
             Height = realHeight;
