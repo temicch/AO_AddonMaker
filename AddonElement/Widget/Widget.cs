@@ -35,7 +35,7 @@ namespace AddonElement
         [XmlIgnore]
         public List<AddonFile> Widgets
         {
-            get => Children.Select(x => x.File).Where(x => x != null).ToList();
+            get => Children?.Select(x => x.File).ToList();
         }
 
         [Category("Children widgets")]

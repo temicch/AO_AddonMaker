@@ -77,6 +77,7 @@ namespace AddonElement
                 {
                     CurrentWorkingFile = stream.Name;
                     newUIElement = xmlSerializer.Deserialize(stream) as AddonFile;
+                    (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
                 }
             }
             catch (ArgumentNullException)

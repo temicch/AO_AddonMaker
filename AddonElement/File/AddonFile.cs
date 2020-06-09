@@ -6,7 +6,7 @@ namespace AddonElement
     {
         public string FilePath { get; set; } = string.Empty;
         public string FileName { get; set; } = string.Empty;
-        public string FullPath { get => $"{FilePath}//{FileName}"; }
+        public string FullPath { get => $"{FilePath}\\{FileName}"; }
         public string FileType 
         { 
             get

@@ -27,7 +27,7 @@ namespace AddonElement
         [XmlIgnore]
         public List<AddonFile> Widgets
         {
-            get => Forms.Select(x => x.Form.File).ToList();
+            get => Forms?.Select(x => x.Form?.File)?.ToList();
         }
 
         public href visObjects { get; set; }
