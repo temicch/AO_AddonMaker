@@ -55,7 +55,7 @@
                     <avalon:LayoutPanel Orientation="Vertical">
                         <avalon:LayoutDocumentPane DockWidth="*">
                             <avalon:LayoutDocument ContentId="document1" CanClose="False" Title="Project" >
-                                <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding RootFile}" VirtualizingPanel.IsVirtualizing="True">
+                                <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding RootFile}" >
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                                 <Image Source="{Binding Bitmap}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}"/>
@@ -85,7 +85,7 @@
                     <avalon:LayoutAnchorablePaneGroup DockWidth="300" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
-                                <TreeView x:Name="HierarchyTree" ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding RootFile}" VirtualizingPanel.IsVirtualizing="True" >
+                                <TreeView x:Name="HierarchyTree" ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding RootFile}" >
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                             <DockPanel>
