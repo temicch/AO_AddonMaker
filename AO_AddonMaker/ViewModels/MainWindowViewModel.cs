@@ -4,7 +4,6 @@ using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,8 +58,8 @@ namespace AO_AddonMaker.Views
         public MainWindowViewModel()
         {
             AO_AddonMaker.DebugOutput.Init(this);
-            WidgetManager.OnDebug += DebugWrite;
-            WidgetManager.Clear();
+            AddonFileManager.OnDebug += DebugWrite;
+            AddonFileManager.Clear();
             RootFile = new ObservableCollection<IUIElement>();
         }
 

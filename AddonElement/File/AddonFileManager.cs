@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace AddonElement
 {
-    public static class WidgetManager
+    public static class AddonFileManager
     {
         public delegate void DebugHandler(string message);
         public static event DebugHandler OnDebug;
@@ -18,7 +18,7 @@ namespace AddonElement
 
         private static XmlReader xmlReader;
 
-        static WidgetManager()
+        static AddonFileManager()
         {
             paths = new Dictionary<string, AddonFile>();
         }
@@ -69,7 +69,7 @@ namespace AddonElement
 
                 filePath = Path.GetFileName(filePath);
 
-                Type type = Type.GetType(string.Format("{0}.{1}", typeof(WidgetManager).Namespace, xmlReader.Name));
+                Type type = Type.GetType(string.Format("{0}.{1}", typeof(AddonFileManager).Namespace, xmlReader.Name));
 
                 XmlSerializer xmlSerializer = new XmlSerializer(type);
 

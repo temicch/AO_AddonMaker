@@ -12,7 +12,7 @@ namespace AddonElement
             {
                 if (value != string.Empty)
                 {
-                    File = WidgetManager.GetAddonFile(value);
+                    File = AddonFileManager.GetAddonFile(value);
                 }
             }
         }

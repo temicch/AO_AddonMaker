@@ -77,7 +77,7 @@
     <Compile Include="Widget\WidgetLayer\WidgetLayerAnimatedTexture.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerSimpleTexture.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerTiledTexture.cs" />
-    <Compile Include="Widget\WidgetManager.cs" />
+    <Compile Include="File\AddonFileManager.cs" />
     <Compile Include="Widget\WidgetPanel\WidgetPanel.cs" />
     <Compile Include="Widget\WidgetScrollBar\WidgetDiscreteScrollBar.cs" />
     <Compile Include="Widget\WidgetScrollBar\WidgetDiscreteSlider.cs" />

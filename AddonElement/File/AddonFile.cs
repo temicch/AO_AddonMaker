@@ -22,7 +22,7 @@ namespace AddonElement
 
         public AddonFile()
         {
-            string file = WidgetManager.RegisterAddonFile(this);
+            string file = AddonFileManager.RegisterAddonFile(this);
             FilePath = Path.GetDirectoryName(file);
             FileName = Path.GetFileName(file);
         }

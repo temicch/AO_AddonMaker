@@ -9,12 +9,12 @@ namespace AO_AddonMaker
 
         public IUIElement RootWidget
         {
-            get => WidgetManager.RootFile as IUIElement;
+            get => AddonFileManager.RootFile as IUIElement;
         }
 
         public Project(string rootFilePath)
         {
-            WidgetManager.Clear();
+            AddonFileManager.Clear();
             if (!File.Exists(rootFilePath))
                 throw new FileNotFoundException();
             filePath = rootFilePath;
@@ -22,8 +22,8 @@ namespace AO_AddonMaker
 
         public void Load()
         {
-            WidgetManager.Clear();
-            WidgetManager.Load(filePath);
+            AddonFileManager.Clear();
+            AddonFileManager.Load(filePath);
         }
     }
 }
