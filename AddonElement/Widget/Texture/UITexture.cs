@@ -38,7 +38,7 @@ namespace AddonElement
 		protected ImageSource GetBitmap()
         {
 			if (bitmap == null)
-				using (var binaryFileStream = new StreamReader(binaryFile.Path))
+				using (var binaryFileStream = new StreamReader(binaryFile.File.FullPath))
 				{ 
 					var Texture = new Texture.Texture(binaryFileStream.BaseStream, width, height, type);
 					bitmap = Texture.GetBitmap();

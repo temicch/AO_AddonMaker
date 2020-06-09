@@ -94,7 +94,11 @@ namespace AddonElement
                 DebugOutput(string.Format("[{0}] can't read as XML file", Path.GetFullPath(filePath)));
                 newUIElement = new AddonFile(Path.GetFullPath(filePath));
             }
-            catch(FileNotFoundException)
+            catch(DirectoryNotFoundException)
+            {
+                DebugOutput(string.Format("[{0}] file not found", Path.GetFullPath(filePath)));
+            }
+            catch (FileNotFoundException)
             {
                 DebugOutput(string.Format("[{0}] file not found", Path.GetFullPath(filePath)));
             }
