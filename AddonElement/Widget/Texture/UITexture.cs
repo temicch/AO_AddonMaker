@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace AddonElement
 {
-    public class UITexture : AddonFile
+    public class UITexture : File
 	{
 		public int mipSW { get; set; }
 		public int mipsNumber { get; set; }

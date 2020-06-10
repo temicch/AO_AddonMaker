@@ -15,7 +15,7 @@ namespace AO_AddonMaker
         public Project(string rootFilePath)
         {
             FileManager.Clear();
-            if (!File.Exists(rootFilePath))
+            if (!System.IO.File.Exists(rootFilePath))
                 throw new FileNotFoundException();
             filePath = rootFilePath;
         }

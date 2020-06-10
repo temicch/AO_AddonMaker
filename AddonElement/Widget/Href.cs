@@ -17,6 +17,6 @@ namespace AddonElement
             }
         }
         [XmlIgnore]
-        public AddonFile File { get; set; }
+        public File File { get; set; }
     }
 }

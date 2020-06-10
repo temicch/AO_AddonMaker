@@ -92,7 +92,7 @@ namespace AO_AddonMaker.Views
                 foreach(var path in Directory.GetDirectories(samplesPath))
                 {
                     var addonDesc = $"{path}\\{addonDescName}";
-                    if (!File.Exists(addonDesc))
+                    if (!System.IO.File.Exists(addonDesc))
                         continue;
                     var q = Directory.GetParent(addonDesc).Name;
                     Samples.Add(q);
@@ -132,7 +132,7 @@ namespace AO_AddonMaker.Views
 
         private void LoadProject(string fileName)
         {
-            if (!File.Exists(fileName))
+            if (!System.IO.File.Exists(fileName))
             {
                 MessageBox.Show("The specified file does not exist");
                 return;

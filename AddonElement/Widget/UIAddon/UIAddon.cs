@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace AddonElement
 {
     [Serializable]
-    public class UIAddon : AddonFile, IUIElement
+    public class UIAddon : File, IUIElement
     {
         public string Name { get; set; }
         public href localizedNameFileRef { get; set; }
@@ -37,7 +37,7 @@ namespace AddonElement
         public List<FormItem> Forms { get; set; }
 
         [XmlIgnore]
-        public List<AddonFile> Widgets
+        public List<File> Widgets
         {
             get => Forms?.Select(x => x.Form?.File)?.ToList();
         }
@@ -73,7 +73,7 @@ namespace AddonElement
             AutoStart = true;
         }
 
-        public IEnumerable<AddonFile> GetChildren() => Forms.Select(x => x.Form.File);
+        public IEnumerable<File> GetChildren() => Forms.Select(x => x.Form.File);
     }
 
     public class FormItem

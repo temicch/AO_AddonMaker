@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace AddonElement
 {
     [Serializable]
-    public abstract class Widget : AddonFile, IUIElement
+    public abstract class Widget : File, IUIElement
     {
         [Category("Base properties")]
         [Description("Системное название виджета")]
@@ -60,7 +60,7 @@ namespace AddonElement
         public List<href> Children { get; set; }
 
         [XmlIgnore]
-        public List<AddonFile> Widgets => Children?.Select(x => x.File).ToList();
+        public List<File> Widgets => Children?.Select(x => x.File).ToList();
         
         [Category("Children widgets")]
         [Description("Нужно ли обрезать содержимое, включая дочерние виджеты, по границам данного. По умолчанию false")]
@@ -222,7 +222,7 @@ namespace AddonElement
             TabOrder = 0;
         }
 
-        public IEnumerable<AddonFile> GetChildren() => Children.Select(x => x.File);
+        public IEnumerable<File> GetChildren() => Children.Select(x => x.File);
 
         protected ImageSource GetBitmap()
         {

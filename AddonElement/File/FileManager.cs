@@ -11,14 +11,14 @@ namespace AddonElement
         public delegate void DebugHandler(string message);
         public static event DebugHandler OnDebug;
 
-        private static Dictionary<string, AddonFile> paths;
+        private static Dictionary<string, File> paths;
         public static string CurrentWorkingFile { get; private set; } = null;
 
-        public static AddonFile RootFile { get; set; }
+        public static File RootFile { get; set; }
         
         static FileManager()
         {
-            paths = new Dictionary<string, AddonFile>();
+            paths = new Dictionary<string, File>();
         }
 
         static void RemovePointer(ref string filePath)
@@ -28,25 +28,25 @@ namespace AddonElement
                 filePath = filePath.Remove(indexOf);
         }
 
-        public static string RegisterFile(AddonFile file)
+        public static string RegisterFile(File file)
         {
             paths[CurrentWorkingFile] = file;
             return CurrentWorkingFile;
         }
 
-        public static AddonFile Load(string filePath)
+        public static File Load(string filePath)
         {
             RootFile = Add(filePath);
             return RootFile;
         }
 
-        private static AddonFile Add(string filePath)
+        private static File Add(string filePath)
         {
             if (filePath == null)
                 return null;
 
             RemovePointer(ref filePath);
-            AddonFile newUIElement = null;
+            File newUIElement = null;
 
             if (paths.ContainsKey(filePath))
             {
@@ -74,26 +74,26 @@ namespace AddonElement
                 using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     CurrentWorkingFile = stream.Name;
-                    newUIElement = xmlSerializer.Deserialize(stream) as AddonFile;
+                    newUIElement = xmlSerializer.Deserialize(stream) as File;
                     (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
                 }
             }
             catch (ArgumentNullException)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: Unknown type");
-                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+                newUIElement = new File(Path.GetFullPath(filePath));
             }
             catch (InvalidOperationException exception)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
                 if(exception.InnerException != null)
                     DebugOutput($" - {exception.InnerException.Message}");
-                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+                newUIElement = new File(Path.GetFullPath(filePath));
             }
             catch (XmlException)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
-                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+                newUIElement = new File(Path.GetFullPath(filePath));
             }
             catch(DirectoryNotFoundException)
             {
@@ -106,7 +106,7 @@ namespace AddonElement
             catch (Exception exception)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
-                newUIElement = new AddonFile(Path.GetFullPath(filePath));
+                newUIElement = new File(Path.GetFullPath(filePath));
             }
             finally
             {
@@ -115,7 +115,7 @@ namespace AddonElement
             return newUIElement;
         }
 
-        public static AddonFile GetFile(string filePath)
+        public static File GetFile(string filePath)
         {
             if (filePath == null)
                 return null;

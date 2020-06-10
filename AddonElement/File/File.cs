@@ -2,7 +2,7 @@
 
 namespace AddonElement
 {
-    public class AddonFile
+    public class File
     {
         public string FilePath { get; set; } = string.Empty;
         public string FileName { get; set; } = string.Empty;
@@ -20,14 +20,14 @@ namespace AddonElement
             }
         }
 
-        public AddonFile()
+        public File()
         {
             string file = FileManager.RegisterFile(this);
             FilePath = Path.GetDirectoryName(file);
             FileName = Path.GetFileName(file);
         }
 
-        public AddonFile(string filePath)
+        public File(string filePath)
         {
             FilePath = Path.GetDirectoryName(filePath);
             FileName = Path.GetFileName(filePath);

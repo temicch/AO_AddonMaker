@@ -2,7 +2,7 @@
 
 namespace AddonElement
 {
-    public class UISingleTexture : AddonFile
+    public class UISingleTexture : File
     {
         public href singleTexture { get; set; }
 		public int permanentCache { get; set; }
