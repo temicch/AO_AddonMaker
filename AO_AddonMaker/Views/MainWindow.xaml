@@ -20,7 +20,7 @@
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
     <mah:MetroWindow.Resources>
-
+        
     </mah:MetroWindow.Resources>
     <mah:MetroWindow.DataContext>
         <vms:MainWindowViewModel />
@@ -63,13 +63,25 @@
                     <avalon:LayoutPanel Orientation="Vertical">
                         <avalon:LayoutDocumentPane DockWidth="*">
                             <avalon:LayoutDocument ContentId="document1" CanClose="False" Title="Project" >
-                                <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding RootFile}" >
-                                    <TreeView.ItemTemplate>
-                                        <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                <xctk:Zoombox Cursor="Arrow">
+                                    <xctk:Zoombox.ZoomModifiers>
+                                        <xctk:KeyModifierCollection>
+                                            <xctk:KeyModifier>None</xctk:KeyModifier>
+                                        </xctk:KeyModifierCollection>
+                                    </xctk:Zoombox.ZoomModifiers>
+                                    <xctk:Zoombox.DragModifiers>
+                                        <xctk:KeyModifierCollection>
+                                            <xctk:KeyModifier>None</xctk:KeyModifier>
+                                        </xctk:KeyModifierCollection>
+                                    </xctk:Zoombox.DragModifiers>
+                                    <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}" ItemsSource="{Binding RootFile}" >
+                                        <TreeView.ItemTemplate>
+                                            <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                                 <Image Source="{Binding Bitmap}" Canvas.Top="{Binding Placement.Y.Pos}" Canvas.Left="{Binding Placement.X.Pos}"/>
-                                        </HierarchicalDataTemplate>
-                                    </TreeView.ItemTemplate>
-                                </TreeView>
+                                            </HierarchicalDataTemplate>
+                                        </TreeView.ItemTemplate>
+                                    </TreeView>
+                                </xctk:Zoombox>
                             </avalon:LayoutDocument>
                         </avalon:LayoutDocumentPane>
                         <avalon:LayoutAnchorablePane DockHeight="200">
