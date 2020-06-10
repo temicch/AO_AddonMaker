@@ -59,7 +59,7 @@
             <avalon:DockingManager.Theme>
                 <avalon:Vs2013DarkTheme/>
             </avalon:DockingManager.Theme>
-            <avalon:LayoutRoot x:Name="_layoutRoot">
+            <avalon:LayoutRoot x:Name="LayoutRoot">
                 <avalon:LayoutPanel Orientation="Horizontal">
                     <avalon:LayoutPanel Orientation="Vertical">
                         <avalon:LayoutDocumentPane DockWidth="*">
@@ -91,7 +91,7 @@
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                     </avalon:LayoutPanel>
-                    <avalon:LayoutAnchorablePaneGroup DockWidth="300" Orientation="Vertical">
+                    <avalon:LayoutAnchorablePaneGroup DockWidth="355" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
                                 <TreeView x:Name="HierarchyTree" ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding RootFile}" >
