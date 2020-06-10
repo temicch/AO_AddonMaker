@@ -29,7 +29,7 @@
         <StackPanel DockPanel.Dock="Top">
             <WrapPanel>
                 <Menu>
-                    <MenuItem  Header="Menu">
+                    <MenuItem  Header="_File">
                         <MenuItem Header="_Open project" Command="{Binding openFile}"/>
                     </MenuItem>
                     <MenuItem Header="_Samples" ItemsSource="{Binding Samples}">
