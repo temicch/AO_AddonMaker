@@ -31,12 +31,18 @@ namespace AO_AddonMaker.Views
         { 
             get 
             {
-                return textDebug.ToString(); 
+                lock (debugObject)
+                {
+                    return textDebug.ToString();
+                }
             } 
             set 
             {
-                textDebug.Append(value);
-                OnPropertyChanged();
+                lock (debugObject)
+                {
+                    textDebug.Append(value);
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -145,19 +151,13 @@ namespace AO_AddonMaker.Views
 
         public void DebugWrite(string msg)
         {
-            lock (debugObject)
-            {
-                DebugOutput = string.Format("{0}\n", msg);
-            }
+            DebugOutput = string.Format("{0}\n", msg);
         }
 
         private void ClearDebug(object parameter)
         {
-            lock (debugObject)
-            {
-                textDebug.Clear();
-                OnPropertyChanged(nameof(DebugOutput));
-            }
+            textDebug.Clear();
+            OnPropertyChanged(nameof(DebugOutput));
         }
 
         private void SampleSelect(object parameter)
