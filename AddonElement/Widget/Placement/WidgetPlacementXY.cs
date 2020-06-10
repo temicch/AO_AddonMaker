@@ -5,7 +5,19 @@ namespace AddonElement
 {
     public class WidgetPlacementXY
     {
-        public bool QuantumScale { get; set; }
+        [XmlIgnore]
+        public bool quantumScale { get; set; }
+        [XmlElement("QuantumScale")]
+        public string _quantumScale
+        {
+            get => quantumScale.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out bool result))
+                    quantumScale = result;
+            }
+        }
+
         public href sizingWidget { get; set; }
 
         [XmlArrayItem("Item")]
@@ -16,7 +28,7 @@ namespace AddonElement
 
         public WidgetPlacementXY()
         {
-            QuantumScale = false;
+            quantumScale = false;
             X = new WidgetPlacement();
             Y = new WidgetPlacement();
         }

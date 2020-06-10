@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace AddonElement
 {
@@ -10,8 +11,34 @@ namespace AddonElement
         public WidgetTextStyle TextStyle { get; set; }
         public float minWidth { get; set; }
         public float maxWidth { get; set; }
-        public bool pickObjectsOnly { get; set; }
+
+        [XmlIgnore]
         public bool isHtmlEscaping { get; set; }
+
+        [XmlElement("isHtmlEscaping")]
+        public string _isHtmlEscaping
+        {
+            get => isHtmlEscaping.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out bool result))
+                    isHtmlEscaping = result;
+            }
+        }
+
+        [XmlIgnore]
+        public bool pickObjectsOnly { get; set; } = true;
+
+        [XmlElement("pickObjectsOnly")]
+        public string _pickObjectsOnly
+        {
+            get => pickObjectsOnly.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out bool result))
+                    pickObjectsOnly = result;
+            }
+        }
 
         public WidgetTextView()
         {

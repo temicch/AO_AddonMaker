@@ -11,7 +11,19 @@ namespace AddonElement
         public string Name { get; set; }
         public href localizedNameFileRef { get; set; }
         public href localizedDescFileRef { get; set; }
+
+        [XmlIgnore]
         public bool AutoStart { get; set; }
+        [XmlElement("AutoStart")]
+        public string _AutoStart
+        {
+            get => AutoStart.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out bool result))
+                    AutoStart = result;
+            }
+        }
 
         [XmlArrayItem("Item")]
         public List<href> addonGroups { get; set; }

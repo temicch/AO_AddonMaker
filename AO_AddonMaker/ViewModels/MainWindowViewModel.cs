@@ -76,8 +76,8 @@ namespace AO_AddonMaker.Views
         public MainWindowViewModel()
         {
             AO_AddonMaker.DebugOutput.Init(this);
-            AddonFileManager.OnDebug += DebugWrite;
-            AddonFileManager.Clear();
+            FileManager.OnDebug += DebugWrite;
+            FileManager.Clear();
             RootFile = new ObservableCollection<IUIElement>();
 
             InitSampleProjects();

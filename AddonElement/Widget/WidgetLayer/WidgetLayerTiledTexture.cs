@@ -25,7 +25,5 @@ namespace AddonElement
 
         public WidgetLayerTiledLayoutType layoutTypeX { get; set; }
         public WidgetLayerTiledLayoutType layoutTypeY { get; set; }
-
-        
     }
 }
