@@ -20,7 +20,7 @@
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
     <mah:MetroWindow.Resources>
-        
+
     </mah:MetroWindow.Resources>
     <mah:MetroWindow.DataContext>
         <vms:MainWindowViewModel />
@@ -105,11 +105,10 @@
                     <avalon:LayoutAnchorablePaneGroup DockWidth="355" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
                             <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
-                                <TreeView x:Name="HierarchyTree" ItemContainerStyle="{StaticResource StretchTreeViewItemStyle}" ItemsSource="{Binding RootFile}" >
+                                <TreeView x:Name="HierarchyTree" ItemsSource="{Binding RootFile}" >
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
                                             <DockPanel>
-                                                <!--<Image DockPanel.Dock="Left" Height="14" Source="/AO_AddonMaker;component/Icons/openFile.png"/>-->
                                                 <Label x:Name="ElementName" DockPanel.Dock="Left" Content="{Binding Name}" FontSize="12" VerticalContentAlignment="Center" />
                                                 <Label Content="{Binding FileType}" Foreground="{Binding Foreground, ElementName=ElementName}" Opacity="0.5" FontSize="12" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
                                             </DockPanel>
