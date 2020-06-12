@@ -60,6 +60,10 @@
     <Compile Include="Widget\Texture\UISingleTexture.cs" />
     <Compile Include="Widget\Texture\UITexture.cs" />
     <Compile Include="Widget\Texture\UITextureElement.cs" />
+    <Compile Include="Widget\UIAddon\FormItem.cs" />
+    <Compile Include="Widget\UIAddon\SoundsItem.cs" />
+    <Compile Include="Widget\UIAddon\TextsItem.cs" />
+    <Compile Include="Widget\UIAddon\TexturesItem.cs" />
     <Compile Include="Widget\UIAddon\UIAddon.cs" />
     <Compile Include="Widget\Widget.cs" />
     <Compile Include="Widget\WidgetButton\vec2.cs" />
