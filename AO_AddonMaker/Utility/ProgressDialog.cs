@@ -1,7 +1,8 @@
 ﻿using AO_AddonMaker.Views;
+using MahApps.Metro.Controls;
 using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
+using System.Linq;
 using System.Windows;
 
 namespace AO_AddonMaker.Utility
@@ -10,7 +11,11 @@ namespace AO_AddonMaker.Utility
     {
         public static void ShowModal(Action work)
         {
-            WorkInProgress splash = new WorkInProgress();
+            WorkInProgress splash = new WorkInProgress()
+            {
+                Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
+            };
 
             splash.Loaded += (_, args) =>
             {
