@@ -22,7 +22,7 @@ namespace AddonElement
             }
         }
 
-		public Texture.Texture.Format type { get; set; }
+		public Texture.Format type { get; set; }
 		public int width { get; set; }
 		public int height { get; set; }
 		public int realWidth { get; set; }

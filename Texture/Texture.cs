@@ -6,22 +6,8 @@ using System.Windows.Media.Imaging;
 
 namespace Texture
 {
-    public class Texture
+    public partial class Texture
     {
-        public enum Format
-        {
-            Unknown,
-            DXT1,
-            DXT3,
-            DXT5,
-        }
-
-        public class MipData
-        {
-            public int size;
-            public byte[] data;
-        }
-
         private MemoryStream textureStream;
 
         private readonly List<MipData> _mips = new List<MipData>();
