@@ -202,7 +202,7 @@ namespace AddonElement
         [Description("Уведомление о прокрутке колёсика мыши вниз")]
         public string reactionWheelDown { get; set; }
 
-        public ImageSource Bitmap => GetBitmap();
+        public virtual ImageSource Bitmap => GetBitmap();
 
         public Widget()
         {
@@ -221,8 +221,6 @@ namespace AddonElement
             isProtected = false;
             TabOrder = 0;
         }
-
-        public IEnumerable<File> GetChildren() => Children.Select(x => x.File);
 
         protected ImageSource GetBitmap()
         {

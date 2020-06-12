@@ -14,7 +14,7 @@ namespace AddonElement
                 string type = GetType().Name;
                 if (type.StartsWith("Widget"))
                     type = type.Substring(6);
-                if (type == "AddonFile")
+                if (type == nameof(File))
                     type = "Other";
                 return $"[{type}]";
             }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace AddonElement
@@ -28,6 +29,11 @@ namespace AddonElement
         public WidgetButton()
         {
             useDefaultSounds = true;
+        }
+
+        public override ImageSource Bitmap
+        {
+            get => Variants?.Count > 0 ? (Variants?[0]?.StateNormal?.LayerMain?.File as WidgetLayer)?.Bitmap : null;
         }
     }
 }

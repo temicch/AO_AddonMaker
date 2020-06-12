@@ -9,8 +9,6 @@ namespace AddonElement
         bool Visible { get; set; }
         bool Enabled { get; set; }
 
-        IEnumerable<File> GetChildren();
-
         List<File> Widgets { get; }
     }
 }
