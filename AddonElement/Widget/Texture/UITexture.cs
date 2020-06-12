@@ -102,7 +102,7 @@ namespace AddonElement
 				using (var binaryFileStream = new StreamReader(binaryFile.File.FullPath))
 				{ 
 					var texture = new Texture.Texture(binaryFileStream.BaseStream, width, height, type);
-					bitmap = texture.GetBitmap();
+					bitmap = texture.Bitmap;
 				}
 			return bitmap;
 		}

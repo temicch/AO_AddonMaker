@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Texture
 {
-    public static class Utils
+    internal static class Utils
     {
         public static bool IsPowerOf2(int x)
         {
@@ -29,7 +29,7 @@ namespace Texture
             using (ZlibStream zlibStream = new ZlibStream(input, (CompressionMode)1))
             {
                 byte[] buffer = new byte[16384];
-                for (int count = ((Stream)zlibStream).Read(buffer, 0, 16384); count > 0; count = ((Stream)zlibStream).Read(buffer, 0, 16384))
+                for (int count = zlibStream.Read(buffer, 0, 16384); count > 0; count = zlibStream.Read(buffer, 0, 16384))
                     memoryStream.Write(buffer, 0, count);
             }
             memoryStream.Position = 0L;

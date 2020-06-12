@@ -8,15 +8,15 @@ namespace Texture
 {
     public partial class Texture
     {
-        private MemoryStream textureStream;
-
         private readonly List<MipData> _mips = new List<MipData>();
+
+        public ImageSource Bitmap { get; private set; }
 
         public Format TextureFormat { get; private set; }
         public int Width { get; private set; } = 1;
         public int Height { get; private set; } = 1;
 
-        public void AddMipData(int level, int size, byte[] data)
+        private void AddMipData(int level, int size, byte[] data)
         {
             if (level >= _mips.Count)
             {
@@ -33,12 +33,14 @@ namespace Texture
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
             Read(Utils.UnZLib(binaryFileStream));
+            binaryFileStream.Dispose();
             Width = realWidth;
             Height = realHeight;
             TextureFormat = type;
+            Bitmap = GetBitmap();
         }
 
-        public void Read(Stream input)
+        private void Read(Stream input)
         {
             using (BinaryReader binaryReader = new BinaryReader(input))
             {
@@ -49,9 +51,10 @@ namespace Texture
                     AddMipData(level, num, binaryReader.ReadBytes(num));
                 }
             }
+            input.Dispose();
         }
 
-        public void SaveTo(Stream output)
+        private void SaveTo(Stream output)
         {
             BinaryWriter binaryWriter = new BinaryWriter(output);
             binaryWriter.Write(542327876);
@@ -93,32 +96,20 @@ namespace Texture
             binaryWriter.Flush();
         }
 
-        ~Texture()
+        private ImageSource GetBitmap()
         {
-            GCCollectTexture();
-        }
+            BitmapImage bitmap;
+            using (var textureStream = new MemoryStream())
+            {
+                SaveTo(textureStream);
+                textureStream.Seek(0L, SeekOrigin.Begin);
 
-        protected void GCCollectTexture()
-        {
-            //if (textureStream != null)
-            //    textureStream.Dispose();
-            //textureStream = null;
-        }
-
-        public ImageSource GetBitmap()
-        {
-            GCCollectTexture();
-
-            textureStream = new MemoryStream(_mips[0].size + _mips[0].size / 2 + 150);
-
-            SaveTo(textureStream);
-            textureStream.Seek(0L, SeekOrigin.Begin);
-
-            var bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.StreamSource = textureStream;
-            bitmap.EndInit();
-
+                bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.StreamSource = textureStream;
+                bitmap.EndInit();
+            }
             return bitmap;
         }
     }
