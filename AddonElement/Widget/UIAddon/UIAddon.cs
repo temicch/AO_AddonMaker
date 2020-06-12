@@ -72,31 +72,5 @@ namespace AddonElement
         {
             AutoStart = true;
         }
-
-        public IEnumerable<File> GetChildren() => Forms.Select(x => x.Form.File);
-    }
-
-    public class FormItem
-    {
-        public string Id { get; set; }
-        public href Form;
-    }
-
-    public class TextsItem
-    {
-        public string groupName { get; set; }
-        public href texts;
-    }
-
-    public class TexturesItem
-    {
-        public string groupName { get; set; }
-        public href textures;
-    }
-
-    public class SoundsItem
-    {
-        public string groupName { get; set; }
-        public href sounds;
     }
 }
