@@ -118,25 +118,11 @@ namespace AO_AddonMaker.Views
             bool? result = dlg.ShowDialog();
             if (result == true)
             {
-                AsyncLoadProject(dlg.FileName);
+                LoadProject(dlg.FileName);
             }
         }
 
-        private async void AsyncLoadProject(string filePath)
-        {
-            var workInProgress = new WorkInProgress()
-            {
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive)
-            };
-            workInProgress.Show();
-            RootFile.Clear();
-            await Task.Run(() => LoadProject(filePath));
-            RootFile.Add(Project.RootWidget);
-            workInProgress.Close();
-        }
-
-        private void LoadProject(string fileName)
+        public void LoadProject(string fileName)
         {
             if (!System.IO.File.Exists(fileName))
             {
@@ -146,7 +132,9 @@ namespace AO_AddonMaker.Views
             GC.Collect();
             GC.WaitForFullGCComplete();
             Project = new Project(fileName);
-            Project.Load();
+            ProgressDialog.ShowModal(() => Project.Load());
+            RootFile.Clear();
+            RootFile.Add(Project.RootWidget);
         }
 
         public void DebugWrite(string msg)
@@ -162,7 +150,7 @@ namespace AO_AddonMaker.Views
 
         private void SampleSelect(object parameter)
         {
-            AsyncLoadProject($"{samplesPath}\\{parameter}\\{addonDescName}");
+            LoadProject($"{samplesPath}\\{parameter}\\{addonDescName}");
         }
     }
 }
