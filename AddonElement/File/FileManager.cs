@@ -36,6 +36,7 @@ namespace AddonElement
 
         public static File Load(string filePath)
         {
+            Clear();
             RootFile = Add(filePath);
             return RootFile;
         }

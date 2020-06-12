@@ -151,7 +151,7 @@ namespace AO_AddonMaker.Views
 
         public void DebugWrite(string msg)
         {
-            DebugOutput = string.Format("{0}\n", msg);
+            DebugOutput = $"{msg}\n";
         }
 
         private void ClearDebug(object parameter)

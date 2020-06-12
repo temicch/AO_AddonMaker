@@ -14,7 +14,6 @@ namespace AO_AddonMaker
 
         public Project(string rootFilePath)
         {
-            FileManager.Clear();
             if (!System.IO.File.Exists(rootFilePath))
                 throw new FileNotFoundException();
             filePath = rootFilePath;
@@ -22,7 +21,6 @@ namespace AO_AddonMaker
 
         public void Load()
         {
-            FileManager.Clear();
             FileManager.Load(filePath);
         }
     }
