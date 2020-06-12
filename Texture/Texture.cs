@@ -109,6 +109,7 @@ namespace Texture
                 bitmap.CacheOption = BitmapCacheOption.OnLoad;
                 bitmap.StreamSource = textureStream;
                 bitmap.EndInit();
+                bitmap.Freeze();
             }
             return bitmap;
         }
