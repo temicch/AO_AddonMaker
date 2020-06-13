@@ -20,7 +20,9 @@
     Icon="/AO_AddonMaker;component/Icons/appIcon.png" 
     BorderThickness="0">
     <mah:MetroWindow.Resources>
-
+        <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
+            <Setter Property="IsExpanded" Value="True"/>
+        </Style>
     </mah:MetroWindow.Resources>
     <mah:MetroWindow.DataContext>
         <vms:MainWindowViewModel />
