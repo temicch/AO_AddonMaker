@@ -8,8 +8,7 @@ namespace AddonElement
 {
     public static class FileManager
     {
-        public delegate void DebugHandler(string message);
-        public static event DebugHandler OnDebug;
+        public static event Action<string> OnDebug;
 
         private static Dictionary<string, File> paths;
         public static string CurrentWorkingFile { get; private set; } = null;
