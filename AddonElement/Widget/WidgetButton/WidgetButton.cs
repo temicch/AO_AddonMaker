@@ -33,7 +33,15 @@ namespace AddonElement
 
         public override ImageSource Bitmap
         {
-            get => Variants?.Count > 0 ? (Variants?[0]?.StateNormal?.LayerMain?.File as WidgetLayer)?.Bitmap : null;
+            get
+            {
+                var backLayer = BackLayer?.File as WidgetLayer;
+                if (backLayer?.Bitmap != null)
+                    return backLayer.Bitmap;
+                if (Variants?.Count > 0)
+                    return (Variants?[0]?.StateNormal?.LayerMain?.File as WidgetLayer)?.Bitmap;
+                return null;
+            }
         }
     }
 }
