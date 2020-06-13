@@ -32,12 +32,12 @@
             <WrapPanel>
                 <Menu>
                     <MenuItem  Header="_File">
-                        <MenuItem Header="_Open project" Command="{Binding openFile}"/>
+                        <MenuItem Header="_Open project" Command="{Binding OpenFileCommand}"/>
                     </MenuItem>
                     <MenuItem Header="_Samples" ItemsSource="{Binding Samples}">
                         <MenuItem.ItemContainerStyle>
                             <Style TargetType="{x:Type MenuItem}">
-                                <Setter Property="Command" Value= "{Binding DataContext.sampleSelect, RelativeSource = {RelativeSource AncestorType = {x:Type MenuItem}}}" />
+                                <Setter Property="Command" Value= "{Binding DataContext.SampleSelectCommand, RelativeSource = {RelativeSource AncestorType = {x:Type MenuItem}}}" />
                                 <Setter Property="CommandParameter" Value="{Binding}" />
                             </Style>
                         </MenuItem.ItemContainerStyle>
@@ -46,7 +46,7 @@
             </WrapPanel>
             <ToolBarTray>
                 <ToolBar Height="30">
-                    <ToggleButton Background="Transparent" BorderThickness="0" Command="{Binding openFile}">
+                    <ToggleButton Background="Transparent" BorderThickness="0" Command="{Binding OpenFileCommand}">
                         <Image Source="/AO_AddonMaker;component/Icons/openFile.png" />
                     </ToggleButton>
                 </ToolBar>
@@ -95,7 +95,7 @@
                                     </Grid.RowDefinitions>
                                     <Rectangle Grid.Row="0" Fill="#2D2D30"/>
                                     <ToolBar Grid.Row="0" Height="32">
-                                        <Button Command="{Binding clearDebug}" ToolTip="Clear all">
+                                        <Button Command="{Binding ClearDebugCommand}" ToolTip="Clear all">
                                             <Image Source="/AO_AddonMaker;component/Icons/clear.png"/>
                                         </Button>
                                     </ToolBar>

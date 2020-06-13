@@ -46,41 +46,16 @@ namespace AO_AddonMaker.Views
             }
         }
 
-        RelayCommand _openFile;
-        public ICommand openFile
-        {
-            get
-            {
-                if (_openFile == null)
-                    _openFile = new RelayCommand(OpenFile);
-                return _openFile;
-            }
-        }
-
-        RelayCommand _clearDebug;
-        public ICommand clearDebug
-        {
-            get
-            {
-                if (_clearDebug == null)
-                    _clearDebug = new RelayCommand(ClearDebug);
-                return _clearDebug;
-            }
-        }
-
-        RelayCommand _sampleSelect;
-        public ICommand sampleSelect
-        {
-            get
-            {
-                if (_sampleSelect == null)
-                    _sampleSelect = new RelayCommand(SampleSelect);
-                return _sampleSelect;
-            }
-        }
+        public RelayCommand OpenFileCommand { get; set; }
+        public RelayCommand ClearDebugCommand { get; set; }
+        public RelayCommand SampleSelectCommand { get; set; }
 
         public MainWindowViewModel()
         {
+            OpenFileCommand = new RelayCommand((obj) => OpenFile(obj));
+            ClearDebugCommand = new RelayCommand((obj) => ClearDebug(obj));
+            SampleSelectCommand = new RelayCommand((obj) => SampleSelect(obj));
+
             AO_AddonMaker.DebugOutput.Init(this);
             FileManager.OnDebug += DebugWrite;
             FileManager.Clear();
