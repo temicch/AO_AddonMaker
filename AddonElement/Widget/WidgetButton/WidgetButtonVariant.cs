@@ -4,15 +4,21 @@ namespace AddonElement
 {
     public class WidgetButtonVariant
     {
-        [XmlIgnore]
+        public WidgetButtonVariant()
+        {
+            ReactionOnUp = false;
+        }
+
+        [XmlIgnore] 
         public bool ReactionOnUp { get; set; }
+
         [XmlElement("ReactionOnUp")]
         public string _ReactionOnUp
         {
             get => ReactionOnUp.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     ReactionOnUp = result;
             }
         }
@@ -29,10 +35,5 @@ namespace AddonElement
         public WidgetButtonState StateDisabled { get; set; }
         public WidgetSoundBase soundOver { get; set; }
         public WidgetSoundBase soundPress { get; set; }
-
-        public WidgetButtonVariant()
-        {
-            ReactionOnUp = false;
-        }
     }
 }

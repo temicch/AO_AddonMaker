@@ -2,7 +2,7 @@
 {
     public class SoundsItem
     {
-        public string groupName { get; set; }
         public href sounds;
+        public string groupName { get; set; }
     }
 }

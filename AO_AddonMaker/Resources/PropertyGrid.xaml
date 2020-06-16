@@ -5,191 +5,241 @@
     <Style TargetType="xctk:PropertyGridEditorTextBox">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorTextBlock">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorByteUpDown">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorDecimalUpDown">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorIntegerUpDown">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorSingleUpDown">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style TargetType="xctk:PropertyGridEditorCollectionControl">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
-                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Background" Value="Transparent" />
             </Trigger>
         </Style.Triggers>
     </Style>
     <Style x:Key="PropertyItemBaseStyle1" TargetType="{x:Type xctk:PropertyItemBase}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="0,0,0,1"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Margin" Value="0,0,0,1" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type xctk:PropertyItemBase}">
-                    <Border ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" ContextMenuService.Placement="Bottom">
+                    <Border
+                        ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                        ContextMenuService.Placement="Bottom">
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="{Binding NameColumnWidth, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition
+                                    Width="{Binding NameColumnWidth, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Border x:Name="PART_Name" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" Margin="0,0,1,0" VerticalAlignment="Stretch">
+                            <Border x:Name="PART_Name" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
+                                    Margin="0,0,1,0" VerticalAlignment="Stretch">
                                 <Grid Margin="2" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition x:Name="_expandableButtonColumn" Width="{Binding PropertyNameLeftPadding, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition x:Name="_expandableButtonColumn"
+                                                              Width="{Binding PropertyNameLeftPadding, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" />
+                                            <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <Grid.Margin>
                                             <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}">
                                                 <Binding.Converter>
-                                                    <xctk:ExpandableObjectMarginConverter/>
+                                                    <xctk:ExpandableObjectMarginConverter />
                                                 </Binding.Converter>
                                             </Binding>
                                         </Grid.Margin>
-                                        <ToggleButton x:Name="_expandableButton" Grid.Column="0" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                        <ToggleButton x:Name="_expandableButton" Grid.Column="0"
+                                                      IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                                      OverridesDefaultStyle="True">
                                             <ToggleButton.Template>
                                                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="20"/>
-                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="*" />
                                                         </Grid.ColumnDefinitions>
-                                                        <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
-                                                        <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                        <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0" />
+                                                        <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="White"
+                                                              HorizontalAlignment="Center"
+                                                              RenderTransformOrigin="0.5,0.5"
+                                                              VerticalAlignment="Center">
                                                             <Path.RenderTransform>
                                                                 <TransformGroup>
-                                                                    <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                    <SkewTransform AngleY="0" AngleX="0"/>
-                                                                    <RotateTransform Angle="-90"/>
-                                                                    <TranslateTransform X="0" Y="0"/>
+                                                                    <ScaleTransform ScaleY="1" ScaleX="1" />
+                                                                    <SkewTransform AngleY="0" AngleX="0" />
+                                                                    <RotateTransform Angle="-90" />
+                                                                    <TranslateTransform X="0" Y="0" />
                                                                 </TransformGroup>
                                                             </Path.RenderTransform>
                                                         </Path>
-                                                        <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                        <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="White"
+                                                              HorizontalAlignment="Center"
+                                                              RenderTransformOrigin="0.5,0.5" Visibility="Collapsed"
+                                                              VerticalAlignment="Center">
                                                             <Path.RenderTransform>
                                                                 <TransformGroup>
-                                                                    <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                    <SkewTransform AngleY="0" AngleX="0"/>
-                                                                    <RotateTransform Angle="135"/>
-                                                                    <TranslateTransform X="0" Y="0"/>
+                                                                    <ScaleTransform ScaleY="1" ScaleX="1" />
+                                                                    <SkewTransform AngleY="0" AngleX="0" />
+                                                                    <RotateTransform Angle="135" />
+                                                                    <TranslateTransform X="0" Y="0" />
                                                                 </TransformGroup>
                                                             </Path.RenderTransform>
                                                         </Path>
-                                                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                        <ContentPresenter
+                                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                            Content="{TemplateBinding Content}" Grid.Column="1"
+                                                            ContentStringFormat="{TemplateBinding ContentStringFormat}" />
                                                     </Grid>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsChecked" Value="True">
-                                                            <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
-                                                            <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                            <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
+                                                            <Setter Property="Visibility" TargetName="Down_Arrow"
+                                                                    Value="Visible" />
+                                                            <Setter Property="Visibility" TargetName="Up_Arrow"
+                                                                    Value="Collapsed" />
+                                                            <Setter Property="OpacityMask" TargetName="Down_Arrow"
+                                                                    Value="White" />
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
                                             </ToggleButton.Template>
                                             <ToggleButton.Visibility>
-                                                <Binding Path="IsExpandable" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding Path="IsExpandable"
+                                                         RelativeSource="{RelativeSource TemplatedParent}">
                                                     <Binding.Converter>
-                                                        <BooleanToVisibilityConverter/>
+                                                        <BooleanToVisibilityConverter />
                                                     </Binding.Converter>
                                                 </Binding>
                                             </ToggleButton.Visibility>
                                         </ToggleButton>
-                                        <xctk:TrimmedTextBlock x:Name="_text" Grid.Column="1" HighlightedText="{Binding HighlightedText, RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center">
+                                        <xctk:TrimmedTextBlock x:Name="_text" Grid.Column="1"
+                                                               HighlightedText="{Binding HighlightedText, RelativeSource={RelativeSource TemplatedParent}}"
+                                                               HorizontalAlignment="Stretch"
+                                                               Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
+                                                               TextTrimming="CharacterEllipsis"
+                                                               VerticalAlignment="Center">
                                             <xctk:TrimmedTextBlock.IsEnabled>
-                                                <Binding Path="IsReadOnly" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
+                                                <Binding Path="IsReadOnly"
+                                                         RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
                                                     <Binding.Converter>
-                                                        <xctk:InverseBoolConverter/>
+                                                        <xctk:InverseBoolConverter />
                                                     </Binding.Converter>
                                                 </Binding>
                                             </xctk:TrimmedTextBlock.IsEnabled>
                                         </xctk:TrimmedTextBlock>
                                     </Grid>
-                                    <Grid Grid.Column="1" ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" HorizontalAlignment="Right" Margin="5,0" xctk:ContextMenuUtilities.OpenOnMouseLeftButtonClick="True">
+                                    <Grid Grid.Column="1"
+                                          ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                          HorizontalAlignment="Right" Margin="5,0"
+                                          xctk:ContextMenuUtilities.OpenOnMouseLeftButtonClick="True">
                                         <Grid.Visibility>
-                                            <Binding Path="ShowAdvancedOptions" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
+                                            <Binding Path="ShowAdvancedOptions"
+                                                     RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
                                                 <Binding.Converter>
-                                                    <BooleanToVisibilityConverter/>
+                                                    <BooleanToVisibilityConverter />
                                                 </Binding.Converter>
                                             </Binding>
                                         </Grid.Visibility>
-                                        <Image x:Name="_optionsImage" Height="11" ToolTip="{Binding AdvancedOptionsTooltip, RelativeSource={RelativeSource TemplatedParent}}" Width="11"/>
+                                        <Image x:Name="_optionsImage" Height="11"
+                                               ToolTip="{Binding AdvancedOptionsTooltip, RelativeSource={RelativeSource TemplatedParent}}"
+                                               Width="11" />
                                     </Grid>
                                 </Grid>
                             </Border>
-                            <Border x:Name="PART_Editor" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Border x:Name="PART_Editor" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" Grid.Column="1"
+                                    KeyboardNavigation.DirectionalNavigation="None" HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
                                 <Border.ToolTip>
-                                    <ToolTip Visibility="Collapsed"/>
+                                    <ToolTip Visibility="Collapsed" />
                                 </Border.ToolTip>
-                                <ContentControl x:Name="PART_ValueContainer" Focusable="False" IsTabStop="False" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <ContentControl x:Name="PART_ValueContainer" Focusable="False" IsTabStop="False"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <MultiBinding UpdateSourceTrigger="Default">
                                         <MultiBinding.Converter>
-                                            <xctk:PropertyItemEditorConverter/>
+                                            <xctk:PropertyItemEditorConverter />
                                         </MultiBinding.Converter>
-                                        <Binding Path="Editor" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="IsReadOnly" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}"/>
+                                        <Binding Path="Editor" RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Path="IsReadOnly"
+                                                 RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}" />
                                     </MultiBinding>
                                 </ContentControl>
                             </Border>
-                            <Expander x:Name="_propertyExpander" Grid.ColumnSpan="2" IsExpanded="{TemplateBinding IsExpanded}" IsEnabled="True" Grid.Row="1">
+                            <Expander x:Name="_propertyExpander" Grid.ColumnSpan="2"
+                                      IsExpanded="{TemplateBinding IsExpanded}" IsEnabled="True" Grid.Row="1">
                                 <Expander.Style>
                                     <Style TargetType="{x:Type Expander}">
-                                        <Setter Property="Padding" Value="10,0,0,0"/>
+                                        <Setter Property="Padding" Value="10,0,0,0" />
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="{x:Type Expander}">
                                                     <Grid>
-                                                        <Border x:Name="ExpandSite" Padding="0" Grid.Row="1" Visibility="Collapsed">
-                                                            <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
-                                                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                        <Border x:Name="ExpandSite" Padding="0" Grid.Row="1"
+                                                                Visibility="Collapsed">
+                                                            <Border BorderThickness="0" HorizontalAlignment="Stretch"
+                                                                    Margin="0" Padding="0" VerticalAlignment="Stretch">
+                                                                <ContentPresenter
+                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                    Content="{TemplateBinding Content}"
+                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                    Focusable="False"
+                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                                             </Border>
                                                         </Border>
                                                     </Grid>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsExpanded" Value="True">
-                                                            <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                            <Setter Property="Visibility" TargetName="ExpandSite"
+                                                                    Value="Visible" />
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -197,7 +247,14 @@
                                         </Setter>
                                     </Style>
                                 </Expander.Style>
-                                <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl" VirtualizingPanel.CacheLengthUnit="Item" ScrollViewer.CanContentScroll="True" Focusable="False" VirtualizingPanel.IsVirtualizing="{Binding IsVirtualizing, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" IsTabStop="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True" ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" VirtualizingPanel.VirtualizationMode="Recycling">
+                                <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl"
+                                                           VirtualizingPanel.CacheLengthUnit="Item"
+                                                           ScrollViewer.CanContentScroll="True" Focusable="False"
+                                                           VirtualizingPanel.IsVirtualizing="{Binding IsVirtualizing, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                           IsTabStop="False"
+                                                           VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                                                           ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}"
+                                                           VirtualizingPanel.VirtualizationMode="Recycling">
                                     <xctk:PropertyItemsControl.GroupStyle>
                                         <GroupStyle Panel="{x:Null}">
                                             <GroupStyle.ContainerStyleSelector>
@@ -208,72 +265,164 @@
                                                                 <Setter.Value>
                                                                     <ControlTemplate>
                                                                         <Border>
-                                                                            <Expander x:Name="expander" HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Header="{Binding Name}" IsExpanded="True">
+                                                                            <Expander x:Name="expander"
+                                                                                      HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                                      Header="{Binding Name}"
+                                                                                      IsExpanded="True">
                                                                                 <Expander.Style>
-                                                                                    <Style TargetType="{x:Type Expander}">
-                                                                                        <Setter Property="Padding" Value="0"/>
-                                                                                        <Setter Property="Background" Value="White"/>
+                                                                                    <Style
+                                                                                        TargetType="{x:Type Expander}">
+                                                                                        <Setter Property="Padding"
+                                                                                                Value="0" />
+                                                                                        <Setter Property="Background"
+                                                                                                Value="White" />
                                                                                         <Setter Property="Template">
                                                                                             <Setter.Value>
-                                                                                                <ControlTemplate TargetType="{x:Type Expander}">
+                                                                                                <ControlTemplate
+                                                                                                    TargetType="{x:Type Expander}">
                                                                                                     <Grid>
                                                                                                         <Grid.RowDefinitions>
-                                                                                                            <RowDefinition Height="Auto"/>
-                                                                                                            <RowDefinition x:Name="ContentRow" Height="*"/>
+                                                                                                            <RowDefinition
+                                                                                                                Height="Auto" />
+                                                                                                            <RowDefinition
+                                                                                                                x:Name="ContentRow"
+                                                                                                                Height="*" />
                                                                                                         </Grid.RowDefinitions>
-                                                                                                        <Border x:Name="Border" BorderBrush="Transparent" Background="{TemplateBinding Background}">
-                                                                                                            <ToggleButton IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                                                                                        <Border
+                                                                                                            x:Name="Border"
+                                                                                                            BorderBrush="Transparent"
+                                                                                                            Background="{TemplateBinding Background}">
+                                                                                                            <ToggleButton
+                                                                                                                IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                                                                OverridesDefaultStyle="True">
                                                                                                                 <ToggleButton.Template>
-                                                                                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                                                                    <ControlTemplate
+                                                                                                                        TargetType="{x:Type ToggleButton}">
                                                                                                                         <Grid>
                                                                                                                             <Grid.ColumnDefinitions>
-                                                                                                                                <ColumnDefinition Width="20"/>
-                                                                                                                                <ColumnDefinition Width="*"/>
+                                                                                                                                <ColumnDefinition
+                                                                                                                                    Width="20" />
+                                                                                                                                <ColumnDefinition
+                                                                                                                                    Width="*" />
                                                                                                                             </Grid.ColumnDefinitions>
-                                                                                                                            <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
-                                                                                                                            <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                                                                                            <Rectangle
+                                                                                                                                x:Name="Rectangle"
+                                                                                                                                Fill="Transparent"
+                                                                                                                                Margin="0" />
+                                                                                                                            <Path
+                                                                                                                                x:Name="Up_Arrow"
+                                                                                                                                Data="M0,0L4,4 8,0z"
+                                                                                                                                Fill="White"
+                                                                                                                                HorizontalAlignment="Center"
+                                                                                                                                RenderTransformOrigin="0.5,0.5"
+                                                                                                                                VerticalAlignment="Center">
                                                                                                                                 <Path.RenderTransform>
                                                                                                                                     <TransformGroup>
-                                                                                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                                                                                        <SkewTransform AngleY="0" AngleX="0"/>
-                                                                                                                                        <RotateTransform Angle="-90"/>
-                                                                                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        <ScaleTransform
+                                                                                                                                            ScaleY="1"
+                                                                                                                                            ScaleX="1" />
+                                                                                                                                        <SkewTransform
+                                                                                                                                            AngleY="0"
+                                                                                                                                            AngleX="0" />
+                                                                                                                                        <RotateTransform
+                                                                                                                                            Angle="-90" />
+                                                                                                                                        <TranslateTransform
+                                                                                                                                            X="0"
+                                                                                                                                            Y="0" />
                                                                                                                                     </TransformGroup>
                                                                                                                                 </Path.RenderTransform>
                                                                                                                             </Path>
-                                                                                                                            <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                                                                                            <Path
+                                                                                                                                x:Name="Down_Arrow"
+                                                                                                                                Data="M0,4L4,0 8,4z"
+                                                                                                                                Fill="White"
+                                                                                                                                HorizontalAlignment="Center"
+                                                                                                                                RenderTransformOrigin="0.5,0.5"
+                                                                                                                                Visibility="Collapsed"
+                                                                                                                                VerticalAlignment="Center">
                                                                                                                                 <Path.RenderTransform>
                                                                                                                                     <TransformGroup>
-                                                                                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                                                                                        <SkewTransform AngleY="0" AngleX="0"/>
-                                                                                                                                        <RotateTransform Angle="135"/>
-                                                                                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        <ScaleTransform
+                                                                                                                                            ScaleY="1"
+                                                                                                                                            ScaleX="1" />
+                                                                                                                                        <SkewTransform
+                                                                                                                                            AngleY="0"
+                                                                                                                                            AngleX="0" />
+                                                                                                                                        <RotateTransform
+                                                                                                                                            Angle="135" />
+                                                                                                                                        <TranslateTransform
+                                                                                                                                            X="0"
+                                                                                                                                            Y="0" />
                                                                                                                                     </TransformGroup>
                                                                                                                                 </Path.RenderTransform>
                                                                                                                             </Path>
-                                                                                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                                                                                            <ContentPresenter
+                                                                                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                                                                Content="{TemplateBinding Content}"
+                                                                                                                                Grid.Column="1"
+                                                                                                                                ContentStringFormat="{TemplateBinding ContentStringFormat}" />
                                                                                                                         </Grid>
                                                                                                                         <ControlTemplate.Triggers>
-                                                                                                                            <Trigger Property="IsChecked" Value="True">
-                                                                                                                                <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
-                                                                                                                                <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
+                                                                                                                            <Trigger
+                                                                                                                                Property="IsChecked"
+                                                                                                                                Value="True">
+                                                                                                                                <Setter
+                                                                                                                                    Property="Visibility"
+                                                                                                                                    TargetName="Down_Arrow"
+                                                                                                                                    Value="Visible" />
+                                                                                                                                <Setter
+                                                                                                                                    Property="Visibility"
+                                                                                                                                    TargetName="Up_Arrow"
+                                                                                                                                    Value="Collapsed" />
+                                                                                                                                <Setter
+                                                                                                                                    Property="OpacityMask"
+                                                                                                                                    TargetName="Down_Arrow"
+                                                                                                                                    Value="White" />
                                                                                                                             </Trigger>
                                                                                                                         </ControlTemplate.Triggers>
                                                                                                                     </ControlTemplate>
                                                                                                                 </ToggleButton.Template>
-                                                                                                                <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" TextElement.FontWeight="Bold" Margin="1" RecognizesAccessKey="True"/>
+                                                                                                                <ContentPresenter
+                                                                                                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                                                    Content="{TemplateBinding Header}"
+                                                                                                                    ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                                                                                                    ContentSource="Header"
+                                                                                                                    TextElement.FontWeight="Bold"
+                                                                                                                    Margin="1"
+                                                                                                                    RecognizesAccessKey="True" />
                                                                                                             </ToggleButton>
                                                                                                         </Border>
-                                                                                                        <Border x:Name="ExpandSite" Background="Transparent" Padding="10,0,0,0" Grid.Row="1" Visibility="Collapsed">
-                                                                                                            <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
-                                                                                                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                                                        <Border
+                                                                                                            x:Name="ExpandSite"
+                                                                                                            Background="Transparent"
+                                                                                                            Padding="10,0,0,0"
+                                                                                                            Grid.Row="1"
+                                                                                                            Visibility="Collapsed">
+                                                                                                            <Border
+                                                                                                                BorderThickness="0"
+                                                                                                                HorizontalAlignment="Stretch"
+                                                                                                                Margin="0"
+                                                                                                                Padding="0"
+                                                                                                                VerticalAlignment="Stretch">
+                                                                                                                <ContentPresenter
+                                                                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                                                    Content="{TemplateBinding Content}"
+                                                                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                                                                    Focusable="False"
+                                                                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                                                    Margin="{TemplateBinding Padding}"
+                                                                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                                                                                             </Border>
                                                                                                         </Border>
                                                                                                     </Grid>
                                                                                                     <ControlTemplate.Triggers>
-                                                                                                        <Trigger Property="IsExpanded" Value="True">
-                                                                                                            <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                                                                        <Trigger
+                                                                                                            Property="IsExpanded"
+                                                                                                            Value="True">
+                                                                                                            <Setter
+                                                                                                                Property="Visibility"
+                                                                                                                TargetName="ExpandSite"
+                                                                                                                Value="Visible" />
                                                                                                         </Trigger>
                                                                                                     </ControlTemplate.Triggers>
                                                                                                 </ControlTemplate>
@@ -281,7 +430,7 @@
                                                                                         </Setter>
                                                                                     </Style>
                                                                                 </Expander.Style>
-                                                                                <ItemsPresenter/>
+                                                                                <ItemsPresenter />
                                                                             </Expander>
                                                                         </Border>
                                                                     </ControlTemplate>
@@ -294,17 +443,20 @@
                                                                             <Condition.Binding>
                                                                                 <Binding Path="Name">
                                                                                     <Binding.Converter>
-                                                                                        <xctk:IsDefaultCategoryConverter/>
+                                                                                        <xctk:IsDefaultCategoryConverter />
                                                                                     </Binding.Converter>
                                                                                 </Binding>
                                                                             </Condition.Binding>
                                                                         </Condition>
-                                                                        <Condition Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                                                        <Condition
+                                                                            Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                            Value="True" />
                                                                     </MultiDataTrigger.Conditions>
                                                                     <Setter Property="Template">
                                                                         <Setter.Value>
-                                                                            <ControlTemplate TargetType="{x:Type GroupItem}">
-                                                                                <ItemsPresenter/>
+                                                                            <ControlTemplate
+                                                                                TargetType="{x:Type GroupItem}">
+                                                                                <ItemsPresenter />
                                                                             </ControlTemplate>
                                                                         </Setter.Value>
                                                                     </Setter>
@@ -317,7 +469,7 @@
                                                             <Setter Property="Template">
                                                                 <Setter.Value>
                                                                     <ControlTemplate>
-                                                                        <ItemsPresenter/>
+                                                                        <ItemsPresenter />
                                                                     </ControlTemplate>
                                                                 </Setter.Value>
                                                             </Setter>
@@ -329,13 +481,17 @@
                                     </xctk:PropertyItemsControl.GroupStyle>
                                     <xctk:PropertyItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel IsItemsHost="True"/>
+                                            <VirtualizingStackPanel IsItemsHost="True" />
                                         </ItemsPanelTemplate>
                                     </xctk:PropertyItemsControl.ItemsPanel>
                                     <xctk:PropertyItemsControl.Template>
                                         <ControlTemplate>
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                                <ItemsPresenter
+                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                             </Border>
                                         </ControlTemplate>
                                     </xctk:PropertyItemsControl.Template>
@@ -345,79 +501,94 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="PART_Name" Value="{DynamicResource MahApps.Brushes.Gray8}"/>
-                            <Setter Property="Background" TargetName="PART_Editor" Value="{DynamicResource MahApps.Brushes.Gray8}"/>
+                            <Setter Property="Background" TargetName="PART_Name"
+                                    Value="{DynamicResource MahApps.Brushes.Gray8}" />
+                            <Setter Property="Background" TargetName="PART_Editor"
+                                    Value="{DynamicResource MahApps.Brushes.Gray8}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="PART_Name" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            <Setter Property="Background" TargetName="PART_Editor" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            <Setter Property="Background" TargetName="PART_Name"
+                                    Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            <Setter Property="Background" TargetName="PART_Editor"
+                                    Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" TargetName="PART_ValueContainer" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                            <Setter Property="Foreground" TargetName="_text" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="Foreground" TargetName="PART_ValueContainer"
+                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            <Setter Property="Foreground" TargetName="_text"
+                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding ShowDescriptionByTooltip, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                <Condition
+                                    Binding="{Binding ShowDescriptionByTooltip, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                    Value="True" />
                                 <Condition Value="False">
                                     <Condition.Binding>
                                         <Binding Path="Description" RelativeSource="{RelativeSource Self}">
                                             <Binding.Converter>
-                                                <xctk:IsStringEmptyConverter/>
+                                                <xctk:IsStringEmptyConverter />
                                             </Binding.Converter>
                                         </Binding>
                                     </Condition.Binding>
                                 </Condition>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="ToolTip" TargetName="PART_Name" Value="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="ToolTip" TargetName="PART_Name"
+                                    Value="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiDataTrigger>
                         <!--
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter Property="ToolTip" Value="{Binding (Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource Self}}"/>
                         </Trigger>-->
                         <Trigger Property="Visibility" SourceName="_expandableButton" Value="Visible">
-                            <Setter Property="Focusable" Value="False"/>
-                            <Setter Property="MinWidth" TargetName="_expandableButtonColumn" Value="15"/>
+                            <Setter Property="Focusable" Value="False" />
+                            <Setter Property="MinWidth" TargetName="_expandableButtonColumn" Value="15" />
                         </Trigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Local">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Local11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Local11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Resource">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Resource11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Resource11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Databinding">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Database11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Database11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Inheritance">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Inheritance11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Inheritance11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Style Setter">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Style11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/Style11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Default">
                             <Setter Property="Source" TargetName="_optionsImage">
                                 <Setter.Value>
-                                    <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/AdvancedProperties11.png"/>
+                                    <BitmapImage
+                                        UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;component/PropertyGrid/Images/AdvancedProperties11.png" />
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
@@ -430,22 +601,26 @@
         <Setter Property="AdvancedOptionsMenu">
             <Setter.Value>
                 <ContextMenu>
-                    <MenuItem CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ContextMenu}}}" CommandParameter="{Binding}" Header="Reset Value">
+                    <MenuItem
+                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ContextMenu}}}"
+                        CommandParameter="{Binding}" Header="Reset Value">
                         <MenuItem.Command>
-                            <RoutedCommand/>
+                            <RoutedCommand />
                         </MenuItem.Command>
                     </MenuItem>
                 </ContextMenu>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource {ComponentResourceKey ResourceId=ButtonNormalBackgroundKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource {ComponentResourceKey ResourceId=ControlNormalBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background"
+                Value="{DynamicResource {ComponentResourceKey ResourceId=ButtonNormalBackgroundKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource {ComponentResourceKey ResourceId=ControlNormalBorderKey, TypeInTargetAssembly={x:Type Themes:ResourceKeys}}}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="SelectedObjectType">
             <Setter.Value>
                 <Binding ConverterParameter="Type" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
                     <Binding.Converter>
-                        <xctk:SelectedObjectConverter/>
+                        <xctk:SelectedObjectConverter />
                     </Binding.Converter>
                 </Binding>
             </Setter.Value>
@@ -454,16 +629,17 @@
             <Setter.Value>
                 <Binding ConverterParameter="TypeName" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
                     <Binding.Converter>
-                        <xctk:SelectedObjectConverter/>
+                        <xctk:SelectedObjectConverter />
                     </Binding.Converter>
                 </Binding>
             </Setter.Value>
         </Setter>
         <Setter Property="SelectedObjectName">
             <Setter.Value>
-                <Binding ConverterParameter="SelectedObjectName" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
+                <Binding ConverterParameter="SelectedObjectName" Path="SelectedObject"
+                         RelativeSource="{RelativeSource Self}">
                     <Binding.Converter>
-                        <xctk:SelectedObjectConverter/>
+                        <xctk:SelectedObjectConverter />
                     </Binding.Converter>
                 </Binding>
             </Setter.Value>
@@ -471,66 +647,91 @@
         <Setter Property="CategoryGroupHeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}"/>
+                    <TextBlock Text="{Binding}" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type xctk:PropertyGrid}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="5" />
+                                <RowDefinition Height="70" />
                             </Grid.RowDefinitions>
                             <Grid Margin="32,4,0,4" Grid.Row="0">
                                 <Grid.Visibility>
                                     <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
-                                            <BooleanToVisibilityConverter/>
+                                            <BooleanToVisibilityConverter />
                                         </Binding.Converter>
                                     </Binding>
                                 </Grid.Visibility>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="70"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
                                 </Grid.RowDefinitions>
-                                <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="0" Text="Name" TextTrimming="CharacterEllipsis"/>
-                                <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="1" Text="Type" TextTrimming="CharacterEllipsis"/>
-                                <xctk:TrimmedTextBlock x:Name="Type" Grid.Column="1" Grid.Row="1" Text="{TemplateBinding SelectedObjectTypeName}" TextTrimming="CharacterEllipsis"/>
-                                <xctk:TrimmedTextBlock Grid.Column="1" Grid.Row="0" Text="{TemplateBinding SelectedObjectName}" TextTrimming="CharacterEllipsis" TextDecorations=""/>
+                                <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="0" Text="Name"
+                                                       TextTrimming="CharacterEllipsis" />
+                                <xctk:TrimmedTextBlock Grid.Column="0" Grid.Row="1" Text="Type"
+                                                       TextTrimming="CharacterEllipsis" />
+                                <xctk:TrimmedTextBlock x:Name="Type" Grid.Column="1" Grid.Row="1"
+                                                       Text="{TemplateBinding SelectedObjectTypeName}"
+                                                       TextTrimming="CharacterEllipsis" />
+                                <xctk:TrimmedTextBlock Grid.Column="1" Grid.Row="0"
+                                                       Text="{TemplateBinding SelectedObjectName}"
+                                                       TextTrimming="CharacterEllipsis" TextDecorations="" />
                             </Grid>
                             <Border Grid.Row="1" x:Name="searchBoxContainer" Background="Transparent" Margin="3,0,3,3">
                                 <Border.Visibility>
                                     <Binding Path="ShowSearchBox" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
-                                            <BooleanToVisibilityConverter/>
+                                            <BooleanToVisibilityConverter />
                                         </Binding.Converter>
                                     </Binding>
                                 </Border.Visibility>
-                                <xctk:WatermarkTextBox x:Name="_txtFilter" Foreground="{TemplateBinding Foreground}" BorderThickness="1" BorderBrush="#3F3F46" Text="{Binding Filter, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" Watermark="{TemplateBinding FilterWatermark}" Background="#2A2A2D"/>
+                                <xctk:WatermarkTextBox x:Name="_txtFilter" Foreground="{TemplateBinding Foreground}"
+                                                       BorderThickness="1" BorderBrush="#3F3F46"
+                                                       Text="{Binding Filter, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
+                                                       Watermark="{TemplateBinding FilterWatermark}"
+                                                       Background="#2A2A2D" />
                             </Border>
                             <Grid Grid.Row="2" Margin="0">
-                                <ComboBox Background="#2A2A2D" Padding="16,0,0,0" Text="Choose some" Foreground="White" BorderThickness="0">
-                                    <ComboBoxItem IsSelected="{Binding IsCategorized, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ComboBox Background="#2A2A2D" Padding="16,0,0,0" Text="Choose some" Foreground="White"
+                                          BorderThickness="0">
+                                    <ComboBoxItem
+                                        IsSelected="{Binding IsCategorized, RelativeSource={RelativeSource TemplatedParent}}">
                                         Arrange by category
                                     </ComboBoxItem>
-                                    <ComboBoxItem IsSelected="{Binding IsAlphabetical, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ComboBoxItem
+                                        IsSelected="{Binding IsAlphabetical, RelativeSource={RelativeSource TemplatedParent}}">
                                         Arrange by name
                                     </ComboBoxItem>
                                 </ComboBox>
                             </Grid>
                             <Grid Background="Transparent" Grid.Row="3">
-                                <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl" ItemsSource="{Binding Properties, RelativeSource={RelativeSource TemplatedParent}}" Background="Transparent" VirtualizingPanel.CacheLengthUnit="Item" ScrollViewer.CanContentScroll="True" Focusable="False" VirtualizingPanel.IsVirtualizing="{Binding IsVirtualizing, RelativeSource={RelativeSource TemplatedParent}}" IsTabStop="False" VirtualizingPanel.IsVirtualizingWhenGrouping="True" ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" VirtualizingPanel.VirtualizationMode="Recycling" VerticalAlignment="Top">
+                                <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl"
+                                                           ItemsSource="{Binding Properties, RelativeSource={RelativeSource TemplatedParent}}"
+                                                           Background="Transparent"
+                                                           VirtualizingPanel.CacheLengthUnit="Item"
+                                                           ScrollViewer.CanContentScroll="True" Focusable="False"
+                                                           VirtualizingPanel.IsVirtualizing="{Binding IsVirtualizing, RelativeSource={RelativeSource TemplatedParent}}"
+                                                           IsTabStop="False"
+                                                           VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                                                           ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}"
+                                                           VirtualizingPanel.VirtualizationMode="Recycling"
+                                                           VerticalAlignment="Top">
                                     <xctk:PropertyItemsControl.GroupStyle>
                                         <GroupStyle Panel="{x:Null}">
                                             <GroupStyle.ContainerStyleSelector>
@@ -541,72 +742,166 @@
                                                                 <Setter.Value>
                                                                     <ControlTemplate>
                                                                         <Border>
-                                                                            <Expander x:Name="expander" HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Header="{Binding Name}" IsExpanded="True">
+                                                                            <Expander x:Name="expander"
+                                                                                      HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                                      Header="{Binding Name}"
+                                                                                      IsExpanded="True">
                                                                                 <Expander.Style>
-                                                                                    <Style TargetType="{x:Type Expander}">
-                                                                                        <Setter Property="Padding" Value="0"/>
-                                                                                        <Setter Property="Background" Value="Transparent"/>
+                                                                                    <Style
+                                                                                        TargetType="{x:Type Expander}">
+                                                                                        <Setter Property="Padding"
+                                                                                                Value="0" />
+                                                                                        <Setter Property="Background"
+                                                                                                Value="Transparent" />
                                                                                         <Setter Property="Template">
                                                                                             <Setter.Value>
-                                                                                                <ControlTemplate TargetType="{x:Type Expander}">
+                                                                                                <ControlTemplate
+                                                                                                    TargetType="{x:Type Expander}">
                                                                                                     <Grid>
                                                                                                         <Grid.RowDefinitions>
-                                                                                                            <RowDefinition Height="Auto"/>
-                                                                                                            <RowDefinition x:Name="ContentRow" Height="*"/>
+                                                                                                            <RowDefinition
+                                                                                                                Height="Auto" />
+                                                                                                            <RowDefinition
+                                                                                                                x:Name="ContentRow"
+                                                                                                                Height="*" />
                                                                                                         </Grid.RowDefinitions>
-                                                                                                        <Border x:Name="Border" BorderBrush="Transparent" Background="{TemplateBinding Background}">
-                                                                                                            <ToggleButton IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                                                                                        <Border
+                                                                                                            x:Name="Border"
+                                                                                                            BorderBrush="Transparent"
+                                                                                                            Background="{TemplateBinding Background}">
+                                                                                                            <ToggleButton
+                                                                                                                IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                                                                OverridesDefaultStyle="True">
                                                                                                                 <ToggleButton.Template>
-                                                                                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                                                                    <ControlTemplate
+                                                                                                                        TargetType="{x:Type ToggleButton}">
                                                                                                                         <Grid>
                                                                                                                             <Grid.ColumnDefinitions>
-                                                                                                                                <ColumnDefinition Width="20"/>
-                                                                                                                                <ColumnDefinition Width="*"/>
+                                                                                                                                <ColumnDefinition
+                                                                                                                                    Width="20" />
+                                                                                                                                <ColumnDefinition
+                                                                                                                                    Width="*" />
                                                                                                                             </Grid.ColumnDefinitions>
-                                                                                                                            <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
-                                                                                                                            <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                                                                                            <Rectangle
+                                                                                                                                x:Name="Rectangle"
+                                                                                                                                Fill="Transparent"
+                                                                                                                                Margin="0" />
+                                                                                                                            <Path
+                                                                                                                                x:Name="Up_Arrow"
+                                                                                                                                Data="M0,0L4,4 8,0z"
+                                                                                                                                Fill="White"
+                                                                                                                                HorizontalAlignment="Center"
+                                                                                                                                RenderTransformOrigin="0.5,0.5"
+                                                                                                                                VerticalAlignment="Center">
                                                                                                                                 <Path.RenderTransform>
                                                                                                                                     <TransformGroup>
-                                                                                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                                                                                        <SkewTransform AngleY="0" AngleX="0"/>
-                                                                                                                                        <RotateTransform Angle="-90"/>
-                                                                                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        <ScaleTransform
+                                                                                                                                            ScaleY="1"
+                                                                                                                                            ScaleX="1" />
+                                                                                                                                        <SkewTransform
+                                                                                                                                            AngleY="0"
+                                                                                                                                            AngleX="0" />
+                                                                                                                                        <RotateTransform
+                                                                                                                                            Angle="-90" />
+                                                                                                                                        <TranslateTransform
+                                                                                                                                            X="0"
+                                                                                                                                            Y="0" />
                                                                                                                                     </TransformGroup>
                                                                                                                                 </Path.RenderTransform>
                                                                                                                             </Path>
-                                                                                                                            <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="White" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                                                                                            <Path
+                                                                                                                                x:Name="Down_Arrow"
+                                                                                                                                Data="M0,4L4,0 8,4z"
+                                                                                                                                Fill="White"
+                                                                                                                                HorizontalAlignment="Center"
+                                                                                                                                RenderTransformOrigin="0.5,0.5"
+                                                                                                                                Visibility="Collapsed"
+                                                                                                                                VerticalAlignment="Center">
                                                                                                                                 <Path.RenderTransform>
                                                                                                                                     <TransformGroup>
-                                                                                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                                                                                                                        <SkewTransform AngleY="0" AngleX="0"/>
-                                                                                                                                        <RotateTransform Angle="135"/>
-                                                                                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        <ScaleTransform
+                                                                                                                                            ScaleY="1"
+                                                                                                                                            ScaleX="1" />
+                                                                                                                                        <SkewTransform
+                                                                                                                                            AngleY="0"
+                                                                                                                                            AngleX="0" />
+                                                                                                                                        <RotateTransform
+                                                                                                                                            Angle="135" />
+                                                                                                                                        <TranslateTransform
+                                                                                                                                            X="0"
+                                                                                                                                            Y="0" />
                                                                                                                                     </TransformGroup>
                                                                                                                                 </Path.RenderTransform>
                                                                                                                             </Path>
-                                                                                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" VerticalAlignment="Center" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                                                                                            <ContentPresenter
+                                                                                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                                                                Content="{TemplateBinding Content}"
+                                                                                                                                Grid.Column="1"
+                                                                                                                                VerticalAlignment="Center"
+                                                                                                                                ContentStringFormat="{TemplateBinding ContentStringFormat}" />
                                                                                                                         </Grid>
                                                                                                                         <ControlTemplate.Triggers>
-                                                                                                                            <Trigger Property="IsChecked" Value="True">
-                                                                                                                                <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
-                                                                                                                                <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
-                                                                                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="White"/>
+                                                                                                                            <Trigger
+                                                                                                                                Property="IsChecked"
+                                                                                                                                Value="True">
+                                                                                                                                <Setter
+                                                                                                                                    Property="Visibility"
+                                                                                                                                    TargetName="Down_Arrow"
+                                                                                                                                    Value="Visible" />
+                                                                                                                                <Setter
+                                                                                                                                    Property="Visibility"
+                                                                                                                                    TargetName="Up_Arrow"
+                                                                                                                                    Value="Collapsed" />
+                                                                                                                                <Setter
+                                                                                                                                    Property="OpacityMask"
+                                                                                                                                    TargetName="Down_Arrow"
+                                                                                                                                    Value="White" />
                                                                                                                             </Trigger>
                                                                                                                         </ControlTemplate.Triggers>
                                                                                                                     </ControlTemplate>
                                                                                                                 </ToggleButton.Template>
-                                                                                                                <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" TextElement.FontWeight="Bold" VerticalAlignment="Center" Margin="1" RecognizesAccessKey="True"/>
+                                                                                                                <ContentPresenter
+                                                                                                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                                                                                    Content="{TemplateBinding Header}"
+                                                                                                                    ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                                                                                                    ContentSource="Header"
+                                                                                                                    TextElement.FontWeight="Bold"
+                                                                                                                    VerticalAlignment="Center"
+                                                                                                                    Margin="1"
+                                                                                                                    RecognizesAccessKey="True" />
                                                                                                             </ToggleButton>
                                                                                                         </Border>
-                                                                                                        <Border x:Name="ExpandSite" Background="Transparent" Padding="10,0,0,0" Grid.Row="1" Visibility="Collapsed">
-                                                                                                            <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
-                                                                                                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                                                        <Border
+                                                                                                            x:Name="ExpandSite"
+                                                                                                            Background="Transparent"
+                                                                                                            Padding="10,0,0,0"
+                                                                                                            Grid.Row="1"
+                                                                                                            Visibility="Collapsed">
+                                                                                                            <Border
+                                                                                                                BorderThickness="0"
+                                                                                                                HorizontalAlignment="Stretch"
+                                                                                                                Margin="0"
+                                                                                                                Padding="0"
+                                                                                                                VerticalAlignment="Stretch">
+                                                                                                                <ContentPresenter
+                                                                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                                                    Content="{TemplateBinding Content}"
+                                                                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                                                                    Focusable="False"
+                                                                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                                                    Margin="{TemplateBinding Padding}"
+                                                                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                                                                                             </Border>
                                                                                                         </Border>
                                                                                                     </Grid>
                                                                                                     <ControlTemplate.Triggers>
-                                                                                                        <Trigger Property="IsExpanded" Value="True">
-                                                                                                            <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                                                                        <Trigger
+                                                                                                            Property="IsExpanded"
+                                                                                                            Value="True">
+                                                                                                            <Setter
+                                                                                                                Property="Visibility"
+                                                                                                                TargetName="ExpandSite"
+                                                                                                                Value="Visible" />
                                                                                                         </Trigger>
                                                                                                     </ControlTemplate.Triggers>
                                                                                                 </ControlTemplate>
@@ -614,7 +909,7 @@
                                                                                         </Setter>
                                                                                     </Style>
                                                                                 </Expander.Style>
-                                                                                <ItemsPresenter/>
+                                                                                <ItemsPresenter />
                                                                             </Expander>
                                                                         </Border>
                                                                     </ControlTemplate>
@@ -627,17 +922,20 @@
                                                                             <Condition.Binding>
                                                                                 <Binding Path="Name">
                                                                                     <Binding.Converter>
-                                                                                        <xctk:IsDefaultCategoryConverter/>
+                                                                                        <xctk:IsDefaultCategoryConverter />
                                                                                     </Binding.Converter>
                                                                                 </Binding>
                                                                             </Condition.Binding>
                                                                         </Condition>
-                                                                        <Condition Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                                                        <Condition
+                                                                            Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                            Value="True" />
                                                                     </MultiDataTrigger.Conditions>
                                                                     <Setter Property="Template">
                                                                         <Setter.Value>
-                                                                            <ControlTemplate TargetType="{x:Type GroupItem}">
-                                                                                <ItemsPresenter/>
+                                                                            <ControlTemplate
+                                                                                TargetType="{x:Type GroupItem}">
+                                                                                <ItemsPresenter />
                                                                             </ControlTemplate>
                                                                         </Setter.Value>
                                                                     </Setter>
@@ -650,7 +948,7 @@
                                                             <Setter Property="Template">
                                                                 <Setter.Value>
                                                                     <ControlTemplate>
-                                                                        <ItemsPresenter/>
+                                                                        <ItemsPresenter />
                                                                     </ControlTemplate>
                                                                 </Setter.Value>
                                                             </Setter>
@@ -662,28 +960,39 @@
                                     </xctk:PropertyItemsControl.GroupStyle>
                                     <xctk:PropertyItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel IsItemsHost="True"/>
+                                            <VirtualizingStackPanel IsItemsHost="True" />
                                         </ItemsPanelTemplate>
                                     </xctk:PropertyItemsControl.ItemsPanel>
                                     <xctk:PropertyItemsControl.Template>
                                         <ControlTemplate>
-                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                                                <ScrollViewer x:Name="ScrollBar" Focusable="False" HorizontalScrollBarVisibility="Disabled" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="Auto">
-                                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                                <ScrollViewer x:Name="ScrollBar" Focusable="False"
+                                                              HorizontalScrollBarVisibility="Disabled"
+                                                              Padding="{TemplateBinding Padding}"
+                                                              VerticalScrollBarVisibility="Auto">
+                                                    <ItemsPresenter
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                                 </ScrollViewer>
                                             </Border>
                                             <ControlTemplate.Triggers>
-                                                <DataTrigger Binding="{Binding ShowHorizontalScrollBar, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True">
-                                                    <Setter Property="HorizontalScrollBarVisibility" TargetName="ScrollBar" Value="Auto"/>
+                                                <DataTrigger
+                                                    Binding="{Binding ShowHorizontalScrollBar, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                    Value="True">
+                                                    <Setter Property="HorizontalScrollBarVisibility"
+                                                            TargetName="ScrollBar" Value="Auto" />
                                                 </DataTrigger>
                                             </ControlTemplate.Triggers>
                                         </ControlTemplate>
                                     </xctk:PropertyItemsControl.Template>
                                 </xctk:PropertyItemsControl>
-                                <Thumb x:Name="PART_DragThumb" Cursor="SizeWE" HorizontalAlignment="Left" Margin="6,0,0,0" Width="5">
+                                <Thumb x:Name="PART_DragThumb" Cursor="SizeWE" HorizontalAlignment="Left"
+                                       Margin="6,0,0,0" Width="5">
                                     <Thumb.Template>
                                         <ControlTemplate>
-                                            <Border Background="Transparent"/>
+                                            <Border Background="Transparent" />
                                         </ControlTemplate>
                                     </Thumb.Template>
                                 </Thumb>
@@ -692,25 +1001,29 @@
                                 <GridSplitter.Visibility>
                                     <Binding Path="ShowSummary" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
-                                            <BooleanToVisibilityConverter/>
+                                            <BooleanToVisibilityConverter />
                                         </Binding.Converter>
                                     </Binding>
                                 </GridSplitter.Visibility>
                             </GridSplitter>
                             <Grid Margin="0,0,0,5" Grid.Row="5">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.Visibility>
                                     <Binding Path="ShowSummary" RelativeSource="{RelativeSource TemplatedParent}">
                                         <Binding.Converter>
-                                            <BooleanToVisibilityConverter/>
+                                            <BooleanToVisibilityConverter />
                                         </Binding.Converter>
                                     </Binding>
                                 </Grid.Visibility>
-                                <TextBlock Grid.Row="0" Background="Transparent" FontWeight="Bold" Padding="5,2,2,0" Text="{Binding SelectedPropertyItem.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                <TextBox Background="Transparent" IsReadOnly="True" BorderThickness="0" VerticalScrollBarVisibility="Auto" Grid.Row="1" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding SelectedPropertyItem.Description, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <TextBlock Grid.Row="0" Background="Transparent" FontWeight="Bold" Padding="5,2,2,0"
+                                           Text="{Binding SelectedPropertyItem.DisplayName, RelativeSource={RelativeSource TemplatedParent}}" />
+                                <TextBox Background="Transparent" IsReadOnly="True" BorderThickness="0"
+                                         VerticalScrollBarVisibility="Auto" Grid.Row="1" Padding="5,0,0,0"
+                                         TextWrapping="Wrap"
+                                         Text="{Binding SelectedPropertyItem.Description, RelativeSource={RelativeSource TemplatedParent}}" />
                             </Grid>
                         </Grid>
                     </Border>

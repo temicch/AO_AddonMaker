@@ -1,6 +1,8 @@
-﻿namespace AO_AddonMaker
+﻿using MahApps.Metro.Controls;
+
+namespace AO_AddonMaker
 {
-    public partial class MainWindow : MahApps.Metro.Controls.MetroWindow
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {

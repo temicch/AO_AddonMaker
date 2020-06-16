@@ -2,9 +2,5 @@
 {
     public class WidgetPanel : Widget
     {
-        public WidgetPanel()
-        {
-
-        }
     }
 }

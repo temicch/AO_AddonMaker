@@ -3,7 +3,7 @@
 namespace AO_AddonMaker.Views
 {
     /// <summary>
-    /// Interaction logic for WorkInProgress.xaml
+    ///     Interaction logic for WorkInProgress.xaml
     /// </summary>
     public partial class WorkInProgress : MetroWindow
     {

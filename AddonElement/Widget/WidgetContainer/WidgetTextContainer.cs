@@ -4,15 +4,21 @@ namespace AddonElement
 {
     public class WidgetTextContainer : WidgetContainer
     {
-        [XmlIgnore]
+        public WidgetTextContainer()
+        {
+            elementsInterval = 0;
+        }
+
+        [XmlIgnore] 
         public bool pickObjectsOnly { get; set; }
+
         [XmlElement("pickObjectsOnly")]
         public string _pickObjectsOnly
         {
             get => pickObjectsOnly.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     pickObjectsOnly = result;
             }
         }
@@ -21,10 +27,5 @@ namespace AddonElement
         public string formatFileRef { get; set; }
         public string defaultTag { get; set; }
         public int elementsInterval { get; set; }
-
-        public WidgetTextContainer()
-        {
-            elementsInterval = 0;
-        }
     }
 }

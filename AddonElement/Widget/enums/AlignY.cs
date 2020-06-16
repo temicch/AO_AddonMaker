@@ -5,6 +5,6 @@
         ALIGNY_DEFAULT,
         ALIGNY_TOP,
         ALIGNY_MIDDLE,
-        ALIGNY_BOTTOM,
+        ALIGNY_BOTTOM
     }
 }

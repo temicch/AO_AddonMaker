@@ -2,11 +2,11 @@
 {
     public class WidgetGlideSlider : WidgetSlider
     {
-        public int discreteStep { get; set; }
-
         public WidgetGlideSlider()
         {
             discreteStep = 10;
         }
+
+        public int discreteStep { get; set; }
     }
 }

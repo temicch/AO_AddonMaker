@@ -5,16 +5,13 @@ namespace AO_AddonMaker.Utility
 {
     public class RelayCommand : ICommand
     {
-        private readonly Action<object> _execute;
-
         private readonly Predicate<object> _canExecute;
+        private readonly Action<object> _execute;
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
-            if (execute == null)
-            {
+            if (execute == null) 
                 throw new ArgumentNullException(nameof(execute));
-            }
             _execute = execute;
             _canExecute = canExecute;
         }
@@ -26,14 +23,14 @@ namespace AO_AddonMaker.Utility
 
         public event EventHandler CanExecuteChanged;
 
-        public void OnCanExecuteChanged(object sender)
-        {
-            CanExecuteChanged?.Invoke(sender, EventArgs.Empty);
-        }
-
         public void Execute(object parameter)
         {
             _execute(parameter);
+        }
+
+        public void OnCanExecuteChanged(object sender)
+        {
+            CanExecuteChanged?.Invoke(sender, EventArgs.Empty);
         }
     }
 }

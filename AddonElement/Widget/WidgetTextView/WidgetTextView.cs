@@ -5,6 +5,14 @@ namespace AddonElement
 {
     public class WidgetTextView : Widget
     {
+        public WidgetTextView()
+        {
+            minWidth = 0.0f;
+            maxWidth = 0.0f;
+            pickObjectsOnly = false;
+            isHtmlEscaping = false;
+        }
+
         public string FormatFileRef { get; set; }
         public List<WidgetTextTaggedValue> TextValues { get; set; }
         public string DefaultTag { get; set; }
@@ -12,7 +20,7 @@ namespace AddonElement
         public float minWidth { get; set; }
         public float maxWidth { get; set; }
 
-        [XmlIgnore]
+        [XmlIgnore] 
         public bool isHtmlEscaping { get; set; }
 
         [XmlElement("isHtmlEscaping")]
@@ -21,12 +29,12 @@ namespace AddonElement
             get => isHtmlEscaping.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     isHtmlEscaping = result;
             }
         }
 
-        [XmlIgnore]
+        [XmlIgnore] 
         public bool pickObjectsOnly { get; set; } = true;
 
         [XmlElement("pickObjectsOnly")]
@@ -35,17 +43,9 @@ namespace AddonElement
             get => pickObjectsOnly.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     pickObjectsOnly = result;
             }
-        }
-
-        public WidgetTextView()
-        {
-            minWidth = 0.0f;
-            maxWidth = 0.0f;
-            pickObjectsOnly = false;
-            isHtmlEscaping = false;
         }
     }
 }

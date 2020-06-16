@@ -2,7 +2,7 @@
 {
     public class TextsItem
     {
-        public string groupName { get; set; }
         public href texts;
+        public string groupName { get; set; }
     }
 }

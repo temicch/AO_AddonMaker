@@ -6,30 +6,33 @@ namespace AddonElement
 {
     public class WidgetButton : WidgetPanel
     {
+        public WidgetButton()
+        {
+            useDefaultSounds = true;
+        }
+
         public string TextTag { get; set; }
-        [XmlArrayItem("Item")]
+
+        [XmlArrayItem("Item")] 
         public List<WidgetButtonVariant> Variants { get; set; }
+
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlIgnore]
+        [XmlIgnore] 
         public bool useDefaultSounds { get; set; }
+
         [XmlElement("useDefaultSounds")]
         public string _useDefaultSounds
         {
             get => useDefaultSounds.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     useDefaultSounds = result;
             }
         }
 
         public List<BindSection> pushingBindSections { get; set; }
-
-        public WidgetButton()
-        {
-            useDefaultSounds = true;
-        }
 
         public override ImageSource Bitmap
         {

@@ -4,8 +4,8 @@ namespace AddonElement
 {
     public class WidgetTextStyle
     {
-        [XmlIgnore]
-        public bool multiline { get; set; } = false;
+        [XmlIgnore] 
+        public bool multiline { get; set; }
 
         [XmlElement("multiline")]
         public string _multiline
@@ -13,12 +13,12 @@ namespace AddonElement
             get => multiline.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     multiline = result;
             }
         }
 
-        [XmlIgnore]
+        [XmlIgnore] 
         public bool wrapText { get; set; } = true;
 
         [XmlElement("wrapText")]
@@ -27,13 +27,13 @@ namespace AddonElement
             get => wrapText.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     wrapText = result;
             }
         }
 
-        [XmlIgnore]
-        public bool showClippedSymbol { get; set; } = false;
+        [XmlIgnore] 
+        public bool showClippedSymbol { get; set; }
 
         [XmlElement("showClippedSymbol")]
         public string _showClippedSymbol
@@ -41,13 +41,13 @@ namespace AddonElement
             get => showClippedSymbol.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     showClippedSymbol = result;
             }
         }
 
-        [XmlIgnore]
-        public bool showClippedLine { get; set; } = false;
+        [XmlIgnore] 
+        public bool showClippedLine { get; set; }
 
         [XmlElement("showClippedLine")]
         public string _showClippedLine
@@ -55,12 +55,12 @@ namespace AddonElement
             get => showClippedLine.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     showClippedLine = result;
             }
         }
 
-        [XmlIgnore]
+        [XmlIgnore] 
         public bool ellipsis { get; set; } = true;
 
         [XmlElement("ellipsis")]
@@ -69,7 +69,7 @@ namespace AddonElement
             get => ellipsis.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     ellipsis = result;
             }
         }

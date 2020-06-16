@@ -8,21 +8,21 @@ namespace AddonElement
 {
     public static class FileManager
     {
-        public static event Action<string> OnDebug;
+        private static readonly Dictionary<string, File> paths;
 
-        private static Dictionary<string, File> paths;
-        public static string CurrentWorkingFile { get; private set; } = null;
-
-        public static File RootFile { get; set; }
-        
         static FileManager()
         {
             paths = new Dictionary<string, File>();
         }
 
-        static void RemovePointer(ref string filePath)
+        public static string CurrentWorkingFile { get; private set; }
+
+        public static File RootFile { get; set; }
+        public static event Action<string> OnDebug;
+
+        private static void RemovePointer(ref string filePath)
         {
-            int indexOf = filePath.IndexOf("#xpointer", StringComparison.Ordinal);
+            var indexOf = filePath.IndexOf("#xpointer", StringComparison.Ordinal);
             if (indexOf > 0)
                 filePath = filePath.Remove(indexOf);
         }
@@ -67,9 +67,9 @@ namespace AddonElement
 
                 filePath = Path.GetFileName(filePath);
 
-                Type type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReader.Name}");
+                var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReader.Name}");
 
-                XmlSerializer xmlSerializer = new XmlSerializer(type);
+                var xmlSerializer = new XmlSerializer(type);
 
                 using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
@@ -86,7 +86,7 @@ namespace AddonElement
             catch (InvalidOperationException exception)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
-                if(exception.InnerException != null)
+                if (exception.InnerException != null)
                     DebugOutput($" - {exception.InnerException.Message}");
                 newUIElement = new File(Path.GetFullPath(filePath));
             }
@@ -96,7 +96,7 @@ namespace AddonElement
                 //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
                 newUIElement = new File(Path.GetFullPath(filePath));
             }
-            catch(DirectoryNotFoundException)
+            catch (DirectoryNotFoundException)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}] file not found");
             }
@@ -113,6 +113,7 @@ namespace AddonElement
             {
                 Directory.SetCurrentDirectory(previousDirectory);
             }
+
             return newUIElement;
         }
 

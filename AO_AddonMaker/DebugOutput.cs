@@ -2,7 +2,7 @@
 
 namespace AO_AddonMaker
 {
-    static class DebugOutput
+    internal static class DebugOutput
     {
         private static MainWindowViewModel _viewModel;
 

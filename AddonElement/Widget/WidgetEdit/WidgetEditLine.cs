@@ -4,15 +4,21 @@ namespace AddonElement
 {
     public class WidgetEditLine : WidgetEditBase
     {
-        [XmlIgnore]
+        public WidgetEditLine()
+        {
+            isPassword = false;
+        }
+
+        [XmlIgnore] 
         public bool isPassword { get; set; }
+
         [XmlElement("isPassword")]
         public string _isPassword
         {
             get => isPassword.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     isPassword = result;
             }
         }
@@ -20,10 +26,5 @@ namespace AddonElement
         public string ReactionEnter { get; set; }
         public string reactionUp { get; set; }
         public string reactionDown { get; set; }
-
-        public WidgetEditLine()
-        {
-            isPassword = false;
-        }
     }
 }

@@ -1,17 +1,17 @@
-﻿using AO_AddonMaker.Views;
-using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using AO_AddonMaker.Views;
+using MahApps.Metro.Controls;
 
 namespace AO_AddonMaker.Utility
 {
-    class ProgressDialog
+    internal class ProgressDialog
     {
         public static void ShowModal(Action work)
         {
-            WorkInProgress splash = new WorkInProgress()
+            var splash = new WorkInProgress
             {
                 Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
@@ -19,7 +19,7 @@ namespace AO_AddonMaker.Utility
 
             splash.Loaded += (_, args) =>
             {
-                BackgroundWorker worker = new BackgroundWorker();
+                var worker = new BackgroundWorker();
 
                 worker.DoWork += (s, workerArgs) => work();
 

@@ -23,53 +23,6 @@ namespace AddonElement
 
     public class WidgetLayerAnimatedTexture : WidgetLayer
     {
-        [XmlIgnore]
-        public bool playImmidiatly { get; set; }
-        [XmlElement("playImmidiatly")]
-        public string _playImmidiatly
-        {
-            get => playImmidiatly.ToString().ToLower();
-            set
-            {
-                if (bool.TryParse(value, out bool result))
-                    playImmidiatly = result;
-            }
-        }
-
-        [XmlIgnore]
-        public bool repeatForever { get; set; }
-        [XmlElement("repeatForever")]
-        public string _repeatForever
-        {
-            get => repeatForever.ToString().ToLower();
-            set
-            {
-                if (bool.TryParse(value, out bool result))
-                    repeatForever = result;
-            }
-        }
-
-        [XmlIgnore]
-        public bool scaling { get; set; }
-        [XmlElement("scaling")]
-        public string _scaling
-        {
-            get => scaling.ToString().ToLower();
-            set
-            {
-                if (bool.TryParse(value, out bool result))
-                    scaling = result;
-            }
-        }
-
-        public int delayMs { get; set; }
-        public List<Frame> frames { get; set; }
-
-        public override ImageSource Bitmap
-        {
-            get => throw new NotImplementedException();
-        }
-
         public WidgetLayerAnimatedTexture()
         {
             scaling = false;
@@ -77,5 +30,52 @@ namespace AddonElement
             repeatForever = true;
             playImmidiatly = true;
         }
+
+        [XmlIgnore] 
+        public bool playImmidiatly { get; set; }
+
+        [XmlElement("playImmidiatly")]
+        public string _playImmidiatly
+        {
+            get => playImmidiatly.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out var result))
+                    playImmidiatly = result;
+            }
+        }
+
+        [XmlIgnore] 
+        public bool repeatForever { get; set; }
+
+        [XmlElement("repeatForever")]
+        public string _repeatForever
+        {
+            get => repeatForever.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out var result))
+                    repeatForever = result;
+            }
+        }
+
+        [XmlIgnore] 
+        public bool scaling { get; set; }
+
+        [XmlElement("scaling")]
+        public string _scaling
+        {
+            get => scaling.ToString().ToLower();
+            set
+            {
+                if (bool.TryParse(value, out var result))
+                    scaling = result;
+            }
+        }
+
+        public int delayMs { get; set; }
+        public List<Frame> frames { get; set; }
+
+        public override ImageSource Bitmap => throw new NotImplementedException();
     }
 }

@@ -1,5 +1,5 @@
-﻿using Ionic.Zlib;
-using System.IO;
+﻿using System.IO;
+using Ionic.Zlib;
 
 namespace Texture
 {
@@ -7,7 +7,7 @@ namespace Texture
     {
         public static bool IsPowerOf2(int x)
         {
-            return (x & x - 1) == 0;
+            return (x & (x - 1)) == 0;
         }
 
         public static int NextPowerOf2(int n)
@@ -25,13 +25,16 @@ namespace Texture
         public static MemoryStream UnZLib(Stream input)
         {
             input.Position = 0L;
-            MemoryStream memoryStream = new MemoryStream();
-            using (ZlibStream zlibStream = new ZlibStream(input, (CompressionMode)1))
+            var memoryStream = new MemoryStream();
+            using (var zlibStream = new ZlibStream(input, (CompressionMode) 1))
             {
-                byte[] buffer = new byte[16384];
-                for (int count = zlibStream.Read(buffer, 0, 16384); count > 0; count = zlibStream.Read(buffer, 0, 16384))
+                var buffer = new byte[16384];
+                for (var count = zlibStream.Read(buffer, 0, 16384);
+                    count > 0;
+                    count = zlibStream.Read(buffer, 0, 16384))
                     memoryStream.Write(buffer, 0, count);
             }
+
             memoryStream.Position = 0L;
             return memoryStream;
         }

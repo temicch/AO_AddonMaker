@@ -10,13 +10,11 @@ namespace AddonElement
             get => File?.FilePath;
             set
             {
-                if (value != string.Empty)
-                {
-                    File = FileManager.GetFile(value);
-                }
+                if (value != string.Empty) File = FileManager.GetFile(value);
             }
         }
-        [XmlIgnore]
+
+        [XmlIgnore] 
         public File File { get; set; }
     }
 }

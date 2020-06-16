@@ -6,29 +6,9 @@ using System.Windows.Media.Imaging;
 
 namespace Texture
 {
-    public partial class Texture
+    public class Texture
     {
         private readonly List<MipData> _mips = new List<MipData>();
-
-        public ImageSource Bitmap { get; private set; }
-
-        public Format TextureFormat { get; private set; }
-        public int Width { get; private set; } = 1;
-        public int Height { get; private set; } = 1;
-
-        private void AddMipData(int level, int size, byte[] data)
-        {
-            if (level >= _mips.Count)
-            {
-                for (int count = _mips.Count; count <= level; ++count)
-                    _mips.Add(null);
-            }
-            _mips[level] = new MipData()
-            {
-                data = data,
-                size = size
-            };
-        }
 
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
@@ -40,26 +20,45 @@ namespace Texture
             Bitmap = GetBitmap();
         }
 
+        public ImageSource Bitmap { get; }
+
+        public Format TextureFormat { get; }
+        public int Width { get; } = 1;
+        public int Height { get; } = 1;
+
+        private void AddMipData(int level, int size, byte[] data)
+        {
+            if (level >= _mips.Count)
+                for (var count = _mips.Count; count <= level; ++count)
+                    _mips.Add(null);
+            _mips[level] = new MipData
+            {
+                data = data,
+                size = size
+            };
+        }
+
         private void Read(Stream input)
         {
-            using (BinaryReader binaryReader = new BinaryReader(input))
+            using (var binaryReader = new BinaryReader(input))
             {
                 while (binaryReader.BaseStream.Position < binaryReader.BaseStream.Length)
                 {
-                    int level = binaryReader.ReadInt32();
-                    int num = binaryReader.ReadInt32();
+                    var level = binaryReader.ReadInt32();
+                    var num = binaryReader.ReadInt32();
                     AddMipData(level, num, binaryReader.ReadBytes(num));
                 }
             }
+
             input.Dispose();
         }
 
         private void SaveTo(Stream output)
         {
-            BinaryWriter binaryWriter = new BinaryWriter(output);
+            var binaryWriter = new BinaryWriter(output);
             binaryWriter.Write(542327876);
             binaryWriter.Write(124);
-            int num = 528391;
+            var num = 528391;
             if (_mips.Count > 1)
                 num |= 131072;
             binaryWriter.Write(num);
@@ -68,7 +67,7 @@ namespace Texture
             binaryWriter.Write(_mips[0].data.Length);
             binaryWriter.Write(0);
             binaryWriter.Write(_mips.Count > 1 ? _mips.Count : 0);
-            for (int index = 0; index < 11; ++index)
+            for (var index = 0; index < 11; ++index)
                 binaryWriter.Write(0);
             binaryWriter.Write(32);
             binaryWriter.Write(4);
@@ -86,12 +85,13 @@ namespace Texture
                 default:
                     throw new Exception("Unknown format!");
             }
-            for (int index = 0; index < 5; ++index)
+
+            for (var index = 0; index < 5; ++index)
                 binaryWriter.Write(0);
             binaryWriter.Write(4096);
-            for (int index = 0; index < 4; ++index)
+            for (var index = 0; index < 4; ++index)
                 binaryWriter.Write(0);
-            for (int index = 0; index < _mips.Count; ++index)
+            for (var index = 0; index < _mips.Count; ++index)
                 binaryWriter.Write(_mips[index].data);
             binaryWriter.Flush();
         }
@@ -111,6 +111,7 @@ namespace Texture
                 bitmap.EndInit();
                 bitmap.Freeze();
             }
+
             return bitmap;
         }
     }

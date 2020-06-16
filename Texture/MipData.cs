@@ -2,7 +2,7 @@
 {
     internal class MipData
     {
-        public int size;
         public byte[] data;
+        public int size;
     }
 }

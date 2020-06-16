@@ -16,10 +16,7 @@ namespace AddonElement
     {
         public href textureItem { get; set; }
 
-        public override ImageSource Bitmap
-        {
-            get => (textureItem?.File as UISingleTexture)?.Bitmap;
-        }
+        public override ImageSource Bitmap => (textureItem?.File as UISingleTexture)?.Bitmap;
 
         public WidgetLayerTiledLayout Layout { get; set; }
 

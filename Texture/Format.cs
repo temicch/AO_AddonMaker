@@ -5,6 +5,6 @@
         Unknown,
         DXT1,
         DXT3,
-        DXT5,
+        DXT5
     }
 }

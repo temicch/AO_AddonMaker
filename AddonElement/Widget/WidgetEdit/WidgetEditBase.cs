@@ -2,17 +2,26 @@
 
 namespace AddonElement
 {
-    abstract public class WidgetEditBase : Widget
+    public abstract class WidgetEditBase : Widget
     {
-        [XmlIgnore]
+        public WidgetEditBase()
+        {
+            CursorWidth = 2;
+            CursorChangeTimeMs = 500;
+            maxSymbolsCount = -1;
+            canPaste = true;
+        }
+
+        [XmlIgnore] 
         public bool canPaste { get; set; }
+
         [XmlElement("canPaste")]
         public string _canPaste
         {
             get => canPaste.ToString().ToLower();
             set
             {
-                if (bool.TryParse(value, out bool result))
+                if (bool.TryParse(value, out var result))
                     canPaste = result;
             }
         }
@@ -25,6 +34,7 @@ namespace AddonElement
         public WidgetTextStyle TextStyle { get; set; }
         public string globalClassName { get; set; }
         public string selectionClassName { get; set; }
+
         public href selectionLayer { get; set; }
         //public string filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём.Значения: "RUSSIAN", "NUMBERS", "INTEGER". См.EditBaseTextFilter
 
@@ -33,13 +43,5 @@ namespace AddonElement
         public string reactionFocusChanged { get; set; }
         public string reactionPaste { get; set; }
         public string reactionCapsLock { get; set; }
-
-        public WidgetEditBase()
-        {
-            CursorWidth = 2;
-            CursorChangeTimeMs = 500;
-            maxSymbolsCount = -1;
-            canPaste = true;
-        }
     }
 }

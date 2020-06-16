@@ -2,7 +2,7 @@
 
 namespace AddonElement
 {
-    abstract public class WidgetLayer : File
+    public abstract class WidgetLayer : File
     {
         public abstract ImageSource Bitmap { get; }
     }

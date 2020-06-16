@@ -2,9 +2,5 @@
 {
     public class UITextureElement : UISingleTexture
     {
-        public UITextureElement()
-        {
-
-        }
     }
 }

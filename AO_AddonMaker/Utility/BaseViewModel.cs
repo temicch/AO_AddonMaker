@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace AO_AddonMaker.Utility
 {
     /// <summary>
-    /// Base version of a viewmodel that implements <see cref="INotifyPropertyChanged"/>
+    ///     Base version of a viewmodel that implements <see cref="INotifyPropertyChanged" />
     /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
