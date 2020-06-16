@@ -80,8 +80,7 @@
                                               ItemsSource="{Binding RootFile}">
                                         <TreeView.ItemTemplate>
                                             <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
-                                                <Image Source="{Binding Bitmap}" Canvas.Top="{Binding Placement.Y.Pos}"
-                                                       Canvas.Left="{Binding Placement.X.Pos}" />
+                                                <Image Source="{Binding Bitmap}" />
                                             </HierarchicalDataTemplate>
                                         </TreeView.ItemTemplate>
                                     </TreeView>
@@ -89,7 +88,7 @@
                             </avalon:LayoutDocument>
                         </avalon:LayoutDocumentPane>
                         <avalon:LayoutAnchorablePane DockHeight="200">
-                            <avalon:LayoutAnchorable ContentId="Errors" Title="Список проблем" CanHide="False">
+                            <avalon:LayoutAnchorable ContentId="Errors" Title="Output" CanHide="False">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -101,7 +100,7 @@
                                             <Image Source="/AO_AddonMaker;component/Icons/clear.png" />
                                         </Button>
                                     </ToolBar>
-                                    <TextBox x:Name="tboxDebug" Grid.Row="1" VerticalScrollBarVisibility="Auto"
+                                    <TextBox Grid.Row="1" VerticalScrollBarVisibility="Auto"
                                              HorizontalScrollBarVisibility="Auto" Padding="5" BorderThickness="0"
                                              IsReadOnly="True" Text="{Binding DebugOutput, Mode=OneWay}" />
                                 </Grid>
@@ -110,7 +109,7 @@
                     </avalon:LayoutPanel>
                     <avalon:LayoutAnchorablePaneGroup DockWidth="355" Orientation="Vertical">
                         <avalon:LayoutAnchorablePane>
-                            <avalon:LayoutAnchorable Title="Иерархия объектов" CanHide="False" CanClose="False">
+                            <avalon:LayoutAnchorable Title="Widget hierarchy" CanHide="False" CanClose="False">
                                 <TreeView x:Name="HierarchyTree" ItemsSource="{Binding RootFile}">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
@@ -129,7 +128,7 @@
                             </avalon:LayoutAnchorable>
                         </avalon:LayoutAnchorablePane>
                         <avalon:LayoutAnchorablePane>
-                            <avalon:LayoutAnchorable Title="Свойства" CanClose="False" CanHide="False">
+                            <avalon:LayoutAnchorable Title="Properties" CanClose="False" CanHide="False">
                                 <xctk:PropertyGrid IsReadOnly="True" ShowDescriptionByTooltip="True"
                                                    Background="Transparent" Foreground="White" BorderThickness="0"
                                                    SelectedObject="{Binding SelectedItem, ElementName=HierarchyTree}"
