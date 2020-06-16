@@ -1,5 +1,5 @@
 # AO_AddonMaker
-This application is designed to facilitate the creation and management of custom addons for the game "Allods Online"<img align="right" src="https://allods.mail.ru/static/img/110/logo.png" width="233" style="margin:0px 30px">
+<img align="right" src="https://allods.mail.ru/static/img/110/logo.png" width="233">This application is designed to facilitate the creation and management of custom addons for the game "Allods Online"
 ## Features
 * View widgets, ~change sizes and options~
 * View textures
