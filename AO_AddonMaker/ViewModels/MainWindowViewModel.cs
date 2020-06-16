@@ -21,9 +21,9 @@ namespace AO_AddonMaker.Views
 
         public MainWindowViewModel()
         {
-            OpenFileCommand = new RelayCommand(obj => OpenFile(obj));
-            ClearDebugCommand = new RelayCommand(obj => ClearDebug(obj));
-            SampleSelectCommand = new RelayCommand(obj => SampleSelect(obj));
+            OpenFileCommand = new RelayCommand(OpenFile);
+            ClearDebugCommand = new RelayCommand(ClearDebug);
+            SampleSelectCommand = new RelayCommand(SampleSelect);
 
             AO_AddonMaker.DebugOutput.Init(this);
             FileManager.OnDebug += DebugWrite;
@@ -104,6 +104,7 @@ namespace AO_AddonMaker.Views
 
             GC.Collect();
             GC.WaitForFullGCComplete();
+            ClearDebug(null);
             Project = new Project(fileName);
             ProgressDialog.ShowModal(() => Project.Load());
             RootFile.Clear();
