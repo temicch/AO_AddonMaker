@@ -92,7 +92,8 @@ namespace AddonElement
             }
             catch (XmlException)
             {
-                DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
+                // Need to rewrite (many false positives)
+                //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
                 newUIElement = new File(Path.GetFullPath(filePath));
             }
             catch(DirectoryNotFoundException)
