@@ -1,10 +1,12 @@
 # AO_AddonMaker
-This application is designed to facilitate the creation and management of custom add-ons for the game "Allods Online"
+This application is designed to facilitate the creation and management of custom addons for the game "Allods Online"<img align="right" src="https://allods.mail.ru/static/img/110/logo.png" width="233" style="margin:0px 30px">
 ## Features
 * View widgets, ~change sizes and options~
 * View textures
 * Checking for errors in the markup of XML files
 * Checking file path errors
+* ~Compiling scripts with `LuaJIT`~
+* ~Packaging addons in `.pack` format~
 ## Used Packages
 * [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit) (v3.8.1) [[NuGet](https://www.nuget.org/packages/DotNetZip/1.13.8)]
   * PropertyGrid
