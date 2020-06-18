@@ -235,7 +235,7 @@ namespace AddonElement
         [Description("Описание расположение виджета")]
         public WidgetPlacementXY Placement { get; set; }
 
-        [XmlIgnore] public List<File> Widgets => Children?.Select(x => x.File).ToList();
+        [XmlIgnore] public List<IFile> Widgets => Children?.Select(x => x.File).ToList();
 
         protected ImageSource GetBitmap()
         {

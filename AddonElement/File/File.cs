@@ -2,7 +2,7 @@
 
 namespace AddonElement
 {
-    public class File
+    public class File: IFile
     {
         public File()
         {

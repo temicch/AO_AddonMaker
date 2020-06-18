@@ -9,6 +9,6 @@ namespace AddonElement
         bool Visible { get; set; }
         bool Enabled { get; set; }
 
-        List<File> Widgets { get; }
+        List<IFile> Widgets { get; }
     }
 }

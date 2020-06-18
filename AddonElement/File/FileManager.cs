@@ -8,16 +8,16 @@ namespace AddonElement
 {
     public static class FileManager
     {
-        private static readonly Dictionary<string, File> paths;
+        private static readonly Dictionary<string, IFile> paths;
 
         static FileManager()
         {
-            paths = new Dictionary<string, File>();
+            paths = new Dictionary<string, IFile>();
         }
 
-        public static string CurrentWorkingFile { get; private set; }
+        private static string CurrentWorkingFile { get; set; }
 
-        public static File RootFile { get; set; }
+        public static IFile RootFile { get; set; }
         public static event Action<string> OnDebug;
 
         private static void RemovePointer(ref string filePath)
@@ -27,26 +27,26 @@ namespace AddonElement
                 filePath = filePath.Remove(indexOf);
         }
 
-        public static string RegisterFile(File file)
+        public static string RegisterFile(IFile file)
         {
             paths[CurrentWorkingFile] = file;
             return CurrentWorkingFile;
         }
 
-        public static File Load(string filePath)
+        public static IFile Load(string filePath)
         {
             Clear();
             RootFile = Add(filePath);
             return RootFile;
         }
 
-        private static File Add(string filePath)
+        private static IFile Add(string filePath)
         {
             if (filePath == null)
                 return null;
 
             RemovePointer(ref filePath);
-            File newUIElement = null;
+            IFile newUIElement = null;
 
             if (paths.ContainsKey(filePath))
             {
@@ -74,7 +74,7 @@ namespace AddonElement
                 using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     CurrentWorkingFile = stream.Name;
-                    newUIElement = xmlSerializer.Deserialize(stream) as File;
+                    newUIElement = xmlSerializer.Deserialize(stream) as IFile;
                     (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
                 }
             }
@@ -117,7 +117,7 @@ namespace AddonElement
             return newUIElement;
         }
 
-        public static File GetFile(string filePath)
+        public static IFile GetFile(string filePath)
         {
             if (filePath == null)
                 return null;

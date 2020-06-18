@@ -62,7 +62,7 @@ namespace AddonElement
         public string Name { get; set; }
 
         [XmlIgnore] 
-        public List<File> Widgets => Forms?.Select(x => x.Form?.File)?.ToList();
+        public List<IFile> Widgets => Forms?.Select(x => x.Form?.File)?.ToList();
 
         [XmlIgnore] 
         public WidgetPlacementXY Placement { get; set; }
