@@ -20,8 +20,7 @@ namespace AddonElement
         public float minWidth { get; set; }
         public float maxWidth { get; set; }
 
-        [XmlIgnore] 
-        public bool isHtmlEscaping { get; set; }
+        [XmlIgnore] public bool isHtmlEscaping { get; set; }
 
         [XmlElement("isHtmlEscaping")]
         public string _isHtmlEscaping
@@ -34,8 +33,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool pickObjectsOnly { get; set; } = true;
+        [XmlIgnore] public bool pickObjectsOnly { get; set; }
 
         [XmlElement("pickObjectsOnly")]
         public string _pickObjectsOnly

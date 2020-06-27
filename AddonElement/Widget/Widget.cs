@@ -92,7 +92,7 @@ namespace AddonElement
 
         [Category("Display")]
         [Description("Визуальная прозрачность виджета. По умолчанию 1.0f - непрозрачен")]
-        public float fade { get; set; } = 1f;
+        public float fade { get; set; }
 
         [Category("Track and limit reactions")]
         [Description(

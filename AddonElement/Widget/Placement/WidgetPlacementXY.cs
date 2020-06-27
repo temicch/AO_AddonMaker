@@ -27,8 +27,7 @@ namespace AddonElement
 
         public href sizingWidget { get; set; }
 
-        [XmlArrayItem("Item")] 
-        public List<href> sizingWidgets { get; set; }
+        [XmlArrayItem("Item")] public List<href> sizingWidgets { get; set; }
 
         public WidgetPlacement X { get; set; }
         public WidgetPlacement Y { get; set; }

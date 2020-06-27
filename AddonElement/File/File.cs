@@ -2,8 +2,11 @@
 
 namespace AddonElement
 {
-    public class File: IFile
+    public class File : IFile
     {
+        private const string prefixFileWidget = "Widget";
+        private const string otherType = "Other";
+
         public File()
         {
             var file = FileManager.RegisterFile(this);
@@ -26,10 +29,10 @@ namespace AddonElement
             get
             {
                 var type = GetType().Name;
-                if (type.StartsWith("Widget"))
+                if (type.StartsWith(prefixFileWidget))
                     type = type.Substring(6);
                 if (type == nameof(File))
-                    type = "Other";
+                    type = otherType;
                 return $"[{type}]";
             }
         }

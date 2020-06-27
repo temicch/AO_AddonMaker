@@ -9,8 +9,7 @@ namespace AddonElement
             isPassword = false;
         }
 
-        [XmlIgnore] 
-        public bool isPassword { get; set; }
+        [XmlIgnore] public bool isPassword { get; set; }
 
         [XmlElement("isPassword")]
         public string _isPassword

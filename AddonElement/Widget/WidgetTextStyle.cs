@@ -4,8 +4,16 @@ namespace AddonElement
 {
     public class WidgetTextStyle
     {
-        [XmlIgnore] 
-        public bool multiline { get; set; }
+        public WidgetTextStyle()
+        {
+            wrapText = true;
+            ellipsis = true;
+            lineSpacing = 0;
+            Align = AlignY.ALIGNY_DEFAULT;
+            blendEffect = Blend_Effect.BLEND_EFFECT_ALPHABLND;
+        }
+
+        [XmlIgnore] public bool multiline { get; set; }
 
         [XmlElement("multiline")]
         public string _multiline
@@ -18,8 +26,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool wrapText { get; set; } = true;
+        [XmlIgnore] public bool wrapText { get; set; }
 
         [XmlElement("wrapText")]
         public string _wrapText
@@ -32,8 +39,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool showClippedSymbol { get; set; }
+        [XmlIgnore] public bool showClippedSymbol { get; set; }
 
         [XmlElement("showClippedSymbol")]
         public string _showClippedSymbol
@@ -46,8 +52,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool showClippedLine { get; set; }
+        [XmlIgnore] public bool showClippedLine { get; set; }
 
         [XmlElement("showClippedLine")]
         public string _showClippedLine
@@ -60,8 +65,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool ellipsis { get; set; } = true;
+        [XmlIgnore] public bool ellipsis { get; set; }
 
         [XmlElement("ellipsis")]
         public string _ellipsis
@@ -74,8 +78,8 @@ namespace AddonElement
             }
         }
 
-        public int lineSpacing { get; set; } = 0;
-        public AlignY Align { get; set; } = AlignY.ALIGNY_DEFAULT;
-        public Blend_Effect blendEffect { get; set; } = Blend_Effect.BLEND_EFFECT_ALPHABLND;
+        public int lineSpacing { get; set; }
+        public AlignY Align { get; set; }
+        public Blend_Effect blendEffect { get; set; }
     }
 }

@@ -9,8 +9,7 @@ namespace AddonElement
             ReactionOnUp = false;
         }
 
-        [XmlIgnore] 
-        public bool ReactionOnUp { get; set; }
+        [XmlIgnore] public bool ReactionOnUp { get; set; }
 
         [XmlElement("ReactionOnUp")]
         public string _ReactionOnUp

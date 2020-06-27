@@ -13,8 +13,7 @@ namespace AddonElement
         public href textureItem { get; set; }
         public href textureMask { get; set; }
 
-        [XmlIgnore] 
-        public bool Scaling { get; set; }
+        [XmlIgnore] public bool Scaling { get; set; }
 
         [XmlElement("Scaling")]
         public string _Scaling

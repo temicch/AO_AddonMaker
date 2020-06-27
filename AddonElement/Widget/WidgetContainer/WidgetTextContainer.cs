@@ -9,8 +9,7 @@ namespace AddonElement
             elementsInterval = 0;
         }
 
-        [XmlIgnore] 
-        public bool pickObjectsOnly { get; set; }
+        [XmlIgnore] public bool pickObjectsOnly { get; set; }
 
         [XmlElement("pickObjectsOnly")]
         public string _pickObjectsOnly

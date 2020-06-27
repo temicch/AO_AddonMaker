@@ -31,8 +31,7 @@ namespace AddonElement
             playImmidiatly = true;
         }
 
-        [XmlIgnore] 
-        public bool playImmidiatly { get; set; }
+        [XmlIgnore] public bool playImmidiatly { get; set; }
 
         [XmlElement("playImmidiatly")]
         public string _playImmidiatly
@@ -45,8 +44,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool repeatForever { get; set; }
+        [XmlIgnore] public bool repeatForever { get; set; }
 
         [XmlElement("repeatForever")]
         public string _repeatForever
@@ -59,8 +57,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool scaling { get; set; }
+        [XmlIgnore] public bool scaling { get; set; }
 
         [XmlElement("scaling")]
         public string _scaling

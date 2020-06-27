@@ -13,13 +13,11 @@ namespace AddonElement
 
         public string TextTag { get; set; }
 
-        [XmlArrayItem("Item")] 
-        public List<WidgetButtonVariant> Variants { get; set; }
+        [XmlArrayItem("Item")] public List<WidgetButtonVariant> Variants { get; set; }
 
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlIgnore] 
-        public bool useDefaultSounds { get; set; }
+        [XmlIgnore] public bool useDefaultSounds { get; set; }
 
         [XmlElement("useDefaultSounds")]
         public string _useDefaultSounds

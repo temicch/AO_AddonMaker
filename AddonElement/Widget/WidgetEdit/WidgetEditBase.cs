@@ -12,8 +12,7 @@ namespace AddonElement
             canPaste = true;
         }
 
-        [XmlIgnore] 
-        public bool canPaste { get; set; }
+        [XmlIgnore] public bool canPaste { get; set; }
 
         [XmlElement("canPaste")]
         public string _canPaste

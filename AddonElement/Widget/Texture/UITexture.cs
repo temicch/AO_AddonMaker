@@ -10,8 +10,7 @@ namespace AddonElement
         public int mipSW { get; set; }
         public int mipsNumber { get; set; }
 
-        [XmlIgnore] 
-        public bool generateMipChain { get; set; }
+        [XmlIgnore] public bool generateMipChain { get; set; }
 
         [XmlElement("generateMipChain")]
         public string _generateMipChain
@@ -30,8 +29,7 @@ namespace AddonElement
         public int realWidth { get; set; }
         public int realHeight { get; set; }
 
-        [XmlIgnore] 
-        public bool disableLODControl { get; set; }
+        [XmlIgnore] public bool disableLODControl { get; set; }
 
         [XmlElement("disableLODControl")]
         public string _disableLODControl
@@ -44,8 +42,7 @@ namespace AddonElement
             }
         }
 
-        [XmlIgnore] 
-        public bool alphaTex { get; set; }
+        [XmlIgnore] public bool alphaTex { get; set; }
 
         [XmlElement("alphaTex")]
         public string _alphaTex
@@ -66,8 +63,7 @@ namespace AddonElement
         public long sourceFileCRC { get; set; }
 
 
-        [XmlIgnore] 
-        public bool wrap { get; set; }
+        [XmlIgnore] public bool wrap { get; set; }
 
         [XmlElement("wrap")]
         public string _wrap
@@ -81,8 +77,7 @@ namespace AddonElement
         }
         //public href LocalizationInfo { get; set; }
 
-        [XmlIgnore] 
-        public bool atlasPart { get; set; }
+        [XmlIgnore] public bool atlasPart { get; set; }
 
         [XmlElement("atlasPart")]
         public string _atlasPart
@@ -97,11 +92,9 @@ namespace AddonElement
 
         public string pool { get; set; }
 
-        [XmlIgnore] 
-        protected ImageSource bitmap { get; set; }
+        [XmlIgnore] protected ImageSource bitmap { get; set; }
 
-        [XmlIgnore] 
-        public ImageSource Bitmap => GetBitmap();
+        [XmlIgnore] public ImageSource Bitmap => GetBitmap();
 
         protected ImageSource GetBitmap()
         {
