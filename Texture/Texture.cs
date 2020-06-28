@@ -23,8 +23,8 @@ namespace Texture
         public ImageSource Bitmap { get; }
 
         public Format TextureFormat { get; }
-        public int Width { get; };
-        public int Height { get; };
+        public int Width { get; }
+        public int Height { get; }
 
         private void AddMipData(int level, int size, byte[] data)
         {
