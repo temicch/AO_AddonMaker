@@ -78,9 +78,12 @@
     <Compile Include="Widget\WidgetEdit\WidgetEditBox.cs" />
     <Compile Include="Widget\WidgetEdit\WidgetEditLine.cs" />
     <Compile Include="Widget\WidgetForm\WidgetForm.cs" />
+    <Compile Include="Widget\WidgetLayer\Frame.cs" />
+    <Compile Include="Widget\WidgetLayer\Rect.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayer.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerAnimatedTexture.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerSimpleTexture.cs" />
+    <Compile Include="Widget\WidgetLayer\WidgetLayerTiledLayout.cs" />
     <Compile Include="Widget\WidgetLayer\WidgetLayerTiledTexture.cs" />
     <Compile Include="File\FileManager.cs" />
     <Compile Include="Widget\WidgetPanel\WidgetPanel.cs" />
