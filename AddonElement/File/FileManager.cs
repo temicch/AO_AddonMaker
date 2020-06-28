@@ -20,13 +20,6 @@ namespace AddonElement
         public static IFile RootFile { get; set; }
         public static event Action<string> OnDebug;
 
-        private static void RemovePointer(ref string filePath)
-        {
-            var indexOf = filePath.IndexOf("#xpointer", StringComparison.Ordinal);
-            if (indexOf > 0)
-                filePath = filePath.Remove(indexOf);
-        }
-
         public static string RegisterFile(IFile file)
         {
             paths[CurrentWorkingFile] = file;
@@ -45,7 +38,7 @@ namespace AddonElement
             if (filePath == null)
                 return null;
 
-            RemovePointer(ref filePath);
+            Utils.RemovePointer(ref filePath);
             IFile newUIElement = null;
 
             if (paths.ContainsKey(filePath))
@@ -59,24 +52,7 @@ namespace AddonElement
 
             try
             {
-                var xmlReader = XmlReader.Create(filePath);
-                xmlReader.MoveToContent();
-
-                if (!string.IsNullOrEmpty(currentDirectory))
-                    Directory.SetCurrentDirectory(currentDirectory);
-
-                filePath = Path.GetFileName(filePath);
-
-                var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReader.Name}");
-
-                var xmlSerializer = new XmlSerializer(type);
-
-                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-                {
-                    CurrentWorkingFile = stream.Name;
-                    newUIElement = xmlSerializer.Deserialize(stream) as IFile;
-                    (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
-                }
+                newUIElement = CreateUiElement(ref filePath, currentDirectory);
             }
             catch (ArgumentNullException)
             {
@@ -117,6 +93,31 @@ namespace AddonElement
             return newUIElement;
         }
 
+        private static IFile CreateUiElement(ref string filePath, string currentDirectory)
+        {
+            IFile newUIElement;
+            var xmlReader = XmlReader.Create(filePath);
+            xmlReader.MoveToContent();
+
+            if (!string.IsNullOrEmpty(currentDirectory))
+                Directory.SetCurrentDirectory(currentDirectory);
+
+            filePath = Path.GetFileName(filePath);
+
+            var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReader.Name}");
+
+            var xmlSerializer = new XmlSerializer(type);
+
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                CurrentWorkingFile = stream.Name;
+                newUIElement = xmlSerializer.Deserialize(stream) as IFile;
+                (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
+            }
+
+            return newUIElement;
+        }
+
         public static IFile GetFile(string filePath)
         {
             if (filePath == null)
@@ -129,6 +130,7 @@ namespace AddonElement
         public static void Clear()
         {
             paths.Clear();
+            RootFile = null;
         }
 
         public static void DebugOutput(string msg)

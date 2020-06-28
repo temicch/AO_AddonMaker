@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="File\File.cs" />
     <Compile Include="File\IFile.cs" />
+    <Compile Include="File\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widget\BindSection.cs" />
     <Compile Include="Widget\enums\AlignY.cs" />
