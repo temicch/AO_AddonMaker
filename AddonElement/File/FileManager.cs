@@ -96,22 +96,21 @@ namespace AddonElement
         private static IFile CreateUiElement(ref string filePath, string currentDirectory)
         {
             IFile newUIElement;
-            var xmlReader = XmlReader.Create(filePath);
-            xmlReader.MoveToContent();
-
-            if (!string.IsNullOrEmpty(currentDirectory))
-                Directory.SetCurrentDirectory(currentDirectory);
-
-            filePath = Path.GetFileName(filePath);
-
-            var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReader.Name}");
-
-            var xmlSerializer = new XmlSerializer(type);
-
-            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var xmlReaderStream = XmlReader.Create(filePath))
             {
-                CurrentWorkingFile = stream.Name;
-                newUIElement = xmlSerializer.Deserialize(stream) as IFile;
+                xmlReaderStream.MoveToContent();
+
+                if (!string.IsNullOrEmpty(currentDirectory))
+                    Directory.SetCurrentDirectory(currentDirectory);
+
+                filePath = Path.GetFileName(filePath);
+
+                var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReaderStream.Name}");
+
+                var xmlSerializer = new XmlSerializer(type);
+
+                CurrentWorkingFile = xmlReaderStream.BaseURI;
+                newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
                 (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
             }
 
