@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Ionic.Zlib;
+using System.IO.Compression;
 
 namespace Texture
 {
@@ -26,7 +26,7 @@ namespace Texture
         {
             input.Position = 0L;
             var memoryStream = new MemoryStream();
-            using (var zlibStream = new ZlibStream(input, (CompressionMode) 1))
+            using (var zlibStream = new GZipStream(input, CompressionMode.Decompress))
             {
                 var buffer = new byte[16384];
                 for (var count = zlibStream.Read(buffer, 0, 16384);
