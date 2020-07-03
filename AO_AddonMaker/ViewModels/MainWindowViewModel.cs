@@ -12,7 +12,7 @@ namespace AO_AddonMaker.Views
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private const string samplesPath = "../../../Samples";
+        private string samplesPath = $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
         private const string addonDescName = "AddonDesc.(UIAddon).xdb";
 
         private readonly object debugObject = new object();
@@ -69,7 +69,7 @@ namespace AO_AddonMaker.Views
             {
                 foreach (var path in Directory.GetDirectories(samplesPath))
                 {
-                    var addonDesc = $"{path}\\{addonDescName}";
+                    var addonDesc = $"{path}{Path.DirectorySeparatorChar}{addonDescName}";
                     if (!File.Exists(addonDesc))
                         continue;
                     var q = Directory.GetParent(addonDesc).Name;
@@ -124,7 +124,7 @@ namespace AO_AddonMaker.Views
 
         private void SampleSelect(object parameter)
         {
-            LoadProject($"{samplesPath}\\{parameter}\\{addonDescName}");
+            LoadProject($"{samplesPath}{Path.DirectorySeparatorChar}{parameter}{Path.DirectorySeparatorChar}{addonDescName}");
         }
     }
 }
