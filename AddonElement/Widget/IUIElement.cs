@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using AddonElement.File;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public interface IUIElement
     {

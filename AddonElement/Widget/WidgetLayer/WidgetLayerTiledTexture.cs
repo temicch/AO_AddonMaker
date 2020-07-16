@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public class WidgetLayerTiledTexture : WidgetLayer
     {

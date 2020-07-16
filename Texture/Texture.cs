@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Texture
+namespace Textures
 {
     public class Texture
     {
@@ -12,7 +12,7 @@ namespace Texture
 
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            Read(Utils.UnZLib(binaryFileStream));
+            Read(Utils.Utils.UnZLib(binaryFileStream));
             binaryFileStream.Dispose();
             Width = realWidth;
             Height = realHeight;
@@ -33,8 +33,8 @@ namespace Texture
                     _mips.Add(null);
             _mips[level] = new MipData
             {
-                data = data,
-                size = size
+                Data = data,
+                Size = size
             };
         }
 
@@ -64,7 +64,7 @@ namespace Texture
             binaryWriter.Write(num);
             binaryWriter.Write(Height);
             binaryWriter.Write(Width);
-            binaryWriter.Write(_mips[0].data.Length);
+            binaryWriter.Write(_mips[0].Data.Length);
             binaryWriter.Write(0);
             binaryWriter.Write(_mips.Count > 1 ? _mips.Count : 0);
             for (var index = 0; index < 11; ++index)
@@ -92,7 +92,7 @@ namespace Texture
             for (var index = 0; index < 4; ++index)
                 binaryWriter.Write(0);
             for (var index = 0; index < _mips.Count; ++index)
-                binaryWriter.Write(_mips[index].data);
+                binaryWriter.Write(_mips[index].Data);
             binaryWriter.Flush();
         }
 
@@ -111,7 +111,6 @@ namespace Texture
                 bitmap.EndInit();
                 bitmap.Freeze();
             }
-
             return bitmap;
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media;
 using System.Xml.Serialization;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public class WidgetLayerSimpleTexture : WidgetLayer
     {

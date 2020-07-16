@@ -1,8 +1,8 @@
 ﻿using System.Windows.Media;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
-    public class UISingleTexture : File
+    public class UISingleTexture : File.File
     {
         public href singleTexture { get; set; }
         public int permanentCache { get; set; }

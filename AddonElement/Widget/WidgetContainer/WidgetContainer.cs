@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public abstract class WidgetContainer : WidgetPanel
     {

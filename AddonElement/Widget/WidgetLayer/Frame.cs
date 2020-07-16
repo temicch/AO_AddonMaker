@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public class Frame
     {

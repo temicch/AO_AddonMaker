@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using AddonElement.File;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     [Serializable]
-    public class UIAddon : File, IUIElement
+    public class UIAddon : File.File, IUIElement
     {
         public UIAddon()
         {

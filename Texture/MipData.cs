@@ -1,8 +1,8 @@
-﻿namespace Texture
+﻿namespace Textures
 {
     internal class MipData
     {
-        public byte[] data;
-        public int size;
+        public byte[] Data { get; set; }
+        public int Size { get; set; }
     }
 }

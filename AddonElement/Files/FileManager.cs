@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using AddonElement.Widgets;
 
-namespace AddonElement
+namespace AddonElement.File
 {
     public static class FileManager
     {
@@ -105,7 +106,7 @@ namespace AddonElement
 
                 filePath = Path.GetFileName(filePath);
 
-                var type = Type.GetType($"{typeof(FileManager).Namespace}.{xmlReaderStream.Name}");
+                var type = Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
 
                 var xmlSerializer = new XmlSerializer(type);
 

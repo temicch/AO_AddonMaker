@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using System.Windows.Media;
 using System.Xml.Serialization;
-using Texture;
+using Textures;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
-    public class UITexture : File
+    public class UITexture : File.File
     {
         public int mipSW { get; set; }
         public int mipsNumber { get; set; }
@@ -101,7 +101,7 @@ namespace AddonElement
             if (bitmap == null)
                 using (var binaryFileStream = new StreamReader(binaryFile.File.FullPath))
                 {
-                    var texture = new Texture.Texture(binaryFileStream.BaseStream, width, height, type);
+                    var texture = new Texture(binaryFileStream.BaseStream, width, height, type);
                     bitmap = texture.Bitmap;
                 }
 

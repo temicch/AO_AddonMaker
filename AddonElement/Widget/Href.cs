@@ -1,6 +1,7 @@
 ﻿using System.Xml.Serialization;
+using AddonElement.File;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public class href
     {

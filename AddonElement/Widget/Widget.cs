@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Media;
 using System.Xml.Serialization;
+using AddonElement.File;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     [Serializable]
-    public abstract class Widget : File, IUIElement
+    public abstract class Widget : File.File, IUIElement
     {
         public Widget()
         {

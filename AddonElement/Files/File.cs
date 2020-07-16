@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AddonElement
+namespace AddonElement.File
 {
     public class File : IFile
     {
@@ -30,7 +30,7 @@ namespace AddonElement
             {
                 var type = GetType().Name;
                 if (type.StartsWith(prefixFileWidget))
-                    type = type.Substring(6);
+                    type = type.Substring(prefixFileWidget.Length);
                 if (type == nameof(File))
                     type = otherType;
                 return $"[{type}]";

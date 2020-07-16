@@ -3,7 +3,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
-using AddonElement;
+using AddonElement.File;
+using AddonElement.Widgets;
 using AO_AddonMaker.Utility;
 using Microsoft.Win32;
 using File = System.IO.File;
@@ -12,12 +13,14 @@ namespace AO_AddonMaker.Views
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private string samplesPath = $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
         private const string addonDescName = "AddonDesc.(UIAddon).xdb";
 
         private readonly object debugObject = new object();
 
         private readonly StringBuilder textDebug = new StringBuilder();
+
+        private readonly string samplesPath =
+            $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
 
         public MainWindowViewModel()
         {
@@ -124,7 +127,8 @@ namespace AO_AddonMaker.Views
 
         private void SampleSelect(object parameter)
         {
-            LoadProject($"{samplesPath}{Path.DirectorySeparatorChar}{parameter}{Path.DirectorySeparatorChar}{addonDescName}");
+            LoadProject(
+                $"{samplesPath}{Path.DirectorySeparatorChar}{parameter}{Path.DirectorySeparatorChar}{addonDescName}");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace AddonElement
+﻿namespace AddonElement.Widgets
 {
     public class UITextureElement : UISingleTexture
     {

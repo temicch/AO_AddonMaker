@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.IO.Compression;
 
-namespace Texture
+namespace Textures.Utils
 {
     internal static class Utils
     {

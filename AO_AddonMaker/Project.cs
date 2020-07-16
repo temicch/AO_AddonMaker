@@ -1,5 +1,6 @@
 ﻿using System.IO;
-using AddonElement;
+using AddonElement.File;
+using AddonElement.Widgets;
 using File = System.IO.File;
 
 namespace AO_AddonMaker

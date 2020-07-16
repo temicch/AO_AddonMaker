@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AddonElement
+namespace AddonElement.Widgets
 {
     public class WidgetTextContainer : WidgetContainer
     {

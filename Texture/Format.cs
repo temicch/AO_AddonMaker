@@ -1,8 +1,8 @@
-﻿namespace Texture
+﻿namespace Textures
 {
     public enum Format
     {
-        Unknown,
+        UNKNOWN,
         DXT1,
         DXT3,
         DXT5

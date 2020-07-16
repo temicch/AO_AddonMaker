@@ -1,4 +1,4 @@
-﻿namespace AddonElement
+﻿namespace AddonElement.Widgets
 {
     public abstract class WidgetSlider : Widget
     {

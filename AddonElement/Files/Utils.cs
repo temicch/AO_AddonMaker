@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AddonElement
+namespace AddonElement.File
 {
     internal class Utils
     {
