@@ -105,8 +105,8 @@ namespace AO_AddonMaker.Views
                 return;
             }
 
-            GC.Collect();
-            GC.WaitForFullGCComplete();
+            //GC.Collect();
+            //GC.WaitForFullGCComplete();
             ClearDebug(null);
             Project = new Project(fileName);
             ProgressDialog.ShowModal(() => Project.Load());

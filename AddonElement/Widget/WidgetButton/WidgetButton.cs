@@ -32,17 +32,14 @@ namespace AddonElement.Widgets
 
         public List<BindSection> pushingBindSections { get; set; }
 
-        public override ImageSource Bitmap
+        protected override ImageSource GetBitmap()
         {
-            get
-            {
-                var backLayer = BackLayer?.File as WidgetLayer;
-                if (backLayer?.Bitmap != null)
-                    return backLayer.Bitmap;
-                if (Variants?.Count > 0)
-                    return (Variants?[0]?.StateNormal?.LayerMain?.File as WidgetLayer)?.Bitmap;
-                return null;
-            }
+            var backLayer = BackLayer?.File as WidgetLayer;
+            if (backLayer?.Bitmap != null)
+                return backLayer.Bitmap;
+            if (Variants?.Count > 0)
+                return (Variants?[0]?.StateNormal?.LayerMain?.File as WidgetLayer)?.Bitmap;
+            return null;
         }
     }
 }

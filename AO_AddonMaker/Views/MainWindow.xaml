@@ -79,7 +79,7 @@
                                     <TreeView ItemContainerStyle="{StaticResource TreeViewCustom}"
                                               ItemsSource="{Binding RootFile}">
                                         <TreeView.ItemTemplate>
-                                            <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                            <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                                                 <Image Source="{Binding Bitmap}" />
                                             </HierarchicalDataTemplate>
                                         </TreeView.ItemTemplate>
@@ -112,7 +112,7 @@
                             <avalon:LayoutAnchorable Title="Widget hierarchy" CanHide="False" CanClose="False">
                                 <TreeView x:Name="HierarchyTree" ItemsSource="{Binding RootFile}">
                                     <TreeView.ItemTemplate>
-                                        <HierarchicalDataTemplate ItemsSource="{Binding Widgets}">
+                                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                                             <DockPanel>
                                                 <Label x:Name="ElementName" DockPanel.Dock="Left"
                                                        Content="{Binding Name}" FontSize="12"

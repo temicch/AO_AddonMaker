@@ -112,7 +112,7 @@ namespace AddonElement.File
 
                 CurrentWorkingFile = xmlReaderStream.BaseURI;
                 newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
-                (newUIElement as Widget)?.Children?.RemoveAll(x => x.File == null);
+                (newUIElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
 
             return newUIElement;

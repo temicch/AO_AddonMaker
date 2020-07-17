@@ -6,6 +6,10 @@ namespace AddonElement.Widgets
     {
         public href border { get; set; }
         public WidgetsArrangement widgetsArrangement { get; set; }
-        public override ImageSource Bitmap => (border?.File as Widget)?.Bitmap;
+
+        protected override ImageSource GetBitmap()
+        {
+            return (border?.File as Widget)?.Bitmap;
+        }        
     }
 }

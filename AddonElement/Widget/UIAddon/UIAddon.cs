@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using System.Xml.Serialization;
-using AddonElement.File;
 
 namespace AddonElement.Widgets
 {
@@ -55,12 +55,14 @@ namespace AddonElement.Widgets
         public href decalObjects { get; set; }
         public string Name { get; set; }
 
-        [XmlIgnore] public List<IFile> Widgets => Forms?.Select(x => x.Form?.File)?.ToList();
+        [XmlIgnore] public List<IUIElement> Children => Forms?.Select(x => x.Form?.File as IUIElement)?.ToList();
 
         [XmlIgnore] public WidgetPlacementXY Placement { get; set; }
 
         [XmlIgnore] public bool Visible { get; set; }
 
         [XmlIgnore] public bool Enabled { get; set; }
+
+        [XmlIgnore] public ImageSource Bitmap => (Forms?[0].Form?.File as IUIElement)?.Bitmap;
     }
 }

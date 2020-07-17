@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Media;
 using System.Xml.Serialization;
-using AddonElement.File;
 
 namespace AddonElement.Widgets
 {
@@ -59,8 +58,9 @@ namespace AddonElement.Widgets
         [Category("Children widgets")]
         [Description(
             "Дочерние виджеты. Почти каждый виджет может содержать дочерние виджеты, за исключением особых случаев типа слайдера и т.п. Дочерние виджеты отображаются поверх родителя и перехватывают реакции (если они объявлены и на них подписаны обработчики) раньше родительского виджета за исключением особых случаев")]
+        [XmlArray("Children")]
         [XmlArrayItem("Item")]
-        public List<href> Children { get; set; }
+        public List<href> Widgets { get; set; }
 
         [Category("Children widgets")]
         [Description("Нужно ли обрезать содержимое, включая дочерние виджеты, по границам данного. По умолчанию false")]
@@ -215,7 +215,7 @@ namespace AddonElement.Widgets
         [Description("Уведомление о прокрутке колёсика мыши вниз")]
         public string reactionWheelDown { get; set; }
 
-        public virtual ImageSource Bitmap => GetBitmap();
+        public ImageSource Bitmap => GetBitmap();
 
         [Category("Base properties")]
         [Description("Системное название виджета")]
@@ -236,9 +236,9 @@ namespace AddonElement.Widgets
         [Description("Описание расположение виджета")]
         public WidgetPlacementXY Placement { get; set; }
 
-        [XmlIgnore] public List<IFile> Widgets => Children?.Select(x => x.File).ToList();
+        [XmlIgnore] public List<IUIElement> Children => Widgets?.Select(x => x.File as IUIElement).ToList();
 
-        protected ImageSource GetBitmap()
+        protected virtual ImageSource GetBitmap()
         {
             return (BackLayer?.File as WidgetLayer)?.Bitmap;
         }

@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
-using AddonElement.File;
+using System.Windows.Media;
 
 namespace AddonElement.Widgets
 {
     public interface IUIElement
     {
-        string Name { get; set; }
-        WidgetPlacementXY Placement { get; set; }
-        bool Visible { get; set; }
-        bool Enabled { get; set; }
+        string Name { get; }
+        WidgetPlacementXY Placement { get; }
+        bool Visible { get; }
+        bool Enabled { get; }
 
-        List<IFile> Widgets { get; }
+        ImageSource Bitmap { get; }
+
+        List<IUIElement> Children { get; }
     }
 }
