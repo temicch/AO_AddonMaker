@@ -48,9 +48,7 @@ namespace AddonElement.File
             if (filePath == null)
                 return null;
             filePath = Path.GetFullPath(filePath);
-            if (paths.ContainsKey(filePath))
-                return paths[filePath];
-            return Add(filePath);
+            return paths.ContainsKey(filePath) ? paths[filePath] : Add(filePath);
         }
 
         public void Clear()
@@ -67,9 +65,9 @@ namespace AddonElement.File
             Utils.RemovePointer(ref filePath);
             IFile newUIElement = null;
 
-            if (paths.ContainsKey(filePath))
+            if (paths.ContainsKey(Path.GetFullPath((filePath))))
             {
-                DebugOutput($"[{filePath}] Trying add the element which already exist");
+                //DebugOutput($"[{filePath}] Trying add the element which already exist");
                 return paths[filePath];
             }
 
@@ -83,20 +81,20 @@ namespace AddonElement.File
             catch (ArgumentNullException)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: Unknown type");
-                newUIElement = new File(Path.GetFullPath(filePath));
+                newUIElement = CreateFileIfNotExists(filePath);
             }
             catch (InvalidOperationException exception)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
                 if (exception.InnerException != null)
                     DebugOutput($" - {exception.InnerException.Message}");
-                newUIElement = new File(Path.GetFullPath(filePath));
+                newUIElement = CreateFileIfNotExists(filePath);
             }
             catch (XmlException)
             {
                 // Need to rewrite (many false positives)
                 //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
-                newUIElement = new File(Path.GetFullPath(filePath));
+                newUIElement = CreateFileIfNotExists(filePath);
             }
             catch (IOException)
             {
@@ -105,7 +103,7 @@ namespace AddonElement.File
             catch (Exception exception)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
-                newUIElement = new File(Path.GetFullPath(filePath));
+                newUIElement = CreateFileIfNotExists(filePath);
             }
             finally
             {
@@ -113,6 +111,12 @@ namespace AddonElement.File
             }
 
             return newUIElement;
+        }
+
+        private IFile CreateFileIfNotExists(string filePath)
+        {
+            filePath = Path.GetFullPath(filePath);
+            return !paths.ContainsKey(filePath) ? new File(filePath) : paths[filePath];
         }
 
         private IFile CreateUiElement(ref string filePath, string currentDirectory)
