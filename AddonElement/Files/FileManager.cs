@@ -23,6 +23,8 @@ namespace AddonElement.File
 
         public static string RegisterFile(IFile file)
         {
+            if (paths.ContainsKey(CurrentWorkingFile))
+                throw new InvalidOperationException("This file is already exist");
             paths[CurrentWorkingFile] = file;
             return CurrentWorkingFile;
         }
@@ -110,7 +112,7 @@ namespace AddonElement.File
 
                 var xmlSerializer = new XmlSerializer(type);
 
-                CurrentWorkingFile = xmlReaderStream.BaseURI;
+                CurrentWorkingFile = Path.GetFullPath(filePath);
                 newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
                 (newUIElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
@@ -122,6 +124,7 @@ namespace AddonElement.File
         {
             if (filePath == null)
                 return null;
+            filePath = Path.GetFullPath(filePath);
             if (paths.ContainsKey(filePath))
                 return paths[filePath];
             return Add(filePath);
