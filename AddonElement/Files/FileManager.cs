@@ -7,36 +7,59 @@ using AddonElement.Widgets;
 
 namespace AddonElement.File
 {
-    public static class FileManager
+    public class FileManager : IFileManager
     {
-        private static readonly Dictionary<string, IFile> paths;
+        private readonly Dictionary<string, IFile> paths;
 
-        static FileManager()
+        public FileManager()
         {
             paths = new Dictionary<string, IFile>();
+            CurrentWorkingManager = this;
         }
 
-        private static string CurrentWorkingFile { get; set; }
+        private string CurrentWorkingFile { get; set; }
+        internal static IFileManager CurrentWorkingManager { get; set; }
 
-        public static IFile RootFile { get; set; }
-        public static event Action<string> OnDebug;
+        public IFile RootFile { get; set; }
+        public event Action<string> OnDebug;
 
-        public static string RegisterFile(IFile file)
+        public string RegisterFile(IFile file)
         {
-            if (paths.ContainsKey(CurrentWorkingFile))
-                throw new InvalidOperationException("This file is already exist");
-            paths[CurrentWorkingFile] = file;
-            return CurrentWorkingFile;
+            return RegisterFile(file, CurrentWorkingFile);
         }
 
-        public static IFile Load(string filePath)
+        public string RegisterFile(IFile file, string filePath)
+        {
+            if (paths.ContainsKey(filePath))
+                throw new InvalidOperationException("This file is already exist");
+            paths[filePath] = file;
+            return filePath;
+        }
+
+        public IFile Load(string filePath)
         {
             Clear();
             RootFile = Add(filePath);
             return RootFile;
         }
 
-        private static IFile Add(string filePath)
+        public IFile GetFile(string filePath)
+        {
+            if (filePath == null)
+                return null;
+            filePath = Path.GetFullPath(filePath);
+            if (paths.ContainsKey(filePath))
+                return paths[filePath];
+            return Add(filePath);
+        }
+
+        public void Clear()
+        {
+            paths.Clear();
+            RootFile = null;
+        }
+
+        private IFile Add(string filePath)
         {
             if (filePath == null)
                 return null;
@@ -75,11 +98,7 @@ namespace AddonElement.File
                 //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
                 newUIElement = new File(Path.GetFullPath(filePath));
             }
-            catch (DirectoryNotFoundException)
-            {
-                DebugOutput($"[{Path.GetFullPath(filePath)}] file not found");
-            }
-            catch (FileNotFoundException)
+            catch (IOException)
             {
                 DebugOutput($"[{Path.GetFullPath(filePath)}] file not found");
             }
@@ -96,7 +115,7 @@ namespace AddonElement.File
             return newUIElement;
         }
 
-        private static IFile CreateUiElement(ref string filePath, string currentDirectory)
+        private IFile CreateUiElement(ref string filePath, string currentDirectory)
         {
             IFile newUIElement;
             using (var xmlReaderStream = XmlReader.Create(filePath))
@@ -106,13 +125,13 @@ namespace AddonElement.File
                 if (!string.IsNullOrEmpty(currentDirectory))
                     Directory.SetCurrentDirectory(currentDirectory);
 
+                CurrentWorkingFile = Path.GetFullPath(filePath);
                 filePath = Path.GetFileName(filePath);
 
                 var type = Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
 
                 var xmlSerializer = new XmlSerializer(type);
 
-                CurrentWorkingFile = Path.GetFullPath(filePath);
                 newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
                 (newUIElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
@@ -120,23 +139,7 @@ namespace AddonElement.File
             return newUIElement;
         }
 
-        public static IFile GetFile(string filePath)
-        {
-            if (filePath == null)
-                return null;
-            filePath = Path.GetFullPath(filePath);
-            if (paths.ContainsKey(filePath))
-                return paths[filePath];
-            return Add(filePath);
-        }
-
-        public static void Clear()
-        {
-            paths.Clear();
-            RootFile = null;
-        }
-
-        public static void DebugOutput(string msg)
+        private void DebugOutput(string msg)
         {
             OnDebug?.Invoke(msg);
         }

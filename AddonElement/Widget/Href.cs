@@ -11,7 +11,7 @@ namespace AddonElement.Widgets
             get => File?.FilePath;
             set
             {
-                if (value != string.Empty) File = FileManager.GetFile(value);
+                if (value != string.Empty) File = FileManager.CurrentWorkingManager.GetFile(value);
             }
         }
 

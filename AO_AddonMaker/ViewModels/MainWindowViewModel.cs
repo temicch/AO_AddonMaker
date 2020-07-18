@@ -3,11 +3,9 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
-using AddonElement.File;
 using AddonElement.Widgets;
 using AO_AddonMaker.Utility;
 using Microsoft.Win32;
-using File = System.IO.File;
 
 namespace AO_AddonMaker.Views
 {
@@ -17,10 +15,10 @@ namespace AO_AddonMaker.Views
 
         private readonly object debugObject = new object();
 
-        private readonly StringBuilder textDebug = new StringBuilder();
-
         private readonly string samplesPath =
             $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
+
+        private readonly StringBuilder textDebug = new StringBuilder();
 
         public MainWindowViewModel()
         {
@@ -29,8 +27,7 @@ namespace AO_AddonMaker.Views
             SampleSelectCommand = new RelayCommand(SampleSelect);
 
             AO_AddonMaker.DebugOutput.Init(this);
-            FileManager.OnDebug += DebugWrite;
-            FileManager.Clear();
+            Project = new Project(DebugWrite);
             RootFile = new ObservableCollection<IUIElement>();
 
             InitSampleProjects();
@@ -105,11 +102,8 @@ namespace AO_AddonMaker.Views
                 return;
             }
 
-            //GC.Collect();
-            //GC.WaitForFullGCComplete();
             ClearDebug(null);
-            Project = new Project(fileName);
-            ProgressDialog.ShowModal(() => Project.Load());
+            ProgressDialog.ShowModal(() => Project.Load(fileName));
             RootFile.Clear();
             RootFile.Add(Project.RootWidget);
         }

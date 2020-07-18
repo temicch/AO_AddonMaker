@@ -115,12 +115,11 @@
                                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                                             <DockPanel>
                                                 <Label x:Name="ElementName" DockPanel.Dock="Left"
-                                                       Content="{Binding Name}" FontSize="12"
-                                                       VerticalContentAlignment="Center" />
+                                                       Content="{Binding Name}" />
                                                 <Label Content="{Binding FileType}"
                                                        Foreground="{Binding Foreground, ElementName=ElementName}"
-                                                       Opacity="0.5" FontSize="12" HorizontalAlignment="Right"
-                                                       VerticalContentAlignment="Center" />
+                                                       Opacity="0.5" HorizontalAlignment="Right"
+                                                       DockPanel.Dock="Right" />
                                             </DockPanel>
                                         </HierarchicalDataTemplate>
                                     </TreeView.ItemTemplate>
