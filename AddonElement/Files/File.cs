@@ -9,7 +9,7 @@ namespace AddonElement.File
 
         public File()
         {
-            var file = FileManager.RegisterFile(this);
+            var file = FileManager.CurrentWorkingManager.RegisterFile(this);
             FilePath = Path.GetDirectoryName(file);
             FileName = Path.GetFileName(file);
         }

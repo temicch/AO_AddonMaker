@@ -1,26 +1,41 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using AddonElement.File;
 using AddonElement.Widgets;
-using File = System.IO.File;
 
 namespace AO_AddonMaker
 {
     public class Project
     {
-        private readonly string filePath;
+        private string filePath;
+        public IFileManager FileManager { get; private set; }
+        private readonly Action<string> debugWriter;
 
-        public Project(string rootFilePath)
+        public IUIElement RootWidget => FileManager?.RootFile as IUIElement;
+
+        public Project(Action<string> debugWriter)
         {
-            if (!File.Exists(rootFilePath))
-                throw new FileNotFoundException();
-            filePath = rootFilePath;
+            this.debugWriter = debugWriter;
         }
 
-        public IUIElement RootWidget => FileManager.RootFile as IUIElement;
-
-        public void Load()
+        public void Load(string rootFilePath)
         {
+            if (!System.IO.File.Exists(rootFilePath))
+                throw new FileNotFoundException();
+
+            filePath = rootFilePath;
+            Clear();
             FileManager.Load(filePath);
+        }
+
+        public void Clear()
+        {
+            FileManager?.Clear();
+            if (FileManager == null)
+            {
+                FileManager = new FileManager();
+                FileManager.OnDebug += debugWriter;
+            }
         }
     }
 }

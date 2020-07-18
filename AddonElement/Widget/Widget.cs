@@ -238,6 +238,17 @@ namespace AddonElement.Widgets
 
         [XmlIgnore] public List<IUIElement> Children => Widgets?.Select(x => x.File as IUIElement).ToList();
 
+        public int ChildrenCount
+        {
+            get
+            {
+                int count = Children.Count;
+                foreach (var child in Children)
+                    count += child.ChildrenCount;
+                return count;
+            }
+        }
+
         protected virtual ImageSource GetBitmap()
         {
             return (BackLayer?.File as WidgetLayer)?.Bitmap;

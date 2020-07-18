@@ -2,7 +2,7 @@
 
 namespace AddonElement.File
 {
-    interface IFileManager
+    public interface IFileManager
     {
         IFile RootFile { get; }
 

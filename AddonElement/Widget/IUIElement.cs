@@ -13,5 +13,6 @@ namespace AddonElement.Widgets
         ImageSource Bitmap { get; }
 
         List<IUIElement> Children { get; }
+        int ChildrenCount { get; }
     }
 }

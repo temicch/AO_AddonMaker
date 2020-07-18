@@ -64,5 +64,17 @@ namespace AddonElement.Widgets
         [XmlIgnore] public bool Enabled { get; set; }
 
         [XmlIgnore] public ImageSource Bitmap => (Forms?[0].Form?.File as IUIElement)?.Bitmap;
+
+        [XmlIgnore]
+        public int ChildrenCount
+        {
+            get
+            {
+                int count = Children.Count;
+                foreach (var child in Children)
+                    count += child.ChildrenCount;
+                return count;
+            }
+        }
     }
 }

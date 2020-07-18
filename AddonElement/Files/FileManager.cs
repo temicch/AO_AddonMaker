@@ -11,12 +11,14 @@ namespace AddonElement.File
     {
         private readonly Dictionary<string, IFile> paths;
 
-        FileManager()
+        public FileManager()
         {
             paths = new Dictionary<string, IFile>();
+            CurrentWorkingManager = this;
         }
 
         private string CurrentWorkingFile { get; set; }
+        internal static IFileManager CurrentWorkingManager { get; set; }
 
         public IFile RootFile { get; set; }
         public event Action<string> OnDebug;
@@ -102,13 +104,13 @@ namespace AddonElement.File
                 if (!string.IsNullOrEmpty(currentDirectory))
                     Directory.SetCurrentDirectory(currentDirectory);
 
+                CurrentWorkingFile = Path.GetFullPath(filePath);
                 filePath = Path.GetFileName(filePath);
 
                 var type = Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
 
                 var xmlSerializer = new XmlSerializer(type);
 
-                CurrentWorkingFile = xmlReaderStream.BaseURI;
                 newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
                 (newUIElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
@@ -120,6 +122,7 @@ namespace AddonElement.File
         {
             if (filePath == null)
                 return null;
+            filePath = Path.GetFullPath(filePath);
             if (paths.ContainsKey(filePath))
                 return paths[filePath];
             return Add(filePath);
