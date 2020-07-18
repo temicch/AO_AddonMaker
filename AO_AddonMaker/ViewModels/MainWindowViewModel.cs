@@ -15,10 +15,10 @@ namespace AO_AddonMaker.Views
 
         private readonly object debugObject = new object();
 
-        private readonly StringBuilder textDebug = new StringBuilder();
-
         private readonly string samplesPath =
             $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
+
+        private readonly StringBuilder textDebug = new StringBuilder();
 
         public MainWindowViewModel()
         {

@@ -10,6 +10,6 @@ namespace AddonElement.Widgets
         protected override ImageSource GetBitmap()
         {
             return (border?.File as Widget)?.Bitmap;
-        }        
+        }
     }
 }

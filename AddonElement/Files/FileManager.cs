@@ -7,7 +7,7 @@ using AddonElement.Widgets;
 
 namespace AddonElement.File
 {
-    public class FileManager: IFileManager
+    public class FileManager : IFileManager
     {
         private readonly Dictionary<string, IFile> paths;
 
@@ -36,6 +36,22 @@ namespace AddonElement.File
             Clear();
             RootFile = Add(filePath);
             return RootFile;
+        }
+
+        public IFile GetFile(string filePath)
+        {
+            if (filePath == null)
+                return null;
+            filePath = Path.GetFullPath(filePath);
+            if (paths.ContainsKey(filePath))
+                return paths[filePath];
+            return Add(filePath);
+        }
+
+        public void Clear()
+        {
+            paths.Clear();
+            RootFile = null;
         }
 
         private IFile Add(string filePath)
@@ -116,22 +132,6 @@ namespace AddonElement.File
             }
 
             return newUIElement;
-        }
-
-        public IFile GetFile(string filePath)
-        {
-            if (filePath == null)
-                return null;
-            filePath = Path.GetFullPath(filePath);
-            if (paths.ContainsKey(filePath))
-                return paths[filePath];
-            return Add(filePath);
-        }
-
-        public void Clear()
-        {
-            paths.Clear();
-            RootFile = null;
         }
 
         private void DebugOutput(string msg)

@@ -70,7 +70,7 @@ namespace AddonElement.Widgets
         {
             get
             {
-                int count = Children.Count;
+                var count = Children.Count;
                 foreach (var child in Children)
                     count += child.ChildrenCount;
                 return count;
