@@ -22,7 +22,7 @@ namespace AddonElement.File
 
         public string FilePath { get; set; } = string.Empty;
         public string FileName { get; set; } = string.Empty;
-        public string FullPath => $"{FilePath}\\{FileName}";
+        public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
 
         public string FileType
         {
