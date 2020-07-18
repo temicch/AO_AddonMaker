@@ -25,10 +25,15 @@ namespace AddonElement.File
 
         public string RegisterFile(IFile file)
         {
-            if (paths.ContainsKey(CurrentWorkingFile))
+            return RegisterFile(file, CurrentWorkingFile);
+        }
+
+        public string RegisterFile(IFile file, string filePath)
+        {
+            if (paths.ContainsKey(filePath))
                 throw new InvalidOperationException("This file is already exist");
-            paths[CurrentWorkingFile] = file;
-            return CurrentWorkingFile;
+            paths[filePath] = file;
+            return filePath;
         }
 
         public IFile Load(string filePath)

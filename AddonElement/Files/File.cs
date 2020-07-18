@@ -7,7 +7,7 @@ namespace AddonElement.File
         private const string prefixFileWidget = "Widget";
         private const string otherType = "Other";
 
-        public File()
+        internal File()
         {
             var file = FileManager.CurrentWorkingManager.RegisterFile(this);
             FilePath = Path.GetDirectoryName(file);
@@ -16,12 +16,13 @@ namespace AddonElement.File
 
         public File(string filePath)
         {
+            var file = FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
             FilePath = Path.GetDirectoryName(filePath);
             FileName = Path.GetFileName(filePath);
         }
 
-        public string FilePath { get; set; } = string.Empty;
-        public string FileName { get; set; } = string.Empty;
+        public string FilePath { get; set; }
+        public string FileName { get; set; }
         public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
 
         public string FileType
