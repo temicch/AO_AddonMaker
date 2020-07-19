@@ -11,8 +11,8 @@
 * Packaging addons in `.pack` format
 
 ## Used Packages
-* [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit) [[NuGet](https://www.nuget.org/packages/DotNetZip/1.13.8)]
-* [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) [[NuGet](https://www.nuget.org/packages/MahApps.Metro/2.0.1)]
-* [AvalonDock](https://github.com/Dirkster99/AvalonDock) [[NuGet](https://www.nuget.org/packages/Dirkster.AvalonDock/4.20.0)]
+* [[NuGet](https://www.nuget.org/packages/DotNetZip/1.13.8)] [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit)
+* [[NuGet](https://www.nuget.org/packages/MahApps.Metro/2.0.1)] [MahApps.Metro](https://github.com/MahApps/MahApps.Metro)
+* [[NuGet](https://www.nuget.org/packages/Dirkster.AvalonDock/4.20.0)] [AvalonDock](https://github.com/Dirkster99/AvalonDock)
 ## Preview
 <img src="scr01.png" width="768" />
