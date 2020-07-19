@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Addon</RootNamespace>
+    <AssemblyName>Addon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Files\File.cs" />
+    <Compile Include="Files\IFile.cs" />
+    <Compile Include="Files\IFileManager.cs" />
+    <Compile Include="Files\Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Widgets\BindSection.cs" />
+    <Compile Include="Widgets\enums\AlignY.cs" />
+    <Compile Include="Widgets\enums\Blend_Effect.cs" />
+    <Compile Include="Widgets\enums\WidgetAlign.cs" />
+    <Compile Include="Widgets\enums\WidgetLayerTiledLayoutType.cs" />
+    <Compile Include="Widgets\enums\WidgetsArrangement.cs" />
+    <Compile Include="Widgets\enums\WidgetSizing.cs" />
+    <Compile Include="Widgets\Href.cs" />
+    <Compile Include="Widgets\IUIElement.cs" />
+    <Compile Include="Widgets\Placement\WidgetPlacement.cs" />
+    <Compile Include="Widgets\Placement\WidgetPlacementXY.cs" />
+    <Compile Include="Widgets\Texture\UISingleTexture.cs" />
+    <Compile Include="Widgets\Texture\UITexture.cs" />
+    <Compile Include="Widgets\Texture\UITextureElement.cs" />
+    <Compile Include="Widgets\UIAddon\FormItem.cs" />
+    <Compile Include="Widgets\UIAddon\SoundsItem.cs" />
+    <Compile Include="Widgets\UIAddon\TextsItem.cs" />
+    <Compile Include="Widgets\UIAddon\TexturesItem.cs" />
+    <Compile Include="Widgets\UIAddon\UIAddon.cs" />
+    <Compile Include="Widgets\Widget.cs" />
+    <Compile Include="Widgets\WidgetButton\vec2.cs" />
+    <Compile Include="Widgets\WidgetButton\WidgetButton.cs" />
+    <Compile Include="Widgets\WidgetButton\WidgetButtonState.cs" />
+    <Compile Include="Widgets\WidgetButton\WidgetButtonVariant.cs" />
+    <Compile Include="Widgets\WidgetContainer\WidgetContainer.cs" />
+    <Compile Include="Widgets\WidgetContainer\WidgetScrollableContainer.cs" />
+    <Compile Include="Widgets\WidgetContainer\WidgetTextContainer.cs" />
+    <Compile Include="Widgets\WidgetEdit\WidgetEditBase.cs" />
+    <Compile Include="Widgets\WidgetEdit\WidgetEditBox.cs" />
+    <Compile Include="Widgets\WidgetEdit\WidgetEditLine.cs" />
+    <Compile Include="Widgets\WidgetForm\WidgetForm.cs" />
+    <Compile Include="Widgets\WidgetLayer\Frame.cs" />
+    <Compile Include="Widgets\WidgetLayer\Rect.cs" />
+    <Compile Include="Widgets\WidgetLayer\WidgetLayer.cs" />
+    <Compile Include="Widgets\WidgetLayer\WidgetLayerAnimatedTexture.cs" />
+    <Compile Include="Widgets\WidgetLayer\WidgetLayerSimpleTexture.cs" />
+    <Compile Include="Widgets\WidgetLayer\WidgetLayerTiledLayout.cs" />
+    <Compile Include="Widgets\WidgetLayer\WidgetLayerTiledTexture.cs" />
+    <Compile Include="Files\FileManager.cs" />
+    <Compile Include="Widgets\WidgetPanel\WidgetPanel.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetDiscreteScrollBar.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetDiscreteSlider.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetGlideScrollBar.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetGlideSlider.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetScrollBar.cs" />
+    <Compile Include="Widgets\WidgetScrollBar\WidgetSlider.cs" />
+    <Compile Include="Widgets\WidgetSoundBase\WidgetSoundBase.cs" />
+    <Compile Include="Widgets\WidgetTextStyle.cs" />
+    <Compile Include="Widgets\WidgetTextView\WidgetTextTaggedValue.cs" />
+    <Compile Include="Widgets\WidgetTextView\WidgetTextView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texture\Texture.csproj">
+      <Project>{590f5054-b5b2-43b0-b726-5bbac11d7562}</Project>
+      <Name>Texture</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

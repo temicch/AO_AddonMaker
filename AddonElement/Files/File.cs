@@ -1,11 +1,11 @@
 ﻿using System.IO;
 
-namespace AddonElement.File
+namespace Addon.Files
 {
     public class File : IFile
     {
-        private const string prefixFileWidget = "Widget";
-        private const string otherType = "Other";
+        private const string PrefixFileWidget = "Widget";
+        private const string OtherType = "Other";
 
         internal File()
         {
@@ -17,8 +17,12 @@ namespace AddonElement.File
         public File(string filePath)
         {
             var file = FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
-            FilePath = Path.GetDirectoryName(filePath);
-            FileName = Path.GetFileName(filePath);
+            FilePath = Path.GetDirectoryName(file);
+            if (!file.Equals(filePath))
+            {
+
+            }
+            FileName = Path.GetFileName(file);
         }
 
         public string FilePath { get; set; }
@@ -30,10 +34,10 @@ namespace AddonElement.File
             get
             {
                 var type = GetType().Name;
-                if (type.StartsWith(prefixFileWidget))
-                    type = type.Substring(prefixFileWidget.Length);
+                if (type.StartsWith(PrefixFileWidget))
+                    type = type.Substring(PrefixFileWidget.Length);
                 if (type == nameof(File))
-                    type = otherType;
+                    type = OtherType;
                 return $"[{type}]";
             }
         }

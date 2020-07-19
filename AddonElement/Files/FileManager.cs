@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using AddonElement.Widgets;
+using Addon.Widgets;
 
-namespace AddonElement.File
+namespace Addon.Files
 {
     public class FileManager : IFileManager
     {
@@ -21,7 +21,7 @@ namespace AddonElement.File
         internal static IFileManager CurrentWorkingManager { get; set; }
 
         public IFile RootFile { get; set; }
-        public event Action<string> OnDebug;
+        public event Action<string> OnError;
 
         public string RegisterFile(IFile file)
         {
@@ -39,7 +39,7 @@ namespace AddonElement.File
         public IFile Load(string filePath)
         {
             Clear();
-            RootFile = Add(filePath);
+            RootFile = GetFile(filePath);
             return RootFile;
         }
 
@@ -47,7 +47,7 @@ namespace AddonElement.File
         {
             if (filePath == null)
                 return null;
-            filePath = Path.GetFullPath(filePath);
+            filePath = Path.GetFullPath(filePath.RemoveXPointer());
             return paths.ContainsKey(filePath) ? paths[filePath] : Add(filePath);
         }
 
@@ -62,12 +62,12 @@ namespace AddonElement.File
             if (filePath == null)
                 return null;
 
-            Utils.RemovePointer(ref filePath);
-            IFile newUIElement = null;
+            //filePath = filePath.RemoveXPointer();
+            IFile newUiElement = null;
 
             if (paths.ContainsKey(Path.GetFullPath((filePath))))
             {
-                //DebugOutput($"[{filePath}] Trying add the element which already exist");
+                ErrorOutput($"[{filePath}] Trying add the element which already exist");
                 return paths[filePath];
             }
 
@@ -76,41 +76,41 @@ namespace AddonElement.File
 
             try
             {
-                newUIElement = CreateUiElement(ref filePath, currentDirectory);
+                newUiElement = CreateUiElement(ref filePath, currentDirectory);
             }
             catch (ArgumentNullException)
             {
-                DebugOutput($"[{Path.GetFullPath(filePath)}]: Unknown type");
-                newUIElement = CreateFileIfNotExists(filePath);
+                ErrorOutput($"[{Path.GetFullPath(filePath)}]: Unknown type");
+                newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (InvalidOperationException exception)
             {
-                DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
+                ErrorOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
                 if (exception.InnerException != null)
-                    DebugOutput($" - {exception.InnerException.Message}");
-                newUIElement = CreateFileIfNotExists(filePath);
+                    ErrorOutput($" - {exception.InnerException.Message}");
+                newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (XmlException)
             {
                 // Need to rewrite (many false positives)
                 //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
-                newUIElement = CreateFileIfNotExists(filePath);
+                newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (IOException)
             {
-                DebugOutput($"[{Path.GetFullPath(filePath)}] file not found");
+                ErrorOutput($"[{Path.GetFullPath(filePath)}] file not found");
             }
             catch (Exception exception)
             {
-                DebugOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
-                newUIElement = CreateFileIfNotExists(filePath);
+                ErrorOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
+                newUiElement = CreateFileIfNotExists(filePath);
             }
             finally
             {
                 Directory.SetCurrentDirectory(previousDirectory);
             }
 
-            return newUIElement;
+            return newUiElement;
         }
 
         private IFile CreateFileIfNotExists(string filePath)
@@ -121,7 +121,7 @@ namespace AddonElement.File
 
         private IFile CreateUiElement(ref string filePath, string currentDirectory)
         {
-            IFile newUIElement;
+            IFile newUiElement;
             using (var xmlReaderStream = XmlReader.Create(filePath))
             {
                 xmlReaderStream.MoveToContent();
@@ -136,16 +136,16 @@ namespace AddonElement.File
 
                 var xmlSerializer = new XmlSerializer(type);
 
-                newUIElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
-                (newUIElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
+                newUiElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
+                (newUiElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
 
-            return newUIElement;
+            return newUiElement;
         }
 
-        private void DebugOutput(string msg)
+        private void ErrorOutput(string msg)
         {
-            OnDebug?.Invoke(msg);
+            OnError?.Invoke(msg);
         }
     }
 }

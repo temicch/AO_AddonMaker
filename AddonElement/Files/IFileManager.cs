@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace AddonElement.File
+namespace Addon.Files
 {
     public interface IFileManager
     {
         IFile RootFile { get; }
 
-        event Action<string> OnDebug;
+        event Action<string> OnError;
 
         string RegisterFile(IFile file);
         string RegisterFile(IFile file, string filePath);

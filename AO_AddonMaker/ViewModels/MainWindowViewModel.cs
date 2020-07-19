@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
-using AddonElement.Widgets;
+using Addon.Widgets;
 using AO_AddonMaker.Utility;
 using Microsoft.Win32;
 
@@ -26,7 +26,6 @@ namespace AO_AddonMaker.Views
             ClearDebugCommand = new RelayCommand(ClearDebug);
             SampleSelectCommand = new RelayCommand(SampleSelect);
 
-            AO_AddonMaker.DebugOutput.Init(this);
             Project = new Project(DebugWrite);
             RootFile = new ObservableCollection<IUIElement>();
 

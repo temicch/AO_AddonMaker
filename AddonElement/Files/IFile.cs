@@ -1,4 +1,4 @@
-﻿namespace AddonElement.File
+﻿namespace Addon.Files
 {
     public interface IFile
     {

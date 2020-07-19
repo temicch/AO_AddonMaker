@@ -80,7 +80,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DebugOutput.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Utility\BaseViewModel.cs" />
     <Compile Include="Utility\ProgressDialog.cs" />
@@ -148,9 +147,9 @@
     <Resource Include="Icons\openFile.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AddonElement\AddonElement.csproj">
+    <ProjectReference Include="..\AddonElement\Addon.csproj">
       <Project>{d1982cb6-d9b4-4de3-917c-a6102b85c8cf}</Project>
-      <Name>AddonElement</Name>
+      <Name>Addon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

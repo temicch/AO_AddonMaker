@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AO_AddonMaker", "AO_AddonMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texture", "Texture\Texture.csproj", "{590F5054-B5B2-43B0-B726-5BBAC11D7562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddonElement", "AddonElement\AddonElement.csproj", "{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addon", "AddonElement\Addon.csproj", "{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

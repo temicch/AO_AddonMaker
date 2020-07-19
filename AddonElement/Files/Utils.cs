@@ -1,14 +1,15 @@
 ﻿using System;
 
-namespace AddonElement.File
+namespace Addon.Files
 {
-    internal class Utils
+    internal static class StringUtils
     {
-        internal static void RemovePointer(ref string filePath)
+        public static string RemoveXPointer(this string  filePath)
         {
             var indexOf = filePath.IndexOf("#xpointer", StringComparison.Ordinal);
             if (indexOf > 0)
                 filePath = filePath.Remove(indexOf);
+            return filePath;
         }
     }
 }
