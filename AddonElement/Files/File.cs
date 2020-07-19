@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Xml.Serialization;
 
 namespace Addon.Files
 {
@@ -9,37 +10,43 @@ namespace Addon.Files
 
         internal File()
         {
-            var file = FileManager.CurrentWorkingManager.RegisterFile(this);
-            FilePath = Path.GetDirectoryName(file);
-            FileName = Path.GetFileName(file);
+            InitFile(null);
         }
 
         public File(string filePath)
         {
-            var file = FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
-            FilePath = Path.GetDirectoryName(file);
-            if (!file.Equals(filePath))
-            {
-
-            }
-            FileName = Path.GetFileName(file);
+            InitFile(filePath);
         }
 
+        private void InitFile(string filePath)
+        {
+            var file = filePath == null ? FileManager.CurrentWorkingManager.RegisterFile(this) : FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
+
+            FilePath = Path.GetDirectoryName(file);
+            FileName = Path.GetFileName(file);
+            FileType = GetFileType();
+        }
+
+        [XmlIgnore]
         public string FilePath { get; set; }
+
+        [XmlIgnore]
         public string FileName { get; set; }
+
+        [XmlIgnore]
         public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
 
-        public string FileType
+        [XmlIgnore]
+        public string FileType { get; private set; }
+
+        private string GetFileType()
         {
-            get
-            {
-                var type = GetType().Name;
-                if (type.StartsWith(PrefixFileWidget))
-                    type = type.Substring(PrefixFileWidget.Length);
-                if (type == nameof(File))
-                    type = OtherType;
-                return $"[{type}]";
-            }
+            var type = GetType().Name;
+            if (type.StartsWith(PrefixFileWidget))
+                type = type.Substring(PrefixFileWidget.Length);
+            if (type == nameof(File))
+                type = OtherType;
+            return $"[{type}]";
         }
     }
 }
