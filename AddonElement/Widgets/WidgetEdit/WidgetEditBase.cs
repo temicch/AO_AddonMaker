@@ -26,8 +26,8 @@ namespace Addon.Widgets
             }
         }
 
-        public Href Cursor1Layer { get; set; }
-        public Href Cursor2Layer { get; set; }
+        public Href<WidgetLayer> Cursor1Layer { get; set; }
+        public Href<WidgetLayer> Cursor2Layer { get; set; }
         public int CursorWidth { get; set; }
         public int CursorChangeTimeMs { get; set; }
 
@@ -42,7 +42,7 @@ namespace Addon.Widgets
         public string SelectionClassName { get; set; }
 
         [XmlElement("selectionLayer")]
-        public Href SelectionLayer { get; set; }
+        public Href<WidgetLayer> SelectionLayer { get; set; }
         //public string filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём.Значения: "RUSSIAN", "NUMBERS", "INTEGER". См.EditBaseTextFilter
 
         public string ReactionEsc { get; set; }

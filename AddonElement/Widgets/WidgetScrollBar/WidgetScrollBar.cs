@@ -5,8 +5,8 @@ namespace Addon.Widgets
     public abstract class WidgetScrollBar : Widget
     {
         [XmlElement("decButton")]
-        public Href DecButton { get; set; }
+        public Href<WidgetButton> DecButton { get; set; }
         [XmlElement("incButton")]
-        public Href IncButton { get; set; }
+        public Href<WidgetButton> IncButton { get; set; }
     }
 }

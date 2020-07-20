@@ -41,7 +41,7 @@ namespace Addon.Widgets
         [XmlElement("realHeight")]
         public int RealHeight { get; set; }
 
-        [XmlIgnore] 
+        [XmlIgnore]
         public bool DisableLODControl { get; set; }
 
         [XmlElement("disableLODControl")]
@@ -55,7 +55,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore] 
+        [XmlIgnore]
         public bool AlphaTex { get; set; }
 
         [XmlElement("alphaTex")]
@@ -73,22 +73,22 @@ namespace Addon.Widgets
         public int BinaryFileSize { get; set; }
 
         [XmlElement("binaryFile")]
-        public Href BinaryFile { get; set; }
+        public Href<BlankFile> BinaryFile { get; set; }
 
         [XmlElement("binaryFileSize2")]
         public int BinaryFileSize2 { get; set; }
 
         [XmlElement("binaryFile2")]
-        public Href BinaryFile2 { get; set; }
+        public Href<BlankFile> BinaryFile2 { get; set; }
 
         [XmlElement("sourceFile")]
-        public Href SourceFile { get; set; }
+        public Href<BlankFile> SourceFile { get; set; }
 
         [XmlElement("sourceFileCRC")]
         public long SourceFileCrc { get; set; }
 
 
-        [XmlIgnore] 
+        [XmlIgnore]
         public bool Wrap { get; set; }
 
         [XmlElement("wrap")]
@@ -102,9 +102,9 @@ namespace Addon.Widgets
             }
         }
 
-        public Href LocalizationInfo { get; set; }
+        public Href<BlankFile> LocalizationInfo { get; set; }
 
-        [XmlIgnore] 
+        [XmlIgnore]
         public bool AtlasPart { get; set; }
 
         [XmlElement("atlasPart")]
@@ -121,19 +121,19 @@ namespace Addon.Widgets
         [XmlElement("pool")]
         public string Pool { get; set; }
 
-        [XmlIgnore] 
+        [XmlIgnore]
         protected ImageSource bitmap { get; set; }
 
-        [XmlIgnore] 
+        [XmlIgnore]
         public ImageSource Bitmap => GetBitmap();
 
         protected ImageSource GetBitmap()
         {
-            if (bitmap != null) 
+            if (bitmap != null)
                 return bitmap;
             using (var binaryFileStream = new System.IO.StreamReader(BinaryFile.File.FullPath))
             {
-                var texture = new Texture(binaryFileStream.BaseStream, Width, Height, Type);
+                var texture = new Textures.Texture(binaryFileStream.BaseStream, Width, Height, Type);
                 bitmap = texture.Bitmap;
             }
 

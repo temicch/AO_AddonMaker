@@ -24,7 +24,7 @@ namespace Addon.Widgets
         }
 
         [XmlElement("scrollBar")]
-        public Href ScrollBar { get; set; }
+        public Href<WidgetGlideScrollBar> ScrollBar { get; set; }
 
         [XmlElement("formatFileRef")]
         public string FormatFileRef { get; set; }

@@ -30,8 +30,9 @@ namespace Addon.Files
 
         public string RegisterFile(IFile file, string filePath)
         {
+            filePath = Path.GetFullPath(filePath);
             if (paths.ContainsKey(filePath))
-                throw new InvalidOperationException("This file is already exist");
+                return filePath;//new InvalidOperationException("This file is already exist");
             paths[filePath] = file;
             return filePath;
         }
@@ -51,21 +52,31 @@ namespace Addon.Files
             return paths.ContainsKey(filePath) ? paths[filePath] : Add(filePath);
         }
 
+        public IFile GetFile(string filePath, Type fileType)
+        {
+            if (filePath == null)
+                return null;
+            filePath = Path.GetFullPath(filePath.RemoveXPointer());
+            return paths.ContainsKey(filePath) ? paths[filePath] : Add(filePath, fileType);
+        }
+
         public void Clear()
         {
             paths.Clear();
             RootFile = null;
         }
 
-        private IFile Add(string filePath)
+        private IFile Add(string filePath, Type fileType = null)
         {
             if (filePath == null)
                 return null;
 
-            //filePath = filePath.RemoveXPointer();
+            if(fileType != null && fileType.IsAssignableFrom(typeof(BlankFile)))
+                return new File(filePath);
+
             IFile newUiElement = null;
 
-            if (paths.ContainsKey(Path.GetFullPath((filePath))))
+            if (paths.ContainsKey(filePath))
             {
                 ErrorOutput($"[{filePath}] Trying add the element which already exist");
                 return paths[filePath];
@@ -76,7 +87,7 @@ namespace Addon.Files
 
             try
             {
-                newUiElement = CreateUiElement(ref filePath, currentDirectory);
+                newUiElement = CreateUiElement(filePath, currentDirectory, fileType);
             }
             catch (ArgumentNullException)
             {
@@ -93,7 +104,7 @@ namespace Addon.Files
             catch (XmlException)
             {
                 // Need to rewrite (many false positives)
-                //DebugOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
+                ErrorOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
                 newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (IOException)
@@ -119,20 +130,24 @@ namespace Addon.Files
             return !paths.ContainsKey(filePath) ? new File(filePath) : paths[filePath];
         }
 
-        private IFile CreateUiElement(ref string filePath, string currentDirectory)
+        private IFile CreateUiElement(string filePath, string currentDirectory, Type fileType)
         {
             IFile newUiElement;
             using (var xmlReaderStream = XmlReader.Create(filePath))
             {
+                if (fileType != null && fileType.IsAbstract)
+                    fileType = null;
+                
+
                 xmlReaderStream.MoveToContent();
 
                 if (!string.IsNullOrEmpty(currentDirectory))
                     Directory.SetCurrentDirectory(currentDirectory);
 
                 CurrentWorkingFile = Path.GetFullPath(filePath);
-                filePath = Path.GetFileName(filePath);
+                //filePath = Path.GetFileName(filePath);
 
-                var type = Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
+                var type = fileType ?? Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
 
                 var xmlSerializer = new XmlSerializer(type);
 

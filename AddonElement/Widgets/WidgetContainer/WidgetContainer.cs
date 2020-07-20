@@ -6,7 +6,7 @@ namespace Addon.Widgets
     public abstract class WidgetContainer : WidgetPanel
     {
         [XmlElement("border")]
-        public Href Border { get; set; }
+        public Href<Widget> Border { get; set; }
 
         [XmlElement("widgetsArrangement")]
         public WidgetsArrangement WidgetsArrangement { get; set; }

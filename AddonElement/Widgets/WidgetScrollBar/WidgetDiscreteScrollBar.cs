@@ -5,6 +5,6 @@ namespace Addon.Widgets
     public class WidgetDiscreteScrollBar : WidgetScrollBar
     {
         [XmlElement("slider")]
-        public Href Slider { get; set; }
+        public Href<WidgetDiscreteSlider> Slider { get; set; }
     }
 }

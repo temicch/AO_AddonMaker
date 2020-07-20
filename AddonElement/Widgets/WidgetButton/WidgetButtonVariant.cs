@@ -24,7 +24,7 @@ namespace Addon.Widgets
         }
 
         public string TextFileRef { get; set; }
-        public Href LayerHighlight { get; set; }
+        public Href<WidgetLayer> LayerHighlight { get; set; }
 
         public vec2 PushedOffset { get; set; }
 

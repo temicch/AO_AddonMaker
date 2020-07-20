@@ -16,9 +16,9 @@ namespace Addon.Widgets
         }
 
         [XmlElement("localizedNameFileRef")]
-        public Href LocalizedNameFileRef { get; set; }
+        public Href<BlankFile> LocalizedNameFileRef { get; set; }
         [XmlElement("localizedDescFileRef")]
-        public Href LocalizedDescFileRef { get; set; }
+        public Href<BlankFile> LocalizedDescFileRef { get; set; }
 
         [XmlIgnore] 
         public bool AutoStart { get; set; }
@@ -36,10 +36,10 @@ namespace Addon.Widgets
 
         [XmlArrayItem("Item")]
         [XmlArray("addonGroups")] 
-        public List<Href> AddonGroups { get; set; }
+        public List<Href<BlankFile>> AddonGroups { get; set; }
 
         [XmlArrayItem("Item")] 
-        public List<Href> ScriptFileRefs { get; set; }
+        public List<Href<BlankFile>> ScriptFileRefs { get; set; }
 
         public string MainFormId { get; set; }
 
@@ -47,32 +47,32 @@ namespace Addon.Widgets
         public List<FormItem> Forms { get; set; }
 
         [XmlElement("visObjects")]
-        public Href VisObjects { get; set; }
+        public Href<BlankFile> VisObjects { get; set; }
         [XmlElement("aliasVisObjects")]
-        public Href AliasVisObjects { get; set; }
+        public Href<BlankFile> AliasVisObjects { get; set; }
         [XmlElement("texts")]
-        public Href Texts { get; set; }
+        public Href<BlankFile> Texts { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("textsGroups")] 
         public List<TextsItem> TextsGroups { get; set; }
 
         [XmlElement("textures")]
-        public Href Textures { get; set; }
+        public Href<BlankFile> Textures { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("texturesGroups")] 
         public List<TexturesItem> TexturesGroups { get; set; }
 
         [XmlElement("sounds")]
-        public Href Sounds { get; set; }
+        public Href<BlankFile> Sounds { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("soundsGroups")]
         public List<SoundsItem> SoundsGroups { get; set; }
 
         [XmlElement("decalObjects")]
-        public Href DecalObjects { get; set; }
+        public Href<BlankFile> DecalObjects { get; set; }
 
         public string Name { get; set; }
 

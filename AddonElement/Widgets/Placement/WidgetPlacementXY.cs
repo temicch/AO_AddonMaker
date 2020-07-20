@@ -27,11 +27,11 @@ namespace Addon.Widgets
         }
 
         [XmlElement("sizingWidget")]
-        public Href SizingWidget { get; set; }
+        public Href<Widget> SizingWidget { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("sizingWidgets")]
-        public List<Href> SizingWidgets { get; set; }
+        public List<Href<Widget>> SizingWidgets { get; set; }
 
         public WidgetPlacement X { get; set; }
         public WidgetPlacement Y { get; set; }

@@ -2,7 +2,7 @@
 {
     public class FormItem
     {
-        public Href Form;
+        public Href<WidgetForm> Form;
         public string Id { get; set; }
     }
 }

@@ -61,7 +61,7 @@ namespace Addon.Widgets
             "Дочерние виджеты. Почти каждый виджет может содержать дочерние виджеты, за исключением особых случаев типа слайдера и т.п. Дочерние виджеты отображаются поверх родителя и перехватывают реакции (если они объявлены и на них подписаны обработчики) раньше родительского виджета за исключением особых случаев")]
         [XmlArray("Children")]
         [XmlArrayItem("Item")]
-        public List<Href> Widgets { get; set; }
+        public List<Href<Widget>> Widgets { get; set; }
 
         [Category("Children widgets")]
         [Description("Нужно ли обрезать содержимое, включая дочерние виджеты, по границам данного. По умолчанию false")]
@@ -81,17 +81,17 @@ namespace Addon.Widgets
 
         [Category("Display")]
         [Description("Слой для отображения нижней части текстуры")]
-        public Href BackLayer { get; set; }
+        public Href<WidgetLayer> BackLayer { get; set; }
 
         [Category("Display")]
         [Description("Слой для отображения верхней части текстуры")]
-        public Href FrontLayer { get; set; }
+        public Href<WidgetLayer> FrontLayer { get; set; }
 
         [Category("Display")]
         [Description(
             "Текстура с альфой. Используется для задания маски, по которой будет обрезана основная текстура данного контрола и всех его детей")]
         [XmlElement("textureMask")]
-        public Href TextureMask { get; set; }
+        public Href<BlankFile> TextureMask { get; set; }
 
         [Category("Display")]
         [Description("Визуальная прозрачность виджета. По умолчанию 1.0f - непрозрачен")]
@@ -102,7 +102,7 @@ namespace Addon.Widgets
         [Description(
             "Черно-белая текстура (по степеням 2) для задания активной (белые пиксели) области для кликов мышью. Нужно вручную выставлять mipSW = 0 при экспорте")]
         [XmlElement("pickMask")]
-        public Href PickMask { get; set; }
+        public Href<UISingleTexture> PickMask { get; set; }
 
         [Category("Track and limit reactions")]
         [Description("Обрабатывать мышиные реакции только для детей этого виджета, игнорируя сам виджет")]
@@ -194,12 +194,12 @@ namespace Addon.Widgets
         [Category("Special")]
         [Description("Звук на начатое отображение виджета")]
         [XmlElement("soundShow")]
-        public Href SoundShow { get; set; }
+        public Href<BlankFile> SoundShow { get; set; }
 
         [Category("Special")]
         [Description("Звук на скрытие виджета")]
         [XmlElement("soundHide")]
-        public Href SoundHide { get; set; }
+        public Href<BlankFile> SoundHide { get; set; }
 
         [Category("Keyboard reactions")]
         [Description("Список реакций на клавиатурные нажатия")]

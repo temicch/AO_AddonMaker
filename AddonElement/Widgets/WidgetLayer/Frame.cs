@@ -6,7 +6,7 @@ namespace Addon.Widgets
     public class Frame
     {
         [XmlElement("textureItem")]
-        public Href TextureItem { get; set; }
+        public Href<UISingleTexture> TextureItem { get; set; }
         [XmlArray("rects")]
         public List<Rect> Rects { get; set; }
     }

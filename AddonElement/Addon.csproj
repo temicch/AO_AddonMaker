@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Files\BlankFile.cs" />
     <Compile Include="Files\File.cs" />
     <Compile Include="Files\IFile.cs" />
     <Compile Include="Files\IFileManager.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Widgets\Texture\UISingleTexture.cs" />
     <Compile Include="Widgets\Texture\UITexture.cs" />
     <Compile Include="Widgets\Texture\UITextureElement.cs" />
+    <Compile Include="Widgets\Texture\UITextureItem.cs" />
     <Compile Include="Widgets\UIAddon\FormItem.cs" />
     <Compile Include="Widgets\UIAddon\SoundsItem.cs" />
     <Compile Include="Widgets\UIAddon\TextsItem.cs" />

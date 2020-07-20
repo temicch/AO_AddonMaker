@@ -6,7 +6,7 @@
         <Item href="Background.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
     </Children>
 	<Visible>true</Visible>
-    <BackLayer href="Placeholder.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
+    <BackLayer href="Placeholder.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
     <Placement>
         <X>
             <Align>WIDGET_ALIGN_BOTH</Align>

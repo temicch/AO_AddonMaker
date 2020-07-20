@@ -10,8 +10,8 @@ namespace Addon.Widgets
             Scaling = false;
         }
 
-        public Href textureItem { get; set; }
-        public Href textureMask { get; set; }
+        public Href<UITextureItem> textureItem { get; set; }
+        public Href<UISingleTexture> textureMask { get; set; }
 
         [XmlIgnore] public bool Scaling { get; set; }
 
@@ -26,6 +26,13 @@ namespace Addon.Widgets
             }
         }
 
-        public override ImageSource Bitmap => (textureItem?.File as UISingleTexture)?.Bitmap;
+        public override ImageSource Bitmap
+        {
+            get
+            {
+                var file = textureItem?.File as UISingleTexture;
+                return file?.Bitmap;
+            }
+        }
     }
 }

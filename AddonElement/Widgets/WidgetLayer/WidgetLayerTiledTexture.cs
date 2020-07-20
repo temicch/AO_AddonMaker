@@ -6,7 +6,7 @@ namespace Addon.Widgets
     public class WidgetLayerTiledTexture : WidgetLayer
     {
         [XmlElement("textureItem")]
-        public Href TextureItem { get; set; }
+        public Href<UITextureItem> TextureItem { get; set; }
 
         public override ImageSource Bitmap => (TextureItem?.File as UISingleTexture)?.Bitmap;
 

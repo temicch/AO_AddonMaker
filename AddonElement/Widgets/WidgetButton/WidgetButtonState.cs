@@ -2,7 +2,7 @@
 {
     public class WidgetButtonState
     {
-        public Href LayerMain { get; set; }
+        public Href<WidgetLayer> LayerMain { get; set; }
         public string FormatFileRef { get; set; }
     }
 }
