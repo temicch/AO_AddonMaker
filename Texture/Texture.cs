@@ -53,7 +53,7 @@ namespace Textures
             input.Dispose();
         }
 
-        private void SaveTo(Stream output)
+        private BinaryWriter SaveTo(Stream output)
         {
             var binaryWriter = new BinaryWriter(output);
             binaryWriter.Write(542327876);
@@ -94,23 +94,27 @@ namespace Textures
             for (var index = 0; index < _mips.Count; ++index)
                 binaryWriter.Write(_mips[index].Data);
             binaryWriter.Flush();
+            return binaryWriter;
         }
 
         private ImageSource GetBitmap()
         {
-            BitmapImage bitmap;
+            BitmapImage bitmap = null;
             using (var textureStream = new MemoryStream())
             {
-                SaveTo(textureStream);
-                textureStream.Seek(0L, SeekOrigin.Begin);
+                using (SaveTo(textureStream))
+                {
+                    textureStream.Seek(0L, SeekOrigin.Begin);
 
-                bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.StreamSource = textureStream;
-                bitmap.EndInit();
-                bitmap.Freeze();
+                    bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = textureStream;
+                    bitmap.EndInit();
+                    //bitmap.Freeze();
+                }
             }
+
             return bitmap;
         }
     }
