@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using Addon.Files;
 
 namespace Addon.Widgets
 {
@@ -9,8 +10,7 @@ namespace Addon.Widgets
             ReactionOnUp = false;
         }
 
-        [XmlIgnore] 
-        public bool ReactionOnUp { get; set; }
+        [XmlIgnore] public bool ReactionOnUp { get; set; }
 
         [XmlElement("ReactionOnUp")]
         public string _ReactionOnUp
@@ -24,7 +24,7 @@ namespace Addon.Widgets
         }
 
         public string TextFileRef { get; set; }
-        public Href<WidgetLayer> LayerHighlight { get; set; }
+        public Reference<XmlFileProvider> LayerHighlight { get; set; }
 
         public vec2 PushedOffset { get; set; }
 
@@ -34,10 +34,8 @@ namespace Addon.Widgets
         public WidgetButtonState StatePushedHighlighted { get; set; }
         public WidgetButtonState StateDisabled { get; set; }
 
-        [XmlElement("soundOver")]
-        public WidgetSoundBase SoundOver { get; set; }
+        [XmlElement("soundOver")] public WidgetSoundBase SoundOver { get; set; }
 
-        [XmlElement("soundPress")]
-        public WidgetSoundBase SoundPress { get; set; }
+        [XmlElement("soundPress")] public WidgetSoundBase SoundPress { get; set; }
     }
 }

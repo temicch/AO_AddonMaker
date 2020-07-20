@@ -7,11 +7,9 @@ namespace Addon.Widgets
 {
     public class UITexture : File
     {
-        [XmlElement("mipSW")]
-        public int MipSW { get; set; }
+        [XmlElement("mipSW")] public int MipSW { get; set; }
 
-        [XmlElement("mipsNumber")]
-        public int MipsNumber { get; set; }
+        [XmlElement("mipsNumber")] public int MipsNumber { get; set; }
 
         [XmlIgnore] public bool GenerateMipChain { get; set; }
 
@@ -26,23 +24,17 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("type")]
-        public Format Type { get; set; }
+        [XmlElement("type")] public Format Type { get; set; }
 
-        [XmlElement("width")]
-        public int Width { get; set; }
+        [XmlElement("width")] public int Width { get; set; }
 
-        [XmlElement("height")]
-        public int Height { get; set; }
+        [XmlElement("height")] public int Height { get; set; }
 
-        [XmlElement("realWidth")]
-        public int RealWidth { get; set; }
+        [XmlElement("realWidth")] public int RealWidth { get; set; }
 
-        [XmlElement("realHeight")]
-        public int RealHeight { get; set; }
+        [XmlElement("realHeight")] public int RealHeight { get; set; }
 
-        [XmlIgnore]
-        public bool DisableLODControl { get; set; }
+        [XmlIgnore] public bool DisableLODControl { get; set; }
 
         [XmlElement("disableLODControl")]
         public string _DisableLODControl
@@ -55,8 +47,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore]
-        public bool AlphaTex { get; set; }
+        [XmlIgnore] public bool AlphaTex { get; set; }
 
         [XmlElement("alphaTex")]
         public string _AlphaTex
@@ -69,27 +60,20 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("binaryFileSize")]
-        public int BinaryFileSize { get; set; }
+        [XmlElement("binaryFileSize")] public int BinaryFileSize { get; set; }
 
-        [XmlElement("binaryFile")]
-        public Href<BlankFile> BinaryFile { get; set; }
+        [XmlElement("binaryFile")] public Reference<BlankFileProvider> BinaryFile { get; set; }
 
-        [XmlElement("binaryFileSize2")]
-        public int BinaryFileSize2 { get; set; }
+        [XmlElement("binaryFileSize2")] public int BinaryFileSize2 { get; set; }
 
-        [XmlElement("binaryFile2")]
-        public Href<BlankFile> BinaryFile2 { get; set; }
+        [XmlElement("binaryFile2")] public Reference<BlankFileProvider> BinaryFile2 { get; set; }
 
-        [XmlElement("sourceFile")]
-        public Href<BlankFile> SourceFile { get; set; }
+        [XmlElement("sourceFile")] public Reference<BlankFileProvider> SourceFile { get; set; }
 
-        [XmlElement("sourceFileCRC")]
-        public long SourceFileCrc { get; set; }
+        [XmlElement("sourceFileCRC")] public long SourceFileCrc { get; set; }
 
 
-        [XmlIgnore]
-        public bool Wrap { get; set; }
+        [XmlIgnore] public bool Wrap { get; set; }
 
         [XmlElement("wrap")]
         public string _Wrap
@@ -102,10 +86,9 @@ namespace Addon.Widgets
             }
         }
 
-        public Href<BlankFile> LocalizationInfo { get; set; }
+        public Reference<BlankFileProvider> LocalizationInfo { get; set; }
 
-        [XmlIgnore]
-        public bool AtlasPart { get; set; }
+        [XmlIgnore] public bool AtlasPart { get; set; }
 
         [XmlElement("atlasPart")]
         public string _AtlasPart
@@ -118,14 +101,11 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("pool")]
-        public string Pool { get; set; }
+        [XmlElement("pool")] public string Pool { get; set; }
 
-        [XmlIgnore]
-        protected ImageSource bitmap { get; set; }
+        [XmlIgnore] protected ImageSource bitmap { get; set; }
 
-        [XmlIgnore]
-        public ImageSource Bitmap => GetBitmap();
+        [XmlIgnore] public ImageSource Bitmap => GetBitmap();
 
         protected ImageSource GetBitmap()
         {

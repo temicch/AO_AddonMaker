@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media;
 using System.Xml.Serialization;
+using Addon.Files;
 
 namespace Addon.Widgets
 {
@@ -10,8 +11,8 @@ namespace Addon.Widgets
             Scaling = false;
         }
 
-        public Href<UITextureItem> textureItem { get; set; }
-        public Href<UISingleTexture> textureMask { get; set; }
+        public Reference<XmlFileProvider> textureItem { get; set; }
+        public Reference<XmlFileProvider> textureMask { get; set; }
 
         [XmlIgnore] public bool Scaling { get; set; }
 

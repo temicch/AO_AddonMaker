@@ -5,10 +5,8 @@ namespace Addon.Widgets
 {
     public class BindSection
     {
-        [XmlElement("bindSection")]
-        public string Name { get; set; }
+        [XmlElement("bindSection")] public string Name { get; set; }
 
-        [XmlArray("bindedReactions")]
-        public List<string> BindedReactions { get; set; }
+        [XmlArray("bindedReactions")] public List<string> BindedReactions { get; set; }
     }
 }

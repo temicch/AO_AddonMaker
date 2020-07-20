@@ -1,8 +1,10 @@
-﻿namespace Addon.Widgets
+﻿using Addon.Files;
+
+namespace Addon.Widgets
 {
     public class WidgetButtonState
     {
-        public Href<WidgetLayer> LayerMain { get; set; }
+        public Reference<XmlFileProvider> LayerMain { get; set; }
         public string FormatFileRef { get; set; }
     }
 }

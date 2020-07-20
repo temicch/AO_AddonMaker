@@ -9,7 +9,6 @@ namespace Addon.Widgets
             StepsCount = 0;
         }
 
-        [XmlElement("stepsCount")]
-        public int StepsCount { get; set; }
+        [XmlElement("stepsCount")] public int StepsCount { get; set; }
     }
 }

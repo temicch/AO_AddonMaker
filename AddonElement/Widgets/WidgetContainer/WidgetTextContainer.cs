@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using Addon.Files;
 
 namespace Addon.Widgets
 {
@@ -9,8 +10,7 @@ namespace Addon.Widgets
             ElementsInterval = 0;
         }
 
-        [XmlIgnore] 
-        public bool PickObjectsOnly { get; set; }
+        [XmlIgnore] public bool PickObjectsOnly { get; set; }
 
         [XmlElement("pickObjectsOnly")]
         public string _PickObjectsOnly
@@ -23,16 +23,12 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("scrollBar")]
-        public Href<WidgetGlideScrollBar> ScrollBar { get; set; }
+        [XmlElement("scrollBar")] public Reference<XmlFileProvider> ScrollBar { get; set; }
 
-        [XmlElement("formatFileRef")]
-        public string FormatFileRef { get; set; }
+        [XmlElement("formatFileRef")] public string FormatFileRef { get; set; }
 
-        [XmlElement("defaultTag")]
-        public string DefaultTag { get; set; }
+        [XmlElement("defaultTag")] public string DefaultTag { get; set; }
 
-        [XmlElement("elementsInterval")]
-        public int ElementsInterval { get; set; }
+        [XmlElement("elementsInterval")] public int ElementsInterval { get; set; }
     }
 }

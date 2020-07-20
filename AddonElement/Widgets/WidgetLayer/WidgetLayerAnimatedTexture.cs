@@ -54,10 +54,8 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("delayMs")]
-        public int DelayMs { get; set; }
-        [XmlArray("frames")]
-        public List<Frame> Frames { get; set; }
+        [XmlElement("delayMs")] public int DelayMs { get; set; }
+        [XmlArray("frames")] public List<Frame> Frames { get; set; }
 
         public override ImageSource Bitmap => throw new NotImplementedException();
     }

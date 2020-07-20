@@ -1,14 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using Addon.Files;
 
 namespace Addon.Widgets
 {
-    public class Href<T> where T: IFile
+    public class Reference<T> where T: IFileProvider, new()
     {
-        //[XmlIgnore]
-        //public T Reference { get; set; }
-
         [XmlAttribute("href")]
         public string Path
         {
@@ -17,7 +13,9 @@ namespace Addon.Widgets
             {
                 if (value == string.Empty)
                     return;
-                File = FileManager.CurrentWorkingManager.GetFile(value, typeof(T));
+                IFileProvider fileProvider = new T();
+                fileProvider.SetFullFilePath(value);
+                File = fileProvider.GetFile();
             }
         }
 

@@ -13,8 +13,7 @@ namespace Addon.Widgets
             BlendEffect = Blend_Effect.BLEND_EFFECT_ALPHABLND;
         }
 
-        [XmlIgnore] 
-        public bool Multiline { get; set; }
+        [XmlIgnore] public bool Multiline { get; set; }
 
         [XmlElement("multiline")]
         public string _Multiline
@@ -27,8 +26,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore] 
-        public bool WrapText { get; set; }
+        [XmlIgnore] public bool WrapText { get; set; }
 
         [XmlElement("wrapText")]
         public string _WrapText
@@ -41,8 +39,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore] 
-        public bool ShowClippedSymbol { get; set; }
+        [XmlIgnore] public bool ShowClippedSymbol { get; set; }
 
         [XmlElement("showClippedSymbol")]
         public string _ShowClippedSymbol
@@ -55,8 +52,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore] 
-        public bool ShowClippedLine { get; set; }
+        [XmlIgnore] public bool ShowClippedLine { get; set; }
 
         [XmlElement("showClippedLine")]
         public string _ShowClippedLine
@@ -69,8 +65,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlIgnore] 
-        public bool Ellipsis { get; set; }
+        [XmlIgnore] public bool Ellipsis { get; set; }
 
         [XmlElement("ellipsis")]
         public string _Ellipsis
@@ -83,12 +78,10 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("lineSpacing")]
-        public int LineSpacing { get; set; }
+        [XmlElement("lineSpacing")] public int LineSpacing { get; set; }
 
         public AlignY Align { get; set; }
 
-        [XmlElement("blendEffect")]
-        public Blend_Effect BlendEffect { get; set; }
+        [XmlElement("blendEffect")] public Blend_Effect BlendEffect { get; set; }
     }
 }

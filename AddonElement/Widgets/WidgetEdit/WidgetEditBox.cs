@@ -1,7 +1,9 @@
-﻿namespace Addon.Widgets
+﻿using Addon.Files;
+
+namespace Addon.Widgets
 {
     public class WidgetEditBox : WidgetEditBase
     {
-        public Href<WidgetGlideScrollBar> scrollBar { get; set; }
+        public Reference<XmlFileProvider> scrollBar { get; set; }
     }
 }

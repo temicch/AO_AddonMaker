@@ -20,24 +20,22 @@ namespace Addon.Files
 
         private void InitFile(string filePath)
         {
-            var file = filePath == null ? FileManager.CurrentWorkingManager.RegisterFile(this) : FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
+            var file = filePath == null
+                ? FileManager.CurrentWorkingManager.RegisterFile(this)
+                : FileManager.CurrentWorkingManager.RegisterFile(this, filePath);
 
             FilePath = Path.GetDirectoryName(file);
             FileName = Path.GetFileName(file);
             FileType = GetFileType();
         }
 
-        [XmlIgnore]
-        public string FilePath { get; set; }
+        [XmlIgnore] public string FilePath { get; set; }
 
-        [XmlIgnore]
-        public string FileName { get; set; }
+        [XmlIgnore] public string FileName { get; set; }
 
-        [XmlIgnore]
-        public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
+        [XmlIgnore] public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
 
-        [XmlIgnore]
-        public string FileType { get; private set; }
+        [XmlIgnore] public string FileType { get; private set; }
 
         private string GetFileType()
         {

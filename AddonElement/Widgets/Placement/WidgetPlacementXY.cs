@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using Addon.Files;
 
 namespace Addon.Widgets
 {
@@ -12,8 +13,7 @@ namespace Addon.Widgets
             Y = new WidgetPlacement();
         }
 
-        [XmlIgnore] 
-        public bool QuantumScale { get; set; }
+        [XmlIgnore] public bool QuantumScale { get; set; }
 
         [XmlElement("QuantumScale")]
         public string _QuantumScale
@@ -26,12 +26,11 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlElement("sizingWidget")]
-        public Href<Widget> SizingWidget { get; set; }
+        [XmlElement("sizingWidget")] public Reference<XmlFileProvider> SizingWidget { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("sizingWidgets")]
-        public List<Href<Widget>> SizingWidgets { get; set; }
+        public List<Reference<XmlFileProvider>> SizingWidgets { get; set; }
 
         public WidgetPlacement X { get; set; }
         public WidgetPlacement Y { get; set; }

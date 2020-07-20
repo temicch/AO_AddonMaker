@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using Addon.Files;
 
 namespace Addon.Widgets
 {
@@ -9,10 +10,8 @@ namespace Addon.Widgets
             ElementsInterval = 0;
         }
 
-        [XmlElement("scrollBar")]
-        public Href<WidgetGlideScrollBar> ScrollBar { get; set; }
+        [XmlElement("scrollBar")] public Reference<XmlFileProvider> ScrollBar { get; set; }
 
-        [XmlElement("elementsInterval")]
-        public int ElementsInterval { get; set; }
+        [XmlElement("elementsInterval")] public int ElementsInterval { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-﻿using System.Xml.Serialization;
+﻿using Addon.Files;
+using System.Xml.Serialization;
 
 namespace Addon.Widgets
 {
     public class WidgetDiscreteScrollBar : WidgetScrollBar
     {
-        [XmlElement("slider")]
-        public Href<WidgetDiscreteSlider> Slider { get; set; }
+        [XmlElement("slider")] public Reference<XmlFileProvider> Slider { get; set; }
     }
 }

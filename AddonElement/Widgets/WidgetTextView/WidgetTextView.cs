@@ -18,10 +18,8 @@ namespace Addon.Widgets
         public string DefaultTag { get; set; }
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlElement("minWidth")]
-        public float MinWidth { get; set; }
-        [XmlElement("maxWidth")]
-        public float MaxWidth { get; set; }
+        [XmlElement("minWidth")] public float MinWidth { get; set; }
+        [XmlElement("maxWidth")] public float MaxWidth { get; set; }
 
         [XmlIgnore] public bool IsHtmlEscaping { get; set; }
 

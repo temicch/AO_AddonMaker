@@ -13,7 +13,7 @@ namespace Addon.Files
 
         IFile Load(string filePath);
         IFile GetFile(string filePath);
-        IFile GetFile(string filePath, Type fileType);
+        IFile GetEmptyFile(string filePath);
 
         void Clear();
     }

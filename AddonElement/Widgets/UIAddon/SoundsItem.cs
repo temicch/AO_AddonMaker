@@ -5,9 +5,7 @@ namespace Addon.Widgets
 {
     public class SoundsItem
     {
-        [XmlElement("sounds")]
-        public Href<BlankFile> Sounds;
-        [XmlElement("groupName")]
-        public string GroupName { get; set; }
+        [XmlElement("sounds")] public Reference<BlankFileProvider> Sounds;
+        [XmlElement("groupName")] public string GroupName { get; set; }
     }
 }

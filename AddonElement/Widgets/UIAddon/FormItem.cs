@@ -1,8 +1,10 @@
-﻿namespace Addon.Widgets
+﻿using Addon.Files;
+
+namespace Addon.Widgets
 {
     public class FormItem
     {
-        public Href<WidgetForm> Form;
+        public Reference<XmlFileProvider> Form;
         public string Id { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace Addon.Widgets
             DiscreteStep = 10;
         }
 
-        [XmlElement("discreteStep")]
-        public int DiscreteStep { get; set; }
+        [XmlElement("discreteStep")] public int DiscreteStep { get; set; }
     }
 }

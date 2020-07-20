@@ -13,8 +13,7 @@ namespace Addon.Widgets
 
         public string TextTag { get; set; }
 
-        [XmlArrayItem("Item")] 
-        public List<WidgetButtonVariant> Variants { get; set; }
+        [XmlArrayItem("Item")] public List<WidgetButtonVariant> Variants { get; set; }
 
         public WidgetTextStyle TextStyle { get; set; }
 
@@ -31,8 +30,7 @@ namespace Addon.Widgets
             }
         }
 
-        [XmlArray("pushingBindSections")]
-        public List<BindSection> PushingBindSections { get; set; }
+        [XmlArray("pushingBindSections")] public List<BindSection> PushingBindSections { get; set; }
 
         protected override ImageSource GetBitmap()
         {

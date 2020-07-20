@@ -5,9 +5,7 @@ namespace Addon.Widgets
 {
     public class TexturesItem
     {
-        [XmlElement("textures")]
-        public Href<BlankFile> Textures;
-        [XmlElement("groupName")]
-        public string GroupName { get; set; }
+        [XmlElement("textures")] public Reference<BlankFileProvider> Textures;
+        [XmlElement("groupName")] public string GroupName { get; set; }
     }
 }
