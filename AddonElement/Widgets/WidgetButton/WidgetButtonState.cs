@@ -1,4 +1,4 @@
-﻿using Addon.Files;
+﻿using Addon.Files.Provider;
 
 namespace Addon.Widgets
 {

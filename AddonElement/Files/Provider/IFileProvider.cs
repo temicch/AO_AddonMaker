@@ -1,4 +1,4 @@
-﻿namespace Addon.Files
+﻿namespace Addon.Files.Provider
 {
     public interface IFileProvider
     {

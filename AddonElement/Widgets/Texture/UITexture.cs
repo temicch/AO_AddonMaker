@@ -1,7 +1,9 @@
-﻿using System.Windows.Media;
+﻿using System.IO;
+using System.Windows.Media;
 using System.Xml.Serialization;
-using Addon.Files;
+using Addon.Files.Provider;
 using Textures;
+using File = Addon.Files.File;
 
 namespace Addon.Widgets
 {
@@ -111,9 +113,9 @@ namespace Addon.Widgets
         {
             if (bitmap != null)
                 return bitmap;
-            using (var binaryFileStream = new System.IO.StreamReader(BinaryFile.File.FullPath))
+            using (var binaryFileStream = new StreamReader(BinaryFile.File.FullPath))
             {
-                var texture = new Textures.Texture(binaryFileStream.BaseStream, Width, Height, Type);
+                var texture = new Texture(binaryFileStream.BaseStream, Width, Height, Type);
                 bitmap = texture.Bitmap;
             }
 

@@ -1,5 +1,5 @@
-﻿using Addon.Files;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+using Addon.Files.Provider;
 
 namespace Addon.Widgets
 {

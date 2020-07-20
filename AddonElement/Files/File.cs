@@ -18,6 +18,14 @@ namespace Addon.Files
             InitFile(filePath);
         }
 
+        [XmlIgnore] public string FilePath { get; set; }
+
+        [XmlIgnore] public string FileName { get; set; }
+
+        [XmlIgnore] public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
+
+        [XmlIgnore] public string FileType { get; private set; }
+
         private void InitFile(string filePath)
         {
             var file = filePath == null
@@ -28,14 +36,6 @@ namespace Addon.Files
             FileName = Path.GetFileName(file);
             FileType = GetFileType();
         }
-
-        [XmlIgnore] public string FilePath { get; set; }
-
-        [XmlIgnore] public string FileName { get; set; }
-
-        [XmlIgnore] public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
-
-        [XmlIgnore] public string FileType { get; private set; }
 
         private string GetFileType()
         {

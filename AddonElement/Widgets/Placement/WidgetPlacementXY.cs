@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
-using Addon.Files;
+using Addon.Files.Provider;
 
 namespace Addon.Widgets
 {

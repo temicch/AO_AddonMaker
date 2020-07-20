@@ -1,4 +1,4 @@
-﻿namespace Addon.Files
+﻿namespace Addon.Files.Provider
 {
     public class BlankFileProvider : IFileProvider
     {
@@ -9,6 +9,9 @@
             File = FileManager.CurrentWorkingManager.GetEmptyFile(filePath);
         }
 
-        public IFile GetFile() => File;
+        public IFile GetFile()
+        {
+            return File;
+        }
     }
 }
