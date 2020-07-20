@@ -77,7 +77,7 @@ namespace Addon.Widgets
         public string Name { get; set; }
 
         [XmlIgnore] 
-        public List<IUIElement> Children => Forms?.Select(x => x.Form?.File as IUIElement)?.ToList();
+        public IEnumerable<IUIElement> Children => Forms?.Select(x => x.Form?.File as IUIElement);
 
         [XmlIgnore] 
         public WidgetPlacementXY Placement { get; set; }
@@ -92,6 +92,6 @@ namespace Addon.Widgets
         public ImageSource Bitmap => (Forms?[0].Form?.File as IUIElement)?.Bitmap;
 
         [XmlIgnore]
-        public int ChildrenCount => Children.Count + Children.Sum(child => child.ChildrenCount);
+        public int ChildrenCount => Children.Count() + Children.Sum(child => child.ChildrenCount);
     }
 }

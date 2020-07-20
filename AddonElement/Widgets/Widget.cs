@@ -249,9 +249,9 @@ namespace Addon.Widgets
         [Description("Описание расположение виджета")]
         public WidgetPlacementXY Placement { get; set; }
 
-        [XmlIgnore] public List<IUIElement> Children => Widgets?.Select(x => x.File as IUIElement).ToList();
+        [XmlIgnore] public IEnumerable<IUIElement> Children => Widgets?.Select(x => x.File as IUIElement);
 
-        public int ChildrenCount => Children.Count + Children.Sum(child => child.ChildrenCount);
+        public int ChildrenCount => Children.Count() + Children.Sum(child => child.ChildrenCount);
 
         protected virtual ImageSource GetBitmap()
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
@@ -34,8 +35,8 @@ namespace AO_AddonMaker.Views
 
         public Project Project { get; set; }
 
-        public ObservableCollection<IUIElement> RootFile { get; set; }
-        public ObservableCollection<string> Samples { get; private set; }
+        public ICollection<IUIElement> RootFile { get; set; }
+        public ICollection<string> Samples { get; private set; }
 
         public string DebugOutput
         {
@@ -114,7 +115,11 @@ namespace AO_AddonMaker.Views
 
         private void ClearDebug(object parameter)
         {
-            textDebug.Clear();
+            lock (debugObject)
+            {
+                textDebug.Clear();
+            }
+
             OnPropertyChanged(nameof(DebugOutput));
         }
 
