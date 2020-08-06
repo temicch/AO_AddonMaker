@@ -2,9 +2,10 @@
 {
     public class XmlFileProvider : BlankFileProvider
     {
-        public override void SetFullFilePath(string filePath)
+        public override IFileProvider SetFullFilePath(string filePath)
         {
             File = FileManager.CurrentWorkingManager.GetFile(filePath);
+            return this;
         }
     }
 }

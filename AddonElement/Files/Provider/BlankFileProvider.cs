@@ -4,9 +4,10 @@
     {
         public IFile File { get; protected set; }
 
-        public virtual void SetFullFilePath(string filePath)
+        public virtual IFileProvider SetFullFilePath(string filePath)
         {
             File = FileManager.CurrentWorkingManager.GetEmptyFile(filePath);
+            return this;
         }
 
         public IFile GetFile()

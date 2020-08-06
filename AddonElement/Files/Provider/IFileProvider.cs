@@ -3,6 +3,6 @@
     public interface IFileProvider
     {
         IFile GetFile();
-        void SetFullFilePath(string filePath);
+        IFileProvider SetFullFilePath(string filePath);
     }
 }

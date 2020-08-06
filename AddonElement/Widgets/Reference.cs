@@ -14,8 +14,8 @@ namespace Addon.Widgets
             {
                 if (value == string.Empty)
                     return;
-                IFileProvider fileProvider = new T();
-                fileProvider.SetFullFilePath(value);
+                IFileProvider fileProvider = new T()
+                    .SetFullFilePath(value);
                 File = fileProvider.GetFile();
             }
         }

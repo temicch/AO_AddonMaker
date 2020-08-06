@@ -9,7 +9,7 @@ namespace Addon.Files
 {
     public class FileManager : IFileManager
     {
-        private readonly Dictionary<string, IFile> paths;
+        private readonly IDictionary<string, IFile> paths;
 
         public FileManager()
         {
@@ -123,7 +123,7 @@ namespace Addon.Files
             return !paths.ContainsKey(filePath) ? new File(filePath) : paths[filePath];
         }
 
-        private IFile CreateUiElement(string filePath, string currentDirectory /*, Type fileType*/)
+        private IFile CreateUiElement(string filePath, string currentDirectory)
         {
             IFile newUiElement;
             using (var xmlReaderStream = XmlReader.Create(filePath))
@@ -135,7 +135,7 @@ namespace Addon.Files
 
                 CurrentWorkingFile = Path.GetFullPath(filePath);
 
-                var type = /*fileType ?? */Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
+                var type = Type.GetType($"{typeof(Widget).Namespace}.{xmlReaderStream.Name}");
 
                 var xmlSerializer = new XmlSerializer(type);
 
