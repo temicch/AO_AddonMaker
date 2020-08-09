@@ -21,9 +21,9 @@ namespace Addon.Files
 
         private string CurrentWorkingFile { get; set; }
         internal static IFileManager CurrentWorkingManager { get; set; }
+        public ILogger<FileManager> Logger { get; }
 
         public IFile RootFile { get; set; }
-        public ILogger<FileManager> Logger { get; }
 
         public string RegisterFile(IFile file)
         {

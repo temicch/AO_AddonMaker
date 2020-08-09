@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Windows;
 using Addon.Files;
 using AO_AddonMaker.Views;
 using Autofac;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog;
+using NLog.Config;
 using NLog.Extensions.Logging;
-using System.Windows;
 using NLog.Targets;
+using LogLevel = NLog.LogLevel;
 
 namespace AO_AddonMaker
 {
@@ -16,10 +17,11 @@ namespace AO_AddonMaker
     /// </summary>
     public partial class App : Application
     {
-        public static event Action<LogEventInfo, object[]> OnLogHandler ;
+        public static event Action<LogEventInfo, object[]> OnLogHandler;
+
         protected override void OnStartup(StartupEventArgs e)
         {
-            IContainer container = CreateContainer();
+            var container = CreateContainer();
 
             ConfigureNLog(container);
 
@@ -33,8 +35,8 @@ namespace AO_AddonMaker
 
         private void ConfigureNLog(IContainer container)
         {
-            MethodCallTarget target = new MethodCallTarget(nameof(Log), Log);
-            NLog.Config.SimpleConfigurator.ConfigureForTargetLogging(target, NLog.LogLevel.Debug);
+            var target = new MethodCallTarget(nameof(Log), Log);
+            SimpleConfigurator.ConfigureForTargetLogging(target, LogLevel.Debug);
             var loggerFactory = container.Resolve<ILoggerFactory>();
             loggerFactory.AddNLog();
         }

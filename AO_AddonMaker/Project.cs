@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Addon.Files;
 using Addon.Widgets;
+using File = System.IO.File;
 
 namespace AO_AddonMaker
 {
@@ -13,13 +14,13 @@ namespace AO_AddonMaker
             FileManager = fileManager;
         }
 
-        public IFileManager FileManager { get; private set; }
+        public IFileManager FileManager { get; }
 
         public IUIElement RootWidget => FileManager.RootFile as IUIElement;
 
         public void Load(string rootFilePath)
         {
-            if (!System.IO.File.Exists(rootFilePath))
+            if (!File.Exists(rootFilePath))
                 throw new FileNotFoundException();
 
             filePath = rootFilePath;

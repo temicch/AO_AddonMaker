@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Addon.Files
+﻿namespace Addon.Files
 {
     public interface IFileManager
     {
