@@ -21,11 +21,6 @@ namespace AO_AddonMaker.Views
 
         private readonly StringBuilder textDebug = new StringBuilder();
 
-        public MainWindowViewModel()
-        {
-
-        }
-
         public MainWindowViewModel(Project project)
         {
             OpenFileCommand = new RelayCommand(OpenFile);
@@ -36,6 +31,8 @@ namespace AO_AddonMaker.Views
             RootFile = new ObservableCollection<IUIElement>();
 
             InitSampleProjects();
+
+            App.OnLogHandler += (logEvent, objects) => DebugWrite(logEvent.FormattedMessage);
         }
 
         public Project Project { get; set; }

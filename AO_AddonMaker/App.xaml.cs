@@ -1,4 +1,5 @@
-﻿using Addon.Files;
+﻿using System;
+using Addon.Files;
 using AO_AddonMaker.Views;
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Extensions.Logging;
 using System.Windows;
+using NLog.Targets;
 
 namespace AO_AddonMaker
 {
@@ -14,28 +16,32 @@ namespace AO_AddonMaker
     /// </summary>
     public partial class App : Application
     {
+        public static event Action<LogEventInfo, object[]> OnLogHandler ;
         protected override void OnStartup(StartupEventArgs e)
         {
             IContainer container = CreateContainer();
 
-            var loggerFactory = container.Resolve<ILoggerFactory>();
-            loggerFactory.AddNLog();
-            //var nlogConfig = new LoggingConfiguration();
-            //var traceTarget = new TraceTarget("trace")
-            //{
-            //    Layout =
-            //        "${message} ${exception}"
-            //};
-            //nlogConfig.AddTarget(traceTarget);
-            //nlogConfig.AddRuleForAllLevels(traceTarget, "*");
-            //LogManager.Configuration = nlogConfig;
+            ConfigureNLog(container);
 
             var model = container.Resolve<MainWindowViewModel>();
-            var view = new MainWindow 
-            { 
-                DataContext = model 
+            var view = new MainWindow
+            {
+                DataContext = model
             };
             view.Show();
+        }
+
+        private void ConfigureNLog(IContainer container)
+        {
+            MethodCallTarget target = new MethodCallTarget(nameof(Log), Log);
+            NLog.Config.SimpleConfigurator.ConfigureForTargetLogging(target, NLog.LogLevel.Debug);
+            var loggerFactory = container.Resolve<ILoggerFactory>();
+            loggerFactory.AddNLog();
+        }
+
+        private static void Log(LogEventInfo logEventInfo, object[] objects)
+        {
+            OnLogHandler?.Invoke(logEventInfo, objects);
         }
 
         private static IContainer CreateContainer()
