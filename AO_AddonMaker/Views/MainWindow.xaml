@@ -1,11 +1,10 @@
 ﻿<mah:MetroWindow
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vms="clr-namespace:AO_AddonMaker.Views"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="MainWindow1"
     mc:Ignorable="d"
     SaveWindowPosition="True"
     x:Class="AO_AddonMaker.MainWindow"
@@ -24,9 +23,6 @@
             <Setter Property="IsExpanded" Value="True" />
         </Style>
     </mah:MetroWindow.Resources>
-    <mah:MetroWindow.DataContext>
-        <vms:MainWindowViewModel />
-    </mah:MetroWindow.DataContext>
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Top">
             <WrapPanel>
@@ -100,7 +96,7 @@
                                             <Image Source="/AO_AddonMaker;component/Icons/clear.png" />
                                         </Button>
                                     </ToolBar>
-                                    <TextBox Grid.Row="1" VerticalScrollBarVisibility="Auto"
+                                    <TextBox Name="DebugOutput" Grid.Row="1" VerticalScrollBarVisibility="Auto"
                                              HorizontalScrollBarVisibility="Auto" Padding="5" BorderThickness="0"
                                              IsReadOnly="True" Text="{Binding DebugOutput, Mode=OneWay}" />
                                 </Grid>

@@ -6,8 +6,6 @@ namespace Addon.Files
     {
         IFile RootFile { get; }
 
-        event Action<string> OnError;
-
         string RegisterFile(IFile file);
         string RegisterFile(IFile file, string filePath);
 

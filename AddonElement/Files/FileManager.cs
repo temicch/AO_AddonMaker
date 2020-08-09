@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using Addon.Widgets;
+using Microsoft.Extensions.Logging;
 
 namespace Addon.Files
 {
@@ -11,17 +12,18 @@ namespace Addon.Files
     {
         private readonly IDictionary<string, IFile> paths;
 
-        public FileManager()
+        public FileManager(ILogger<FileManager> logger)
         {
             paths = new Dictionary<string, IFile>();
             CurrentWorkingManager = this;
+            Logger = logger;
         }
 
         private string CurrentWorkingFile { get; set; }
         internal static IFileManager CurrentWorkingManager { get; set; }
 
         public IFile RootFile { get; set; }
-        public event Action<string> OnError;
+        public ILogger<FileManager> Logger { get; }
 
         public string RegisterFile(IFile file)
         {
@@ -72,7 +74,7 @@ namespace Addon.Files
 
             if (paths.ContainsKey(filePath))
             {
-                ErrorOutput($"[{filePath}] Trying add the element which already exist");
+                Logger.LogWarning($"[{filePath}] Trying add the element which already exist");
                 return paths[filePath];
             }
 
@@ -85,28 +87,28 @@ namespace Addon.Files
             }
             catch (ArgumentNullException)
             {
-                ErrorOutput($"[{Path.GetFullPath(filePath)}]: Unknown type");
+                Logger.LogWarning($"[{Path.GetFullPath(filePath)}]: Unknown type");
                 newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (InvalidOperationException exception)
             {
-                ErrorOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
+                Logger.LogWarning($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
                 if (exception.InnerException != null)
-                    ErrorOutput($" - {exception.InnerException.Message}");
+                    Logger.LogWarning($" - {exception.InnerException.Message}");
                 newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (XmlException)
             {
-                ErrorOutput($"[{Path.GetFullPath(filePath)}] can't read as XML file");
+                Logger.LogWarning($"[{Path.GetFullPath(filePath)}] can't read as XML file");
                 newUiElement = CreateFileIfNotExists(filePath);
             }
             catch (IOException)
             {
-                ErrorOutput($"[{Path.GetFullPath(filePath)}] file not found");
+                Logger.LogWarning($"[{Path.GetFullPath(filePath)}] file not found");
             }
             catch (Exception exception)
             {
-                ErrorOutput($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
+                Logger.LogWarning($"[{Path.GetFullPath(filePath)}]: {exception.Message}");
                 newUiElement = CreateFileIfNotExists(filePath);
             }
             finally
@@ -144,11 +146,6 @@ namespace Addon.Files
             }
 
             return newUiElement;
-        }
-
-        private void ErrorOutput(string msg)
-        {
-            OnError?.Invoke(msg);
         }
     }
 }

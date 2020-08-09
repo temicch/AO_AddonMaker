@@ -23,11 +23,16 @@ namespace AO_AddonMaker.Views
 
         public MainWindowViewModel()
         {
+
+        }
+
+        public MainWindowViewModel(Project project)
+        {
             OpenFileCommand = new RelayCommand(OpenFile);
             ClearDebugCommand = new RelayCommand(ClearDebug);
             SampleSelectCommand = new RelayCommand(SampleSelect);
 
-            Project = new Project(DebugWrite);
+            Project = project;
             RootFile = new ObservableCollection<IUIElement>();
 
             InitSampleProjects();

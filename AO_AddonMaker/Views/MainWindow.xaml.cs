@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using NLog;
 
 namespace AO_AddonMaker
 {
