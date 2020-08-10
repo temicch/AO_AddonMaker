@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace AO_AddonMaker
+namespace Application
 {
     public partial class MainWindow : MetroWindow
     {

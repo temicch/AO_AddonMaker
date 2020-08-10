@@ -3,7 +3,7 @@ using Addon.Files;
 using Addon.Widgets;
 using File = System.IO.File;
 
-namespace AO_AddonMaker
+namespace Application
 {
     public class Project
     {

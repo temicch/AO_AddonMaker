@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace AO_AddonMaker.Views
+namespace Application.Views
 {
     /// <summary>
     ///     Interaction logic for WorkInProgress.xaml

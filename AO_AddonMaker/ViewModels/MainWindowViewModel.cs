@@ -5,10 +5,10 @@ using System.IO;
 using System.Text;
 using System.Windows;
 using Addon.Widgets;
-using AO_AddonMaker.Utility;
+using Application.Utils;
 using Microsoft.Win32;
 
-namespace AO_AddonMaker.Views
+namespace Application.Views
 {
     public class MainWindowViewModel : BaseViewModel
     {

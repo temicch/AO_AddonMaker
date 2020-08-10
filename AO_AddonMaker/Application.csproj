@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{72F4F879-05AB-47FF-A331-13578FEB4259}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AO_AddonMaker</RootNamespace>
-    <AssemblyName>AO_AddonMaker</AssemblyName>
+    <RootNamespace>Application</RootNamespace>
+    <AssemblyName>Application</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,10 +53,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utils\HostBuilderExtension.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="Utility\BaseViewModel.cs" />
-    <Compile Include="Utility\ProgressDialog.cs" />
-    <Compile Include="Utility\RelayCommand.cs" />
+    <Compile Include="Utils\BaseViewModel.cs" />
+    <Compile Include="Utils\ProgressDialog.cs" />
+    <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\ProgressWindow.xaml.cs">
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
@@ -241,6 +242,12 @@
     </PackageReference>
     <PackageReference Include="NLog.Extensions.Logging">
       <Version>1.6.4</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Web">
+      <Version>4.9.3</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Web.AspNetCore">
+      <Version>4.9.3</Version>
     </PackageReference>
     <PackageReference Include="System.Buffers">
       <Version>4.5.1</Version>

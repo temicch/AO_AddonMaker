@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using AO_AddonMaker.Views;
+using Application.Views;
 using MahApps.Metro.Controls;
 
-namespace AO_AddonMaker.Utility
+namespace Application.Utils
 {
     internal class ProgressDialog
     {
@@ -13,7 +13,7 @@ namespace AO_AddonMaker.Utility
         {
             var splash = new WorkInProgress
             {
-                Owner = Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive),
+                Owner = System.Windows.Application.Current.Windows.OfType<MetroWindow>().SingleOrDefault(x => x.IsActive),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
             };
 

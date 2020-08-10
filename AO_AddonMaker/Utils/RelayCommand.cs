@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace AO_AddonMaker.Utility
+namespace Application.Utils
 {
     public class RelayCommand : ICommand
     {
@@ -10,9 +10,7 @@ namespace AO_AddonMaker.Utility
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
-            if (execute == null)
-                throw new ArgumentNullException(nameof(execute));
-            _execute = execute;
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 

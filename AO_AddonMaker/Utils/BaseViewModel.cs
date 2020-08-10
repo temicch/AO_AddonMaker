@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace AO_AddonMaker.Utility
+namespace Application.Utils
 {
     /// <summary>
     ///     Base version of a viewmodel that implements <see cref="INotifyPropertyChanged" />
