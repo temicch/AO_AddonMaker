@@ -1,20 +1,20 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Navigation;
-using Application.Utils;
+﻿using Application.Utils;
+using Application.ViewModels;
 using Application.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using System;
+using System.Windows;
 
 namespace Application
 {
-    public partial class App : System.Windows.Application
+    public partial class App
     {
         public static event Action<LogEventInfo, object[]> OnLogHandler;
 
-        private IHost Host { get; set; }
+        private IHost Host { get; }
 
         public App()
         {
@@ -25,7 +25,7 @@ namespace Application
                 .Build();
         }
 
-        protected async override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
@@ -39,7 +39,7 @@ namespace Application
             view.Show();
         }
 
-        protected async override void OnExit(ExitEventArgs e)
+        protected override async void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
             await Host.StopAsync();

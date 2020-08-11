@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Application.Views;
+using MahApps.Metro.Controls;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using Application.Views;
-using MahApps.Metro.Controls;
 
 namespace Application.Utils
 {

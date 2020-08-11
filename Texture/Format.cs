@@ -1,4 +1,4 @@
-﻿namespace Textures
+﻿namespace Texture
 {
     public enum Format
     {

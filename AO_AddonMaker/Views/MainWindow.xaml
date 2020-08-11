@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="MainWindow1"
     mc:Ignorable="d"
     SaveWindowPosition="True"
-    x:Class="Application.MainWindow"
+    x:Class="Application.Views.MainWindow"
     xmlns:avalon="https://github.com/Dirkster99/AvalonDock"
     Title="AddonMaker"
     MinHeight="64"

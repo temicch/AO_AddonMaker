@@ -1,4 +1,5 @@
 ﻿using Addon.Files;
+using Application.ViewModels;
 using Application.Views;
 using Autofac;
 using Microsoft.Extensions.Hosting;

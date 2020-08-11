@@ -1,4 +1,4 @@
-﻿namespace Textures
+﻿namespace Texture
 {
     internal class MipData
     {

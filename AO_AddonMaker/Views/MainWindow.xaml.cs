@@ -1,8 +1,8 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace Application
+namespace Application.Views
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow
     {
         public MainWindow()
         {

@@ -1,14 +1,12 @@
-﻿using System.IO;
-using Addon.Files;
+﻿using Addon.Files;
 using Addon.Widgets;
+using System.IO;
 using File = System.IO.File;
 
 namespace Application
 {
     public class Project
     {
-        private string filePath;
-
         public Project(IFileManager fileManager)
         {
             FileManager = fileManager;
@@ -23,14 +21,8 @@ namespace Application
             if (!File.Exists(rootFilePath))
                 throw new FileNotFoundException();
 
-            filePath = rootFilePath;
-            Clear();
-            FileManager.Load(filePath);
-        }
-
-        public void Clear()
-        {
             FileManager.Clear();
+            FileManager.Load(rootFilePath);
         }
     }
 }
