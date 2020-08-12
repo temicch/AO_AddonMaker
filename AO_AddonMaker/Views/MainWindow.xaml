@@ -16,7 +16,7 @@
     MinWidth="64"
     Width="1280"
     WindowStartupLocation="CenterScreen"
-    Icon="/AO_AddonMaker;component/Icons/appIcon.png"
+    Icon="/Application;component/Icons/appIcon.png"
     BorderThickness="0">
     <mah:MetroWindow.Resources>
         <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">

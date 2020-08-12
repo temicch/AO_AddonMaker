@@ -10,8 +10,8 @@
                 <ResourceDictionary
                     Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
 
-                <ResourceDictionary Source="/AO_AddonMaker;component/Resources/TreeViewCustom.xaml" />
-                <ResourceDictionary Source="/AO_AddonMaker;component/Resources/PropertyGrid.xaml" />
+                <ResourceDictionary Source="/Application;component/Resources/TreeViewCustom.xaml" />
+                <ResourceDictionary Source="/Application;component/Resources/PropertyGrid.xaml" />
                 <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

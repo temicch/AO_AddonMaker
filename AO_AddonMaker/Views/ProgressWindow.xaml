@@ -11,7 +11,7 @@
                  WindowTitleBrush="{Binding ElementName=self, Path=Background}"
                  Width="400"
                  WindowStartupLocation="CenterScreen"
-                 Icon="/AO_AddonMaker;component/Icons/appIcon.png"
+                 Icon="/Application;component/Icons/appIcon.png"
                  BorderThickness="0" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="30,0,30,0">
