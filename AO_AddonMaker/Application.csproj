@@ -41,7 +41,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Utils\HostBuilderExtension.cs" />
+    <Compile Include="Extensions\HostBuilderExtensions.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Utils\BaseViewModel.cs" />
     <Compile Include="Utils\ProgressDialog.cs" />
@@ -268,5 +268,6 @@
       <Name>Addon</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

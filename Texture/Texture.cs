@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Texture.Extensions;
 
 namespace Texture
 {
@@ -12,7 +13,7 @@ namespace Texture
 
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            Read(Utils.Utils.UnZLib(binaryFileStream));
+            Read(binaryFileStream.UnZLib());
             binaryFileStream.Dispose();
             Width = realWidth;
             Height = realHeight;

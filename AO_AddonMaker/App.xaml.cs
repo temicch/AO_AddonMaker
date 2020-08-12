@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using NLog;
 using System;
 using System.Windows;
+using Application.Extensions;
 
 namespace Application
 {

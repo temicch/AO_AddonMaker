@@ -8,7 +8,7 @@ using NLog.Config;
 using NLog.Extensions.Logging;
 using NLog.Targets;
 
-namespace Application.Utils
+namespace Application.Extensions
 {
     public static class HostBuilderExtensions
     {
