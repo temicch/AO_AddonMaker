@@ -42,7 +42,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\HostBuilderExtensions.cs" />
-    <Compile Include="Project.cs" />
     <Compile Include="Utils\BaseViewModel.cs" />
     <Compile Include="Utils\ProgressDialog.cs" />
     <Compile Include="Utils\RelayCommand.cs" />

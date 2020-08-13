@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
+using Application.BL;
 using Application.BL.Widgets;
 using Application.PL.Utils;
 using Microsoft.Win32;

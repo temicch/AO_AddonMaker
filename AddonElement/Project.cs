@@ -1,9 +1,9 @@
-﻿using System.IO;
-using Application.BL.Files;
+﻿using Application.BL.Files;
 using Application.BL.Widgets;
+using System.IO;
 using File = System.IO.File;
 
-namespace Application.PL
+namespace Application.BL
 {
     public class Project
     {
