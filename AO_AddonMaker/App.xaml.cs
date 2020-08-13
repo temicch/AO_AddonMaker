@@ -1,15 +1,14 @@
-﻿using Application.Utils;
-using Application.ViewModels;
-using Application.Views;
+﻿using Application.PL.Extensions;
+using Application.PL.ViewModels;
+using Application.PL.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
 using System;
 using System.Windows;
-using Application.Extensions;
 
-namespace Application
+namespace Application.PL
 {
     public partial class App
     {

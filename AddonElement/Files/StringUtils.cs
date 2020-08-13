@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Addon.Files
+namespace Application.BL.Files
 {
     internal static class StringUtils
     {

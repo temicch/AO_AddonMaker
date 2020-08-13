@@ -1,8 +1,8 @@
-﻿using System.Xml.Serialization;
-using Addon.Files;
-using Addon.Files.Provider;
+﻿using Application.BL.Files;
+using Application.BL.Files.Provider;
+using System.Xml.Serialization;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets
 {
     public class Reference<T> where T: IFileProvider, new()
     {

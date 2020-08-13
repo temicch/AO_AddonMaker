@@ -1,4 +1,4 @@
-﻿namespace Addon.Files
+﻿namespace Application.BL.Files
 {
     public interface IFile
     {

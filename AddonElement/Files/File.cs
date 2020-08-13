@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace Addon.Files
+namespace Application.BL.Files
 {
     public class File : IFile
     {

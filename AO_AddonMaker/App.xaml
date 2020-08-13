@@ -1,4 +1,4 @@
-﻿<Application x:Class="Application.App"
+﻿<Application x:Class="Application.PL.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
@@ -10,8 +10,8 @@
                 <ResourceDictionary
                     Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
 
-                <ResourceDictionary Source="/Application;component/Resources/TreeViewCustom.xaml" />
-                <ResourceDictionary Source="/Application;component/Resources/PropertyGrid.xaml" />
+                <ResourceDictionary Source="/Application.PL;component/Resources/TreeViewCustom.xaml" />
+                <ResourceDictionary Source="/Application.PL;component/Resources/PropertyGrid.xaml" />
                 <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

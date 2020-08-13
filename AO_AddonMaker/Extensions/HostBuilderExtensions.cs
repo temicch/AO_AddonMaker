@@ -1,6 +1,6 @@
-﻿using Addon.Files;
-using Application.ViewModels;
-using Application.Views;
+﻿using Application.BL.Files;
+using Application.PL.ViewModels;
+using Application.PL.Views;
 using Autofac;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -8,7 +8,7 @@ using NLog.Config;
 using NLog.Extensions.Logging;
 using NLog.Targets;
 
-namespace Application.Extensions
+namespace Application.PL.Extensions
 {
     public static class HostBuilderExtensions
     {

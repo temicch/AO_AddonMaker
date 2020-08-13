@@ -1,11 +1,11 @@
-﻿using Application.Views;
-using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using Application.PL.Views;
+using MahApps.Metro.Controls;
 
-namespace Application.Utils
+namespace Application.PL.Utils
 {
     internal class ProgressDialog
     {

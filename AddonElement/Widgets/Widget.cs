@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Media;
 using System.Xml.Serialization;
-using Addon.Files;
-using Addon.Files.Provider;
+using Application.BL.Files;
+using Application.BL.Files.Provider;
+using Application.BL.Widgets.Placement;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets
 {
     [Serializable]
     public abstract class Widget : File, IUIElement

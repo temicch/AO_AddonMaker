@@ -1,14 +1,14 @@
-﻿using Addon.Widgets;
-using Application.Utils;
-using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
+using Application.BL.Widgets;
+using Application.PL.Utils;
+using Microsoft.Win32;
 
-namespace Application.ViewModels
+namespace Application.PL.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {

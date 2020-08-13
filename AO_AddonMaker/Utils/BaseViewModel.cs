@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Application.Utils
+namespace Application.PL.Utils
 {
     /// <summary>
     ///     Base version of a viewmodel that implements <see cref="INotifyPropertyChanged" />

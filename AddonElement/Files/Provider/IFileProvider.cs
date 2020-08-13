@@ -1,4 +1,4 @@
-﻿namespace Addon.Files.Provider
+﻿namespace Application.BL.Files.Provider
 {
     public interface IFileProvider
     {

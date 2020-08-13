@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
-using Addon.Files.Provider;
+using Application.BL.Files.Provider;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets.Placement
 {
     public class WidgetPlacementXY
     {

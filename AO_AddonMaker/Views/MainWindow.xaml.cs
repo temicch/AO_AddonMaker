@@ -1,6 +1,4 @@
-﻿using MahApps.Metro.Controls;
-
-namespace Application.Views
+﻿namespace Application.PL.Views
 {
     public partial class MainWindow
     {

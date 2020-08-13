@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "AO_AddonMaker\Application.csproj", "{72F4F879-05AB-47FF-A331-13578FEB4259}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.PL", "AO_AddonMaker\Application.PL.csproj", "{72F4F879-05AB-47FF-A331-13578FEB4259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texture", "Texture\Texture.csproj", "{590F5054-B5B2-43B0-B726-5BBAC11D7562}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addon", "AddonElement\Addon.csproj", "{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.BL", "AddonElement\Application.BL.csproj", "{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{72F4F879-05AB-47FF-A331-13578FEB4259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F4F879-05AB-47FF-A331-13578FEB4259}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F4F879-05AB-47FF-A331-13578FEB4259}.Release|Any CPU.Build.0 = Release|Any CPU
-		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{590F5054-B5B2-43B0-B726-5BBAC11D7562}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1982CB6-D9B4-4DE3-917C-A6102B85C8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU

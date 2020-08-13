@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow x:Class="Application.Views.WorkInProgress"
+﻿<mah:MetroWindow x:Class="Application.PL.Views.WorkInProgress"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
@@ -11,7 +11,7 @@
                  WindowTitleBrush="{Binding ElementName=self, Path=Background}"
                  Width="400"
                  WindowStartupLocation="CenterScreen"
-                 Icon="/Application;component/Icons/appIcon.png"
+                 Icon="/Application.PL;component/Icons/appIcon.png"
                  BorderThickness="0" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="30,0,30,0">

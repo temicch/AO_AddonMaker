@@ -1,6 +1,7 @@
 ﻿using System.Xml.Serialization;
+using Application.BL.Widgets.enums;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets
 {
     public class WidgetTextStyle
     {

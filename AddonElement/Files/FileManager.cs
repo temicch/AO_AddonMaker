@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using Addon.Widgets;
+using Application.BL.Widgets;
 using Microsoft.Extensions.Logging;
 
-namespace Addon.Files
+namespace Application.BL.Files
 {
     public class FileManager : IFileManager
     {

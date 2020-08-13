@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets
 {
     public class BindSection
     {

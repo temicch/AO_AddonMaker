@@ -1,9 +1,9 @@
-﻿using Addon.Files;
-using Addon.Widgets;
-using System.IO;
+﻿using System.IO;
+using Application.BL.Files;
+using Application.BL.Widgets;
 using File = System.IO.File;
 
-namespace Application
+namespace Application.PL
 {
     public class Project
     {

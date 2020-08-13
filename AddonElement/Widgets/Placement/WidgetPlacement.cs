@@ -1,4 +1,6 @@
-﻿namespace Addon.Widgets
+﻿using Application.BL.Widgets.enums;
+
+namespace Application.BL.Widgets.Placement
 {
     public class WidgetPlacement
     {

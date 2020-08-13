@@ -1,4 +1,4 @@
-﻿namespace Addon.Widgets
+﻿namespace Application.BL.Widgets.enums
 {
     public enum WidgetAlign
     {

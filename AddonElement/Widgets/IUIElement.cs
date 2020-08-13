@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Application.BL.Widgets.Placement;
+using System.Collections.Generic;
 using System.Windows.Media;
 
-namespace Addon.Widgets
+namespace Application.BL.Widgets
 {
     public interface IUIElement
     {
