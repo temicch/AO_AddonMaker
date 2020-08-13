@@ -1,14 +1,10 @@
 # AO Addon Maker
-<img align="right" src="https://allods.mail.ru/static/img/110/logo.png" width="233">This application is designed to facilitate the creation and management of custom addons for the game "Allods Online"
+<img align="right" src="https://allods.mail.ru/static/img/110/logo.png" width="233">This application is designed to view addon files of the game "Allods Online"
 ## Features
 * View widgets
 * View textures
 * Checking for errors in the markup of XML files
 * Checking file path errors
-### TODO
-* Change widget properties
-* Compiling scripts with `LuaJIT`
-* Packaging addons in `.pack` format
 
 ## Used Packages
 * [[NuGet](https://www.nuget.org/packages/Autofac)] [Autofac](https://github.com/autofac/Autofac)
