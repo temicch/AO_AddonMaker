@@ -13,20 +13,20 @@ namespace Application.BL.Widgets
             Scaling = false;
             DelayMs = 0;
             RepeatForever = true;
-            PlayImmidiatly = true;
+            PlayImmediately = true;
         }
 
         [XmlIgnore]
-        public bool PlayImmidiatly { get; set; }
+        public bool PlayImmediately { get; set; }
 
         [XmlElement("playImmidiatly")]
-        public string _PlayImmidiatly
+        public string _PlayImmediately
         {
-            get => PlayImmidiatly.ToString().ToLower();
+            get => PlayImmediately.ToString().ToLower();
             set
             {
                 if (bool.TryParse(value, out var result))
-                    PlayImmidiatly = result;
+                    PlayImmediately = result;
             }
         }
 

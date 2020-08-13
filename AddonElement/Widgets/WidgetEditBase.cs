@@ -45,7 +45,6 @@ namespace Application.BL.Widgets
 
         [XmlElement("selectionLayer")]
         public Reference<XmlFileProvider> SelectionLayer { get; set; }
-        //public string filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём.Значения: "RUSSIAN", "NUMBERS", "INTEGER". См.EditBaseTextFilter
 
         public string ReactionEsc { get; set; }
         public string ReactionChanged { get; set; }

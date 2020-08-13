@@ -39,10 +39,16 @@
     <Compile Include="Files\Provider\XmlFileProvider.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Texture\Extensions\StreamExtensions.cs" />
     <Compile Include="Texture\Format.cs" />
     <Compile Include="Texture\MipData.cs" />
     <Compile Include="Texture\Texture.cs" />
+    <Compile Include="Utils\ResourceDescription.cs" />
     <Compile Include="Widgets\BindSection.cs" />
     <Compile Include="Widgets\enums\AlignY.cs" />
     <Compile Include="Widgets\enums\Blend_Effect.cs" />
@@ -150,6 +156,12 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
