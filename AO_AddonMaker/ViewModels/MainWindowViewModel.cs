@@ -7,6 +7,7 @@ using System.Windows;
 using Application.BL;
 using Application.BL.Widgets;
 using Application.PL.Utils;
+using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
 
 namespace Application.PL.ViewModels
@@ -22,12 +23,13 @@ namespace Application.PL.ViewModels
 
         private readonly StringBuilder textDebug = new StringBuilder();
 
-        public MainWindowViewModel(Project project)
+        public MainWindowViewModel(ILogger<MainWindowViewModel> logger, Project project)
         {
             OpenFileCommand = new RelayCommand(OpenFile);
             ClearDebugCommand = new RelayCommand(ClearDebug);
             SampleSelectCommand = new RelayCommand(SampleSelect);
 
+            Logger = logger;
             Project = project;
             RootFile = new ObservableCollection<IUIElement>();
 
@@ -36,6 +38,7 @@ namespace Application.PL.ViewModels
             App.OnLogHandler += (logEvent, objects) => DebugWrite(logEvent.FormattedMessage);
         }
 
+        public ILogger<MainWindowViewModel> Logger { get; }
         public Project Project { get; set; }
 
         public ICollection<IUIElement> RootFile { get; set; }
@@ -79,8 +82,9 @@ namespace Application.PL.ViewModels
                     Samples.Add(q);
                 }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                Logger.LogWarning(exception.Message);
             }
 
             Directory.SetCurrentDirectory(previousDirectory);
@@ -94,7 +98,8 @@ namespace Application.PL.ViewModels
                 Filter = $"AddonDesc|{addonDescName}|All files|*.*"
             };
             var result = dlg.ShowDialog();
-            if (result == true) LoadProject(dlg.FileName);
+            if (result == true)
+                LoadProject(dlg.FileName);
         }
 
         public void LoadProject(string fileName)

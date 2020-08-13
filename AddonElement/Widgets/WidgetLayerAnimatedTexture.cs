@@ -16,7 +16,8 @@ namespace Application.BL.Widgets
             PlayImmidiatly = true;
         }
 
-        [XmlIgnore] public bool PlayImmidiatly { get; set; }
+        [XmlIgnore]
+        public bool PlayImmidiatly { get; set; }
 
         [XmlElement("playImmidiatly")]
         public string _PlayImmidiatly
@@ -29,7 +30,8 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlIgnore] public bool RepeatForever { get; set; }
+        [XmlIgnore]
+        public bool RepeatForever { get; set; }
 
         [XmlElement("repeatForever")]
         public string _RepeatForever
@@ -42,7 +44,8 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlIgnore] public bool Scaling { get; set; }
+        [XmlIgnore]
+        public bool Scaling { get; set; }
 
         [XmlElement("scaling")]
         public string _Scaling
@@ -55,8 +58,11 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlElement("delayMs")] public int DelayMs { get; set; }
-        [XmlArray("frames")] public List<Frame> Frames { get; set; }
+        [XmlElement("delayMs")]
+        public int DelayMs { get; set; }
+
+        [XmlArray("frames")]
+        public List<Frame> Frames { get; set; }
 
         public override ImageSource Bitmap => throw new NotImplementedException();
     }

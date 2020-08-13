@@ -3,6 +3,9 @@ using System.Xml.Serialization;
 
 namespace Application.BL.Files
 {
+    /// <summary>
+    ///     Class that encapsulates file information
+    /// </summary>
     public class File : IFile
     {
         private const string PrefixFileWidget = "Widget";
@@ -18,13 +21,17 @@ namespace Application.BL.Files
             InitFile(filePath);
         }
 
-        [XmlIgnore] public string FilePath { get; set; }
+        [XmlIgnore]
+        public string FilePath { get; set; }
 
-        [XmlIgnore] public string FileName { get; set; }
+        [XmlIgnore]
+        public string FileName { get; set; }
 
-        [XmlIgnore] public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
+        [XmlIgnore]
+        public string FullPath => $"{FilePath}{Path.DirectorySeparatorChar}{FileName}";
 
-        [XmlIgnore] public string FileType { get; private set; }
+        [XmlIgnore]
+        public string FileType { get; private set; }
 
         private void InitFile(string filePath)
         {

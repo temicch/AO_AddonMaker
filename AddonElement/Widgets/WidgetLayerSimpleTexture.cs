@@ -14,7 +14,8 @@ namespace Application.BL.Widgets
         public Reference<XmlFileProvider> textureItem { get; set; }
         public Reference<XmlFileProvider> textureMask { get; set; }
 
-        [XmlIgnore] public bool Scaling { get; set; }
+        [XmlIgnore]
+        public bool Scaling { get; set; }
 
         [XmlElement("Scaling")]
         public string _Scaling

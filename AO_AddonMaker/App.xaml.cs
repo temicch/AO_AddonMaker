@@ -1,21 +1,17 @@
-﻿using Application.PL.Extensions;
+﻿using System;
+using System.Windows;
+using Application.PL.Extensions;
 using Application.PL.ViewModels;
 using Application.PL.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
-using System;
-using System.Windows;
 
 namespace Application.PL
 {
     public partial class App
     {
-        public static event Action<LogEventInfo, object[]> OnLogHandler;
-
-        private IHost Host { get; }
-
         public App()
         {
             Host = new HostBuilder()
@@ -24,6 +20,9 @@ namespace Application.PL
                 .ConfigureNLog()
                 .Build();
         }
+
+        private IHost Host { get; }
+        public static event Action<LogEventInfo, object[]> OnLogHandler;
 
         protected override async void OnStartup(StartupEventArgs e)
         {

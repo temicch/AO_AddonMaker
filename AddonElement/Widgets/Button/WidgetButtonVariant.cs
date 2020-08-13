@@ -10,7 +10,8 @@ namespace Application.BL.Widgets.Button
             ReactionOnUp = false;
         }
 
-        [XmlIgnore] public bool ReactionOnUp { get; set; }
+        [XmlIgnore]
+        public bool ReactionOnUp { get; set; }
 
         [XmlElement("ReactionOnUp")]
         public string _ReactionOnUp
@@ -34,8 +35,10 @@ namespace Application.BL.Widgets.Button
         public WidgetButtonState StatePushedHighlighted { get; set; }
         public WidgetButtonState StateDisabled { get; set; }
 
-        [XmlElement("soundOver")] public WidgetSoundBase SoundOver { get; set; }
+        [XmlElement("soundOver")]
+        public WidgetSoundBase SoundOver { get; set; }
 
-        [XmlElement("soundPress")] public WidgetSoundBase SoundPress { get; set; }
+        [XmlElement("soundPress")]
+        public WidgetSoundBase SoundPress { get; set; }
     }
 }

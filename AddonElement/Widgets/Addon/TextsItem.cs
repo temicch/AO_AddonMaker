@@ -7,6 +7,7 @@ namespace Application.BL.Widgets.Addon
     {
         [XmlElement("texts")] public Reference<BlankFileProvider> Texts;
 
-        [XmlElement("groupName")] public string GroupName { get; set; }
+        [XmlElement("groupName")]
+        public string GroupName { get; set; }
     }
 }

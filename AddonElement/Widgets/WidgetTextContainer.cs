@@ -10,7 +10,8 @@ namespace Application.BL.Widgets
             ElementsInterval = 0;
         }
 
-        [XmlIgnore] public bool PickObjectsOnly { get; set; }
+        [XmlIgnore]
+        public bool PickObjectsOnly { get; set; }
 
         [XmlElement("pickObjectsOnly")]
         public string _PickObjectsOnly
@@ -23,12 +24,16 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlElement("scrollBar")] public Reference<XmlFileProvider> ScrollBar { get; set; }
+        [XmlElement("scrollBar")]
+        public Reference<XmlFileProvider> ScrollBar { get; set; }
 
-        [XmlElement("formatFileRef")] public string FormatFileRef { get; set; }
+        [XmlElement("formatFileRef")]
+        public string FormatFileRef { get; set; }
 
-        [XmlElement("defaultTag")] public string DefaultTag { get; set; }
+        [XmlElement("defaultTag")]
+        public string DefaultTag { get; set; }
 
-        [XmlElement("elementsInterval")] public int ElementsInterval { get; set; }
+        [XmlElement("elementsInterval")]
+        public int ElementsInterval { get; set; }
     }
 }

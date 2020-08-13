@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media;
 using System.Xml.Serialization;
-using Application.BL.Widgets;
 using Application.BL.Widgets.Button;
 
 namespace Application.BL.Widgets
@@ -15,11 +14,13 @@ namespace Application.BL.Widgets
 
         public string TextTag { get; set; }
 
-        [XmlArrayItem("Item")] public List<WidgetButtonVariant> Variants { get; set; }
+        [XmlArrayItem("Item")]
+        public List<WidgetButtonVariant> Variants { get; set; }
 
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlIgnore] public bool UseDefaultSounds { get; set; }
+        [XmlIgnore]
+        public bool UseDefaultSounds { get; set; }
 
         [XmlElement("useDefaultSounds")]
         public string _UseDefaultSounds
@@ -32,7 +33,8 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlArray("pushingBindSections")] public List<BindSection> PushingBindSections { get; set; }
+        [XmlArray("pushingBindSections")]
+        public List<BindSection> PushingBindSections { get; set; }
 
         protected override ImageSource GetBitmap()
         {

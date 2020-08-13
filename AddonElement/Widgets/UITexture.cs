@@ -3,16 +3,20 @@ using System.Windows.Media;
 using System.Xml.Serialization;
 using Application.BL.Files.Provider;
 using Application.BL.Texture;
+using File = Application.BL.Files.File;
 
 namespace Application.BL.Widgets
 {
-    public class UITexture : Files.File
+    public class UITexture : File
     {
-        [XmlElement("mipSW")] public int MipSW { get; set; }
+        [XmlElement("mipSW")]
+        public int MipSW { get; set; }
 
-        [XmlElement("mipsNumber")] public int MipsNumber { get; set; }
+        [XmlElement("mipsNumber")]
+        public int MipsNumber { get; set; }
 
-        [XmlIgnore] public bool GenerateMipChain { get; set; }
+        [XmlIgnore]
+        public bool GenerateMipChain { get; set; }
 
         [XmlElement("generateMipChain")]
         public string _GenerateMipChain
@@ -25,17 +29,23 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlElement("type")] public Format Type { get; set; }
+        [XmlElement("type")]
+        public Format Type { get; set; }
 
-        [XmlElement("width")] public int Width { get; set; }
+        [XmlElement("width")]
+        public int Width { get; set; }
 
-        [XmlElement("height")] public int Height { get; set; }
+        [XmlElement("height")]
+        public int Height { get; set; }
 
-        [XmlElement("realWidth")] public int RealWidth { get; set; }
+        [XmlElement("realWidth")]
+        public int RealWidth { get; set; }
 
-        [XmlElement("realHeight")] public int RealHeight { get; set; }
+        [XmlElement("realHeight")]
+        public int RealHeight { get; set; }
 
-        [XmlIgnore] public bool DisableLODControl { get; set; }
+        [XmlIgnore]
+        public bool DisableLODControl { get; set; }
 
         [XmlElement("disableLODControl")]
         public string _DisableLODControl
@@ -48,7 +58,8 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlIgnore] public bool AlphaTex { get; set; }
+        [XmlIgnore]
+        public bool AlphaTex { get; set; }
 
         [XmlElement("alphaTex")]
         public string _AlphaTex
@@ -61,20 +72,27 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlElement("binaryFileSize")] public int BinaryFileSize { get; set; }
+        [XmlElement("binaryFileSize")]
+        public int BinaryFileSize { get; set; }
 
-        [XmlElement("binaryFile")] public Reference<BlankFileProvider> BinaryFile { get; set; }
+        [XmlElement("binaryFile")]
+        public Reference<BlankFileProvider> BinaryFile { get; set; }
 
-        [XmlElement("binaryFileSize2")] public int BinaryFileSize2 { get; set; }
+        [XmlElement("binaryFileSize2")]
+        public int BinaryFileSize2 { get; set; }
 
-        [XmlElement("binaryFile2")] public Reference<BlankFileProvider> BinaryFile2 { get; set; }
+        [XmlElement("binaryFile2")]
+        public Reference<BlankFileProvider> BinaryFile2 { get; set; }
 
-        [XmlElement("sourceFile")] public Reference<BlankFileProvider> SourceFile { get; set; }
+        [XmlElement("sourceFile")]
+        public Reference<BlankFileProvider> SourceFile { get; set; }
 
-        [XmlElement("sourceFileCRC")] public long SourceFileCrc { get; set; }
+        [XmlElement("sourceFileCRC")]
+        public long SourceFileCrc { get; set; }
 
 
-        [XmlIgnore] public bool Wrap { get; set; }
+        [XmlIgnore]
+        public bool Wrap { get; set; }
 
         [XmlElement("wrap")]
         public string _Wrap
@@ -89,7 +107,8 @@ namespace Application.BL.Widgets
 
         public Reference<BlankFileProvider> LocalizationInfo { get; set; }
 
-        [XmlIgnore] public bool AtlasPart { get; set; }
+        [XmlIgnore]
+        public bool AtlasPart { get; set; }
 
         [XmlElement("atlasPart")]
         public string _AtlasPart
@@ -102,11 +121,14 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlElement("pool")] public string Pool { get; set; }
+        [XmlElement("pool")]
+        public string Pool { get; set; }
 
-        [XmlIgnore] protected ImageSource bitmap { get; set; }
+        [XmlIgnore]
+        protected ImageSource bitmap { get; set; }
 
-        [XmlIgnore] public ImageSource Bitmap => GetBitmap();
+        [XmlIgnore]
+        public ImageSource Bitmap => GetBitmap();
 
         protected ImageSource GetBitmap()
         {
@@ -114,7 +136,7 @@ namespace Application.BL.Widgets
                 return bitmap;
             using (var binaryFileStream = new StreamReader(BinaryFile.File.FullPath))
             {
-                var texture = new Application.BL.Texture.Texture(binaryFileStream.BaseStream, Width, Height, Type);
+                var texture = new Texture.Texture(binaryFileStream.BaseStream, Width, Height, Type);
                 bitmap = texture.Bitmap;
             }
 

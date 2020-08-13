@@ -6,7 +6,10 @@ namespace Application.BL.Widgets.Layer
 {
     public class Frame
     {
-        [XmlElement("textureItem")] public Reference<XmlFileProvider> TextureItem { get; set; }
-        [XmlArray("rects")] public List<Rect> Rects { get; set; }
+        [XmlElement("textureItem")]
+        public Reference<XmlFileProvider> TextureItem { get; set; }
+
+        [XmlArray("rects")]
+        public List<Rect> Rects { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Config;
 using NLog.Extensions.Logging;
 using NLog.Targets;
+using LogLevel = NLog.LogLevel;
 
 namespace Application.PL.Extensions
 {
@@ -16,11 +17,12 @@ namespace Application.PL.Extensions
         public static IHostBuilder ConfigureNLog(this IHostBuilder hostBuilder)
         {
             var target = new MethodCallTarget(nameof(App.Log), App.Log);
-            SimpleConfigurator.ConfigureForTargetLogging(target, NLog.LogLevel.Debug);
+            SimpleConfigurator.ConfigureForTargetLogging(target, LogLevel.Debug);
             hostBuilder.ConfigureLogging(logging => logging.AddNLog());
 
             return hostBuilder;
         }
+
         public static IHostBuilder ConfigureAppContainer(this IHostBuilder hostBuilder)
         {
             hostBuilder.ConfigureContainer<ContainerBuilder>(builder =>

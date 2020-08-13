@@ -1,6 +1,6 @@
-﻿using Application.BL.Widgets.TextView;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using Application.BL.Widgets.TextView;
 
 namespace Application.BL.Widgets
 {
@@ -19,10 +19,14 @@ namespace Application.BL.Widgets
         public string DefaultTag { get; set; }
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlElement("minWidth")] public float MinWidth { get; set; }
-        [XmlElement("maxWidth")] public float MaxWidth { get; set; }
+        [XmlElement("minWidth")]
+        public float MinWidth { get; set; }
 
-        [XmlIgnore] public bool IsHtmlEscaping { get; set; }
+        [XmlElement("maxWidth")]
+        public float MaxWidth { get; set; }
+
+        [XmlIgnore]
+        public bool IsHtmlEscaping { get; set; }
 
         [XmlElement("isHtmlEscaping")]
         public string _IsHtmlEscaping
@@ -35,7 +39,8 @@ namespace Application.BL.Widgets
             }
         }
 
-        [XmlIgnore] public bool PickObjectsOnly { get; set; }
+        [XmlIgnore]
+        public bool PickObjectsOnly { get; set; }
 
         [XmlElement("pickObjectsOnly")]
         public string _PickObjectsOnly

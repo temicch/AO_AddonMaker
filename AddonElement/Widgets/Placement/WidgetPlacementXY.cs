@@ -13,7 +13,8 @@ namespace Application.BL.Widgets.Placement
             Y = new WidgetPlacement();
         }
 
-        [XmlIgnore] public bool QuantumScale { get; set; }
+        [XmlIgnore]
+        public bool QuantumScale { get; set; }
 
         [XmlElement("QuantumScale")]
         public string _QuantumScale
@@ -26,7 +27,8 @@ namespace Application.BL.Widgets.Placement
             }
         }
 
-        [XmlElement("sizingWidget")] public Reference<XmlFileProvider> SizingWidget { get; set; }
+        [XmlElement("sizingWidget")]
+        public Reference<XmlFileProvider> SizingWidget { get; set; }
 
         [XmlArrayItem("Item")]
         [XmlArray("sizingWidgets")]

@@ -5,6 +5,11 @@ namespace Application.BL.Texture.Extensions
 {
     internal static class StreamExtensions
     {
+        /// <summary>
+        ///     Uncompress streaming data
+        /// </summary>
+        /// <param name="input">Stream</param>
+        /// <returns></returns>
         public static MemoryStream UnZLib(this Stream input)
         {
             input.Position = 0L;

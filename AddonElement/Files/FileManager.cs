@@ -34,15 +34,15 @@ namespace Application.BL.Files
         {
             filePath = Path.GetFullPath(filePath);
             if (paths.ContainsKey(filePath))
-                return filePath; //new InvalidOperationException("This file is already exist");
+                return filePath;
             paths[filePath] = file;
             return filePath;
         }
 
-        public IFile Load(string filePath)
+        public IFile Load(string rootFilePath)
         {
             Clear();
-            RootFile = GetFile(filePath);
+            RootFile = GetFile(rootFilePath);
             return RootFile;
         }
 

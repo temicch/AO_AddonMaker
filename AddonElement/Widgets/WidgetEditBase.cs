@@ -1,6 +1,5 @@
 ﻿using System.Xml.Serialization;
 using Application.BL.Files.Provider;
-using Application.BL.Widgets;
 
 namespace Application.BL.Widgets
 {
@@ -14,7 +13,8 @@ namespace Application.BL.Widgets
             CanPaste = true;
         }
 
-        [XmlIgnore] public bool CanPaste { get; set; }
+        [XmlIgnore]
+        public bool CanPaste { get; set; }
 
         [XmlElement("canPaste")]
         public string _CanPaste
@@ -32,23 +32,31 @@ namespace Application.BL.Widgets
         public int CursorWidth { get; set; }
         public int CursorChangeTimeMs { get; set; }
 
-        [XmlElement("maxSymbolsCount")] public int MaxSymbolsCount { get; set; }
+        [XmlElement("maxSymbolsCount")]
+        public int MaxSymbolsCount { get; set; }
 
         public WidgetTextStyle TextStyle { get; set; }
 
-        [XmlElement("globalClassName")] public string GlobalClassName { get; set; }
-        [XmlElement("selectionClassName")] public string SelectionClassName { get; set; }
+        [XmlElement("globalClassName")]
+        public string GlobalClassName { get; set; }
 
-        [XmlElement("selectionLayer")] public Reference<XmlFileProvider> SelectionLayer { get; set; }
+        [XmlElement("selectionClassName")]
+        public string SelectionClassName { get; set; }
+
+        [XmlElement("selectionLayer")]
+        public Reference<XmlFileProvider> SelectionLayer { get; set; }
         //public string filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём.Значения: "RUSSIAN", "NUMBERS", "INTEGER". См.EditBaseTextFilter
 
         public string ReactionEsc { get; set; }
         public string ReactionChanged { get; set; }
 
-        [XmlElement("reactionFocusChanged")] public string ReactionFocusChanged { get; set; }
+        [XmlElement("reactionFocusChanged")]
+        public string ReactionFocusChanged { get; set; }
 
-        [XmlElement("reactionPaste")] public string ReactionPaste { get; set; }
+        [XmlElement("reactionPaste")]
+        public string ReactionPaste { get; set; }
 
-        [XmlElement("reactionCapsLock")] public string ReactionCapsLock { get; set; }
+        [XmlElement("reactionCapsLock")]
+        public string ReactionCapsLock { get; set; }
     }
 }

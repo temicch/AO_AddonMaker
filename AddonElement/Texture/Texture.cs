@@ -7,10 +7,20 @@ using Application.BL.Texture.Extensions;
 
 namespace Application.BL.Texture
 {
+    /// <summary>
+    ///     Class for working with textures
+    /// </summary>
     public class Texture
     {
-        private readonly List<MipData> _mips = new List<MipData>();
+        private readonly List<MipData> mips = new List<MipData>();
 
+        /// <summary>
+        ///     Create texture
+        /// </summary>
+        /// <param name="binaryFileStream">A stream that encapsulates texture information</param>
+        /// <param name="realWidth">Width of texture</param>
+        /// <param name="realHeight">Height of texture</param>
+        /// <param name="type">Type of texture</param>
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
             Read(binaryFileStream.UnZLib());
@@ -21,18 +31,33 @@ namespace Application.BL.Texture
             Bitmap = GetBitmap();
         }
 
-        public ImageSource Bitmap { get; }
+        /// <summary>
+        ///     Provides a specialized <see cref="BitmapSource" /> that is optimized for loading images using Extensible
+        ///     Application Markup Language (XAML).
+        /// </summary>
+        public virtual ImageSource Bitmap { get; }
 
+        /// <summary>
+        ///     Texture <seealso cref="Format" />
+        /// </summary>
         public Format TextureFormat { get; }
+
+        /// <summary>
+        ///     Texture real width
+        /// </summary>
         public int Width { get; }
+
+        /// <summary>
+        ///     Texture real height
+        /// </summary>
         public int Height { get; }
 
         private void AddMipData(int level, int size, byte[] data)
         {
-            if (level >= _mips.Count)
-                for (var count = _mips.Count; count <= level; ++count)
-                    _mips.Add(null);
-            _mips[level] = new MipData
+            if (level >= mips.Count)
+                for (var count = mips.Count; count <= level; ++count)
+                    mips.Add(null);
+            mips[level] = new MipData
             {
                 Data = data,
                 Size = size
@@ -60,14 +85,14 @@ namespace Application.BL.Texture
             binaryWriter.Write(542327876);
             binaryWriter.Write(124);
             var num = 528391;
-            if (_mips.Count > 1)
+            if (mips.Count > 1)
                 num |= 131072;
             binaryWriter.Write(num);
             binaryWriter.Write(Height);
             binaryWriter.Write(Width);
-            binaryWriter.Write(_mips[0].Data.Length);
+            binaryWriter.Write(mips[0].Data.Length);
             binaryWriter.Write(0);
-            binaryWriter.Write(_mips.Count > 1 ? _mips.Count : 0);
+            binaryWriter.Write(mips.Count > 1 ? mips.Count : 0);
             for (var index = 0; index < 11; ++index)
                 binaryWriter.Write(0);
             binaryWriter.Write(32);
@@ -92,8 +117,8 @@ namespace Application.BL.Texture
             binaryWriter.Write(4096);
             for (var index = 0; index < 4; ++index)
                 binaryWriter.Write(0);
-            for (var index = 0; index < _mips.Count; ++index)
-                binaryWriter.Write(_mips[index].Data);
+            for (var index = 0; index < mips.Count; ++index)
+                binaryWriter.Write(mips[index].Data);
             binaryWriter.Flush();
             return binaryWriter;
         }

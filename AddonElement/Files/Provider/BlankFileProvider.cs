@@ -1,5 +1,8 @@
 ﻿namespace Application.BL.Files.Provider
 {
+    /// <summary>
+    ///     An empty file provider containing only file information
+    /// </summary>
     public class BlankFileProvider : IFileProvider
     {
         public IFile File { get; protected set; }

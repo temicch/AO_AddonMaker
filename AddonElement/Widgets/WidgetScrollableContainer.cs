@@ -10,8 +10,10 @@ namespace Application.BL.Widgets
             ElementsInterval = 0;
         }
 
-        [XmlElement("scrollBar")] public Reference<XmlFileProvider> ScrollBar { get; set; }
+        [XmlElement("scrollBar")]
+        public Reference<XmlFileProvider> ScrollBar { get; set; }
 
-        [XmlElement("elementsInterval")] public int ElementsInterval { get; set; }
+        [XmlElement("elementsInterval")]
+        public int ElementsInterval { get; set; }
     }
 }

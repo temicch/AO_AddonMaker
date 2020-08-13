@@ -5,6 +5,7 @@ namespace Application.BL.Widgets
 {
     public class WidgetGlideScrollBar : WidgetScrollBar
     {
-        [XmlElement("slider")] public Reference<XmlFileProvider> Slider { get; set; }
+        [XmlElement("slider")]
+        public Reference<XmlFileProvider> Slider { get; set; }
     }
 }
