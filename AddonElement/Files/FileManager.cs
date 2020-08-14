@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Application.BL.Files
 {
     /// <summary>
-    /// Class for working with files
+    ///     Class for working with files
     /// </summary>
     public class FileManager : IFileManager
     {

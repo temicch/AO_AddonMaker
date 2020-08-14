@@ -1,18 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
+using Application.BL.Resources;
 
 namespace Application.BL.Utils
 {
     [AttributeUsage(AttributeTargets.All)]
-    class ResourceDescription: DescriptionAttribute
+    internal class ResourceDescription : DescriptionAttribute
     {
-        public ResourceDescription(string name): base(GetLocalizedString(name))
+        public ResourceDescription(string name) : base(GetLocalizedString(name))
         {
         }
 
         protected static string GetLocalizedString(string key)
         {
-            return Resources.Resource.ResourceManager.GetString(key);
+            return Resource.ResourceManager.GetString(key);
         }
     }
 }
