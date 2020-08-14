@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Application.BL.Files
 {
+    /// <summary>
+    /// Class for working with files
+    /// </summary>
     public class FileManager : IFileManager
     {
         private readonly IDictionary<string, IFile> paths;
@@ -83,7 +86,7 @@ namespace Application.BL.Files
 
             try
             {
-                newUiElement = CreateUiElement(filePath, currentDirectory);
+                newUiElement = CreateFile(filePath, currentDirectory);
             }
             catch (ArgumentNullException)
             {
@@ -125,9 +128,9 @@ namespace Application.BL.Files
             return !paths.ContainsKey(filePath) ? new File(filePath) : paths[filePath];
         }
 
-        private IFile CreateUiElement(string filePath, string currentDirectory)
+        private IFile CreateFile(string filePath, string currentDirectory)
         {
-            IFile newUiElement;
+            IFile newFile;
             using (var xmlReaderStream = XmlReader.Create(filePath))
             {
                 xmlReaderStream.MoveToContent();
@@ -141,11 +144,11 @@ namespace Application.BL.Files
 
                 var xmlSerializer = new XmlSerializer(type);
 
-                newUiElement = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
-                (newUiElement as Widget)?.Widgets?.RemoveAll(x => x.File == null);
+                newFile = xmlSerializer.Deserialize(xmlReaderStream) as IFile;
+                (newFile as Widget)?.Widgets?.RemoveAll(x => x.File == null);
             }
 
-            return newUiElement;
+            return newFile;
         }
     }
 }

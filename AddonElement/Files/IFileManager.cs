@@ -1,7 +1,7 @@
 ﻿namespace Application.BL.Files
 {
     /// <summary>
-    ///     Class for working with files
+    ///     Functional for working with files
     /// </summary>
     public interface IFileManager
     {
