@@ -1,12 +1,12 @@
-﻿using System;
-using System.Windows;
-using Application.PL.Extensions;
+﻿using Application.PL.Extensions;
 using Application.PL.ViewModels;
 using Application.PL.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using System;
+using System.Windows;
 
 namespace Application.PL
 {
@@ -41,7 +41,10 @@ namespace Application.PL
         protected override async void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
-            await Host.StopAsync();
+            using (Host)
+            {
+                await Host.StopAsync();
+            }
         }
 
         public static void Log(LogEventInfo logEventInfo, object[] objects)
