@@ -23,8 +23,8 @@ namespace Application.BL.Texture
         /// <param name="type">Type of texture</param>
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            Read(binaryFileStream.UnZLib());
-            binaryFileStream.Dispose();
+            using (binaryFileStream)
+                Read(binaryFileStream.UnZLib());
             Width = realWidth;
             Height = realHeight;
             TextureFormat = type;
@@ -117,8 +117,8 @@ namespace Application.BL.Texture
             binaryWriter.Write(4096);
             for (var index = 0; index < 4; ++index)
                 binaryWriter.Write(0);
-            for (var index = 0; index < mips.Count; ++index)
-                binaryWriter.Write(mips[index].Data);
+            foreach (var mip in mips)
+                binaryWriter.Write(mip.Data);
             binaryWriter.Flush();
             return binaryWriter;
         }

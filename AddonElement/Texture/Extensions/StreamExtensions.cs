@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.IO.Compression;
+﻿using Ionic.Zlib;
+using System.IO;
 
 namespace Application.BL.Texture.Extensions
 {
@@ -10,21 +10,16 @@ namespace Application.BL.Texture.Extensions
         /// </summary>
         /// <param name="input">Stream</param>
         /// <returns></returns>
-        public static MemoryStream UnZLib(this Stream input)
+        public static Stream UnZLib(this Stream input)
         {
             input.Position = 0L;
-            var inputLength = (int)input.Length;
 
-            var memoryStream = new MemoryStream();
-            using (var zlibStream = new GZipStream(input, CompressionMode.Decompress))
+            Stream memoryStream = new MemoryStream();
+
+            using (Stream zlibStream = new ZlibStream(input, CompressionMode.Decompress))
             {
-                var buffer = new byte[inputLength];
-                for (var count = zlibStream.Read(buffer, 0, inputLength);
-                    count > 0;
-                    count = zlibStream.Read(buffer, 0, inputLength))
-                    memoryStream.Write(buffer, 0, count);
+                zlibStream.CopyTo(memoryStream);
             }
-
             memoryStream.Position = 0L;
             return memoryStream;
         }

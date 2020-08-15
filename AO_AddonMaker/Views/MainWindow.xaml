@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:avalon="https://github.com/Dirkster99/AvalonDock"
-    x:Name="MainWindow1"
     mc:Ignorable="d"
     SaveWindowPosition="True"
     x:Class="Application.PL.Views.MainWindow"
@@ -17,8 +16,7 @@
     MinWidth="64"
     Width="1280"
     WindowStartupLocation="CenterScreen"
-    Icon="/Application.PL;component/Icons/appIcon.png"
-    BorderThickness="0">
+    BorderThickness="0" Icon="/Icons/appIcon.png">
     <mah:MetroWindow.Resources>
         <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
             <Setter Property="IsExpanded" Value="True" />
@@ -45,7 +43,7 @@
             <ToolBarTray>
                 <ToolBar Height="30">
                     <ToggleButton Background="Transparent" BorderThickness="0" Command="{Binding OpenFileCommand}">
-                        <Image Source="/Application.PL;component/Icons/openFile.png" />
+                        <Image Source="/Icons/openFile.png" />
                     </ToggleButton>
                 </ToolBar>
             </ToolBarTray>
