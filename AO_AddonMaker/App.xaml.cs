@@ -47,6 +47,11 @@ namespace Application.PL
             }
         }
 
+        /// <summary>
+        /// Invoke log method which can be listened
+        /// </summary>
+        /// <param name="logEventInfo"></param>
+        /// <param name="objects"></param>
         public static void Log(LogEventInfo logEventInfo, object[] objects)
         {
             OnLogHandler?.Invoke(logEventInfo, objects);
