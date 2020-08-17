@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Application.BL.Texture.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Application.BL.Texture.Extensions;
 
 namespace Application.BL.Texture
 {
@@ -24,7 +24,10 @@ namespace Application.BL.Texture
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
             using (binaryFileStream)
+            {
                 Read(binaryFileStream.UnZLib());
+            }
+
             Width = realWidth;
             Height = realHeight;
             TextureFormat = type;

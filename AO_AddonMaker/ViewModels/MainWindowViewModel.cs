@@ -17,10 +17,10 @@ namespace Application.PL.ViewModels
     {
         private const string addonDescName = "AddonDesc.(UIAddon).xdb";
         private readonly object debugObject = new object();
-        
+
         private readonly StringBuilder textDebug = new StringBuilder();
 
-        public MainWindowViewModel(ILogger<MainWindowViewModel> logger, 
+        public MainWindowViewModel(ILogger<MainWindowViewModel> logger,
             Project project,
             SamplesProviderService samplesProviderService)
         {
@@ -32,7 +32,7 @@ namespace Application.PL.ViewModels
             Project = project;
             SampleProviderService = samplesProviderService;
             RootFile = new ObservableCollection<IUIElement>();
-            
+
             App.OnLogHandler += (logEvent, objects) => DebugWrite(logEvent.FormattedMessage);
         }
 
@@ -109,7 +109,7 @@ namespace Application.PL.ViewModels
 
         private void SampleSelect(object parameter)
         {
-            var sampleModel = (SampleModel)parameter;
+            var sampleModel = (SampleModel) parameter;
             LoadProject(sampleModel.FullPath);
         }
     }

@@ -9,9 +9,9 @@ namespace Application.BL.Services.SamplesProvider.Services
     public class SamplesProviderService
     {
         private const string AddonDescName = "AddonDesc.(UIAddon).xdb";
+
         private readonly string samplesPath =
             $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
-        public ObservableCollection<SampleModel> Samples { get; set; }
 
         public SamplesProviderService(ILogger<SamplesProviderService> logger)
         {
@@ -28,9 +28,9 @@ namespace Application.BL.Services.SamplesProvider.Services
 
                     var name = Directory.GetParent(addonDesc).Name;
 
-                    Samples.Add(new SampleModel()
+                    Samples.Add(new SampleModel
                     {
-                        Name = name, 
+                        Name = name,
                         FullPath = addonDesc
                     });
                 }
@@ -42,5 +42,7 @@ namespace Application.BL.Services.SamplesProvider.Services
 
             Directory.SetCurrentDirectory(previousDirectory);
         }
+
+        public ObservableCollection<SampleModel> Samples { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace Application.BL.Texture.Extensions
             {
                 zlibStream.CopyTo(memoryStream);
             }
+
             memoryStream.Position = 0L;
             return memoryStream;
         }

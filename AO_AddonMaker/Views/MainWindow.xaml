@@ -35,7 +35,7 @@
                                 <Setter Property="Command"
                                         Value="{Binding DataContext.SampleSelectCommand, RelativeSource = {RelativeSource AncestorType = {x:Type MenuItem}}}" />
                                 <Setter Property="CommandParameter" Value="{Binding}" />
-                                <Setter Property="Header" Value="{Binding Name}"/>
+                                <Setter Property="Header" Value="{Binding Name}" />
                             </Style>
                         </MenuItem.ItemContainerStyle>
                     </MenuItem>

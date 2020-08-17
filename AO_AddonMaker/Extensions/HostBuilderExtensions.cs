@@ -39,7 +39,7 @@ namespace Application.PL.Extensions
                     .AsSelf();
                 builder.RegisterType<SamplesProviderService>()
                     .AsSelf();
-                
+
                 builder.RegisterType<LoggerFactory>()
                     .As<ILoggerFactory>()
                     .SingleInstance();
