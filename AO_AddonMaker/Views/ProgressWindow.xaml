@@ -11,7 +11,7 @@
                  WindowTitleBrush="{Binding ElementName=self, Path=Background}"
                  Width="400"
                  WindowStartupLocation="CenterScreen"
-                 BorderThickness="0" ResizeMode="NoResize" WindowStyle="None">
+                 BorderThickness="0" ResizeMode="NoResize" WindowStyle="None" Icon="/Icons/appIcon.png">
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="30,0,30,0">
             <TextBlock x:Name="Text" Text="Please wait..." HorizontalAlignment="Center" />

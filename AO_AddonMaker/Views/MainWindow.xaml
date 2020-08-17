@@ -29,12 +29,13 @@
                     <MenuItem Header="_File">
                         <MenuItem Header="_Open project" Command="{Binding OpenFileCommand}" />
                     </MenuItem>
-                    <MenuItem Header="_Samples" ItemsSource="{Binding Samples}">
+                    <MenuItem Header="_Samples" ItemsSource="{Binding SampleProviderService.Samples}">
                         <MenuItem.ItemContainerStyle>
                             <Style TargetType="{x:Type MenuItem}">
                                 <Setter Property="Command"
                                         Value="{Binding DataContext.SampleSelectCommand, RelativeSource = {RelativeSource AncestorType = {x:Type MenuItem}}}" />
                                 <Setter Property="CommandParameter" Value="{Binding}" />
+                                <Setter Property="Header" Value="{Binding Name}"/>
                             </Style>
                         </MenuItem.ItemContainerStyle>
                     </MenuItem>

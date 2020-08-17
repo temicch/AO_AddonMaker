@@ -1,29 +1,28 @@
-﻿using System;
+﻿using Application.BL;
+using Application.BL.Services.SamplesProvider.Models;
+using Application.BL.Services.SamplesProvider.Services;
+using Application.BL.Widgets;
+using Application.PL.Utils;
+using Microsoft.Extensions.Logging;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
-using Application.BL;
-using Application.BL.Widgets;
-using Application.PL.Utils;
-using Microsoft.Extensions.Logging;
-using Microsoft.Win32;
 
 namespace Application.PL.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
         private const string addonDescName = "AddonDesc.(UIAddon).xdb";
-
         private readonly object debugObject = new object();
-
-        private readonly string samplesPath =
-            $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
-
+        
         private readonly StringBuilder textDebug = new StringBuilder();
 
-        public MainWindowViewModel(ILogger<MainWindowViewModel> logger, Project project)
+        public MainWindowViewModel(ILogger<MainWindowViewModel> logger, 
+            Project project,
+            SamplesProviderService samplesProviderService)
         {
             OpenFileCommand = new RelayCommand(OpenFile);
             ClearDebugCommand = new RelayCommand(ClearDebug);
@@ -31,18 +30,17 @@ namespace Application.PL.ViewModels
 
             Logger = logger;
             Project = project;
+            SampleProviderService = samplesProviderService;
             RootFile = new ObservableCollection<IUIElement>();
-
-            InitSampleProjects();
-
+            
             App.OnLogHandler += (logEvent, objects) => DebugWrite(logEvent.FormattedMessage);
         }
 
         public ILogger<MainWindowViewModel> Logger { get; }
         public Project Project { get; set; }
+        public SamplesProviderService SampleProviderService { get; }
 
         public ICollection<IUIElement> RootFile { get; set; }
-        public ICollection<string> Samples { get; private set; }
 
         public string DebugOutput
         {
@@ -67,28 +65,6 @@ namespace Application.PL.ViewModels
         public RelayCommand ClearDebugCommand { get; set; }
         public RelayCommand SampleSelectCommand { get; set; }
 
-        private void InitSampleProjects()
-        {
-            Samples = new ObservableCollection<string>();
-            var previousDirectory = Directory.GetCurrentDirectory();
-            try
-            {
-                foreach (var path in Directory.GetDirectories(samplesPath))
-                {
-                    var addonDesc = $"{path}{Path.DirectorySeparatorChar}{addonDescName}";
-                    if (!File.Exists(addonDesc))
-                        continue;
-                    var q = Directory.GetParent(addonDesc).Name;
-                    Samples.Add(q);
-                }
-            }
-            catch (Exception exception)
-            {
-                Logger.LogWarning(exception.Message);
-            }
-
-            Directory.SetCurrentDirectory(previousDirectory);
-        }
 
         private void OpenFile(object parameter)
         {
@@ -133,8 +109,8 @@ namespace Application.PL.ViewModels
 
         private void SampleSelect(object parameter)
         {
-            LoadProject(
-                $"{samplesPath}{Path.DirectorySeparatorChar}{parameter}{Path.DirectorySeparatorChar}{addonDescName}");
+            var sampleModel = (SampleModel)parameter;
+            LoadProject(sampleModel.FullPath);
         }
     }
 }

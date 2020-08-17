@@ -48,7 +48,7 @@ namespace Application.PL
         }
 
         /// <summary>
-        /// Invoke log method which can be listened
+        /// Invoke log method which raise an event
         /// </summary>
         /// <param name="logEventInfo"></param>
         /// <param name="objects"></param>

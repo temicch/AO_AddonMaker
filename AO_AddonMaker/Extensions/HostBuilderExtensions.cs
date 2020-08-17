@@ -1,5 +1,6 @@
 ﻿using Application.BL;
 using Application.BL.Files;
+using Application.BL.Services.SamplesProvider.Services;
 using Application.PL.ViewModels;
 using Application.PL.Views;
 using Autofac;
@@ -36,7 +37,9 @@ namespace Application.PL.Extensions
                     .AsSelf();
                 builder.RegisterType<MainWindowViewModel>()
                     .AsSelf();
-
+                builder.RegisterType<SamplesProviderService>()
+                    .AsSelf();
+                
                 builder.RegisterType<LoggerFactory>()
                     .As<ILoggerFactory>()
                     .SingleInstance();

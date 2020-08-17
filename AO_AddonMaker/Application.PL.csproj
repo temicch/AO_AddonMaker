@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AddonElement\Application.BL.csproj" />
+    <ProjectReference Include="..\Application.BL.Services\Application.BL.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
