@@ -644,13 +644,13 @@
                 </Binding>
             </Setter.Value>
         </Setter>
-        <Setter Property="CategoryGroupHeaderTemplate">
+        <!--<Setter Property="CategoryGroupHeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" />
                 </DataTemplate>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type xctk:PropertyGrid}">
