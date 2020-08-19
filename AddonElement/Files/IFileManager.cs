@@ -26,6 +26,13 @@
         string RegisterFile(IFile file, string filePath);
 
         /// <summary>
+        ///     Returns true if specified file exist in the file manager
+        /// </summary>
+        /// <param name="filePath">File path</param>
+        /// <returns></returns>
+        bool IsFileExist(string filePath);
+
+        /// <summary>
         ///     Load the file at the specified path as the root file of the manager
         /// </summary>
         /// <param name="rootFilePath">Path to root file</param>
@@ -37,7 +44,7 @@
         ///     created automatically.
         /// </summary>
         /// <param name="filePath">File path</param>
-        /// <returns></returns>
+        /// <returns><see cref="IFile"/> instance if file exist, null otherwise</returns>
         IFile GetFile(string filePath);
 
         /// <summary>
@@ -53,5 +60,10 @@
         ///     Clear file configuration information
         /// </summary>
         void Clear();
+
+        /// <summary>
+        /// Number of files contained in the File manager
+        /// </summary>
+        int Count { get; }
     }
 }

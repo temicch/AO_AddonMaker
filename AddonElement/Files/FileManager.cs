@@ -23,10 +23,12 @@ namespace Application.BL.Files
         }
 
         private string CurrentWorkingFile { get; set; }
-        internal static IFileManager CurrentWorkingManager { get; set; }
+        internal static IFileManager CurrentWorkingManager { get; private set; }
         public ILogger<FileManager> Logger { get; }
 
-        public IFile RootFile { get; set; }
+        public IFile RootFile { get; private set; }
+
+        public int Count => paths.Count;
 
         public string RegisterFile(IFile file)
         {
@@ -42,8 +44,17 @@ namespace Application.BL.Files
             return filePath;
         }
 
+        public bool IsFileExist(string filePath)
+        {
+            if (filePath == null)
+                return false;
+            filePath = Path.GetFullPath(filePath.RemoveXPointer());
+            return paths.ContainsKey(filePath);
+        }
+
         public IFile Load(string rootFilePath)
         {
+            CurrentWorkingManager = this;
             Clear();
             RootFile = GetFile(rootFilePath);
             return RootFile;
