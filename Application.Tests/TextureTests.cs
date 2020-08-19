@@ -1,20 +1,21 @@
-using Application.BL.Texture;
 using System.Collections.Generic;
 using System.IO;
+using Application.BL.Texture;
 using Xunit;
 
 namespace Application.Tests
 {
-    public class TextureTests: IClassFixture<InitFixture>
+    public class TextureTests : IClassFixture<InitFixture>
     {
-        public InitFixture InitFixture { get; }
-
-        public IList<string> BinFiles => InitFixture.BinFiles;
-
         public TextureTests(InitFixture initFixture)
         {
             InitFixture = initFixture;
         }
+
+        public InitFixture InitFixture { get; }
+
+        public IList<string> BinFiles => InitFixture.BinFiles;
+
         [Fact]
         public void All_Samples_Textures_Must_Be_Created_Successfully()
         {
@@ -26,6 +27,7 @@ namespace Application.Tests
                     texture = new Texture(stream, 10, 10, Format.DXT5);
                     Assert.NotNull(texture);
                 }
+
                 Assert.NotNull(texture.Bitmap);
             }
         }
