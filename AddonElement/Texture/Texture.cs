@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -23,10 +24,7 @@ namespace Application.BL.Texture
         /// <param name="type">Type of texture</param>
         public Texture(Stream binaryFileStream, int realWidth, int realHeight, Format type)
         {
-            using (binaryFileStream)
-            {
-                Read(binaryFileStream.UnZLib());
-            }
+            Read(binaryFileStream.UnZLib());
 
             Width = realWidth;
             Height = realHeight;
@@ -78,28 +76,47 @@ namespace Application.BL.Texture
                     AddMipData(level, num, binaryReader.ReadBytes(num));
                 }
             }
-
-            input.Dispose();
         }
 
-        private BinaryWriter SaveTo(Stream output)
+        private Stream GetTextureStream()
         {
-            var binaryWriter = new BinaryWriter(output);
-            binaryWriter.Write(542327876);
-            binaryWriter.Write(124);
-            var num = 528391;
-            if (mips.Count > 1)
-                num |= 131072;
-            binaryWriter.Write(num);
-            binaryWriter.Write(Height);
-            binaryWriter.Write(Width);
-            binaryWriter.Write(mips[0].Data.Length);
-            binaryWriter.Write(0);
-            binaryWriter.Write(mips.Count > 1 ? mips.Count : 0);
-            for (var index = 0; index < 11; ++index)
+            Stream outputStream = new MemoryStream();
+
+            using (var binaryWriter = new BinaryWriter(outputStream, Encoding.Default, true))
+            {
+                binaryWriter.Write(542327876);
+                binaryWriter.Write(124);
+                var num = 528391;
+                if (mips.Count > 1)
+                    num |= 131072;
+                binaryWriter.Write(num);
+                binaryWriter.Write(Height);
+                binaryWriter.Write(Width);
+                binaryWriter.Write(mips[0].Data.Length);
                 binaryWriter.Write(0);
-            binaryWriter.Write(32);
-            binaryWriter.Write(4);
+                binaryWriter.Write(mips.Count > 1 ? mips.Count : 0);
+                for (var index = 0; index < 11; ++index)
+                    binaryWriter.Write(0);
+                binaryWriter.Write(32);
+                binaryWriter.Write(4);
+
+                WriteFormatData(binaryWriter);
+
+                for (var index = 0; index < 5; ++index)
+                    binaryWriter.Write(0);
+                binaryWriter.Write(4096);
+                for (var index = 0; index < 4; ++index)
+                    binaryWriter.Write(0);
+                foreach (var mip in mips)
+                    binaryWriter.Write(mip.Data);
+                binaryWriter.Flush();
+            }
+
+            return outputStream;
+        }
+
+        private void WriteFormatData(BinaryWriter binaryWriter)
+        {
             switch (TextureFormat)
             {
                 case Format.DXT1:
@@ -114,34 +131,21 @@ namespace Application.BL.Texture
                 default:
                     throw new Exception("Unknown format!");
             }
-
-            for (var index = 0; index < 5; ++index)
-                binaryWriter.Write(0);
-            binaryWriter.Write(4096);
-            for (var index = 0; index < 4; ++index)
-                binaryWriter.Write(0);
-            foreach (var mip in mips)
-                binaryWriter.Write(mip.Data);
-            binaryWriter.Flush();
-            return binaryWriter;
         }
 
         private ImageSource GetBitmap()
         {
             BitmapImage bitmap = null;
-            using (var textureStream = new MemoryStream())
+            using (var textureStream = GetTextureStream())
             {
-                using (SaveTo(textureStream))
-                {
-                    textureStream.Seek(0L, SeekOrigin.Begin);
+                textureStream.Seek(0L, SeekOrigin.Begin);
 
-                    bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.StreamSource = textureStream;
-                    bitmap.EndInit();
-                    //bitmap.Freeze();
-                }
+                bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.StreamSource = textureStream;
+                bitmap.EndInit();
+                //bitmap.Freeze();
             }
 
             return bitmap;
