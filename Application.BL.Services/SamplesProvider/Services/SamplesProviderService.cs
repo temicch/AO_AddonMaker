@@ -8,10 +8,10 @@ namespace Application.BL.Services.SamplesProvider.Services
 {
     public class SamplesProviderService
     {
-        private const string AddonDescName = "AddonDesc.(UIAddon).xdb";
+        public static readonly string AddonDescName = "AddonDesc.(UIAddon).xdb";
 
-        private readonly string samplesPath =
-            $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples";
+        public static readonly string SamplesDirectoryPath =
+            Path.GetFullPath($"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}Samples");
 
         public SamplesProviderService(ILogger<SamplesProviderService> logger)
         {
@@ -19,7 +19,7 @@ namespace Application.BL.Services.SamplesProvider.Services
             var previousDirectory = Directory.GetCurrentDirectory();
             try
             {
-                foreach (var path in Directory.GetDirectories(samplesPath))
+                foreach (var path in Directory.GetDirectories(SamplesDirectoryPath))
                 {
                     var addonDesc = $"{path}{Path.DirectorySeparatorChar}{AddonDescName}";
 
