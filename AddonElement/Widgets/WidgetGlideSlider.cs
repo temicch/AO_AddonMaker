@@ -1,15 +1,13 @@
 ﻿using System.Xml.Serialization;
 
-namespace Application.BL.Widgets
-{
-    public class WidgetGlideSlider : WidgetSlider
-    {
-        public WidgetGlideSlider()
-        {
-            DiscreteStep = 10;
-        }
+namespace Application.BL.Widgets;
 
-        [XmlElement("discreteStep")]
-        public int DiscreteStep { get; set; }
+public class WidgetGlideSlider : WidgetSlider
+{
+    public WidgetGlideSlider()
+    {
+        DiscreteStep = 10;
     }
+
+    [XmlElement("discreteStep")] public int DiscreteStep { get; set; }
 }

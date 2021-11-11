@@ -2,39 +2,37 @@
 using System.Xml.Serialization;
 using Application.BL.Files.Provider;
 
-namespace Application.BL.Widgets
+namespace Application.BL.Widgets;
+
+public class WidgetLayerSimpleTexture : WidgetLayer
 {
-    public class WidgetLayerSimpleTexture : WidgetLayer
+    public WidgetLayerSimpleTexture()
     {
-        public WidgetLayerSimpleTexture()
+        Scaling = false;
+    }
+
+    public Reference<XmlFileProvider> textureItem { get; set; }
+    public Reference<XmlFileProvider> textureMask { get; set; }
+
+    [XmlIgnore] public bool Scaling { get; set; }
+
+    [XmlElement("Scaling")]
+    public string _Scaling
+    {
+        get => Scaling.ToString().ToLower();
+        set
         {
-            Scaling = false;
+            if (bool.TryParse(value, out var result))
+                Scaling = result;
         }
+    }
 
-        public Reference<XmlFileProvider> textureItem { get; set; }
-        public Reference<XmlFileProvider> textureMask { get; set; }
-
-        [XmlIgnore]
-        public bool Scaling { get; set; }
-
-        [XmlElement("Scaling")]
-        public string _Scaling
+    public override ImageSource Bitmap
+    {
+        get
         {
-            get => Scaling.ToString().ToLower();
-            set
-            {
-                if (bool.TryParse(value, out var result))
-                    Scaling = result;
-            }
-        }
-
-        public override ImageSource Bitmap
-        {
-            get
-            {
-                var file = textureItem?.File as UISingleTexture;
-                return file?.Bitmap;
-            }
+            var file = textureItem?.File as UISingleTexture;
+            return file?.Bitmap;
         }
     }
 }

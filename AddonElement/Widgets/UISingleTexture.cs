@@ -1,6 +1,5 @@
-﻿namespace Application.BL.Widgets
+﻿namespace Application.BL.Widgets;
+
+public class UISingleTexture : UITextureItem
 {
-    public class UISingleTexture : UITextureItem
-    {
-    }
 }

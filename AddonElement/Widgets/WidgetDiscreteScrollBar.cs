@@ -1,11 +1,9 @@
 ﻿using System.Xml.Serialization;
 using Application.BL.Files.Provider;
 
-namespace Application.BL.Widgets
+namespace Application.BL.Widgets;
+
+public class WidgetDiscreteScrollBar : WidgetScrollBar
 {
-    public class WidgetDiscreteScrollBar : WidgetScrollBar
-    {
-        [XmlElement("slider")]
-        public Reference<XmlFileProvider> Slider { get; set; }
-    }
+    [XmlElement("slider")] public Reference<XmlFileProvider> Slider { get; set; }
 }

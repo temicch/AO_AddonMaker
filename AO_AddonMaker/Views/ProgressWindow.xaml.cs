@@ -1,13 +1,12 @@
-﻿namespace Application.PL.Views
+﻿namespace Application.PL.Views;
+
+/// <summary>
+///     Interaction logic for WorkInProgress.xaml
+/// </summary>
+public partial class WorkInProgress
 {
-    /// <summary>
-    ///     Interaction logic for WorkInProgress.xaml
-    /// </summary>
-    public partial class WorkInProgress
+    public WorkInProgress()
     {
-        public WorkInProgress()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

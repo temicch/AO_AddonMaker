@@ -266,16 +266,16 @@
                                                                     <ControlTemplate>
                                                                         <Border>
                                                                             <Expander x:Name="expander"
-                                                                                      HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
-                                                                                      Header="{Binding Name}"
-                                                                                      IsExpanded="True">
+                                                                                HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                                Header="{Binding Name}"
+                                                                                IsExpanded="True">
                                                                                 <Expander.Style>
                                                                                     <Style
                                                                                         TargetType="{x:Type Expander}">
                                                                                         <Setter Property="Padding"
-                                                                                                Value="0" />
+                                                                                            Value="0" />
                                                                                         <Setter Property="Background"
-                                                                                                Value="White" />
+                                                                                            Value="White" />
                                                                                         <Setter Property="Template">
                                                                                             <Setter.Value>
                                                                                                 <ControlTemplate
@@ -743,16 +743,16 @@
                                                                     <ControlTemplate>
                                                                         <Border>
                                                                             <Expander x:Name="expander"
-                                                                                      HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
-                                                                                      Header="{Binding Name}"
-                                                                                      IsExpanded="True">
+                                                                                HeaderTemplate="{Binding CategoryGroupHeaderTemplate, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"
+                                                                                Header="{Binding Name}"
+                                                                                IsExpanded="True">
                                                                                 <Expander.Style>
                                                                                     <Style
                                                                                         TargetType="{x:Type Expander}">
                                                                                         <Setter Property="Padding"
-                                                                                                Value="0" />
+                                                                                            Value="0" />
                                                                                         <Setter Property="Background"
-                                                                                                Value="Transparent" />
+                                                                                            Value="Transparent" />
                                                                                         <Setter Property="Template">
                                                                                             <Setter.Value>
                                                                                                 <ControlTemplate

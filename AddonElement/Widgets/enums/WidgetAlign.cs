@@ -1,11 +1,10 @@
-﻿namespace Application.BL.Widgets.enums
+﻿namespace Application.BL.Widgets.enums;
+
+public enum WidgetAlign
 {
-    public enum WidgetAlign
-    {
-        WIDGET_ALIGN_LOW,
-        WIDGET_ALIGN_HIGH,
-        WIDGET_ALIGN_CENTER,
-        WIDGET_ALIGN_BOTH,
-        WIDGET_ALIGN_LOW_ABS
-    }
+    WIDGET_ALIGN_LOW,
+    WIDGET_ALIGN_HIGH,
+    WIDGET_ALIGN_CENTER,
+    WIDGET_ALIGN_BOTH,
+    WIDGET_ALIGN_LOW_ABS
 }

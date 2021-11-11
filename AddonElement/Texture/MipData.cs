@@ -1,8 +1,7 @@
-﻿namespace Application.BL.Texture
+﻿namespace Application.BL.Texture;
+
+internal class MipData
 {
-    internal class MipData
-    {
-        public byte[] Data { get; set; }
-        public int Size { get; set; }
-    }
+    public byte[] Data { get; set; }
+    public int Size { get; set; }
 }

@@ -1,10 +1,9 @@
 ﻿using System.Windows.Media;
 using Application.BL.Files;
 
-namespace Application.BL.Widgets
+namespace Application.BL.Widgets;
+
+public abstract class WidgetLayer : File
 {
-    public abstract class WidgetLayer : File
-    {
-        public abstract ImageSource Bitmap { get; }
-    }
+    public abstract ImageSource Bitmap { get; }
 }

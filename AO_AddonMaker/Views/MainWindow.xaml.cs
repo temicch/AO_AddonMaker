@@ -1,10 +1,9 @@
-﻿namespace Application.PL.Views
+﻿namespace Application.PL.Views;
+
+public partial class MainWindow
 {
-    public partial class MainWindow
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

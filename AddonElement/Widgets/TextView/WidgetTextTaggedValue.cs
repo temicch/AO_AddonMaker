@@ -1,8 +1,7 @@
-﻿namespace Application.BL.Widgets.TextView
+﻿namespace Application.BL.Widgets.TextView;
+
+public class WidgetTextTaggedValue
 {
-    public class WidgetTextTaggedValue
-    {
-        public string Tag { get; set; }
-        public string TagValueFileRef { get; set; }
-    }
+    public string Tag { get; set; }
+    public string TagValueFileRef { get; set; }
 }

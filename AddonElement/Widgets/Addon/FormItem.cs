@@ -1,10 +1,9 @@
 ﻿using Application.BL.Files.Provider;
 
-namespace Application.BL.Widgets.Addon
+namespace Application.BL.Widgets.Addon;
+
+public class FormItem
 {
-    public class FormItem
-    {
-        public Reference<XmlFileProvider> Form;
-        public string Id { get; set; }
-    }
+    public Reference<XmlFileProvider> Form;
+    public string Id { get; set; }
 }

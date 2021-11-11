@@ -3,36 +3,35 @@ using Application.BL.Files;
 using Application.BL.Widgets;
 using File = System.IO.File;
 
-namespace Application.BL
+namespace Application.BL;
+
+/// <summary>
+///     A class that encapsulates work with the project
+/// </summary>
+public class Project
 {
-    /// <summary>
-    ///     A class that encapsulates work with the project
-    /// </summary>
-    public class Project
+    public Project(IFileManager fileManager)
     {
-        public Project(IFileManager fileManager)
-        {
-            FileManager = fileManager;
-        }
+        FileManager = fileManager;
+    }
 
-        private IFileManager FileManager { get; }
+    private IFileManager FileManager { get; }
 
-        /// <summary>
-        ///     Project root file
-        /// </summary>
-        public IUIElement RootWidget => FileManager.RootFile as IUIElement;
+    /// <summary>
+    ///     Project root file
+    /// </summary>
+    public IUIElement RootWidget => FileManager.RootFile as IUIElement;
 
-        /// <summary>
-        ///     Load the project at the specified file path
-        /// </summary>
-        /// <param name="rootFilePath">Path to root file</param>
-        public void Load(string rootFilePath)
-        {
-            if (!File.Exists(rootFilePath))
-                throw new FileNotFoundException();
+    /// <summary>
+    ///     Load the project at the specified file path
+    /// </summary>
+    /// <param name="rootFilePath">Path to root file</param>
+    public void Load(string rootFilePath)
+    {
+        if (!File.Exists(rootFilePath))
+            throw new FileNotFoundException();
 
-            FileManager.Clear();
-            FileManager.Load(rootFilePath);
-        }
+        FileManager.Clear();
+        FileManager.Load(rootFilePath);
     }
 }

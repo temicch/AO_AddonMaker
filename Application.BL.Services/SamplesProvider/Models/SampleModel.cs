@@ -1,8 +1,7 @@
-﻿namespace Application.BL.Services.SamplesProvider.Models
+﻿namespace Application.BL.Services.SamplesProvider.Models;
+
+public class SampleModel
 {
-    public class SampleModel
-    {
-        public string Name { get; set; }
-        public string FullPath { get; set; }
-    }
+    public string Name { get; set; }
+    public string FullPath { get; set; }
 }

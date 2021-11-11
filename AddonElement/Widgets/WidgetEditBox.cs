@@ -1,9 +1,8 @@
 ﻿using Application.BL.Files.Provider;
 
-namespace Application.BL.Widgets
+namespace Application.BL.Widgets;
+
+public class WidgetEditBox : WidgetEditBase
 {
-    public class WidgetEditBox : WidgetEditBase
-    {
-        public Reference<XmlFileProvider> scrollBar { get; set; }
-    }
+    public Reference<XmlFileProvider> scrollBar { get; set; }
 }
